@@ -30,28 +30,35 @@
 
 		/**
 		 *
+		 * @param string $path
+		 * @return void
+		 * @see $_path
+		 * @assert ( $path ) === true
+		 */
+		public function setPath( $path )
+			{
+				//@todo add checking the directory
+
+				//ensure there is a string passed to me.
+				if ( ! empty( $path ) ) {
+					$this->_path = $path;
+					return true;
+				}
+				else {
+					throw new Exception( 'A path is required' );
+				}
+
+				//@todo return $this so we can chain the methods.
+			}
+
+		/**
+		 *
 		 * @return string
 		 * @see $_path
 		 */
 		public function getPath()
 			{
-				return (string) $this->_path;
-			}
-
-		/**
-		 *
-		 * @param string $path
-		 * @return void
-		 * @see $_path
-		 * @assert is_dir( $path ) === true
-		 */
-		public function setPath( $path )
-			{
-				//@todo add checking the directory
-				$this->_path = $path;
-
-				//@todo return $this so we can chain the methods.
-				return true;
+				return $this->_path;
 			}
 	}
 
