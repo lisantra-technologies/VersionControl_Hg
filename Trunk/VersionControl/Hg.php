@@ -1,5 +1,16 @@
 <?php
+	/**
+	 * @package VersionControl_Hg
+	 * @license
+	 * @copyright
+	 * @version $Revision$
+	 */
 
+	/**
+	 * @package VersionControl_Hg
+	 * @author Michael Gatto<mgatto@u.arizona.edu>
+	 *
+	 */
 	class Hg
 	{
 		/**
@@ -8,7 +19,14 @@
 		 */
 		private $_path;
 
-		public function __construct() {}
+		/**
+		 *
+		 * @return
+		 */
+		public function __construct()
+			{
+
+			}
 
 		/**
 		 *
@@ -25,6 +43,7 @@
 		 * @param string $path
 		 * @return void
 		 * @see $_path
+		 * @assert is_dir( $path ) === true
 		 */
 		public function setPath( $path )
 			{
@@ -35,6 +54,5 @@
 				return true;
 			}
 	}
-
 
 ?>
