@@ -7,6 +7,8 @@
 	 */
 
 	/**
+	 * Assumes to be working on a local filesystem repository
+	 *
 	 * @package VersionControl_Hg
 	 * @author Michael Gatto<mgatto@u.arizona.edu>
 	 *
@@ -30,15 +32,22 @@
 		 *
 		 * @return
 		 */
-		public function __construct()
+		public function __construct( $path )
 			{
+				/*
+				 * Remember that the owner of the directory has to be the same of the script user,
+				 * otherwise this function will always return false when PHP is running in safe_mode..
+				 */
+				$this->setPath( $path );
 
+				if ( ! $this->isRepository( $this->getPath() ) ) {
+					throw new Exception( 'there is no Mercurial repository at: ' . $this->getPath() );
+				}
 			}
 
 		/**
 		 *
 		 * @param string $path
-		 * @return void
 		 * @see $_path
 		 * @assert ( $path ) === true
 		 */
@@ -47,7 +56,7 @@
 				//@todo add checking the directory
 
 				//I don't want empty paths
-				if ( ! empty( $path ) ) {
+				if ( ! empty( $path ) && is_dir( $path ) ) {
 					$this->_path = $path;
 					return true;
 				}
@@ -82,6 +91,8 @@
 					return false;
 				}
 			}
+
+
 	}
 
 ?>

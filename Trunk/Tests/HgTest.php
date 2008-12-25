@@ -28,7 +28,7 @@
 		protected function setUp()
 		{
 			$this->_path = 'H:/Development/_Webroot/Trunk/Tests/Fixtures/Test_Repository';
-			$this->_object = new Hg();
+			$this->_object = new Hg( $this->_path );
 		}
 
 		public function testSetPath()
@@ -54,6 +54,19 @@
 			try {
 				//this should raise an exception.
 				$this->_object->setPath();
+			}
+			catch(Exception $e) {
+				return;
+			}
+
+			$this->fail('An expected exception has not been raised.');
+		}
+
+		public function testSetPathWithBogusDirectory()
+		{
+			try {
+				//this should raise an exception.
+				$this->_object->setPath( 'H:\xyz\_Webroot' );
 			}
 			catch(Exception $e) {
 				return;
