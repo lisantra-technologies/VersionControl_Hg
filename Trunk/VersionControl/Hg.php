@@ -20,6 +20,13 @@
 		private $_path;
 
 		/**
+		 * Leading backslash is needed since _path may not have a trailing slash.
+		 *
+		 * @var string
+		 */
+		private $_repoRootDirectoryName = '/.hg';
+
+		/**
 		 *
 		 * @return
 		 */
@@ -39,7 +46,7 @@
 			{
 				//@todo add checking the directory
 
-				//ensure there is a string passed to me.
+				//I don't want empty paths
 				if ( ! empty( $path ) ) {
 					$this->_path = $path;
 					return true;
@@ -58,7 +65,22 @@
 		 */
 		public function getPath()
 			{
-				return $this->_path;
+				if ( ! empty( $this->_path ) ) {
+					return $this->_path;
+				}
+				else {
+					throw new Exception( 'There is no path to return' );
+				}
+			}
+
+		public function isRepository()
+			{
+				if ( is_dir( $this->getPath() . $this->_repoRootDirectoryName ) ) {
+					return true;
+				}
+				else {
+					return false;
+				}
 			}
 	}
 
