@@ -69,10 +69,14 @@
 				$this->_object->setPath( 'H:\xyz\_Webroot' );
 			}
 			catch(Exception $e) {
-				return;
+			    if ( strlen( $e->getMessage() ) > 1 ) {
+			        print $e->getMessage();
+				    return true;
+			    } else {
+			        $this->fail('An expected exception has not been raised.');
+			    }
 			}
 
-			$this->fail('An expected exception has not been raised.');
 		}
 
 		public function testGetPath()
@@ -90,10 +94,13 @@
 				$this->_object->getPath();
 			}
 			catch(Exception $e) {
-				return;
+			    if ( strlen( $e->getMessage() ) > 1 ) {
+			        print $e->getMessage();
+				    return true;
+			    } else {
+			        $this->fail('An expected exception has not been raised.');
+			    }
 			}
-
-			$this->fail('An expected exception has not been raised.');
 		}
 
 		public function testIsRepository()
@@ -119,6 +126,29 @@
 	        $this->markTestIncomplete(
 	          'This test has not been implemented yet.'
 	        );
+		}
+
+		public function testGetVersion()
+		{
+		    $version = $this->_object->getVersion(); //returns an array.
+		    //these values will be different on other actual installations.
+		    $this->assertEquals( $version['raw'], '1.1+20081203');
+		    $this->assertEquals( $version['complete'], '1.1');
+		    $this->assertEquals( $version['major'], '1');
+		    $this->assertEquals( $version['minor'], '1');
+		    $this->assertEquals( $version['date'], '20081203');
+
+		}
+
+	    public function testGetVersionWithUnrecognizableInput()
+		{
+		    try {
+				//this should raise an exception.
+				$this->_object->getVersion( 'unknown' );
+			}
+			catch(Exception $e) {
+				return;
+			}
 		}
 
     	/**
