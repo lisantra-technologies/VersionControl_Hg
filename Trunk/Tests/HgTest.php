@@ -15,122 +15,24 @@
 		 */
 		private $_object;
 
-		/**
-		 *
-		 * @var string
-		 */
-		private $_path;
-
     	/**
     	 * Sets up the fixture, for example, opens a network connection.
     	 * This method is called before a test is executed.
     	 */
 		protected function setUp()
 		{
-			$this->_path = 'H:/Development/_Webroot/Trunk/Tests/Fixtures/Test_Repository';
-			$this->_object = new Hg( $this->_path );
+			$this->_object = new Hg(); //should return the raw version?
 		}
 
-		public function testSetPath()
+		public function testSetVersion()
 		{
-			$this->assertTrue( $this->_object->setPath( $this->_path ) );
-		}
 
-		public function testSetPathWithEmptyString()
-		{
-			try {
-				//this should raise an exception.
-				$this->_object->setPath( '' );
-			}
-			catch(Exception $e) {
-				return;
-			}
-
-			$this->fail('An expected exception has not been raised.');
-		}
-
-		public function testSetPathWithNoArguments()
-		{
-			try {
-				//this should raise an exception.
-				$this->_object->setPath();
-			}
-			catch(Exception $e) {
-				return;
-			}
-
-			$this->fail('An expected exception has not been raised.');
-		}
-
-		public function testSetPathWithBogusDirectory()
-		{
-			try {
-				//this should raise an exception.
-				$this->_object->setPath( 'H:\xyz\_Webroot' );
-			}
-			catch(Exception $e) {
-			    if ( strlen( $e->getMessage() ) > 1 ) {
-			        print $e->getMessage();
-				    return true;
-			    } else {
-			        $this->fail('An expected exception has not been raised.');
-			    }
-			}
-
-		}
-
-		public function testGetPath()
-		{
-			//set the path first.
-			$result = $this->_object->setPath( $this->_path );
-			//now run the test.
-			$this->assertEquals( $this->_path, $this->_object->getPath() );
-		}
-
-		public function testGetPathWhenPathIsEmpty()
-		{
-			try {
-				//this should raise an exception.
-				$this->_object->getPath();
-			}
-			catch(Exception $e) {
-			    if ( strlen( $e->getMessage() ) > 1 ) {
-			        print $e->getMessage();
-				    return true;
-			    } else {
-			        $this->fail('An expected exception has not been raised.');
-			    }
-			}
-		}
-
-		public function testIsRepository()
-		{
-			//set the path first.
-			$result = $this->_object->setPath( $this->_path );
-
-			$this->assertTrue( $this->_object->isRepository() );
-
-		}
-
-		public function testInitRepository()
-		{
-			// Remove the following lines when you implement this test.
-	        $this->markTestIncomplete(
-	          'This test has not been implemented yet.'
-	        );
-		}
-
-		public function testDeleteRepository()
-		{
-			// Remove the following lines when you implement this test.
-	        $this->markTestIncomplete(
-	          'This test has not been implemented yet.'
-	        );
 		}
 
 		public function testGetVersion()
 		{
 		    $version = $this->_object->getVersion(); //returns an array.
+		    print_r($version);
 		    //these values will be different on other actual installations.
 		    $this->assertEquals( $version['raw'], '1.1+20081203');
 		    $this->assertEquals( $version['complete'], '1.1');
