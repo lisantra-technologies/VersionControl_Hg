@@ -10,16 +10,17 @@
 	 * Assumes to be working on a local filesystem repository
 	 *
 	 * @package VersionControl_Hg
-	 * @author Michael Gatto<mgatto@u.arizona.edu>
+	 * @author Michael Gatto <mgatto@u.arizona.edu>
 	 *
 	 * Usage:
-	 * $m = new hg();
+	 * $hg = new hg();
 	 *
 	 */
 	class Hg
 	{
 		/**
 		 * The version of the Mercurial executable.
+		 *
 		 * @var float
 		 */
 		private $_version;
@@ -34,7 +35,10 @@
 
 			}
 
-
+        /**
+         *
+         * @return string ?
+         */
 		public function getVersion()
 		{
             return $this->_version;
@@ -100,6 +104,21 @@
 				//$this->_version = $version['raw'];
 
 				return $version;
+			}
+
+			public function getExecutable()
+			{
+			    $paths = split( ':', $_ENV['PATH'] );
+			    foreach ($paths as $a_path ) {
+			        $able_to_use = is_executable( 'hg' );
+			    }
+
+				//@todo can I expand the path of the executable?
+			}
+
+			public function getRepository()
+			{
+
 			}
 	}
 
