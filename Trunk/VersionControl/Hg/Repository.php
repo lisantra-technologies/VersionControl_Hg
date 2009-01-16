@@ -6,7 +6,8 @@
      * @package Hg
      * @subpackage Repository
      * @author Michael Gatto <mgatto@u.arizona.edu>
-     * @license PHP
+     * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+     * @link
      */
 
     /**
@@ -29,7 +30,8 @@
      * @package Hg
      * @subpackage Repository
      * @author Michael Gatto <mgatto@u.arizona.edu>
-     * @license PHP
+     * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+     * @link
      */
     class Repository
     {
@@ -61,7 +63,10 @@
          *
          * @todo might be a good place to set the transport method?
          */
-        public function __construct() { }
+        public function __construct()
+        {
+
+        }
 
         /**
          * Sets the path of a Mercurial repository after validating it as a Hg repo.
@@ -72,7 +77,7 @@
          */
         public function setPath( $path )
         {
-            $repo = $path . self::HG_ROOT_DIRECTORY_NAME;
+            $repo = $path . SELF::HG_ROOT_DIRECTORY_NAME;
 
             if ( ! $this->isRepository( $repo ) ) {
                 throw new Exception( 'This path is not a valid Mercurial repository' );
@@ -89,13 +94,13 @@
          *
          * @return string
          * @see $_path
+         * @see $_path
          */
         public function getPath()
         {
             if ( ! empty( $this->_path ) ) {
                 return $this->_path;
-            }
-            else {
+            } else {
                 throw new Exception( 'There is no path to return' );
             }
         }
@@ -103,17 +108,17 @@
         /**
          * Checks if $this is in fact a valid
          *
+         * @param $repo string is the full repository path.
          * @return boolean
          */
-        public function isRepository()
+        public function isRepository( $repo )
         {
             /*
              * both conditions must be satisfied.
              */
             if ( ! ( is_dir( $repo ) && empty( $repo ) ) ) {
                 return true;
-            }
-            else {
+            }  else {
                 return false;
             }
         }
@@ -129,8 +134,9 @@
          *
          * @todo change to accept a path on its own or getPath when chained
          *
-         * @param $uri the path for the repository to be used in subsequent ops.
+         * @param $path the path for the repository to be used in subsequent ops.
          * @return boolean true on success, false on failure
+         * @see $_path
          */
         public function load( $path )
         {
