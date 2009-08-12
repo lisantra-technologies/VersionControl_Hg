@@ -1,0 +1,104 @@
+
+FILE: V:\Development\_Webroot\Trunk\VersionControl\Hg.php
+--------------------------------------------------------------------------------
+FOUND 74 ERROR(S) AND 5 WARNING(S) AFFECTING 42 LINE(S)
+--------------------------------------------------------------------------------
+   1 | ERROR   | End of line character is invalid; expected "\n" but found
+     |         | "\r\n"
+   3 | ERROR   | There must be exactly one blank line before the tags in file
+     |         | comment
+   3 | ERROR   | @package tag comment indented incorrectly. Expected 3 spaces
+     |         | but found 1.
+   4 | ERROR   | The @license tag is in the wrong order; the tag follows
+     |         | @copyright (if used) or @author
+   4 | ERROR   | @license tag must contain a URL and a license name
+   5 | ERROR   | @copyright tag must contain a year and the name of the
+     |         | copyright holder
+   6 | WARNING | Invalid version "$Revision$" in file comment; consider "CVS:
+     |         | <cvs_id>" or "SVN: <svn_id>" instead
+   6 | ERROR   | @version tag comment indented incorrectly. Expected 3 spaces
+     |         | but found 1.
+   7 | WARNING | PHP version not specified
+   7 | ERROR   | Missing @category tag in file comment
+   7 | ERROR   | Missing @author tag in file comment
+   7 | ERROR   | Missing @link tag in file comment
+  13 | ERROR   | Content of the @author tag must be in the form "Display Name
+     |         | <username@example.com>"
+  13 | ERROR   | @author tag comment indented incorrectly. Expected 2 spaces
+     |         | but found 1.
+  18 | ERROR   | Missing @category tag in class comment
+  18 | ERROR   | Missing @license tag in class comment
+  18 | ERROR   | Missing @link tag in class comment
+  19 | ERROR   | Line indented incorrectly; expected 0 spaces, found 4
+  20 | ERROR   | Expected 0 spaces before opening brace; 4 found
+  29 | ERROR   | Extra newlines found before function comment short description
+  30 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  32 | ERROR   | Line indented incorrectly; expected 4 spaces, found 8
+  33 | ERROR   | Opening brace indented incorrectly; expected 8 spaces, found
+     |         | 12
+  36 | ERROR   | Closing brace indented incorrectly; expected 8 spaces, found
+     |         | 12
+  39 | ERROR   | Extra newlines found before function comment short description
+  40 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  42 | ERROR   | Line indented incorrectly; expected 4 spaces, found 8
+  47 | ERROR   | Doc comment for "$version_data" missing
+  52 | WARNING | Line exceeds 85 characters; contains 86 characters
+  57 | ERROR   | Line indented incorrectly; expected 4 spaces, found 8
+  57 | ERROR   | TRUE, FALSE and NULL must be lowercase; expected "null" but
+     |         | found "NULL"
+  58 | ERROR   | Opening brace indented incorrectly; expected 8 spaces, found
+     |         | 12
+  62 | ERROR   | Line indented incorrectly; expected 8 spaces, found 16
+  62 | ERROR   | TRUE, FALSE and NULL must be lowercase; expected "null" but
+     |         | found "NULL"
+  63 | ERROR   | Space after opening parenthesis of function call prohibited
+  63 | ERROR   | Space before closing parenthesis of function call prohibited
+  65 | ERROR   | Line indented incorrectly; expected 8 spaces, found 16
+  72 | ERROR   | Line indented incorrectly; expected 8 spaces, found 16
+  72 | ERROR   | Space after opening parenthesis of function call prohibited
+  72 | ERROR   | Space before closing parenthesis of function call prohibited
+  77 | ERROR   | Space after opening parenthesis of function call prohibited
+  77 | ERROR   | Space before closing parenthesis of function call prohibited
+  77 | ERROR   | Space after opening parenthesis of function call prohibited
+  77 | ERROR   | Space before closing parenthesis of function call prohibited
+  77 | ERROR   | Space after opening parenthesis of function call prohibited
+  77 | ERROR   | Space before closing parenthesis of function call prohibited
+  77 | WARNING | Line exceeds 85 characters; contains 94 characters
+  79 | ERROR   | Space found before comma in function call
+  79 | ERROR   | Space after opening parenthesis of function call prohibited
+  79 | ERROR   | Space before closing parenthesis of function call prohibited
+  80 | ERROR   | Space found before comma in function call
+  80 | ERROR   | Space after opening parenthesis of function call prohibited
+  80 | ERROR   | Space before closing parenthesis of function call prohibited
+  83 | ERROR   | Line indented incorrectly; expected 8 spaces, found 16
+  83 | ERROR   | Space after opening parenthesis of function call prohibited
+  83 | ERROR   | Space before closing parenthesis of function call prohibited
+  86 | ERROR   | Line indented incorrectly; expected 12 spaces, found 20
+  86 | ERROR   | Space after opening parenthesis of function call prohibited
+  86 | ERROR   | Space before closing parenthesis of function call prohibited
+  89 | ERROR   | Expected "} else {\n"; found "}\n                    else{\n"
+  89 | ERROR   | Line indented incorrectly; expected 12 spaces, found 20
+  93 | ERROR   | Expected "} else {\n"; found "}\n                else {\n"
+  93 | ERROR   | Line indented incorrectly; expected 8 spaces, found 16
+ 107 | ERROR   | Closing brace indented incorrectly; expected 8 spaces, found
+     |         | 12
+ 109 | ERROR   | You must use "/**" style comments for a function comment
+ 109 | ERROR   | Line indented incorrectly; expected 4 spaces, found 12
+ 111 | ERROR   | Space after opening parenthesis of function call prohibited
+ 111 | ERROR   | Space before closing parenthesis of function call prohibited
+ 112 | ERROR   | Line indented incorrectly; expected 8 spaces, found 16
+ 113 | ERROR   | Space after opening parenthesis of function call prohibited
+ 113 | ERROR   | Space before closing parenthesis of function call prohibited
+ 122 | ERROR   | Last parameter comment requires a blank newline after it
+ 122 | ERROR   | Doc comment var "[ UNKNOWN ]" does not match actual variable
+     |         | name "$path" at position 1
+ 122 | ERROR   | Missing parameter name at position 1
+ 122 | ERROR   | Missing comment for param "[ UNKNOWN ]" at position 1
+ 125 | ERROR   | Line indented incorrectly; expected 4 spaces, found 12
+ 128 | WARNING | Line exceeds 85 characters; contains 98 characters
+ 131 | ERROR   | Space after opening parenthesis of function call prohibited
+ 131 | ERROR   | Space before closing parenthesis of function call prohibited
+--------------------------------------------------------------------------------
+
