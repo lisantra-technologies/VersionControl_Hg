@@ -34,7 +34,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
  * @link
  */
-class Hg_Repository
+class VersionControl_Hg_Repository
 {
     /**
      * The name of all Mercurial repository roots.
