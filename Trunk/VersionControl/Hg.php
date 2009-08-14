@@ -33,7 +33,10 @@ require_once 'Hg/Command.php';
  * Usage:
  * <code>
  * $hg = new VersionControl_Hg();
+ * </code>
  *
+ * Or, provide a location of a repository:
+ * <code>
  * $hg = new VersionControl_Hg('/path/to/repository');
  * </code>
  */
@@ -42,7 +45,12 @@ class VersionControl_Hg
     /**
      * Use the executable found in the default installation location
      */
-    const DEFAULT_EXECUTABLE = "deault";
+    const DEFAULT_EXECUTABLE = "default";
+
+    /**
+     * Use the executable specified by the user
+     */
+    const CUSTOM_EXECUTABLE = "custom";
 
     /**
      * error constant for when the mercurial executable cannot be found
@@ -54,6 +62,10 @@ class VersionControl_Hg
      *
      * There may well be multiple versions in use; lets track which one
      * I am using so the user knows which one is being used.
+     *
+     * It is labeled as $hg because this is the symbology adopted by the
+     * Mercurial project, since HG is the chemical symbol of the element:
+     * Mercury.
      */
     protected $hg = null;
 
@@ -63,13 +75,6 @@ class VersionControl_Hg
      * @var float
      */
     private $_version = null;
-
-    /**
-     * Path to a local Mercurial repository
-     *
-     * @var string
-     */
-    private $_path_to_repository = null;
 
     /**
      *
@@ -92,11 +97,14 @@ class VersionControl_Hg
         $this->setVersion();
         //we also let users call setRepository($path) if they want
         if ($path !== null) {
-            $this->setRepository($path);
+            include_once 'Hg/Repository.php';
+            $repository = new VersionControl_Hg_Repository($path);
         }
 
     }
 
+    //@todo this *really* should be proxied with __call instead of implementing
+    //even a call to the command in this class...
     /**
      * Proxy to setVersion; distinguish between accessor getVersion()
      * and command 'version'
@@ -114,7 +122,7 @@ class VersionControl_Hg
     /**
      * Returns the version of the Mercurial executable.
      *
-     * Implements the --version switch of the command-line client.
+     * Implements the version command of the command-line client.
      * Possible values are:
      * (version 1.1), (version 1.1+20081220), (version 1.1+e54ac289bed), (unknown)
      *
@@ -139,6 +147,7 @@ class VersionControl_Hg
          * especially when this is auto-set in the constructor
          */
         if ( $this->_version === null ) {
+            //@todo replace with a constant and a $message entry
             throw new VersionControl_Hg_Exception(
                 'No Hg version has yet been set!'
             );
@@ -153,14 +162,26 @@ class VersionControl_Hg
      * If you need to specifiy a particular Hg executable to use, then pass in
      * the full path to Mercurial as a paramter of this function.
      *
+     * It could have been passed into VersionControl_Hg's constructor, but I
+     * feel it is uncommon enough to pass in a custom Hg path that it could
+     * be relegated to a separate function call.
+     *
+     * Usage:
+     * <code>
+     * $hg = new VersionControl_Hg();
+     * $hg->setHgExecutable('/path/to/your/mercurial/binary');
+     * </code>
+     *
      * @param string $binary is the full path of the mercurial executable
      *
      * @return string
      */
-    public function setHgExecutable($binary = self::DEFAULT_EXECUTABLE)
+    public function setHgExecutable($hg = self::DEFAULT_EXECUTABLE)
     {
         $executables = array();
-        $binary = null;
+        $default_installation = array(
+
+        );
 
         /*
          * is one of "Windows_NT",
@@ -169,17 +190,17 @@ class VersionControl_Hg
          */
         switch ($_SERVER['OS']) {
             case 'Windows_NT':
-                $binary = 'hg.exe';
+                $hg = 'hg.exe';
                 break;
             default:
-                $binary = 'hg';
+                $hg = 'hg';
                 break;
         }
 
         $paths = split(PATH_SEPARATOR, $_SERVER['Path']);
         foreach ($paths as $a_path) {
-            if (is_executable($a_path . DIRECTORY_SEPARATOR . $binary)) {
-                $executables[] = $a_path . DIRECTORY_SEPARATOR . $binary;
+            if (is_executable($a_path . DIRECTORY_SEPARATOR . $hg)) {
+                $executables[] = $a_path . DIRECTORY_SEPARATOR . $hg;
             }
         }
 
@@ -192,7 +213,6 @@ class VersionControl_Hg
         //@todo need a better algorithm to decide.
         //list the default installation paths per platform and array_merge them?
         $this->hg = array_shift($executables);
-            //@todo if win32, append '.exe' ?
 
         return true;
     }
@@ -209,6 +229,7 @@ class VersionControl_Hg
          * especially when this is auto-set in the constructor
          */
         if ( $this->hg === null ) {
+            //@todo replace with a constant and a $message entry
             throw new VersionControl_Hg_Exception(
                 'No Hg executable has yet been set!'
             );
