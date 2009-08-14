@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Contains the class definition for VersionControl_Hg_Command
+ *
+ * PHP version 5
+ *
+ * @category VersionControl
+ * @package Hg
+ * @author Michael Gatto <mgatto@lisantra.com>
+ * @copyright 2009 Lisantra Technologies, LLC
+ * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version Hg: $Revision$
+ * @link http://pear.php.net/package/VersionControl_Hg
+ */
 
 /**
  * Wraps each Mercurial command to centralize global options and command execution.
@@ -10,8 +23,15 @@
  * -I --include    include names matching the given patterns
  * -X --exclude    exclude names matching the given patterns
  *
- * @package VersionControl_Hg
- * @subpackage Commands
+ * PHP version 5
+ *
+ * @category VersionControl
+ * @package Hg
+ * @author Michael Gatto <mgatto@lisantra.com>
+ * @copyright 2009 Lisantra Technologies, LLC
+ * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version Hg: $Revision$
+ * @link http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command
 {
@@ -23,11 +43,27 @@ class VersionControl_Hg_Command
     private $_command;
 
     /**
-     * Hold the repository object that commands will act upon.
-     *
-     * @var Repository
+     * Implemented commands pertaining to the Hg executable.
+     * @var unknown_type
      */
-    private $_repo;
+    private $_allowed_commands = array(
+        'version',
+    );
+
+    protected $valid_options = array(
+        'encoding',
+        'quiet',
+        'verbose',
+    );
+
+    protected $required_options = array();
+
+    /**
+     * Object representing the Hg executable
+     *
+     * @var VersionControl_Hg
+     */
+    protected $hg;
 
     /**
      * Success or failure of the command.
@@ -55,7 +91,7 @@ class VersionControl_Hg_Command
      *
      * @var array
      */
-    private $_options = array();
+    protected $options = array();
 
     /**
      * Manages list of data entries, correpsonding to the output of Mercurial commands
@@ -65,19 +101,48 @@ class VersionControl_Hg_Command
      */
     private $_collection;
 
-    public function __construct( Repository $repo )
+    public function __construct(VersionControl_Hg $hg)
     {
-        $this->_repo = $repo;
-        //this is a non constructed class, so we "privatize" the constructor to prevent construction.
+        $this->hg = $hg; //already instantiated; passed when a command is called by Hg.php
     }
 
-    //executes the actual mercurial command
-    protected function _execute( $command, array $options )
+    final protected function setCommand($command, $options)
     {
-        //process options array; everything should be in long format.
-        // the leading space in the join param: ' --' is essential.
-        //as is the blank space between hg and $command
-        $this->_result = exec( 'hg' . ' ' . $command . join( ' --', $this->getOptions() ), $this->_output );
+
+
+    }
+
+    public function __call($method, $args)
+    {
+        if ( ! in_array($method, $this->_allowed_commands)) {
+            throw new VersionControl_Hg_Command_Exception(
+                'Command not implemented or not a part of Mercurial'
+            );
+        }
+
+        $class = 'VersionControl_Hg_Command_' . ucfirst($method);
+
+        include_once "Command/" . ucfirst($method) . ".php";
+
+        if (class_exists($class)) {
+            $options = $args[0];
+
+            $command_class = new $class($this->hg);
+            return $command_class->execute($options);
+        }
+        //$command, array $options = null
+
+        //instantiate the class implementing the command
+
+        //run its execute method
+    }
+
+
+    //executes the actual mercurial command
+    protected function prepareCommand()
+    {
+        //might need to format the command per OS: double quotes, etc...
+        //$command_string = "\"{$this->getHgExecutable()}\" "
     }
 
     /**
@@ -86,7 +151,7 @@ class VersionControl_Hg_Command
      * @param $fields array holds the labels of the fields
      * @return
      */
-    protected function parseOutput( array $fields, array $commandOutput )
+    protected function parseOutput(array $fields, array $commandOutput)
     {
         $output = array();
 
@@ -122,7 +187,7 @@ class VersionControl_Hg_Command
      * @param $style defaults to xml
      * @return Command
      */
-    public function setTemplate( $template = 'xml' )
+    public function setTemplate($template = 'xml')
     {
         $this->_template = 'xml';
         return $this;
@@ -138,14 +203,14 @@ class VersionControl_Hg_Command
      * @param $template string
      * @return unknown_type
      */
-    private function formatWithTemplate( $template = 'xml' )
+    private function formatWithTemplate ($template = 'xml')
     {
         if ( $template == 'xml') {
             //@todo set the style for xml.
             $templateFormat = '';
         }
 
-        $this->setOption( 'template', $templateFormat );
+        $this->addOption('template', $templateFormat);
     }
 
 
@@ -158,7 +223,7 @@ class VersionControl_Hg_Command
      * @param $value is optional since not all Hg options need a value
      * @return boolean
      */
-    protected function setOption( $name, $value = NULL )
+    protected function addOption($name, $value = NULL)
     {
         //really simplistic, but hey KISS and then refactor!
         if( $this->_options[$name] = $value ) {
@@ -170,10 +235,24 @@ class VersionControl_Hg_Command
         return $status;
     }
 
+    protected function addOptions(array $options)
+    {
+        if ( ! is_array($options)) {
+            throw new VersionControl_Hg_Command_Exception(
+                'Options is not an array'
+            );
+        }
+
+        foreach ($options as $name => $value) {
+            $this->valid_options[$name] = $value;
+        }
+    }
 
     public function getOptions()
     {
-        return $this->_options;
+        //@todo check that defined options satisfy $required_options
+
+        return $this->options;
     }
 
     public function unsetOption( $option )
@@ -196,14 +275,14 @@ class VersionControl_Hg_Command
      * @param $filter string
      * @return Command
      */
-    public function excluding( $filter )
+    public function excluding($filter)
     {
         /*
          * Mercurial expects the pattern to start with 'glob: ' or 're: '.
          */
-        $pattern = 'glob: '. escapeshellarg( $filter );
+        $pattern = 'glob: '. escapeshellarg($filter);
 
-        $this->setOption( 'exclude', $pattern );
+        $this->addOption('exclude', $pattern);
 
         /*
          * let me be chainable!
@@ -211,19 +290,25 @@ class VersionControl_Hg_Command
         return $this;
     }
 
+    public function forFiles() {}
+    public function forDir() {}
+    public function from() {}
+    public function to() {}
+
+
     /**
      *
      * @param $filter string
      * @return Command
      */
-    public function including( $filter )
+    public function including($filter)
     {
         /*
          * Mercurial expects the pattern to start with 'glob: ' or 're: '.
          */
-        $pattern = 'glob: '. escapeshellarg( $filter );
+        $pattern = 'glob: '. escapeshellarg($filter);
 
-        $this->setOption( 'include', $pattern );
+        $this->addOption('include', $pattern);
 
         /*
          * let me be chainable!
@@ -234,7 +319,7 @@ class VersionControl_Hg_Command
     //revisions are considered inclusive: r1 to r3 includes data from r1,r2,r3.
     public function changeset( $first, $last )
     {
-        $this->setOption( 'rev', $first );
+        $this->addOption( 'rev', $first );
     }
 
     /**
@@ -261,12 +346,12 @@ class VersionControl_Hg_Command
      * alias for changeset
        public function _revision( $first, $last ) {}
     */
-
+/*
     abstract function _getStatus();
     abstract function _setStatus();
     abstract function _getError(); //parseError
     abstract function _getOutput(); //return an array of data
-
+*/
 
     //output['type'] is 'error|data'
     //output['data'] is a file collection

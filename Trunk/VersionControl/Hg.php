@@ -3,39 +3,41 @@
 /**
  * Contains the class which interacts with the system's `hg` program.
  *
- *
  * PHP version 5
  *
- * @category VersionControl
- * @package Hg
- * @subpackage
- * @author Michael Gatto <mgatto@lisantra.com>
+ * @category  VersionControl
+ * @package   Hg
+ * @author    Michael Gatto <mgatto@lisantra.com>
  * @copyright 2009 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version Hg: $Revision$
- * @link http://pear.php.net/package/VersionControl_Hg
+ * @version   Hg: $Revision$
+ * @link      http://pear.php.net/package/VersionControl_Hg
  */
+
+require_once 'Hg/Exception.php';
+require_once 'Hg/Command.php';
 
 /**
  * Assumes to be working on a local filesystem repository
  *
  * PHP version 5
  *
- * @category VersionControl
- * @package Hg
- * @subpackage
- * @author Michael Gatto <mgatto@lisantra.com>
+ * @category  VersionControl
+ * @package   Hg
+ * @author    Michael Gatto <mgatto@lisantra.com>
  * @copyright 2009 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version Hg: $Revision$
- * @link http://pear.php.net/package/VersionControl_Hg
+ * @version   Hg: $Revision$
+ * @link      http://pear.php.net/package/VersionControl_Hg
  *
  * Usage:
  * <code>
- * $hg = new hg();
+ * $hg = new VersionControl_Hg();
+ *
+ * $hg = new VersionControl_Hg('/path/to/repository');
  * </code>
  */
-class Hg
+class VersionControl_Hg
 {
     /**
      * Use the executable found in the default installation location
@@ -53,7 +55,7 @@ class Hg
      * There may well be multiple versions in use; lets track which one
      * I am using so the user knows which one is being used.
      */
-    private $_hg = null;
+    protected $hg = null;
 
     /**
      * The version of the Mercurial executable.
@@ -78,19 +80,35 @@ class Hg
     );
 
     /**
+     * Constructor
      *
      * @param string $path is the path to a mercurial repo (optional)
-     * @return
+     *
+     * @return void
      */
     public function __construct($path = null)
     {
-        $this->setHgExecutable($hg = self::DEFAULT_EXECUTABLE);
+        $this->setHgExecutable();
         $this->setVersion();
         //we also let users call setRepository($path) if they want
         if ($path !== null) {
             $this->setRepository($path);
         }
 
+    }
+
+    /**
+     * Proxy to setVersion; distinguish between accessor getVersion()
+     * and command 'version'
+     *
+     * @param array $options are the runtime switches for this command
+     *
+     * @return string
+     */
+    public function version(array $options)
+    {
+        $command = new VersionControl_Hg_Command($this);
+        return $command->version($options);
     }
 
     /**
@@ -103,63 +121,14 @@ class Hg
      * @return array
      * @see $_version
      */
-    public function setVersion($version_data = NULL)
+    public function setVersion()
     {
-        /*
-         * set input source
-         */
-        if ( $version_data === NULL ) {
-            exec($this->getHgExecutable . ' --version', $output);
-            $ver_string = $output[0];
-        } else {
-            $ver_string = $version_data;
-        }
-
-        /*
-         * handle bad input
-         */
-        if ( preg_match('/\(.*\)/', $ver_string, $ver_match) == 0 ) {
-            throw new VersionControl_Hg_Exception(
-                'Unrecognized version data'
-            );
-        } //@todo replace with a constant and message
-
-        /*
-         * this is only processed if no exception
-         */
-        $version['raw'] = trim( substr( $ver_match[0], 8, strlen( $ver_match[0] ) ) );
-        //replace the parenthesis because my regex fu is out to lunch.
-        $version['raw'] = str_replace( '(' , '', $version['raw'] );
-        $version['raw'] = str_replace( ')' , '', $version['raw'] );
-        //break up string into version components
-        //does the version have a date after the version number?
-        if ( strstr($version['raw'], '+') ) {
-            $ver_parts = explode('+', $version['raw']);
-            //handle if the text after '+' is a changeset, not a date
-            if ( date_parse($ver_parts[1]) ) {
-                $version['date'] = $ver_parts[1];
-            }
-            else{
-               $version['changeset'] = $ver_parts[1];
-            }
-        }
-        else {
-            $ver_parts[0] = $version['raw'];
-        }
-
-        $version['complete'] = $ver_parts[0];
-
-        $version_tmp = explode('.', $ver_parts[0]);
-
-        $version['major'] = $version_tmp[0];
-        $version['minor'] = $version_tmp[1];
-
-        $this->_version = $version['raw'];
-
-        return true;
+        $command = new VersionControl_Hg_Command($this);
+        $this->_version = $command->version(array('quiet' => null));
     }
 
     /**
+     * Get the version of Mercurial we are currently using
      *
      * @return string
      */
@@ -179,65 +148,91 @@ class Hg
     }
 
     /**
+     * Set the Hg executable's path manually
      *
+     * If you need to specifiy a particular Hg executable to use, then pass in
+     * the full path to Mercurial as a paramter of this function.
      *
-     * @return array
+     * @param string $binary is the full path of the mercurial executable
+     *
+     * @return string
      */
-    public function setHgExecutable()
+    public function setHgExecutable($binary = self::DEFAULT_EXECUTABLE)
     {
         $executables = array();
+        $binary = null;
 
-        $paths = split(PATH_SEPARATOR, $_ENV['PATH']);
-        foreach ($paths as $a_path) {
-            $executables[$a_path] = is_executable(
-                $a_path . DIRECTORY_SEPARATOR . 'hg'
-            );
+        /*
+         * is one of "Windows_NT",
+         * $_ENV under the windows xp cmd.com was completely empty
+         * using Php 5.2.9-cli
+         */
+        switch ($_SERVER['OS']) {
+            case 'Windows_NT':
+                $binary = 'hg.exe';
+                break;
+            default:
+                $binary = 'hg';
+                break;
         }
 
-        if ( ! count($executables) > 0) {
+        $paths = split(PATH_SEPARATOR, $_SERVER['Path']);
+        foreach ($paths as $a_path) {
+            if (is_executable($a_path . DIRECTORY_SEPARATOR . $binary)) {
+                $executables[] = $a_path . DIRECTORY_SEPARATOR . $binary;
+            }
+        }
+
+        if ( count($executables) === 0) {
             throw new VersionControl_Hg_Exception(
-                $messages[self::ERROR_HG_NOT_FOUND]
+                $this->messages[self::ERROR_HG_NOT_FOUND]
             );
         }
 
         //@todo need a better algorithm to decide.
         //list the default installation paths per platform and array_merge them?
-        $this->_hg = $executables[0] . 'hg';
+        $this->hg = array_shift($executables);
             //@todo if win32, append '.exe' ?
 
         return true;
     }
 
+    /**
+     * Get the full path of the currently used Mercurial executable
+     *
+     * @return string
+     */
     public function getHgExecutable()
     {
         /*
          * I don't want programmers to have to test for null,
          * especially when this is auto-set in the constructor
          */
-        if ( $this->_hg === null ) {
+        if ( $this->hg === null ) {
             throw new VersionControl_Hg_Exception(
                 'No Hg executable has yet been set!'
             );
         }
 
-        return $this->_hg;
+        return $this->hg;
     }
 
     /**
      * Proxy down to the repository class
      *
-     * @param string $method
-     * @param array $args
-     * @return
+     * @param string $method    is the function being called
+     * @param array  $arguments are the parameters passed to that function
+     *
+     * @return mixed
      */
-    public function __call($method, array $args)
+    public function __call($method, array $arguments)
     {
         //@todo use an autoloader!
-        require_once 'Hg/Repository.php';
+        include_once 'Hg/Repository.php';
 
-        $repo = new Hg_Repository();
+        $repo = new VersionControl_Hg_Repository();
 
-        call_user_func_array($repo->$method, $args);
+        call_user_func_array($repo->$method, $arguments);
 
         //actually, if it doesn't exist, then we want it to "bubble down"
         //so Hg_Repository will proxy it to the command factory class.
