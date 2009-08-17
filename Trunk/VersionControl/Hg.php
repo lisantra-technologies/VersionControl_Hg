@@ -179,9 +179,31 @@ class VersionControl_Hg
     public function setHgExecutable($hg = self::DEFAULT_EXECUTABLE)
     {
         $executables = array();
+        /* list the default installation paths per platform */
         $default_installation = array(
-
+            'WINNT' => '',
+            'WIN32' => '',
+            'Windows' => '',
+            'Linux' => '',
+            'FreeBSD' => '',
+            'NetBSD' => '',
+            'OpenBSD' => '',
+            'SunOS' => '',
+            'Darwin' => '',
+            'MacOS' => '',
+            'HP-UX' => '',
+            'IRIX64' => '',
         );
+        //use PHP_OS (best), php_uname('s'), $_SERVER['OS']
+
+        if ($hg === 'default') {
+            //proceed as below
+
+        } else {
+            //verify an hg executable in the location the user provided
+
+        }
+
 
         /*
          * is one of "Windows_NT",
@@ -190,17 +212,17 @@ class VersionControl_Hg
          */
         switch ($_SERVER['OS']) {
             case 'Windows_NT':
-                $hg = 'hg.exe';
+                $binary = 'hg.exe';
                 break;
             default:
-                $hg = 'hg';
+                $binary = 'hg';
                 break;
         }
 
         $paths = split(PATH_SEPARATOR, $_SERVER['Path']);
         foreach ($paths as $a_path) {
-            if (is_executable($a_path . DIRECTORY_SEPARATOR . $hg)) {
-                $executables[] = $a_path . DIRECTORY_SEPARATOR . $hg;
+            if (is_executable($a_path . DIRECTORY_SEPARATOR . $binary)) {
+                $executables[] = $a_path . DIRECTORY_SEPARATOR . $binary;
             }
         }
 
@@ -211,7 +233,6 @@ class VersionControl_Hg
         }
 
         //@todo need a better algorithm to decide.
-        //list the default installation paths per platform and array_merge them?
         $this->hg = array_shift($executables);
 
         return true;
