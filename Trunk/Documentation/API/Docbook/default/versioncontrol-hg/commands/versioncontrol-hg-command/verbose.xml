@@ -1,0 +1,54 @@
+<refentry id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.verbose">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command::verbose</function>
+  </refname>
+  <refpurpose>Implements the  option for the Mercurial executable.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command_REPO.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     Command
+     <function>VersionControl_Hg_Command::verbose</function>
+    </funcdef>
+    <paramdef>
+     $boolean
+     <parameter>$boolean</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.verbose.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.verbose.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$boolean</type>
+      <parameter>$boolean</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.verbose.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.verbose.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

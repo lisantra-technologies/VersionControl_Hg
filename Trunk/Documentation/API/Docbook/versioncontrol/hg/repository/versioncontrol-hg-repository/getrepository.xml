@@ -1,0 +1,46 @@
+<refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.getrepository">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Repository::getRepository</function>
+  </refname>
+  <refpurpose>Returns the path of a Mercurial repository as set by the user.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Repository::getRepository</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.getrepository.desc">
+  &title.desc;
+  <para>It is validated before being set as a class member.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.getrepository.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+   $_path
+  </para>
+  <para>
+   <emphasis>see</emphasis>
+   $_path
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.getrepository.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.getrepository.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

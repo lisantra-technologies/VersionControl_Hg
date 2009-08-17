@@ -1,0 +1,56 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg.version">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg::version</function>
+  </refname>
+  <refpurpose>
+   Proxy to setVersion; distinguish between accessor getVersion()  and command
+   &apos;version&apos;
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg::version</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$options</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.version.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.version.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$options</parameter>
+     </term>
+     <listitem>
+      <para>are the runtime switches for this command</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.version.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.version.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

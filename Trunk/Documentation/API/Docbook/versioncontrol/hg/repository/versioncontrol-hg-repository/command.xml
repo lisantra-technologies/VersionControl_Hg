@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.command">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Repository::command</function>
+  </refname>
+  <refpurpose>command</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Repository::command</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.command.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.command.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.command.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

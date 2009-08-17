@@ -1,0 +1,908 @@
+<sect1 id="package.versioncontrol.hg">
+ <title>Hg</title>
+ <refentry id="package.versioncontrol.hg.versioncontrol-hg-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg</classname>
+   </refname>
+   <refpurpose>Assumes to be working on a local filesystem repository</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>Assumes to be working on a local filesystem repository</title>
+   <para>PHP version 5</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>VersionControl_Hg</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.versioncontrol.hg.versioncontrol-hg.--construct;
+&package.versioncontrol.hg.versioncontrol-hg.gethgexecutable;
+&package.versioncontrol.hg.versioncontrol-hg.getversion;
+&package.versioncontrol.hg.versioncontrol-hg.sethgexecutable;
+&package.versioncontrol.hg.versioncontrol-hg.setversion;
+&package.versioncontrol.hg.versioncontrol-hg.version;
+&package.versioncontrol.hg.versioncontrol-hg.--call;
+ <refentry id="package.versioncontrol.hg.versioncontrol-hg-command-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Command</classname>
+   </refname>
+   <refpurpose>
+    Wraps each Mercurial command to centralize global options and command
+    execution.
+</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>
+    Wraps each Mercurial command to centralize global options and command
+    execution.
+</title>
+   <para>It is passed into the constructor of each command.</para>
+   <para>implements the following global options:  -I --include    include names matching the given patterns  -X --exclude    exclude names matching the given patterns</para>
+   <para>PHP version 5</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Command</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>VersionControl_Hg_Command</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+   <para>
+    <table>
+     <title>
+      Classes that extend
+      <classname>VersionControl_Hg_Command</classname>
+     </title>
+     <tgroup cols="2">
+      <thead>
+       <row>
+        <entry>Class</entry>
+        <entry>Summary</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command-version-summary">VersionControl_Hg_Command_Version</link>
+        </entry>
+        <entry>PHP version 5</entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.versioncontrol.hg.versioncontrol-hg-command.--construct;
+&package.versioncontrol.hg.versioncontrol-hg-command.addoption;
+&package.versioncontrol.hg.versioncontrol-hg-command.addoptions;
+&package.versioncontrol.hg.versioncontrol-hg-command.changeset;
+&package.versioncontrol.hg.versioncontrol-hg-command.excluding;
+&package.versioncontrol.hg.versioncontrol-hg-command.fordir;
+&package.versioncontrol.hg.versioncontrol-hg-command.forfiles;
+&package.versioncontrol.hg.versioncontrol-hg-command.from;
+&package.versioncontrol.hg.versioncontrol-hg-command.getoptions;
+&package.versioncontrol.hg.versioncontrol-hg-command.gettemplate;
+&package.versioncontrol.hg.versioncontrol-hg-command.including;
+&package.versioncontrol.hg.versioncontrol-hg-command.parseoutput;
+&package.versioncontrol.hg.versioncontrol-hg-command.preparecommand;
+&package.versioncontrol.hg.versioncontrol-hg-command.setcommand;
+&package.versioncontrol.hg.versioncontrol-hg-command.settemplate;
+&package.versioncontrol.hg.versioncontrol-hg-command.to;
+&package.versioncontrol.hg.versioncontrol-hg-command.unsetoption;
+&package.versioncontrol.hg.versioncontrol-hg-command.verbose;
+&package.versioncontrol.hg.versioncontrol-hg-command.--call;
+ <refentry id="package.versioncontrol.hg.versioncontrol-hg-command-version-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Command_Version</classname>
+   </refname>
+   <refpurpose>PHP version 5</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>PHP version 5</title>
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Command_Version</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       <link linkend="package.versioncontrol.hg.versioncontrol-hg-command-summary">
+        <classname>VersionControl_Hg_Command</classname>
+       </link>
+       <itemizedlist>
+        <listitem>
+         <para>VersionControl_Hg_Command_Version</para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+   <para>
+    <classname>VersionControl_Hg_Command_Version</classname>
+    Inherited Methods
+   </para>
+   <para>
+    <table>
+     <title>
+      Inherited from
+      <link linkend="package.versioncontrol.hg.versioncontrol-hg-command-summary">
+       <classname>VersionControl_Hg_Command</classname>
+      </link>
+     </title>
+     <tgroup cols="2">
+      <thead>
+       <row>
+        <entry>Method Name</entry>
+        <entry>Summary</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>
+         Constructor
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.--construct">
+          <function>VersionControl_Hg_Command::__construct</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.addoption">
+          <function>VersionControl_Hg_Command::addOption</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.addoptions">
+          <function>VersionControl_Hg_Command::addOptions</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.changeset">
+          <function>VersionControl_Hg_Command::changeset</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.excluding">
+          <function>VersionControl_Hg_Command::excluding</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.fordir">
+          <function>VersionControl_Hg_Command::forDir</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.forfiles">
+          <function>VersionControl_Hg_Command::forFiles</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.from">
+          <function>VersionControl_Hg_Command::from</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.getoptions">
+          <function>VersionControl_Hg_Command::getOptions</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.gettemplate">
+          <function>VersionControl_Hg_Command::getTemplate</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.including">
+          <function>VersionControl_Hg_Command::including</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.parseoutput">
+          <function>VersionControl_Hg_Command::parseOutput</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.preparecommand">
+          <function>VersionControl_Hg_Command::prepareCommand</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.setcommand">
+          <function>VersionControl_Hg_Command::setCommand</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.settemplate">
+          <function>VersionControl_Hg_Command::setTemplate</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.to">
+          <function>VersionControl_Hg_Command::to</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.unsetoption">
+          <function>VersionControl_Hg_Command::unsetOption</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.verbose">
+          <function>VersionControl_Hg_Command::verbose</function>
+         </link>
+        </entry>
+        <entry>Implements the  option for the Mercurial executable.</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.versioncontrol-hg-command.--call">
+          <function>VersionControl_Hg_Command::__call</function>
+         </link>
+        </entry>
+        <entry>&notdocumented;</entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.default.hg.versioncontrol-hg-command-version.--construct;
+&package.default.hg.versioncontrol-hg-command-version.execute;
+ <refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-repository-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Repository</classname>
+   </refname>
+   <refpurpose>Represents the Repository as an entity.</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>Represents the Repository as an entity.</title>
+   <para>Usage:</para>
+   <para>$repo = new Repository();  $repo-&gt;load( &apos;/path/&apos; )</para>
+   <para>As a child of Hg.php:  $hg = new Hg();  $repo = $hg-&gt;getRepository( &apos;/path/&apos; );</para>
+   <para>Or:  $repo = hg::instance()-&gt;load(&apos;/path/&apos;);  $repo = hg::instance()-&gt;create(&apos;/path/&apos;);</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Repository</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>VersionControl_Hg_Repository</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.versioncontrol.hg.repository.versioncontrol-hg-repository.--construct;
+&package.versioncontrol.hg.repository.versioncontrol-hg-repository.command;
+&package.versioncontrol.hg.repository.versioncontrol-hg-repository.create;
+&package.versioncontrol.hg.repository.versioncontrol-hg-repository.delete;
+&package.versioncontrol.hg.repository.versioncontrol-hg-repository.getrepository;
+&package.versioncontrol.hg.repository.versioncontrol-hg-repository.isrepository;
+&package.versioncontrol.hg.repository.versioncontrol-hg-repository.setrepository;
+&package.versioncontrol.hg.repository.versioncontrol-hg-repository.--call;
+ <refentry id="package.default.versioncontrol-hg.commands.hg-repository-command-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>Hg_Repository_Command</classname>
+   </refname>
+   <refpurpose>
+    Wraps each Mercurial command to centralize global options and command
+    execution.
+</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>
+    Wraps each Mercurial command to centralize global options and command
+    execution.
+</title>
+   <para>It is passed into the constructor of each command.</para>
+   <para>implements the following global options:  -I --include    include names matching the given patterns  -X --exclude    exclude names matching the given patterns</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>Hg_Repository_Command</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       Hg_Command
+       <itemizedlist>
+        <listitem>
+         <para>Hg_Repository_Command</para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+   <para>
+    <table>
+     <title>
+      Classes that extend
+      <classname>Hg_Repository_Command</classname>
+     </title>
+     <tgroup cols="2">
+      <thead>
+       <row>
+        <entry>Class</entry>
+        <entry>Summary</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>
+         <link linkend="package.default.versioncontrol-hg.commands.hg-repository-command-init-summary">Hg_Repository_Command_Init</link>
+        </entry>
+        <entry>Wraps each Mercurial command to centralize global options and command execution.</entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
+  </refsect1>
+ </refentry>
+ <refentry id="package.default.versioncontrol-hg.commands.hg-repository-command-init-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>Hg_Repository_Command_Init</classname>
+   </refname>
+   <refpurpose>
+    Wraps each Mercurial command to centralize global options and command
+    execution.
+</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>
+    Wraps each Mercurial command to centralize global options and command
+    execution.
+</title>
+   <para>It is passed into the constructor of each command.</para>
+   <para>implements the following global options:  -I --include    include names matching the given patterns  -X --exclude    exclude names matching the given patterns</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>Hg_Repository_Command_Init</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       Hg_Command
+       <itemizedlist>
+        <listitem>
+         <para>
+          <link linkend="package.default.versioncontrol-hg.commands.hg-repository-command-summary">
+           <classname>Hg_Repository_Command</classname>
+          </link>
+          <itemizedlist>
+           <listitem>
+            <para>Hg_Repository_Command_Init</para>
+           </listitem>
+          </itemizedlist>
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.default.versioncontrol-hg.commands.hg-repository-command-init.--construct;
+&package.default.versioncontrol-hg.commands.hg-repository-command-init.at;
+&package.default.versioncontrol-hg.commands.hg-repository-command-init.execute;
+ <refentry id="package.default.versioncontrol-hg.commands.status-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>Status</classname>
+   </refname>
+   <refpurpose>Does not implement the following Mercurial 1.1.1 options:</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>Does not implement the following Mercurial 1.1.1 options:</title>
+   <para>-n --no-status  hide status prefix  -C --copies     show source of copied files  -0 --print0     end filenames with NUL, for use with xargs  --rev        show difference from revision</para>
+   <para>Usage:  $hg = new Hg();  $hg-&gt;getRepository(&apos;/path/&apos;)-&gt;status(&apos;all&apos;);</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>Status</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       Command
+       <itemizedlist>
+        <listitem>
+         <para>Status</para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.default.versioncontrol-hg.commands.status.--construct;
+&package.default.versioncontrol-hg.commands.status.getstatus;
+ <refentry id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Command</classname>
+   </refname>
+   <refpurpose>
+    Wraps each Mercurial command to centralize global options and command
+    execution.
+</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>
+    Wraps each Mercurial command to centralize global options and command
+    execution.
+</title>
+   <para>It is passed into the constructor of each command.</para>
+   <para>implements the following global options:  -I --include    include names matching the given patterns  -X --exclude    exclude names matching the given patterns</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Command</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>VersionControl_Hg_Command</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.default.versioncontrol-hg.commands.versioncontrol-hg-command.--construct;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.changeset;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.excluding;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.getoptions;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.gettemplate;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.including;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.parseoutput;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.setoption;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.settemplate;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.unsetoption;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.verbose;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-execute;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-geterror;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-getoutput;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-getstatus;
+&package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-setstatus;
+ <refentry id="package.default.default.branch-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>Branch</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>Branch</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>Branch</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ <refentry id="package.default.default.cat-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>Cat</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>Cat</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       RepositoryCommand
+       <itemizedlist>
+        <listitem>
+         <para>Cat</para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.default.default.cat.getfile;
+ <refentry id="package.default.default.hg-branch-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>Hg_Branch</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>Hg_Branch</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>Hg_Branch</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ <refentry id="package.default.default.versioncontrol-hg-command-exception-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Command_Exception</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Command_Exception</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       PEAR_Exception
+       <itemizedlist>
+        <listitem>
+         <para>
+          <link linkend="package.default.default.versioncontrol-hg-exception-summary">
+           <classname>VersionControl_Hg_Exception</classname>
+          </link>
+          <itemizedlist>
+           <listitem>
+            <para>VersionControl_Hg_Command_Exception</para>
+           </listitem>
+          </itemizedlist>
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ <refentry id="package.default.default.versioncontrol-hg-exception-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Exception</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Exception</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       PEAR_Exception
+       <itemizedlist>
+        <listitem>
+         <para>VersionControl_Hg_Exception</para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+   <para>
+    <table>
+     <title>
+      Classes that extend
+      <classname>VersionControl_Hg_Exception</classname>
+     </title>
+     <tgroup cols="2">
+      <thead>
+       <row>
+        <entry>Class</entry>
+        <entry>Summary</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>
+         <link linkend="package.default.default.versioncontrol-hg-command-exception-summary">VersionControl_Hg_Command_Exception</link>
+        </entry>
+        <entry />
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.default.default.versioncontrol-hg-repository-command-exception-summary">VersionControl_Hg_Repository_Command_Exception</link>
+        </entry>
+        <entry />
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.default.default.versioncontrol-hg-repository-exception-summary">VersionControl_Hg_Repository_Exception</link>
+        </entry>
+        <entry />
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
+  </refsect1>
+ </refentry>
+ <refentry id="package.default.default.versioncontrol-hg-icommand-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_ICommand</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_ICommand</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>VersionControl_Hg_ICommand</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.default.default.versioncontrol-hg-icommand.--construct;
+&package.default.default.versioncontrol-hg-icommand.execute;
+ <refentry id="package.default.default.versioncontrol-hg-repository-command-exception-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Repository_Command_Exception</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Repository_Command_Exception</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       PEAR_Exception
+       <itemizedlist>
+        <listitem>
+         <para>
+          <link linkend="package.default.default.versioncontrol-hg-exception-summary">
+           <classname>VersionControl_Hg_Exception</classname>
+          </link>
+          <itemizedlist>
+           <listitem>
+            <para>VersionControl_Hg_Repository_Command_Exception</para>
+           </listitem>
+          </itemizedlist>
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ <refentry id="package.default.default.versioncontrol-hg-repository-exception-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Repository_Exception</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Repository_Exception</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       PEAR_Exception
+       <itemizedlist>
+        <listitem>
+         <para>
+          <link linkend="package.default.default.versioncontrol-hg-exception-summary">
+           <classname>VersionControl_Hg_Exception</classname>
+          </link>
+          <itemizedlist>
+           <listitem>
+            <para>VersionControl_Hg_Repository_Exception</para>
+           </listitem>
+          </itemizedlist>
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ <refentry id="package.default.default.-clone-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>_Clone</classname>
+   </refname>
+   <refpurpose />
+  </refnamediv>
+  <refsect1>
+   <title />
+   &notdocumented;
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>_Clone</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       RepositoryCommand
+       <itemizedlist>
+        <listitem>
+         <para>_Clone</para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.default.default.-clone.clone-from;
+</sect1>

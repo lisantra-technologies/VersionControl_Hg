@@ -1,0 +1,56 @@
+<refentry id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.settemplate">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command::setTemplate</function>
+  </refname>
+  <refpurpose>setTemplate</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command_REPO.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     Command
+     <function>VersionControl_Hg_Command::setTemplate</function>
+    </funcdef>
+    <paramdef>
+     $style
+     <parameter>
+      <optional>$template = &apos;xml&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.settemplate.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.settemplate.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$style</type>
+      <parameter>$template</parameter>
+     </term>
+     <listitem>
+      <para>defaults to xml</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.settemplate.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.settemplate.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

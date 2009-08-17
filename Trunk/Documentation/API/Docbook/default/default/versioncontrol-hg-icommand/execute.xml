@@ -1,0 +1,35 @@
+<refentry id="package.default.default.versioncontrol-hg-icommand.execute">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_ICommand::execute</function>
+  </refname>
+  <refpurpose>execute</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/ICommand.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_ICommand::execute</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.default.default.versioncontrol-hg-icommand.execute.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.default.default.versioncontrol-hg-icommand.execute.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.default.versioncontrol-hg-icommand.execute.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

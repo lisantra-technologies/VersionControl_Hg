@@ -1,0 +1,54 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-command.excluding">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command::excluding</function>
+  </refname>
+  <refpurpose>excluding</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     Command
+     <function>VersionControl_Hg_Command::excluding</function>
+    </funcdef>
+    <paramdef>
+     $filter
+     <parameter>$filter</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.excluding.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.excluding.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$filter</type>
+      <parameter>$filter</parameter>
+     </term>
+     <listitem>
+      <para>string</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.excluding.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.excluding.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,53 @@
+<refentry id="package.default.versioncontrol-hg.commands.hg-repository-command-init.at">
+ <refnamediv>
+  <refname>
+   <function>Hg_Repository_Command_Init::at</function>
+  </refname>
+  <refpurpose>at</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command/Init.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>Hg_Repository_Command_Init::at</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$path</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.default.versioncontrol-hg.commands.hg-repository-command-init.at.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.hg-repository-command-init.at.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.hg-repository-command-init.at.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.hg-repository-command-init.at.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

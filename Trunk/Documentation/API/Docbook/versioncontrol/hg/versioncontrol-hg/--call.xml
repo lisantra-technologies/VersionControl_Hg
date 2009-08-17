@@ -1,0 +1,68 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg.--call">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg::__call</function>
+  </refname>
+  <refpurpose>Proxy down to the repository class</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>VersionControl_Hg::__call</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$method</parameter>
+    </paramdef>
+    <paramdef>
+     <parameter>$arguments</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$method</parameter>
+     </term>
+     <listitem>
+      <para>is the function being called</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$arguments</parameter>
+     </term>
+     <listitem>
+      <para>are the parameters passed to that function</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

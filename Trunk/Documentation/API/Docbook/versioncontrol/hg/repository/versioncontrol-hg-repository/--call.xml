@@ -1,0 +1,69 @@
+<refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.--call">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Repository::__call</function>
+  </refname>
+  <refpurpose>__call</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     unknown_type
+     <function>VersionControl_Hg_Repository::__call</function>
+    </funcdef>
+    <paramdef>
+     $function
+     <parameter>$function</parameter>
+    </paramdef>
+    <paramdef>
+     $options
+     <parameter>$options</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.--call.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.--call.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$function</type>
+      <parameter>$function</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$options</type>
+      <parameter>$options</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.--call.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.--call.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

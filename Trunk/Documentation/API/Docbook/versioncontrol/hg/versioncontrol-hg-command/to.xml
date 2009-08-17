@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-command.to">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command::to</function>
+  </refname>
+  <refpurpose>to</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command::to</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.to.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.to.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.to.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

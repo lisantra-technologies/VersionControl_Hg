@@ -1,0 +1,67 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-command.--call">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command::__call</function>
+  </refname>
+  <refpurpose>__call</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command::__call</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$method</parameter>
+    </paramdef>
+    <paramdef>
+     <parameter>$args</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.--call.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.--call.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$method</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$args</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.--call.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.--call.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

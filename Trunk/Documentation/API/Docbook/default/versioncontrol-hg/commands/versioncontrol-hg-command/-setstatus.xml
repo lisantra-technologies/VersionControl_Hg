@@ -1,0 +1,41 @@
+<refentry id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-setstatus">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command::_setStatus</function>
+  </refname>
+  <refpurpose>_setStatus</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command_REPO.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command::_setStatus</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-setstatus.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-setstatus.abstract">
+  &title.abstract;
+  <para>
+   <emphasis>abstract</emphasis>
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-setstatus.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.-setstatus.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

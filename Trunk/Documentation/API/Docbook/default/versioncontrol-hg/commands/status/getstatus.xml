@@ -1,0 +1,49 @@
+<refentry id="package.default.versioncontrol-hg.commands.status.getstatus">
+ <refnamediv>
+  <refname>
+   <function>Status::getStatus</function>
+  </refname>
+  <refpurpose>Return the status of entities in the repository subject to restrictions.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>Status::getStatus</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.getstatus.desc">
+  &title.desc;
+  <para>Status codes are returned as:  M = modified  A = added  R = removed  C = clean  ! = deleted, but still tracked  ? = not tracked  I = ignored</para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.getstatus.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   where array[0] is the status code and array[1] is the entity&apos;s full path.
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.getstatus.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+   $_restriction
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.getstatus.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.getstatus.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

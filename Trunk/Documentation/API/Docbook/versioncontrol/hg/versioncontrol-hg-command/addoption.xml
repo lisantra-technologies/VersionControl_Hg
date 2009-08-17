@@ -1,0 +1,71 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-command.addoption">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command::addOption</function>
+  </refname>
+  <refpurpose>addOption</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>VersionControl_Hg_Command::addOption</function>
+    </funcdef>
+    <paramdef>
+     $name
+     <parameter>$name</parameter>
+    </paramdef>
+    <paramdef>
+     $value
+     <parameter>
+      <optional>$value = NULL</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.addoption.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.addoption.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$name</type>
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>is the name of the option which Mercurial recognizes</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$value</type>
+      <parameter>$value</parameter>
+     </term>
+     <listitem>
+      <para>is optional since not all Hg options need a value</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.addoption.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command.addoption.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

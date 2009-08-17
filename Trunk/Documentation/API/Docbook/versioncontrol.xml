@@ -1,0 +1,4 @@
+<chapter id="package.VersionControl">
+ <title>VersionControl</title>
+ &package.VersionControl.hg;
+</chapter>

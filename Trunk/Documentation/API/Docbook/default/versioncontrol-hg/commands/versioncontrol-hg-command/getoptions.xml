@@ -1,0 +1,35 @@
+<refentry id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.getoptions">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command::getOptions</function>
+  </refname>
+  <refpurpose>getOptions</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command_REPO.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command::getOptions</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.getoptions.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.getoptions.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.versioncontrol-hg-command.getoptions.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

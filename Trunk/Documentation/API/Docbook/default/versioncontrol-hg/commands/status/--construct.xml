@@ -1,0 +1,70 @@
+<refentry id="package.default.versioncontrol-hg.commands.status.--construct">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>Status::__construct</function>
+  </refname>
+  <refpurpose>Sets the restriction passed into the command.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     Collection      constructor
+     <function>Status::__construct</function>
+    </funcdef>
+    <paramdef>
+     $wrapper
+     <parameter>$restriction</parameter>
+    </paramdef>
+    <paramdef>
+     $restriction
+     <parameter>1</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.--construct.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.--construct.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$wrapper</type>
+      <parameter>$restriction</parameter>
+     </term>
+     <listitem>
+      <para>is the passed object / class instance of Command.php</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$restriction</type>
+      <parameter>1</parameter>
+     </term>
+     <listitem>
+      <para>is required</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.--construct.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.default.versioncontrol-hg.commands.status.--construct.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>
