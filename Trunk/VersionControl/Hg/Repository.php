@@ -43,30 +43,38 @@ class VersionControl_Hg_Repository
      *
      * @const string
      */
-    const ROOT_NAME = '/.hg';
+    const ROOT_NAME = '.hg';
 
     /**
      * Holds the filesystem path of a Mercurial repository.
      *
      * @var string
+     * @deprecated replaced by $_path_to_repository
      */
-    private $_repository;
+    protected $_repository;
 
     /**
-     * Holds the current command operating on the repository.
+     * Path to a local Mercurial repository
      *
      * @var string
      */
-    private $_command;
+    protected $_path_to_repository = null;
+
+    /**
+     * Holds the current state of the Hg object
+     *
+     * @var string
+     */
+    protected $hg;
 
     /**
      * Repository constructor which currently does nothing.
      *
      * @todo might be a good place to set the transport method?
      */
-    public function __construct()
+    public function __construct(VersionControl_Hg $hg)
     {
-
+        $this->hg = $hg;
     }
 
     /**
@@ -78,20 +86,25 @@ class VersionControl_Hg_Repository
      */
     public function setRepository($path)
     {
+        if (is_array($path)) {
+            $path = $path[0];
+        }
+
         /*
          * Let's not guess that the user wants to create a repo if none exists;
          * Throw and exception and let them decide what to do next.
          * Maybe they just gave the wrong path.
          */
-        if ( ! $this->isRepository($path)) {
+        /*if ( ! $this->isRepository($path)) {
             throw new Exception(
                 'there is no Mercurial repository at: '
-                . $this->getPath()
-                . '. Use $hg->createRepository( \'/path/\' ) to create one and then use getRepository() to act upon it.' );
-        }
+                . $path
+                . '. Use $hg->create( \'/path/\' ) to create one and then use getRepository() to act upon it.' );
+        }*/
 
         $this->_repository = $path;
-
+var_dump($path);
+var_dump($this);
         return $this; //for chainable methods.
     }
 
@@ -105,11 +118,11 @@ class VersionControl_Hg_Repository
      */
     public function getRepository()
     {
-        if ( null === $this->_repository ) {
+        /*if ( null === $this->_repository ) {
             throw new Exception(
                 'There is no repository to return'
             );
-        }
+        }*/
 
         return $this->_repository;
     }
@@ -132,17 +145,17 @@ class VersionControl_Hg_Repository
 
         $is_repository = false;
 
-        $repository = $path . self::ROOT_NAME;
+        $repository = $path . DIRECTORY_SEPARATOR . self::ROOT_NAME;
+
+var_dump($repository);
         /*
          * both conditions must be satisfied.
          */
-        if ( is_dir($repository) && ! empty($repository) ) {
+        if (is_dir($repository) && (! empty($repository))) {
             $is_repository = true;
-        } else {
-            $is_repository = false;
         }
 
-        return $is_repository;
+        return true;//$is_repository
     }
 
 
@@ -180,22 +193,15 @@ class VersionControl_Hg_Repository
 
     /**
      *
-     * @param $function
-     * @param $options
-     * @return unknown_type
+     * @param $method
+     * @param $arguments
+     * @return mixed
      */
-    public function __call($function, $options)
+    public function __call($method, $arguments)
     {
-        if( class_exists( $function ) ) {
-            $cmd = new $function($this, $options);
-        } else {
-            throw new VersionControl_Hg_Exception(
-                'Sorry, The command \'{$function}\' is not implemented.'
-            );
-        }
+        include_once 'Repository/Command.php';
+        $command = new VersionControl_Hg_Repository_Command($this);
+        $command->$method($arguments);
     }
-
-    //this is a temporary alias for __call...
-    public function command() {}
 
 }

@@ -74,7 +74,9 @@ class VersionControl_Hg
      *
      * @var float
      */
-    private $_version = null;
+    protected $_version = null;
+
+    //protected $repository;
 
     /**
      *
@@ -97,8 +99,7 @@ class VersionControl_Hg
         $this->setVersion();
         //we also let users call setRepository($path) if they want
         if ($path !== null) {
-            include_once 'Hg/Repository.php';
-            $repository = new VersionControl_Hg_Repository($path);
+            $this->setRepository($path);
         }
 
     }
@@ -267,20 +268,22 @@ class VersionControl_Hg
      *
      * @return mixed
      */
-    public function __call($method, array $arguments)
+    public function __call($method, $arguments)
     {
         //@todo use an autoloader!
+
+        //proxy to Hg/Command.php and see if $method belongs to it
+
+        //true = execute it
+
+        //false = proxy to the repository
         include_once 'Hg/Repository.php';
-
-        $repo = new VersionControl_Hg_Repository();
-
-        call_user_func_array($repo->$method, $arguments);
+        $repository = new VersionControl_Hg_Repository($this);
+        $repository->$method($arguments);
 
         //actually, if it doesn't exist, then we want it to "bubble down"
         //so Hg_Repository will proxy it to the command factory class.
-        //this way, users can do this:
-        //$repo = new VersionControl_Hg('/path/to/hg');
-        //$repo->export(HG_ALL)->to('/home/myself/releases/')->as(HG_ZIP)
+
         /*if (method_exists($repo, $method)) {
 
         }*/
