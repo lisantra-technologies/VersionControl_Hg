@@ -1,0 +1,23 @@
+
+FILE: V:\Development\_Webroot\Trunk\VersionControl\Hg.php
+--------------------------------------------------------------------------------
+FOUND 10 ERROR(S) AND 2 WARNING(S) AFFECTING 12 LINE(S)
+--------------------------------------------------------------------------------
+  13 | WARNING | Invalid version "Hg: $Revision$" in file comment; consider
+     |         | "CVS: <cvs_id>" or "SVN: <svn_id>" instead
+  30 | WARNING | Invalid version "Hg: $Revision$" in doc comment; consider
+     |         | "Release: <package_version>" instead
+  77 | ERROR   | Protected member variable "_version" must not be prefixed with
+     |         | an underscore
+ 176 | ERROR   | Doc comment var "$binary" does not match actual variable name
+     |         | "$hg" at position 1
+ 215 | ERROR   | Line indented incorrectly; expected 8 spaces, found 12
+ 218 | ERROR   | Line indented incorrectly; expected 8 spaces, found 12
+ 285 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 0
+ 289 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 0
+ 291 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 0
+ 292 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 0
+ 293 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 0
+ 297 | ERROR   | Line indented incorrectly; expected at least 8 spaces, found 0
+--------------------------------------------------------------------------------
+
