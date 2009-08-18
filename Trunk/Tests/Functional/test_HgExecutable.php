@@ -1,10 +1,30 @@
 <?php
 
-include_once '../VersionControl/Hg.php';
-
-//var_dump($_SERVER); die;
+include_once '../../VersionControl/Hg.php';
 
 $hg = new VersionControl_Hg();
-echo $hg->getHgExecutable();
-echo $hg->getVersion();
-echo $hg->version(array('verbose' => null));
+
+/* using default executable found on system path */
+var_dump($hg->getHgExecutable());
+
+/* invalid executable */
+try {
+    $hg->setHgExecutable("C:\Documents and Settings\mgatto\My Documents");
+    var_dump($hg->getHgExecutable());
+}
+catch (Exception $e) {
+    var_dump($e->getMessage());
+}
+
+/* non-existant path */
+try {
+    $hg->setHgExecutable("C:\Mercurial");
+    var_dump($hg->getHgExecutable());
+}
+catch (Exception $e) {
+    var_dump($e->getMessage());
+}
+
+/* valid, alternative executable */
+$hg->setHgExecutable("C:\Program Files\Mercurial");
+var_dump($hg->getHgExecutable());
