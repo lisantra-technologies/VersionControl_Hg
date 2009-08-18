@@ -36,34 +36,52 @@
 class VersionControl_Hg_Command
 {
     /**
-     * Holds self:: to pass to classes implementing Mercurial commands.
+     * Defines the mercurial command to implement
      *
-     * @var Command
+     * @var string
      */
-    private $_command;
+    protected $command;
 
     /**
      * Implemented commands pertaining to the Hg executable.
+     *
      * @var unknown_type
      */
-    private $_allowed_commands = array(
+    protected $allowed_commands = array(
         'version',
     );
 
-    protected $valid_options = array(
+    /**
+     * Options which all commands in the package may have
+     *
+     * @var mixed
+     */
+    protected $global_options = array(
         'encoding',
         'quiet',
         'verbose',
     );
 
+    /**
+     * Required options this command needs
+     *
+     * @var mixed
+     */
     protected $required_options = array();
 
     /**
-     * Object representing the Hg executable
+     * Possible options a command may have
+     *
+     * @var mixed
+     */
+    protected $allowed_options = array();
+
+    /**
+     * Object representing the container the command operated upon
      *
      * @var VersionControl_Hg
      */
-    protected $hg;
+    protected $container;
 
     /**
      * Success or failure of the command.
@@ -101,44 +119,57 @@ class VersionControl_Hg_Command
      */
     private $_collection;
 
+    /**
+     * Constructor
+     *
+     * @param   VersionControl_Hg $hg
+     * @return  void
+     */
     public function __construct(VersionControl_Hg $hg)
     {
-        $this->hg = $hg; //already instantiated; passed when a command is called by Hg.php
+        $this->container = $hg; //already instantiated; passed when a command is called by Hg.php
     }
 
-    final protected function setCommand($command, $options)
-    {
-
-
-    }
-
+    /**
+     * Executes the actual mercurial command
+     *
+     * @param   string $method
+     * @param   mixed $args
+     * @return  mixed
+     */
     public function __call($method, $args)
     {
-        if ( ! in_array($method, $this->_allowed_commands)) {
+        if ( ! in_array($method, $this->allowed_commands)) {
             throw new VersionControl_Hg_Command_Exception(
                 'Command not implemented or not a part of Mercurial'
             );
         }
 
-        $class = 'VersionControl_Hg_Command_' . ucfirst($method);
+        //abstracted as $container so child command classes can inheret it.
+        $class = get_class($this->container) . '_Command_' . ucfirst($method);
 
         include_once "Command/" . ucfirst($method) . ".php";
 
-        if (class_exists($class)) {
-            $options = $args[0];
-
-            $command_class = new $class($this->hg);
-            return $command_class->execute($options);
+        if ( ! class_exists($class)) {
+            throw new VersionControl_Hg_Exception(
+                "Sorry, The command \'{$function}\' is not implemented"
+            );
         }
-        //$command, array $options = null
+
+        //$args is an array wrapped around the option; simplify
+        $options = $args[0];
 
         //instantiate the class implementing the command
+        $command_class = new $class($this->container);
 
         //run its execute method
+        return $command_class->execute($options);
     }
 
-
-    //executes the actual mercurial command
+    /**
+     *
+     * @return unknown_type
+     */
     protected function prepareCommand()
     {
         //might need to format the command per OS: double quotes, etc...
@@ -293,7 +324,11 @@ class VersionControl_Hg_Command
     public function forFiles() {}
     public function forDir() {}
     public function from() {}
-    public function to() {}
+    public function to($directory)
+    {
+
+        return $this;
+    }
 
 
     /**

@@ -58,14 +58,14 @@ class VersionControl_Hg_Repository
      *
      * @var string
      */
-    protected $_path_to_repository = null;
+    protected $path_to_repository = null;
 
     /**
      * Holds the current state of the Hg object
      *
      * @var string
      */
-    protected $hg;
+    public $hg;
 
     /**
      * Repository constructor which currently does nothing.
@@ -90,22 +90,27 @@ class VersionControl_Hg_Repository
             $path = $path[0];
         }
 
+        //is it even a real path?
+        if ( ! realpath($path)) {
+            throw new Exception(
+                'The path: ' . $path . ' does not exist on this system'
+            );
+        }
+
         /*
          * Let's not guess that the user wants to create a repo if none exists;
          * Throw and exception and let them decide what to do next.
          * Maybe they just gave the wrong path.
          */
-        /*if ( ! $this->isRepository($path)) {
+        if ( ! $this->isRepository($path)) {
             throw new Exception(
                 'there is no Mercurial repository at: '
                 . $path
                 . '. Use $hg->create( \'/path/\' ) to create one and then use getRepository() to act upon it.' );
-        }*/
+        }
 
-        $this->_repository = $path;
-var_dump($path);
-var_dump($this);
-        return $this; //for chainable methods.
+        $this->path_to_repository = $path;
+       // return $this; //for chainable methods.
     }
 
     /**
@@ -124,7 +129,7 @@ var_dump($this);
             );
         }*/
 
-        return $this->_repository;
+        return $this->path_to_repository;
     }
 
     /**
@@ -147,7 +152,6 @@ var_dump($this);
 
         $repository = $path . DIRECTORY_SEPARATOR . self::ROOT_NAME;
 
-var_dump($repository);
         /*
          * both conditions must be satisfied.
          */
@@ -155,7 +159,7 @@ var_dump($repository);
             $is_repository = true;
         }
 
-        return true;//$is_repository
+        return $is_repository;
     }
 
 
@@ -198,10 +202,15 @@ var_dump($repository);
      * @return mixed
      */
     public function __call($method, $arguments)
-    {
+    {//@todo ensure the names of the arguments and method are the same across
+    //all __call()'s in the chain!
+
+
         include_once 'Repository/Command.php';
         $command = new VersionControl_Hg_Repository_Command($this);
+$params = $arguments[0]; //prevent too many nested arrays of args.
         $command->$method($arguments);
+        //@todo if I return the above statement, maybe I can do the fluent API!
     }
 
 }
