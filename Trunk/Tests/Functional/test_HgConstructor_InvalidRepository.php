@@ -1,7 +1,5 @@
 <?php
 
-include_once '../../VersionControl/Hg.php';
-
 /* construct with an invalid repository */
 echo "construct with an invalid repository\r\n";
 try {
