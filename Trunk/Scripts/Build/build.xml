@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="vchgbuild" default="main" basedir="../../"
+    description="Release and PEAR packaging build process for VersionControl_Hg">
+
+    <property name="docsdir" value="Documentation" />
+    <property name="sourcedir" value="${project.basedir}" override="true" />
+    <property name="codedir" value="${project.basedir}/VersionControl" />
+
+    <target name="main" description="Default target" depends=""></target>
+
+    <!-- clean -->
+     <target name="cleandocs" description="Clean build directory">
+         <!-- <delete dir="${docsdir}/Api" includeemptydirs="true" verbose="false" failonerror="false" /> -->
+     </target>
+
+     <target name="initdocs" description="Making documentation directory" depends="cleandocs">
+         <!--<mkdir dir="${docsdir}" />-->
+     </target>
+
+    <!-- build API docs in docbook -->
+    <target name="apidocs" description="Making API documentation" depends="initdocs">
+        <echo message="Cleaning out old API documentation..." />
+        <delete dir="${docsdir}/Api" includeemptydirs="true" verbose="false" failonerror="false" />
+
+        <mkdir dir="${docsdir}/API" />
+        <mkdir dir="${docsdir}/API/Docbook" />
+        <mkdir dir="${docsdir}/API/Html" />
+
+        <echo message="Making Docbook..." />
+        <!--<exec command="" dir="${codedir}" />-->
+        <exec command="phpdoc -d V:\Development\_Webroot\Trunk\VersionControl -t V:\Development\_Webroot\Trunk\Documentation\API\Docbook -o XML:DocBook/peardoc2:default" escape="false" />
+
+        <echo message="Making Html..." />
+        <exec command="phpdoc -d V:\Development\_Webroot\Trunk\VersionControl -t V:\Development\_Webroot\Trunk\Documentation\API\Html -o HTML:frames:default" escape="false" />
+    </target>
+
+    <!-- run codesniffs -->
+    <!-- build benchmarks -->
+    <!-- transform manual with TypeFreindly -->
+    <!-- run code coverage -->
+    <!-- commit new docs to Hg? -->
+    <!-- build pear package -->
+</project>

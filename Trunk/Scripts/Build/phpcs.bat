@@ -1,0 +1,1 @@
+phpcs --standard=PEAR %1 >> .\..\Documentation\%1_codesniffs.txt
