@@ -1,0 +1,125 @@
+TRACE START [2009-08-18 20:07:54]
+    0.9580     343696    +2304     -> include(V:\Development\_Webroot\Trunk\Tests\Functional\test_HgConstructor_NullParams.php) V:\Development\_Webroot\Trunk\Scripts\Benchmarks\benchmark_hg_constructor.php:11
+    0.9592     343696       +0       -> VersionControl_Hg->__construct($path = ???) V:\Development\_Webroot\Trunk\Tests\Functional\test_HgConstructor_NullParams.php:5
+    0.9593     343872     +176         -> VersionControl_Hg->setHgExecutable($hg = ???) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:98
+    0.9594     344792     +920           -> split(';', 'C:/Program Files/Java/jre6/bin/client;C:/Program Files/Java/jre6/bin;C:\\Languages\\Tcl\\bin;C:\\Languages\\Python\\;C:\\Languages\\Ruby\\bin;C:\\Languages\\Perl\\site\\bin;C:\\Languages\\Perl\\bin;C:\\Languages\\Php\\;C:\\Languages\\Php\\PEAR\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\Program Files\\Bitvise Tunnelier;C:\\Program Files\\Mercurial;C:\\Program Files\\Svn\\bin\\;C:\\Program Files\\Bazaar;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\WinSCP\\;C:\\Program Files\\WinMerge') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:223
+                                         >=> array (0 => 'C:/Program Files/Java/jre6/bin/client', 1 => 'C:/Program Files/Java/jre6/bin', 2 => 'C:\\Languages\\Tcl\\bin', 3 => 'C:\\Languages\\Python\\', 4 => 'C:\\Languages\\Ruby\\bin', 5 => 'C:\\Languages\\Perl\\site\\bin', 6 => 'C:\\Languages\\Perl\\bin', 7 => 'C:\\Languages\\Php\\', 8 => 'C:\\Languages\\Php\\PEAR\\', 9 => 'C:\\WINDOWS\\system32', 10 => 'C:\\WINDOWS', 11 => 'C:\\WINDOWS\\System32\\Wbem', 12 => 'C:\\Program Files\\Bitvise Tunnelier', 13 => 'C:\\Program Files\\Mercurial', 14 => 'C:\\Program Files\\Svn\\bin\\', 15 => 'C:\\Program Files\\Bazaar', 16 => 'C:\\Program Files\\TortoiseSVN\\bin', 17 => 'C:\\Program Files\\Git\\cmd', 18 => 'C:\\Program Files\\WinSCP\\', 19 => 'C:\\Program Files\\WinMerge')
+    0.9596     344712      -80           -> is_executable('C:/Program Files/Java/jre6/bin/client\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9610     344768      +56           -> is_executable('C:/Program Files/Java/jre6/bin\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9618     344816      +48           -> is_executable('C:\\Languages\\Tcl\\bin\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9628     344856      +40           -> is_executable('C:\\Languages\\Python\\\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9631     344896      +40           -> is_executable('C:\\Languages\\Ruby\\bin\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9644     344944      +48           -> is_executable('C:\\Languages\\Perl\\site\\bin\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9651     344992      +48           -> is_executable('C:\\Languages\\Perl\\bin\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9661     345040      +48           -> is_executable('C:\\Languages\\Php\\\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9665     345080      +40           -> is_executable('C:\\Languages\\Php\\PEAR\\\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9670     345128      +48           -> is_executable('C:\\WINDOWS\\system32\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9680     345168      +40           -> is_executable('C:\\WINDOWS\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9682     345120      -48           -> is_executable('C:\\WINDOWS\\System32\\Wbem\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9689     345168      +48           -> is_executable('C:\\Program Files\\Bitvise Tunnelier\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9700     345224      +56           -> is_executable('C:\\Program Files\\Mercurial\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> TRUE
+    0.9716     345272      +48           -> is_executable('C:\\Program Files\\Svn\\bin\\\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9726     345320      +48           -> is_executable('C:\\Program Files\\Bazaar\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9732     345368      +48           -> is_executable('C:\\Program Files\\TortoiseSVN\\bin\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9737     345424      +56           -> is_executable('C:\\Program Files\\Git\\cmd\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9742     345472      +48           -> is_executable('C:\\Program Files\\WinSCP\\\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9746     345520      +48           -> is_executable('C:\\Program Files\\WinMerge\\hg.exe') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:225
+                                         >=> FALSE
+    0.9749     345568      +48           -> count(array (0 => 'C:\\Program Files\\Mercurial\\hg.exe')) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:230
+                                         >=> 1
+    0.9749     345616      +48           -> array_shift(array (0 => 'C:\\Program Files\\Mercurial\\hg.exe')) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:237
+                                         >=> 'C:\\Program Files\\Mercurial\\hg.exe'
+                                       >=> TRUE
+    0.9750     344792     -824         -> VersionControl_Hg->setVersion() V:\Development\_Webroot\Trunk\VersionControl\Hg.php:99
+    0.9751     344880      +88           -> VersionControl_Hg_Command->__construct($hg = class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = NULL; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') }) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:135
+                                         >=> NULL
+    0.9752     344984     +104           -> VersionControl_Hg_Command->version(array ('quiet' => NULL)) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:136
+    0.9752     344984       +0             -> VersionControl_Hg_Command->__call($method = 'version', $args = array (0 => array ('quiet' => NULL))) V:\Development\_Webroot\Trunk\VersionControl\Hg\Command.php:0
+    0.9752     345712     +728               -> in_array('version', array (0 => 'version')) V:\Development\_Webroot\Trunk\VersionControl\Hg\Command.php:142
+                                             >=> TRUE
+    0.9753     345664      -48               -> get_class(class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = NULL; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') }) V:\Development\_Webroot\Trunk\VersionControl\Hg\Command.php:149
+                                             >=> 'VersionControl_Hg'
+    0.9753     345720      +56               -> ucfirst('version') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command.php:149
+                                             >=> 'Version'
+    0.9754     345672      -48               -> ucfirst('version') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command.php:151
+                                             >=> 'Version'
+    0.9882     345896     +224               -> class_exists('VersionControl_Hg_Command_Version') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command.php:153
+                                             >=> TRUE
+    0.9883     346104     +208               -> VersionControl_Hg_Command_Version->__construct($hg = class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = NULL; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') }) V:\Development\_Webroot\Trunk\VersionControl\Hg\Command.php:163
+                                             >=> NULL
+    0.9883     346208     +104               -> VersionControl_Hg_Command_Version->execute($params = array ('quiet' => NULL)) V:\Development\_Webroot\Trunk\VersionControl\Hg\Command.php:166
+    0.9884     347992    +1784                 -> VersionControl_Hg->getHgExecutable() V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:64
+                                               >=> 'C:\\Program Files\\Mercurial\\hg.exe'
+    0.9885     348040      +48                 -> rtrim(' --quiet ') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:73
+                                               >=> ' --quiet'
+    0.9885     347992      -48                 -> exec('"C:\\Program Files\\Mercurial\\hg.exe" version --quiet', NULL, NULL) V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:77
+                                               >=> 'Mercurial Distributed SCM (version 1.2.1)'
+    1.3216     348112     +120                 -> preg_match('/\\(.*\\)/', 'Mercurial Distributed SCM (version 1.2.1)', NULL) V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:88
+                                               >=> 1
+    1.3216     348144      +32                 -> strlen('(version 1.2.1)') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:94
+                                               >=> 15
+    1.3217     348096      -48                 -> substr('(version 1.2.1)', 8, 15) V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:94
+                                               >=> ' 1.2.1)'
+    1.3217     348096       +0                 -> trim(' 1.2.1)') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:94
+                                               >=> '1.2.1)'
+    1.3218     348048      -48                 -> str_replace('(', '', '1.2.1)') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:96
+                                               >=> '1.2.1)'
+    1.3218     348000      -48                 -> str_replace(')', '', '1.2.1)') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:97
+                                               >=> '1.2.1'
+    1.3219     347960      -40                 -> strstr('1.2.1', '+') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:100
+                                               >=> FALSE
+    1.3219     347944      -16                 -> explode('.', '1.2.1') V:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:116
+                                               >=> array (0 => '1', 1 => '2', 2 => '1')
+                                             >=> '1.2.1'
+                                           >=> '1.2.1'
+                                         >=> '1.2.1'
+                                       >=> NULL
+                                     >=> NULL
+    1.3221     345344    -2600       -> VersionControl_Hg->getRepository() V:\Development\_Webroot\Trunk\Tests\Functional\test_HgConstructor_NullParams.php:6
+    1.3221     345344       +0         -> VersionControl_Hg->__call($method = 'getRepository', $arguments = array ()) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:0
+    1.3391     345720     +376           -> VersionControl_Hg_Registry::getInstance() V:\Development\_Webroot\Trunk\VersionControl\Hg.php:286
+                                         >=> class VersionControl_Hg_Registry { private $_objects = array ('repository' => class VersionControl_Hg_Repository { protected $_repository = NULL; protected $path_to_repository = NULL; public $hg = class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = '1.2.1'; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') } }) }
+    1.3393     345808      +88           -> VersionControl_Hg_Repository->__construct($hg = class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = '1.2.1'; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') }) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:288
+                                         >=> NULL
+    1.3393     345896      +88           -> VersionControl_Hg_Registry->set($name = 'repository', $object = class VersionControl_Hg_Repository { protected $_repository = NULL; protected $path_to_repository = NULL; public $hg = class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = '1.2.1'; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') } }) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:288
+    1.3402     345952      +56             -> VersionControl_Hg_Registry->has($name = 'repository') V:\Development\_Webroot\Trunk\VersionControl\Hg\Registry.php:25
+    1.3402     345920      -32               -> array_key_exists('repository', array ('repository' => class VersionControl_Hg_Repository { protected $_repository = NULL; protected $path_to_repository = NULL; public $hg = class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = '1.2.1'; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') } })) V:\Development\_Webroot\Trunk\VersionControl\Hg\Registry.php:46
+                                             >=> TRUE
+                                           >=> TRUE
+                                         >=> NULL
+    1.3403     345976      +56           -> VersionControl_Hg_Registry->get($name = 'repository') V:\Development\_Webroot\Trunk\VersionControl\Hg.php:290
+    1.3404     345944      -32             -> VersionControl_Hg_Registry->has($name = 'repository') V:\Development\_Webroot\Trunk\VersionControl\Hg\Registry.php:51
+    1.3404     345912      -32               -> array_key_exists('repository', array ('repository' => class VersionControl_Hg_Repository { protected $_repository = NULL; protected $path_to_repository = NULL; public $hg = class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = '1.2.1'; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') } })) V:\Development\_Webroot\Trunk\VersionControl\Hg\Registry.php:46
+                                             >=> TRUE
+                                           >=> TRUE
+                                         >=> class VersionControl_Hg_Repository { protected $_repository = NULL; protected $path_to_repository = NULL; public $hg = class VersionControl_Hg { protected $hg = 'C:\\Program Files\\Mercurial\\hg.exe'; protected $_version = '1.2.1'; protected $messages = array ('notFound' => 'Mercurial could not be found on this system') } }
+    1.3405     346056     +144           -> VersionControl_Hg_Repository->getRepository(array ()) V:\Development\_Webroot\Trunk\VersionControl\Hg.php:295
+                                         >=> NULL
+                                       >=> NULL
+                                     >=> NULL
+    1.3406     345640     -416       -> var_dump(NULL) V:\Development\_Webroot\Trunk\Tests\Functional\test_HgConstructor_NullParams.php:6
+                                     >=> NULL
+                                   >=> 1
+    1.3419     343712    -1928     -> xdebug_stop_trace() V:\Development\_Webroot\Trunk\Scripts\Benchmarks\benchmark_hg_constructor.php:12
+    1.3419     343712
+TRACE END   [2009-08-18 20:07:55]
+
