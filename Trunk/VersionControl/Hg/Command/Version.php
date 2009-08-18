@@ -1,6 +1,6 @@
 <?php
 
-//require_once './../ICommand.php';
+require_once 'Interface.php';
 require_once 'Exception.php';
 
 /**
@@ -35,22 +35,23 @@ require_once 'Exception.php';
  * @link http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Version
-    extends VersionControl_Hg_Command //implements VersionControl_Hg_ICommand
+    extends VersionControl_Hg_Command
+    implements VersionControl_Hg_Command_Interface
 {
 
-    private $_command = 'version';
+    protected $command = 'version';
 
     protected $required_options = null;
 
     public function __construct(VersionControl_Hg $hg)
     {
-        $this->hg = $hg;
+        $this->container = $hg;
     }
 
-    public function execute(array $options)
+    public function execute($params)
     {
-        //$this->addOptions($options);
-        //$options = $this->getOptions();
+        //$this->addOptions($params);
+        //$params = $this->getOptions();
 
         //process options array; everything should be in long format.
         // the leading space in the join param: ' --' is essential.
@@ -60,24 +61,24 @@ class VersionControl_Hg_Command_Version
 
         //@todo but, will this syntax work on Unix?
         //$command_string = escapeshellcmd($this->hg->getHgExecutable()) . ' ' . $this->_command;
-        $command_string = '"'.$this->hg->getHgExecutable().'" ' . $this->_command;
+        $command_string = '"'.$this->container->getHgExecutable().'" ' . $this->command;
 
-var_dump($command_string);
+//var_dump($command_string);
 
         $modifiers = null;
-        foreach ($options as $option => $argument) {
+        foreach ($params as $option => $argument) {
             $modifiers .= ' --' . $option . ' ' . $argument;
         }
 
         $command_string .= rtrim($modifiers);
 
-var_dump($command_string);// die;
+//var_dump($command_string);// die;
 
         exec($command_string, $output, $command_status);
         //@todo remove the die()...
         ($command_status == 0) or die("returned an error: $command_string");
 
-var_dump($output);
+//var_dump($output);
 
         $ver_string = $output[0];
 
