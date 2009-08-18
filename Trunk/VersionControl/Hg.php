@@ -272,14 +272,30 @@ class VersionControl_Hg
     {
         //@todo use an autoloader!
 
+        //@todo should I abstract this all out to Hg/Proxy.php?
+
         //proxy to Hg/Command.php and see if $method belongs to it
 
         //true = execute it
 
         //false = proxy to the repository
+        include_once 'Hg/Registry.php';
         include_once 'Hg/Repository.php';
-        $repository = new VersionControl_Hg_Repository($this);
-        $repository->$method($arguments);
+
+//@todo why not put this in the constructor?
+        $registry = VersionControl_Hg_Registry::getInstance();
+        //will not overwrite the Repository object on subsequent calls.
+        $registry->set('repository', new VersionControl_Hg_Repository($this));
+//var_dump($registry);
+        $repository = $registry->get('repository');
+//var_dump($repository);
+//var_dump($method);
+//var_dump($arguments);
+
+        $results = $repository->$method($arguments);
+
+//var_dump($results);
+        return $results;
 
         //actually, if it doesn't exist, then we want it to "bubble down"
         //so Hg_Repository will proxy it to the command factory class.
