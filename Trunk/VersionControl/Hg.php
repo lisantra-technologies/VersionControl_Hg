@@ -178,7 +178,7 @@ class VersionControl_Hg
      *
      * @return string
      */
-    public function setHgExecutable($path)
+    public function setHgExecutable($path = null)
     {
         $executables = array();
         /* list the default installation paths per platform */
@@ -198,7 +198,7 @@ class VersionControl_Hg
         );
         //use PHP_OS (best), php_uname('s'), $_SERVER['OS']
 
-        if ($path === 'default') {
+        if (null === $path) {
             //proceed as below
 
         } else {
