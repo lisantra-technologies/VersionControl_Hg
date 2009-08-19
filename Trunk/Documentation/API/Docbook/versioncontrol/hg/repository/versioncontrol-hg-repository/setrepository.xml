@@ -51,7 +51,7 @@
   &title.see;
   <para>
    <emphasis>see</emphasis>
-   $_repository
+   <varname>VersionControl_Hg_Repository::$path_to_repository</varname>
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.setrepository.throws">

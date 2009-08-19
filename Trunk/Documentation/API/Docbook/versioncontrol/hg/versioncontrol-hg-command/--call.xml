@@ -3,20 +3,22 @@
   <refname>
    <function>VersionControl_Hg_Command::__call</function>
   </refname>
-  <refpurpose>__call</refpurpose>
+  <refpurpose>Executes the actual mercurial command</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg/Command.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     mixed
      <function>VersionControl_Hg_Command::__call</function>
     </funcdef>
     <paramdef>
+     string
      <parameter>$method</parameter>
     </paramdef>
     <paramdef>
+     mixed
      <parameter>$args</parameter>
     </paramdef>
    </funcprototype>
@@ -32,7 +34,7 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type />
+      &type.string;
       <parameter>$method</parameter>
      </term>
      <listitem>
@@ -43,7 +45,7 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type />
+      &type.mixed;
       <parameter>$args</parameter>
      </term>
      <listitem>

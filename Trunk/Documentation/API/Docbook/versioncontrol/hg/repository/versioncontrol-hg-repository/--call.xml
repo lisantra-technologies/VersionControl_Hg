@@ -3,23 +3,23 @@
   <refname>
    <function>VersionControl_Hg_Repository::__call</function>
   </refname>
-  <refpurpose>__call</refpurpose>
+  <refpurpose>Proxy calls to the Command class</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg/Repository.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     unknown_type
+     mixed
      <function>VersionControl_Hg_Repository::__call</function>
     </funcdef>
     <paramdef>
-     $function
-     <parameter>$function</parameter>
+     string
+     <parameter>$method</parameter>
     </paramdef>
     <paramdef>
-     $options
-     <parameter>$options</parameter>
+     array
+     <parameter>$arguments</parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
@@ -34,8 +34,8 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type>$function</type>
-      <parameter>$function</parameter>
+      &type.string;
+      <parameter>$method</parameter>
      </term>
      <listitem>
       <para />
@@ -45,8 +45,8 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type>$options</type>
-      <parameter>$options</parameter>
+      &type.array;
+      <parameter>$arguments</parameter>
      </term>
      <listitem>
       <para />

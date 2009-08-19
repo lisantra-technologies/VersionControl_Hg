@@ -25,11 +25,7 @@
   &title.see;
   <para>
    <emphasis>see</emphasis>
-   $_path
-  </para>
-  <para>
-   <emphasis>see</emphasis>
-   $_path
+   <varname>VersionControl_Hg_Repository::$path_to_repository</varname>
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.getrepository.throws">

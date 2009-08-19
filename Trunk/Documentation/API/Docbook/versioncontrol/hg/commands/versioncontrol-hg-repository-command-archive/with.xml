@@ -1,0 +1,53 @@
+<refentry id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.with">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Repository_Command_Archive::with</function>
+  </refname>
+  <refpurpose>with</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command/Archive.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Repository_Command_Archive::with</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$type</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.with.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.with.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.with.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.with.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

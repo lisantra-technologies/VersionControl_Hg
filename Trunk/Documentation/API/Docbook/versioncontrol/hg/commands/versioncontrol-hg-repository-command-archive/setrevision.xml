@@ -1,0 +1,55 @@
+<refentry id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setrevision">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Repository_Command_Archive::setRevision</function>
+  </refname>
+  <refpurpose>setRevision</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command/Archive.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Repository_Command_Archive::setRevision</function>
+    </funcdef>
+    <paramdef>
+     <parameter>
+      <optional>$revision = &apos;tip&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setrevision.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setrevision.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$revision</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setrevision.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setrevision.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

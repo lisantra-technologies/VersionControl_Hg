@@ -1,0 +1,70 @@
+<refentry id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setarchivetype">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Repository_Command_Archive::setArchiveType</function>
+  </refname>
+  <refpurpose>Mutator for the archive&apos;s format</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command/Archive.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Repository_Command_Archive::setArchiveType</function>
+    </funcdef>
+    <paramdef>
+     <parameter>
+      <optional>$type = &apos;files&apos;</optional>
+     </parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>$format</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setarchivetype.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setarchivetype.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$format</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setarchivetype.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   VersionControl_Hg_Repository_Command_Exception
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command-archive.setarchivetype.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

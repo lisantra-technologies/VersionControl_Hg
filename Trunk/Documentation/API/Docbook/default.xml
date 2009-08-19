@@ -1,5 +1,4 @@
 <chapter id="package.default">
  <title>default</title>
- &package.default.default;
-&package.default.versioncontrol-hg;
+ &package.default.versioncontrol-hg;
 </chapter>

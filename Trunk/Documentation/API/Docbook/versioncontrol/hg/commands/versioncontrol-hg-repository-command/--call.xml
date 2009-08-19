@@ -1,0 +1,69 @@
+<refentry id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command.--call">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Repository_Command::__call</function>
+  </refname>
+  <refpurpose>Executes the actual mercurial command</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Repository/Command.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>VersionControl_Hg_Repository_Command::__call</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$method</parameter>
+    </paramdef>
+    <paramdef>
+     mixed
+     <parameter>$args</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command.--call.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command.--call.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$method</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$args</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command.--call.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.commands.versioncontrol-hg-repository-command.--call.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -14,7 +14,10 @@
      void      constructor
      <function>VersionControl_Hg_Repository::__construct</function>
     </funcdef>
-    <paramdef />
+    <paramdef>
+     <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+     <parameter>$hg</parameter>
+    </paramdef>
    </funcprototype>
   </funcsynopsis>
  </refsynopsisdiv>
@@ -22,6 +25,24 @@
   &title.desc;
   &notdocumented;
 </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.--construct.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>
+       <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+      </type>
+      <parameter>$hg</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-repository.--construct.todo">
   &title.todo;
   <para>

@@ -1,4 +1,5 @@
 <chapter id="package.VersionControl">
  <title>VersionControl</title>
- &package.VersionControl.hg;
+ &package.VersionControl.default;
+&package.VersionControl.hg;
 </chapter>

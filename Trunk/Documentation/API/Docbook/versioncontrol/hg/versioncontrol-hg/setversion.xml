@@ -25,7 +25,7 @@
   &title.see;
   <para>
    <emphasis>see</emphasis>
-   $_version
+   <varname>VersionControl_Hg::$_version</varname>
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.setversion.throws">

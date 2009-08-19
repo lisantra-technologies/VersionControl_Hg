@@ -4,7 +4,7 @@
    constructor
    <function>VersionControl_Hg_Command::__construct</function>
   </refname>
-  <refpurpose>__construct</refpurpose>
+  <refpurpose>Constructor</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>

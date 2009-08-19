@@ -14,13 +14,8 @@
      <function>VersionControl_Hg::setHgExecutable</function>
     </funcdef>
     <paramdef>
-     <parameter>
-      <optional>$hg = self::DEFAULT_EXECUTABLE</optional>
-     </parameter>
-    </paramdef>
-    <paramdef>
      string
-     <parameter>$binary</parameter>
+     <parameter>$path</parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
@@ -43,19 +38,8 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type />
-      <parameter>$hg</parameter>
-     </term>
-     <listitem>
-      <para />
-     </listitem>
-    </varlistentry>
-   </variablelist>
-   <variablelist>
-    <varlistentry>
-     <term>
       &type.string;
-      <parameter>$binary</parameter>
+      <parameter>$path</parameter>
      </term>
      <listitem>
       <para>is the full path of the mercurial executable</para>

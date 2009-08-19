@@ -10,7 +10,7 @@
    <funcsynopsisinfo>require_once &apos;/Hg/Command.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     unknown_type
      <function>VersionControl_Hg_Command::prepareCommand</function>
     </funcdef>
     <paramdef />
