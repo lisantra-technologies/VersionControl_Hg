@@ -1,0 +1,6 @@
+Hg
+ [x] Constructor with null signature
+ [x] Constructor with valid repository
+ [x] Constructor with an invalid repository
+ [x] Constructor with a nonexistant path
+
