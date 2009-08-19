@@ -79,6 +79,7 @@ class VersionControl_Hg
     //protected $repository;
 
     /**
+     * Error messages for humans
      *
      * @var array
      */
@@ -173,11 +174,11 @@ class VersionControl_Hg
      * $hg->setHgExecutable('/path/to/your/mercurial/binary');
      * </code>
      *
-     * @param string $binary is the full path of the mercurial executable
+     * @param string $path is the full path of the mercurial executable
      *
      * @return string
      */
-    public function setHgExecutable($hg = self::DEFAULT_EXECUTABLE)
+    public function setHgExecutable($path)
     {
         $executables = array();
         /* list the default installation paths per platform */
@@ -197,7 +198,7 @@ class VersionControl_Hg
         );
         //use PHP_OS (best), php_uname('s'), $_SERVER['OS']
 
-        if ($hg === 'default') {
+        if ($path === 'default') {
             //proceed as below
 
         } else {

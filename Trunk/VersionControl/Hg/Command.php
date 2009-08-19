@@ -5,13 +5,13 @@
  *
  * PHP version 5
  *
- * @category VersionControl
- * @package Hg
- * @author Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
- * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version Hg: $Revision$
- * @link http://pear.php.net/package/VersionControl_Hg
+ * @category    VersionControl
+ * @package     Hg
+ * @author      Michael Gatto <mgatto@lisantra.com>
+ * @copyright   2009 Lisantra Technologies, LLC
+ * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version     Hg: $Revision$
+ * @link        http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -25,13 +25,13 @@
  *
  * PHP version 5
  *
- * @category VersionControl
- * @package Hg
- * @author Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
- * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version Hg: $Revision$
- * @link http://pear.php.net/package/VersionControl_Hg
+ * @category    VersionControl
+ * @package     Hg
+ * @author      Michael Gatto <mgatto@lisantra.com>
+ * @copyright   2009 Lisantra Technologies, LLC
+ * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version     Hg: $Revision$
+ * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command
 {
@@ -178,8 +178,8 @@ class VersionControl_Hg_Command
 
     /**
      *
-     * @param
-     * @param $fields array holds the labels of the fields
+     * @param   mixed $commandOutput
+     * @param   mixed $fields array holds the labels of the fields
      * @return
      */
     protected function parseOutput(array $fields, array $commandOutput)

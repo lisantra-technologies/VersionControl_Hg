@@ -1,38 +1,40 @@
 <?php
 
 /**
- * Contains the Repository class.
+ * Contains definition of the Repository class
  *
- * @category VersionControl
- * @package Hg
- * @subpackage Repository
- * @author Michael Gatto <mgatto@u.arizona.edu>
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
- * @link
+ * PHP version 5
+ *
+ * @category    VersionControl
+ * @package     Hg
+ * @subpackage  Repository
+ * @author      Michael Gatto <mgatto@lisantra.com>
+ * @copyright   2009 Lisantra Technologies, LLC
+ * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version     Hg: $Revision$
+ * @link 		http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
- * Represents the Repository as an entity.
+ * The Mercurial repository
  *
  * Usage:
+ * All calls are proxied from Hg
+ * <code>
+ * $hg = new VersionControl_Hg('/path/to/repo');
+ * $repository = $hg->getRepository();
+ * </code>
  *
- * $repo = new Repository();
- * $repo->load( '/path/' )
+ * PHP version 5
  *
- * As a child of Hg.php:
- * $hg = new Hg();
- * $repo = $hg->getRepository( '/path/' );
- *
- * Or:
- * $repo = hg::instance()->load('/path/');
- * $repo = hg::instance()->create('/path/');
- *
- * @category VersionControl
- * @package Hg
- * @subpackage Repository
- * @author Michael Gatto <mgatto@u.arizona.edu>
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
- * @link
+ * @category    VersionControl
+ * @package     Hg
+ * @subpackage  Repository
+ * @author      Michael Gatto <mgatto@lisantra.com>
+ * @copyright   2009 Lisantra Technologies, LLC
+ * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version     Hg: $Revision$
+ * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Repository
 {
@@ -46,7 +48,7 @@ class VersionControl_Hg_Repository
     const ROOT_NAME = '.hg';
 
     /**
-     * Holds the filesystem path of a Mercurial repository.
+     * Holds the filesystem path of a Mercurial repository
      *
      * @var string
      * @deprecated replaced by $_path_to_repository
@@ -80,9 +82,9 @@ class VersionControl_Hg_Repository
     /**
      * Sets the path of a Mercurial repository after validating it as a Hg repo.
      *
-     * @param string $path as a local filesystem path.
-     * @return mixed Repository to enable method chaining
-     * @see $_repository
+     * @param   string $path as a local filesystem path.
+     * @return  mixed Repository to enable method chaining
+     * @see     $path_to_repository
      */
     public function setRepository($path)
     {
@@ -117,9 +119,8 @@ class VersionControl_Hg_Repository
      * Returns the path of a Mercurial repository as set by the user.
      * It is validated before being set as a class member.
      *
-     * @return string
-     * @see $_path
-     * @see $_path
+     * @return  string
+     * @see     $path_to_repository
      */
     public function getRepository()
     {
@@ -135,8 +136,8 @@ class VersionControl_Hg_Repository
     /**
      * Checks if $this is in fact a valid
      *
-     * @param string $repo is the full repository path.
-     * @return boolean
+     * @param   string $repo is the full repository path.
+     * @return  boolean
      */
     public function isRepository($path)
     {
@@ -165,11 +166,12 @@ class VersionControl_Hg_Repository
 
     /**
      *
+     *
      * @return
      */
     public function create()
     {
-        $this->_command = new Hg_Repository_Command_Init();
+        $this->_command = new VersionControl_Hg_Repository_Command_Init();
         //$this->_command = new Hg_Repository_Command_Init($this);
             //pass $this as dependency injection instead of having
             //Hg_Repository_Command inherit from Hg_Repository?
@@ -196,19 +198,22 @@ class VersionControl_Hg_Repository
     }
 
     /**
+     * Proxy calls to the Command class
      *
-     * @param $method
-     * @param $arguments
-     * @return mixed
+     * @param   string $method
+     * @param   array $arguments
+     *
+     * @return  mixed
      */
     public function __call($method, $arguments)
-    {//@todo ensure the names of the arguments and method are the same across
-    //all __call()'s in the chain!
+    {
+        //@todo ensure the names of the arguments and method are the same across
+        //all __call()'s in the chain!
 
 
         include_once 'Repository/Command.php';
         $command = new VersionControl_Hg_Repository_Command($this);
-$params = $arguments[0]; //prevent too many nested arrays of args.
+        $params = $arguments[0]; //prevent too many nested arrays of args.
         $command->$method($arguments);
         //@todo if I return the above statement, maybe I can do the fluent API!
     }

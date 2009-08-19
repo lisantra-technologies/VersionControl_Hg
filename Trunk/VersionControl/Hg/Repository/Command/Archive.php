@@ -24,8 +24,13 @@ require_once 'Exception.php';
  *
  * Usage:
  * <code>
- * $repo = new VersionControl_Hg('/path/to/hg');
- * $repo->archive('tip')->to('/home/myself/releases/')->as('tgz');
+ * $hg = new VersionControl_Hg('/path/to/hg');
+ * $hg->archive('tip', '/home/myself/releases/', 'tgz');
+ * </code>
+ *
+ * Or, a forthcoming fluid api:
+ * <code>
+ * $hg->archive('tip')->to('/home/myself/releases/')->as('tgz');
  * </code>
  *
  * PHP version 5
@@ -115,7 +120,9 @@ class VersionControl_Hg_Repository_Command_Archive
     );
 
     /**
-     * @param
+     * Constructor
+     *
+     * @param   VersionControl_Hg_Repository $repository
      * @return  void
      */
     public function __construct(VersionControl_Hg_Repository $repository)
@@ -137,6 +144,10 @@ class VersionControl_Hg_Repository_Command_Archive
         //$this->execute();
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
+     */
     public function execute($params)
     {
         //$global_options = $this->getGlobalOptions(); //implemented in parent
@@ -239,7 +250,5 @@ var_dump($command_string);
     {
         return $this->revision;
     }
-
-
 
 }

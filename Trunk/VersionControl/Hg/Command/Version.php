@@ -1,53 +1,68 @@
 <?php
 
+/**
+ *
+ *
+ * PHP version 5
+ *
+ * @category    VersionControl
+ * @package     Hg
+ * @subpackage  Commands
+ * @author      Michael Gatto <mgatto@lisantra.com>
+ * @copyright   2009 Lisantra Technologies, LLC
+ * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version     Hg: $Revision$
+ * @link        http://pear.php.net/package/VersionControl_Hg
+ */
+
 require_once 'Interface.php';
 require_once 'Exception.php';
 
 /**
  *
  *
- *
  * PHP version 5
  *
- * @category VersionControl
- * @package Hg
- * @subpackage
- * @author Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
- * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version Hg: $Revision$
- * @link http://pear.php.net/package/VersionControl_Hg
- */
-
-/**
- *
- *
- *
- * PHP version 5
- *
- * @category VersionControl
- * @package Hg
- * @subpackage
- * @author Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
- * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version Hg: $Revision$
- * @link http://pear.php.net/package/VersionControl_Hg
+ * @category    VersionControl
+ * @package     Hg
+ * @subpackage  Commands
+ * @author      Michael Gatto <mgatto@lisantra.com>
+ * @copyright   2009 Lisantra Technologies, LLC
+ * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version     Hg: $Revision$
+ * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Version
     extends VersionControl_Hg_Command
     implements VersionControl_Hg_Command_Interface
 {
-
+    /**
+     *
+     * @var string
+     */
     protected $command = 'version';
 
-    protected $required_options = null;
+    /**
+     *
+     * @var mixed
+     */
+    protected $required_options = array();
 
+    /**
+     *
+     * @param   VersionControl_Hg $hg
+     *
+     * @return  void
+     */
     public function __construct(VersionControl_Hg $hg)
     {
         $this->container = $hg;
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
+     */
     public function execute($params)
     {
         //$this->addOptions($params);

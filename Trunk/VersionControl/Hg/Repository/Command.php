@@ -1,5 +1,19 @@
 <?php
 
+/**
+ *
+ * PHP version 5
+ *
+ * @category    VersionControl
+ * @package     Hg
+ * @subpackage  Commands
+ * @author      Michael Gatto <mgatto@lisantra.com>
+ * @copyright   2009 Lisantra Technologies, LLC
+ * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version Hg: $Revision$
+ * @link        http://pear.php.net/package/VersionControl_Hg
+ */
+
 require_once 'Exception.php';
 
 /**
@@ -11,8 +25,16 @@ require_once 'Exception.php';
  * -I --include    include names matching the given patterns
  * -X --exclude    exclude names matching the given patterns
  *
- * @package VersionControl_Hg
- * @subpackage Commands
+ * PHP version 5
+ *
+ * @category    VersionControl
+ * @package     Hg
+ * @subpackage  Commands
+ * @author      Michael Gatto <mgatto@lisantra.com>
+ * @copyright   2009 Lisantra Technologies, LLC
+ * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @version Hg: $Revision$
+ * @link 		http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Repository_Command extends VersionControl_Hg_Command
 {
@@ -33,6 +55,7 @@ class VersionControl_Hg_Repository_Command extends VersionControl_Hg_Command
     protected $container;
 
     /**
+     * Constructor
      *
      * @param   VersionControl_Hg_Repository $repository
      * @return  void
