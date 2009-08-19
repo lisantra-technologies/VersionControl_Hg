@@ -2,7 +2,7 @@
 <project name="vchgbuild" default="main" basedir="../../"
     description="Release and PEAR packaging build process for VersionControl_Hg">
 
-    <property name="docsdir" value="Documentation" />
+    <property name="docsdir" value="${project.basedir}/Documentation" />
     <property name="sourcedir" value="${project.basedir}" override="true" />
     <property name="codedir" value="${project.basedir}/VersionControl" />
 
@@ -38,6 +38,10 @@
     <!-- build benchmarks -->
     <!-- transform manual with TypeFreindly -->
     <!-- run code coverage -->
+    <target name="coverage" description="" depends="">
+        <exec command="phpunit --coverage-clover ${docsdir}/Testing/coverage.xml ./" />
+    </target>
+
     <!-- commit new docs to Hg? -->
     <!-- build pear package -->
 </project>
