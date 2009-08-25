@@ -130,19 +130,40 @@ class VersionControl_Hg_Repository_Command_Archive
         $this->container = $repository;
     }
 
-
+    /**
+     * (non-PHPdoc)
+     * @see VersionControl/Hg/VersionControl_Hg_Command#to($directory)
+     */
     public function to($directory)
     {
         $this->setDestination($directory);
 
+        /* for the fluent api */
         return $this;
     }
 
+    /**
+     *
+     * @param $type
+     * @return unknown_type
+     */
     public function with($type)
     {
         $this->setArchiveType($type);
-        //$this->execute();
+
+        /* for the fluent api */
+        return $this;
     }
+
+    /**
+     *
+     * @return mixed the results of execute()
+     */
+    public function run()
+    {
+        return $this->execute();
+    }
+
 
     /**
      * (non-PHPdoc)
