@@ -3,14 +3,18 @@
   <refname>
    <function>VersionControl_Hg::__call</function>
   </refname>
-  <refpurpose>Proxy down to the repository class</refpurpose>
+  <refpurpose>Proxy down to the command class</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     mixed
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
      <function>VersionControl_Hg::__call</function>
     </funcdef>
     <paramdef>
@@ -53,6 +57,13 @@
      </listitem>
     </varlistentry>
    </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   implemented commands:
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.throws">

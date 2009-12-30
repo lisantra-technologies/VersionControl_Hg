@@ -1,0 +1,53 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.addoptions">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::addOptions</function>
+  </refname>
+  <refpurpose>Add a set of options all at once</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     unknown_type
+     <function>VersionControl_Hg_Command_Abstract::addOptions</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$options</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.addoptions.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.addoptions.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$options</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.addoptions.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.addoptions.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

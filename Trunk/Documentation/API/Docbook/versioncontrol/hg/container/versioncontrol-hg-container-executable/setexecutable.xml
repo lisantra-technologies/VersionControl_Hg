@@ -1,0 +1,38 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setexecutable">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Executable::setExecutable</function>
+  </refname>
+  <refpurpose>
+   Validates the existance and viability of the Mercurial executable on  the
+   system
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Executable.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Container_Executable::setExecutable</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setexecutable.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setexecutable.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   VersionControl_Hg_Container_Exception
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setexecutable.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

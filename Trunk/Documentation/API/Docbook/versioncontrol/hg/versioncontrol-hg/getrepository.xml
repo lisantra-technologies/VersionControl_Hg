@@ -1,0 +1,39 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg.getrepository">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg::getRepository</function>
+  </refname>
+  <refpurpose>Returns the repository property</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.container.versioncontrol-hg-container-repository-summary">
+       <classname>VersionControl_Hg_Container_Repository</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg::getRepository</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.getrepository.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.getrepository.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.getrepository.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,68 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.isrepository">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Repository::isRepository</function>
+  </refname>
+  <refpurpose>Checks if $this is in fact a valid</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>VersionControl_Hg_Container_Repository::isRepository</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$path</parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>$repo</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.isrepository.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.isrepository.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$repo</parameter>
+     </term>
+     <listitem>
+      <para>is the full repository path.</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.isrepository.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.isrepository.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

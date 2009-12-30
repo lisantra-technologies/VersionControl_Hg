@@ -1,0 +1,69 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.--construct">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>VersionControl_Hg_Command_Archive::__construct</function>
+  </refname>
+  <refpurpose>Constructor</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Archive.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void      constructor
+     <function>VersionControl_Hg_Command_Archive::__construct</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$param</parameter>
+    </paramdef>
+    <paramdef>
+     VersionControl_Hg_Repository
+     <parameter>$repository</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.--construct.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.--construct.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$param</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>VersionControl_Hg_Repository</type>
+      <parameter>$repository</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.--construct.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.--construct.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

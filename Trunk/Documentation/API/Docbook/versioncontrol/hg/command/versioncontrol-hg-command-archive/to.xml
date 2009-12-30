@@ -1,0 +1,60 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Archive::to</function>
+  </refname>
+  <refpurpose>(non-PHPdoc)</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Archive.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Archive::to</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$directory</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$directory</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+   to($directory)
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

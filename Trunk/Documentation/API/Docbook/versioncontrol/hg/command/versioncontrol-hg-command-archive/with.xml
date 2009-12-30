@@ -1,0 +1,58 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.with">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Archive::with</function>
+  </refname>
+  <refpurpose>Sets type of archive format.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Archive.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-archive-summary">
+       <classname>VersionControl_Hg_Command_Archive</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Archive::with</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$type</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.with.desc">
+  &title.desc;
+  <para>Valid values are &apos;files&apos;, &apos;tar&apos;, &apos;bzip2&apos;, &apos;gzip&apos;, &apos;zip&apos;</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.with.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para>is the archive type</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.with.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.with.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

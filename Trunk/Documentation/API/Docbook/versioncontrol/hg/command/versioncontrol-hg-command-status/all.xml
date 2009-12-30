@@ -1,0 +1,46 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.all">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Status::all</function>
+  </refname>
+  <refpurpose>Sets the &apos;all&apos; option.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Command_Status::all</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.all.desc">
+  &title.desc;
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->status()->all()->run();]]>
+   </programlisting>
+  </para>
+  <para>
+   Part of the fluent API. An alias of this style:
+   <programlisting role="php">
+<![CDATA[$hg->status('all')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.all.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.all.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,74 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.parseoutput">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
+  </refname>
+  <refpurpose>parseOutput</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$fields</parameter>
+    </paramdef>
+    <paramdef>
+     <parameter>$commandOutput</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.parseoutput.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.parseoutput.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$fields</parameter>
+     </term>
+     <listitem>
+      <para>array holds the labels of the fields</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$commandOutput</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.parseoutput.todo">
+  &title.todo;
+  <para>
+   <emphasis>todo</emphasis>
+   refactor into Hg/Command/Result/Parser.php
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.parseoutput.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.parseoutput.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

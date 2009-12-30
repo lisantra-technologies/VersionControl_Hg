@@ -1,0 +1,46 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.getarchivetype">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Archive::getArchiveType</function>
+  </refname>
+  <refpurpose>Accessor for the archive&apos;s format</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Archive.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Command_Archive::getArchiveType</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.getarchivetype.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.getarchivetype.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+   $_archive_format
+  </para>
+  <para>
+   <emphasis>see</emphasis>
+   $_valid_archive_formats
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.getarchivetype.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.getarchivetype.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

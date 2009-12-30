@@ -14,7 +14,7 @@
      <function>VersionControl_Hg_Command_Interface::execute</function>
     </funcdef>
     <paramdef>
-     <parameter>$params</parameter>
+     <parameter>$options</parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
@@ -30,7 +30,7 @@
     <varlistentry>
      <term>
       <type />
-      <parameter>$params</parameter>
+      <parameter>$options</parameter>
      </term>
      <listitem>
       <para />

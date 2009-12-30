@@ -17,7 +17,7 @@
     <paramdef>
      string
      <parameter>
-      <optional>$path = &null;</optional>
+      <optional>$repository = &null;</optional>
      </parameter>
     </paramdef>
    </funcprototype>
@@ -34,7 +34,7 @@
     <varlistentry>
      <term>
       &type.string;
-      <parameter>$path</parameter>
+      <parameter>$repository</parameter>
      </term>
      <listitem>
       <para>is the path to a mercurial repo (optional)</para>

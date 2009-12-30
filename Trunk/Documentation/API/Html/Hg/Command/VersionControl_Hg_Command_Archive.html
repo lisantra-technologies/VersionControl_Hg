@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class VersionControl_Hg_Command_Archive</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class VersionControl_Hg_Command_Archive</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../../Hg/Interfaces/VersionControl_Hg_Command_Interface.html">VersionControl_Hg_Command_Interface</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Exports repository to a (optionally compressed) archive file.</p>
+<p class="description"><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">archive</span><span class="src-sym">(</span><span class="src-str">'tip'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Archive.html#methodto">to</a><span class="src-sym">(</span><span class="src-str">'/home/myself/releases/'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Archive.html#methodwith">with</a><span class="src-sym">(</span><span class="src-str">'tgz'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>PHP version 5</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
+				<li><span class="field">version:</span> Hg: $Revision$</li>
+				<li><span class="field">copyright:</span> 2009 Lisantra Technologies, LLC</li>
+				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
+				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Hg---Command---Archive.php.html">/Hg/Command/Archive.php</a> (line <span class="field">44</span>)
+		</p>
+		
+				
+		<pre><a href="../../Hg/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a>
+   |
+   --VersionControl_Hg_Command_Archive</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#ERROR_UNSUPPORTED_ARCHIVE_TYPE" title="details" class="const-name">ERROR_UNSUPPORTED_ARCHIVE_TYPE</a> = 					<span class="var-type"> 'unsupportedArchiveType'</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$allowed_options" title="details" class="var-name">$allowed_options</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$archive_type" title="details" class="var-name">$archive_type</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">Hg_Repository</span>
+					<a href="#$container" title="details" class="var-name">$container</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$destination" title="details" class="var-name">$destination</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$operates_on" title="details" class="var-name">$operates_on</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$required_options" title="details" class="var-name">$required_options</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$revision" title="details" class="var-name">$revision</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$_messages" title="details" class="var-name">$_messages</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$param</span>, <span class="var-type">VersionControl_Hg_Repository</span>&nbsp;<span class="var-name">$repository</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#execute" title="details" class="method-name">execute</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getArchiveType" title="details" class="method-name">getArchiveType</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getDestination" title="details" class="method-name">getDestination</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getRevision" title="details" class="method-name">getRevision</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setArchiveType" title="details" class="method-name">setArchiveType</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">'files'</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$format</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setDestination" title="details" class="method-name">setDestination</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setRevision" title="details" class="method-name">setRevision</a>
+											([<span class="var-type">$revision</span>&nbsp;<span class="var-name">$revision</span> = <span class="var-default">'tip'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#to" title="details" class="method-name">to</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$directory</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Archive.html">VersionControl_Hg_Command_Archive</a></span>
+										<a href="#with" title="details" class="method-name">with</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$allowed_options" id="$allowed_options"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$allowed_options</span>
+			 = <span class="var-default">array(<br />        'rev', 'prefix', 'excluding', 'including', 'verbose', 'quiet'<br />    )</span>			(line <span class="line-number">93</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Possible options this command may have</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#var$allowed_options">VersionControl_Hg_Command_Abstract::$allowed_options</a></dt>
+						<dd>Possible options this command may have</dd>
+					</dl>
+		
+		
+
+</div>
+<a name="var$archive_type" id="$archive_type"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$archive_type</span>
+						(line <span class="line-number">86</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default archive type is 'files'.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$container" id="$container"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">Hg_Repository</span>
+			<span class="var-name">$container</span>
+						(line <span class="line-number">65</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This command operates on a repository object.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#var$container">VersionControl_Hg_Command_Abstract::$container</a></dt>
+						<dd>Object representing the container the command operated upon</dd>
+					</dl>
+		
+		
+
+</div>
+<a name="var$destination" id="$destination"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$destination</span>
+						(line <span class="line-number">79</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Where the archive should be saved to</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$operates_on" id="$operates_on"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$operates_on</span>
+						(line <span class="line-number">72</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Let's the Proxy know which container to instantiate</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#var$operates_on">VersionControl_Hg_Command_Abstract::$operates_on</a></dt>
+						<dd>The type of object the command operates on: 'hg', 'repository'  or 'working_copy'</dd>
+					</dl>
+		
+		
+
+</div>
+<a name="var$required_options" id="$required_options"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$required_options</span>
+			 = <span class="var-default">array(<br />        'destination', 'type'<br />    )</span>			(line <span class="line-number">106</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Required options this command needs</p>
+<p class="description"><p>--type defaults to 'files';  --rev defaults to tip;  --prefix defaults to ;</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#var$required_options">VersionControl_Hg_Command_Abstract::$required_options</a></dt>
+						<dd>Required options this command needs</dd>
+					</dl>
+		
+		
+
+</div>
+<a name="var$revision" id="$revision"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$revision</span>
+						(line <span class="line-number">58</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Which revision to use in this command</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$_messages" id="$_messages"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$_messages</span>
+			 = <span class="var-default">array(<br />        'unsupportedArchiveType' =&gt; 'That type of archive is not supported'<br />    )</span>			(line <span class="line-number">110</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#var$global_options">VersionControl_Hg_Command_Abstract::$global_options</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#var$options">VersionControl_Hg_Command_Abstract::$options</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#var$output">VersionControl_Hg_Command_Abstract::$output</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#var$status">VersionControl_Hg_Command_Abstract::$status</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">136</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$param</span>, <span class="var-type">VersionControl_Hg_Repository</span>&nbsp;<span class="var-name">$repository</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">VersionControl_Hg_Repository</span>
+				<span class="var-name">$repository</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$param</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#method__construct">VersionControl_Hg_Command_Abstract::__construct()</a></dt>
+						<dd>Class constructors must be redefined in each Command parent class,  since it must have its dependencies for $container passed in.</dd>
+					</dl>
+			
+	</div>
+<a name="methodexecute" id="execute"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">execute</span> (line <span class="line-number">173</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> execute($params)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			execute
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Hg/Interfaces/VersionControl_Hg_Command_Interface.html#methodexecute">VersionControl_Hg_Command_Interface::execute()</a></dt>
+					</dl>
+			
+	</div>
+<a name="methodgetArchiveType" id="getArchiveType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getArchiveType</span> (line <span class="line-number">249</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Accessor for the archive's format</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> $_archive_format</li>
+				<li><span class="field">see:</span> $_valid_archive_formats</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getArchiveType
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetDestination" id="getDestination"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDestination</span> (line <span class="line-number">277</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the directory path to which the archive will be saved</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getDestination
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetRevision" id="getRevision"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRevision</span> (line <span class="line-number">301</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the change set revision to archive</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRevision
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetArchiveType" id="setArchiveType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setArchiveType</span> (line <span class="line-number">231</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Mutator for the archive's format</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> VersionControl_Hg_Repository_Command_Exception</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setArchiveType
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">'files'</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$format</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$type</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetDestination" id="setDestination"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setDestination</span> (line <span class="line-number">261</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the directory path to which the archive will be saved</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setDestination
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$directory</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$directory</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetRevision" id="setRevision"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setRevision</span> (line <span class="line-number">291</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the change set revision to archive</p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> move this function to VersionControl_Hg_Command_Archive</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRevision
+		</span>
+					([<span class="var-type">$revision</span>&nbsp;<span class="var-name">$revision</span> = <span class="var-default">'tip'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$revision</span>
+				<span class="var-name">$revision</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodto" id="to"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">to</span> (line <span class="line-number">145</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">(non-PHPdoc)</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> to($directory)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			to
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$directory</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$directory</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodwith" id="with"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">with</span> (line <span class="line-number">161</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets type of archive format.</p>
+<p class="description"><p>Valid values are 'files', 'tar', 'bzip2', 'gzip', 'zip'</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Archive.html">VersionControl_Hg_Command_Archive</a></span>
+		<span class="method-name">
+			with
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: is the archive type</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#method__construct">VersionControl_Hg_Command_Abstract::__construct()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodaddOption">VersionControl_Hg_Command_Abstract::addOption()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodaddOptions">VersionControl_Hg_Command_Abstract::addOptions()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodchangeset">VersionControl_Hg_Command_Abstract::changeset()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodexcluding">VersionControl_Hg_Command_Abstract::excluding()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodgetContainer">VersionControl_Hg_Command_Abstract::getContainer()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodgetOptions">VersionControl_Hg_Command_Abstract::getOptions()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodincluding">VersionControl_Hg_Command_Abstract::including()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodparseOutput">VersionControl_Hg_Command_Abstract::parseOutput()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodsetContainer">VersionControl_Hg_Command_Abstract::setContainer()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#methodunsetOption">VersionControl_Hg_Command_Abstract::unsetOption()</a></span><br>
+													<span class="method-name"><a href="../../Hg/VersionControl_Hg_Command_Abstract.html#method__call">VersionControl_Hg_Command_Abstract::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constERROR_UNSUPPORTED_ARCHIVE_TYPE" id="ERROR_UNSUPPORTED_ARCHIVE_TYPE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ERROR_UNSUPPORTED_ARCHIVE_TYPE</span>
+			 = <span class="const-default"> 'unsupportedArchiveType'</span>
+			(line <span class="line-number">51</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">For when the desired archive format is not one of the supported formats</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 29 Dec 2009 21:54:52 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

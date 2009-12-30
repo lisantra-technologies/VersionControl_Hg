@@ -1,0 +1,42 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setversion">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Executable::setVersion</function>
+  </refname>
+  <refpurpose>Returns the version of the Mercurial executable.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Executable.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>VersionControl_Hg_Container_Executable::setVersion</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setversion.desc">
+  &title.desc;
+  <para>Implements the version command of the command-line client.  Possible values are:  (version 1.1), (version 1.1+20081220), (version 1.1+e54ac289bed), (unknown)</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setversion.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+   <varname>VersionControl_Hg_Container_Executable::$_version</varname>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setversion.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-executable.setversion.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

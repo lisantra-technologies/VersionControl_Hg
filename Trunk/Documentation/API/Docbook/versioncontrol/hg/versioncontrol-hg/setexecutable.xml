@@ -1,0 +1,65 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg.setexecutable">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg::setExecutable</function>
+  </refname>
+  <refpurpose>Set the Hg executable&apos;s path manually</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg::setExecutable</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$path = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.setexecutable.desc">
+  &title.desc;
+  <para>If you need to specifiy a particular Hg executable to use, then pass in  the full path to Mercurial as a paramter of this function.</para>
+  <para>It could have been passed into VersionControl_Hg&apos;s constructor, but I  feel it is uncommon enough to pass in a custom Hg path that it could  be relegated to a separate function call.</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[ $hg = new VersionControl_Hg('/path/to/local/repository');
+ //The executable was already automatically found, let's manually reset
+ $hg->setExecutable('/path/to/your/mercurial/binary/hg.exe');]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.setexecutable.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>is the full path of the mercurial executable</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.setexecutable.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.setexecutable.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

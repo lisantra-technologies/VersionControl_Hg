@@ -1,0 +1,75 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-commandproxy.--call">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_CommandProxy::__call</function>
+  </refname>
+  <refpurpose>Proxies to the actual implementations of the commands</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/CommandProxy.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.interfaces.versioncontrol-hg-command-interface-summary">
+       <classname>VersionControl_Hg_Command_Interface</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_CommandProxy::__call</function>
+    </funcdef>
+    <paramdef>
+     $method
+     <parameter>$method</parameter>
+    </paramdef>
+    <paramdef>
+     $arguments
+     <parameter>
+      <optional>$arguments = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-commandproxy.--call.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-commandproxy.--call.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$method</type>
+      <parameter>$method</parameter>
+     </term>
+     <listitem>
+      <para>string</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$arguments</type>
+      <parameter>$arguments</parameter>
+     </term>
+     <listitem>
+      <para>array</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-commandproxy.--call.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   VersionControl_Hg_Exception
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-commandproxy.--call.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

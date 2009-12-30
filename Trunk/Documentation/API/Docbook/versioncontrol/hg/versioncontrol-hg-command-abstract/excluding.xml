@@ -1,0 +1,62 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.excluding">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::excluding</function>
+  </refname>
+  <refpurpose>Exclude files and / or directories from consideration.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     Command
+     <function>VersionControl_Hg_Command_Abstract::excluding</function>
+    </funcdef>
+    <paramdef>
+     $filter
+     <parameter>$filter</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.excluding.desc">
+  &title.desc;
+  <para>This option is available for commands which operate on both working  copies and repositories, thus its abstraction.</para>
+  <para>Mercurial expects the pattern to start with &apos;glob: &apos; or &apos;re: &apos;.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.excluding.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>$filter</type>
+      <parameter>$filter</parameter>
+     </term>
+     <listitem>
+      <para>string</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.excluding.todo">
+  &title.todo;
+  <para>
+   <emphasis>todo</emphasis>
+   refactor out to Hg/Command/Filter/Excluding.php
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.excluding.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-command-abstract.excluding.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>
