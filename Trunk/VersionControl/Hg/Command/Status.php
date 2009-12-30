@@ -94,7 +94,7 @@ class VersionControl_Hg_Command_Status
     /**
      * Constructor
      *
-     * @param   VersionControl_Hg $hg
+     * @param array $param
      * @return  void
      */
     public function __construct($param = null) {
@@ -103,19 +103,28 @@ class VersionControl_Hg_Command_Status
     	   $this->global_options,
     	   $this->required_options
     	);
-
     	/*
     	 * $param[0] causes a Php Notice when its an empty array without this
     	 * topmost check
     	 */
     	if ( (! is_null($param) ) && ( count($param) > 0 ) ) {
-	    	if (  is_array($param[0]) ) {
+	    	if ( is_array($param[0]) ) {
+	    		$keys = array_keys($param[0]);
+	    		if ( is_numeric($keys[0]) ) {
+	    			//reassign params so the values become string keys
+                    $param[0] = array_flip($param[0]);//replace the numeric values with nulls for options
+                    foreach ( $param[0] as $key => $value ) {
+                        $param[0][$key] = null;
+                    }
+	    		}
 	            $this->addOptions($param[0]);
-	        } elseif ( is_string($param[0]) ) {
+	        }
+	        elseif ( is_string($param[0]) ) {
 	        	//addOption() checks for validity
 	            $this->addOption($param[0], null);
 	        }
         }
+var_dump($param);
     }
 
     /**
@@ -166,6 +175,7 @@ class VersionControl_Hg_Command_Status
         foreach ( $output as $line ) {
         	array_push($status, preg_split('/\s/', $line));
         }
+        array_push($status, $command_string);
 
         $this->status = $command_status;
         $this->output = $output;
