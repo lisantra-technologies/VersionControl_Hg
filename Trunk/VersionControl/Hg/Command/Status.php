@@ -10,12 +10,23 @@
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
+ * @version     SVN:
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 
+/**
+ * Provides the required interface for all commands
+ */
 require_once 'Interface.php';
+
+/**
+ * Provides base functionality common to all commands
+ */
 require_once 'Abstract.php';
+
+/**
+ * Provides Exceptions for commands (VersionControl_Hg_Command_Exception)
+ */
 require_once 'Exception.php';
 
 /**
@@ -38,7 +49,7 @@ require_once 'Exception.php';
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
+ * @version     Release: 0.3.0
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Status
@@ -53,14 +64,6 @@ class VersionControl_Hg_Command_Status
     protected $command = 'status';
 
     /**
-     * The object which Mercurial acts upon. In this case, the command acts
-     * upon a repository.
-     *
-     * @var string
-     */
-    public $operates_on = 'repository';
-
-    /**
      * Required options for this specific command. These may not be required
      * by Mercurial itself, but are required for the proper functioning of
      * this package.
@@ -73,7 +76,6 @@ class VersionControl_Hg_Command_Status
     );
 
     protected $allowed_options = array(
-            //set the repository key with the repository container object
         'all' => null,
         'modified' => null,
         'added' => null,
@@ -85,19 +87,14 @@ class VersionControl_Hg_Command_Status
     );
 
     /**
-     * Number of output columns from the Hg CLI
-     *
-     * @var integer
-     */
-    protected $output_columns = 1;
-
-    /**
      * Constructor
      *
-     * @param array $param
-     * @return  void
+     * @param array $param is one or more parameters to modify the command
+     *
+     * @return void
      */
-    public function __construct($param = null) {
+    public function __construct($param = null)
+    {
     	$this->allowed_options = array_merge(
     	   $this->allowed_options,
     	   $this->global_options,
@@ -124,7 +121,6 @@ class VersionControl_Hg_Command_Status
 	            $this->addOption($param[0], null);
 	        }
         }
-var_dump($param);
     }
 
     /**
@@ -184,13 +180,15 @@ var_dump($param);
     }
 
     /**
-     * Sets the 'all' option.
+     * Sets the 'all' option as part of the fluent API
      *
      * Usage:
      * <code>$hg->status()->all()->run();</code>
      *
-     * Part of the fluent API. An alias of this style:
+     * An alternative to this style:
      * <code>$hg->status('all')->run();</code>
+     *
+     * @param null
      *
      * @return null
      */
@@ -200,36 +198,133 @@ var_dump($param);
         return $this; //for the fluent API
     }
 
+    /**
+     * Sets the 'modified' option as part of the fluent API
+     *
+     * Usage:
+     * <code>$hg->status()->all()->modified();</code>
+     *
+     * An alternative to this style:
+     * <code>$hg->status('modified')->run();</code>
+     *
+     * @param null
+     *
+     * @return null
+     */
     public function modified()
     {
         $this->addOption('modified', null);
         return $this; //for the fluent API
     }
+
+    /**
+     * Sets the 'all' option as part of the fluent API
+     *
+     * Usage:
+     * <code>$hg->status()->all()->run();</code>
+     *
+     * An alternative to this style:
+     * <code>$hg->status('all')->run();</code>
+     *
+     * @param null
+     *
+     * @return null
+     */
     public function added()
     {
         $this->addOption('added', null);
         return $this; //for the fluent API
     }
+
+    /**
+     * Sets the 'all' option as part of the fluent API
+     *
+     * Usage:
+     * <code>$hg->status()->all()->run();</code>
+     *
+     * An alternative to this style:
+     * <code>$hg->status('all')->run();</code>
+     *
+     * @param null
+     *
+     * @return null
+     */
     public function removed()
     {
         $this->addOption('removed', null);
         return $this; //for the fluent API
     }
+
+    /**
+     * Sets the 'all' option as part of the fluent API
+     *
+     * Usage:
+     * <code>$hg->status()->all()->run();</code>
+     *
+     * An alternative to this style:
+     * <code>$hg->status('all')->run();</code>
+     *
+     * @param null
+     *
+     * @return null
+     */
     public function deleted()
     {
         $this->addOption('deleted', null);
         return $this; //for the fluent API
     }
+
+    /**
+     * Sets the 'all' option as part of the fluent API
+     *
+     * Usage:
+     * <code>$hg->status()->all()->run();</code>
+     *
+     * An alternative to this style:
+     * <code>$hg->status('all')->run();</code>
+     *
+     * @param null
+     *
+     * @return null
+     */
     public function clean()
     {
         $this->addOption('clean', null);
         return $this; //for the fluent API
     }
+
+    /**
+     * Sets the 'all' option as part of the fluent API
+     *
+     * Usage:
+     * <code>$hg->status()->all()->run();</code>
+     *
+     * An alternative to this style:
+     * <code>$hg->status('all')->run();</code>
+     *
+     * @param null
+     *
+     * @return null
+     */
     public function unknown()
     {
         $this->addOption('unknown', null);
         return $this; //for the fluent API
     }
+
+    /**
+     * Sets the 'all' option as part of the fluent API
+     *
+     * Usage:
+     * <code>$hg->status()->all()->run();</code>
+     *
+     * An alternative to this style:
+     * <code>$hg->status('all')->run();</code>
+     *
+     * @param null
+     *
+     * @return null
+     */
     public function ignored()
     {
         $this->addOption('ignored', null);
@@ -245,5 +340,4 @@ var_dump($param);
     {
     	var_dump($this->output);
     }
-
 }

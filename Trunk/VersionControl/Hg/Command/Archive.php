@@ -58,20 +58,6 @@ class VersionControl_Hg_Command_Archive
     protected $revision;
 
     /**
-     * This command operates on a repository object.
-     *
-     * @var Hg_Repository
-     */
-    protected $container;
-
-    /**
-     * Let's the Proxy know which container to instantiate
-     *
-     * @var string
-     */
-    public $operates_on;
-
-    /**
      * Where the archive should be saved to
      *
      * @var string
