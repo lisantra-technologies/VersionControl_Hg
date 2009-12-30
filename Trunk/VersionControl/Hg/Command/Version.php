@@ -6,7 +6,7 @@
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage  Commands
+ * @subpackage  Command
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License

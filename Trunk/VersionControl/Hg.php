@@ -19,7 +19,7 @@ require_once 'Hg/Container/Repository.php';
 require_once 'Hg/CommandProxy.php';
 
 /**
- * Assumes to be working on a local filesystem repository
+ * Base class to begin the fluent API
  *
  * PHP version 5
  *
@@ -33,12 +33,14 @@ require_once 'Hg/CommandProxy.php';
  *
  * Usage:
  * <code>
- * $hg = new VersionControl_Hg();
+ * $hg = new VersionControl_Hg('/path/to/repository');
  * </code>
  *
- * Or, provide a location of a repository:
+ * Or, provide a location of a repository after instantiation:
+ *
  * <code>
- * $hg = new VersionControl_Hg('/path/to/repository');
+ * $hg = new VersionControl_Hg();
+ * $hg->setRepository('/path/to/repository');
  * </code>
  */
 class VersionControl_Hg
@@ -60,6 +62,8 @@ class VersionControl_Hg
     /**
      * Constructor
      *
+     * Assumes to be working on a local filesystem repository
+     *
      * @param string $repository is the path to a mercurial repo (optional)
      *
      * @return void
@@ -80,7 +84,7 @@ class VersionControl_Hg
      * @param string $repository is the path to a valid Mercurial repository
      *
      * @return void
-     * @see this::_repository
+     * @see $_repository
      */
     public function setRepository($repository)
     {

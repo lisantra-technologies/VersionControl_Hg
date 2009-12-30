@@ -7,7 +7,7 @@
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage  Commands
+ * @subpackage  Command
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -34,15 +34,15 @@ require_once 'Exception.php';
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage  Commands
+ * @subpackage  Command
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Repository_Command_Archive
-    extends VersionControl_Hg_Command
+class VersionControl_Hg_Command_Archive
+    extends VersionControl_Hg_Command_Abstract
     implements VersionControl_Hg_Command_Interface
 {
     /**
@@ -133,7 +133,8 @@ class VersionControl_Hg_Repository_Command_Archive
      * @param   VersionControl_Hg_Repository $repository
      * @return  void
      */
-    public function __construct($param) {
+    public function __construct($param)
+    {
         $this->setRevision($param);
     }
 
@@ -250,6 +251,13 @@ var_dump($command_string);
         return $this->type;
     }
 
+    /**
+     * Sets the directory path to which the archive will be saved
+     *
+     * @param string $directory
+     *
+     * @return void
+     */
     public function setDestination($directory)
     {
         if ( empty($directory) ) {
@@ -261,33 +269,37 @@ var_dump($command_string);
         $this->destination = $directory;
     }
 
+    /**
+     * Gets the directory path to which the archive will be saved
+     *
+     * @return string
+     */
     public function getDestination()
     {
         return $this->destination;
     }
 
     /**
-     *
-     * @todo move this function to VersionControl_Hg_Repository_Command
+     * Sets the change set revision to archive
      *
      * @param $revision
-     * @return unknown_type
+     *
+     * @return void
+     *
+     * @todo move this function to VersionControl_Hg_Command_Archive
      */
     public function setRevision($revision = 'tip')
     {
         $this->revision = $revision;
     }
 
+    /**
+     * Gets the change set revision to archive
+     *
+     * @return string
+     */
     public function getRevision()
     {
         return $this->revision;
-    }
-
-    public function setRepository(Hg_Repository $repository) {
-        $this->repository = $repository;
-    }
-
-    public function getRepository() {
-        return $this->repository;
     }
 }

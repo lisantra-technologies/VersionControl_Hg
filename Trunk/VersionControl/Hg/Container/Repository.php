@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contains definition of the Repository class
  *
@@ -7,7 +6,7 @@
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage  Repository
+ * @subpackage  Container
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -29,7 +28,7 @@
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage  Repository
+ * @subpackage  Container
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
