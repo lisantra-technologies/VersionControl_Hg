@@ -104,11 +104,17 @@ class VersionControl_Hg_Command_Status
     	   $this->required_options
     	);
 
-    	if ( is_array($param[0]) ) {
-            $this->addOptions($param[0]);
-        } elseif ( is_string($param[0]) ) {
-        	//addOption() checks for validity
-            $this->addOption($param[0], null);
+    	/*
+    	 * $param[0] causes a Php Notice when its an empty array without this
+    	 * topmost check
+    	 */
+    	if ( (! is_null($param) ) && ( count($param) > 0 ) ) {
+	    	if (  is_array($param[0]) ) {
+	            $this->addOptions($param[0]);
+	        } elseif ( is_string($param[0]) ) {
+	        	//addOption() checks for validity
+	            $this->addOption($param[0], null);
+	        }
         }
     }
 
@@ -178,8 +184,46 @@ class VersionControl_Hg_Command_Status
      *
      * @return null
      */
-    public function all() {
-        $this->addOption('all', true);
+    public function all()
+    {
+        $this->addOption('all', null);
+        return $this; //for the fluent API
+    }
+
+    public function modified()
+    {
+        $this->addOption('modified', null);
+        return $this; //for the fluent API
+    }
+    public function added()
+    {
+        $this->addOption('added', null);
+        return $this; //for the fluent API
+    }
+    public function removed()
+    {
+        $this->addOption('removed', null);
+        return $this; //for the fluent API
+    }
+    public function deleted()
+    {
+        $this->addOption('deleted', null);
+        return $this; //for the fluent API
+    }
+    public function clean()
+    {
+        $this->addOption('clean', null);
+        return $this; //for the fluent API
+    }
+    public function unknown()
+    {
+        $this->addOption('unknown', null);
+        return $this; //for the fluent API
+    }
+    public function ignored()
+    {
+        $this->addOption('ignored', null);
+        return $this; //for the fluent API
     }
 
     /**
@@ -187,7 +231,8 @@ class VersionControl_Hg_Command_Status
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
     	var_dump($this->output);
     }
 
