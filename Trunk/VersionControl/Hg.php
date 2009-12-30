@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contains the class which interacts with the system's `hg` program.
  *
@@ -10,12 +9,14 @@
  * @author    Michael Gatto <mgatto@lisantra.com>
  * @copyright 2009 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version   Hg: $Revision$
+ * @version   SVN: 0.3
  * @link      http://pear.php.net/package/VersionControl_Hg
  */
 
 require_once 'Hg/Exception.php';
-require_once 'Hg/Command.php';
+require_once 'Hg/Container/Executable.php';
+require_once 'Hg/Container/Repository.php';
+require_once 'Hg/CommandProxy.php';
 
 /**
  * Assumes to be working on a local filesystem repository
@@ -27,7 +28,7 @@ require_once 'Hg/Command.php';
  * @author    Michael Gatto <mgatto@lisantra.com>
  * @copyright 2009 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version   Hg: $Revision$
+ * @version   Release:
  * @link      http://pear.php.net/package/VersionControl_Hg
  *
  * Usage:
@@ -43,119 +44,63 @@ require_once 'Hg/Command.php';
 class VersionControl_Hg
 {
     /**
-     * Use the executable found in the default installation location
-     */
-    const DEFAULT_EXECUTABLE = "default";
-
-    /**
-     * Use the executable specified by the user
-     */
-    const CUSTOM_EXECUTABLE = "custom";
-
-    /**
-     * error constant for when the mercurial executable cannot be found
-     */
-    const ERROR_HG_NOT_FOUND = 'notFound';
-
-    /**
-     * The Mercurial binary being used
+     * The executable this package will use
      *
-     * There may well be multiple versions in use; lets track which one
-     * I am using so the user knows which one is being used.
-     *
-     * It is labeled as $hg because this is the symbology adopted by the
-     * Mercurial project, since HG is the chemical symbol of the element:
-     * Mercury.
+     * @var VersionControl_Hg_Container_Executable
      */
-    protected $hg = null;
+    protected $_executable;
 
     /**
-     * The version of the Mercurial executable.
+     * The repository Hg will act upon
      *
-     * @var float
+     * @var VersionControl_Hg_Container_Repository
      */
-    protected $_version = null;
-
-    //protected $repository;
-
-    /**
-     * Error messages for humans
-     *
-     * @var array
-     */
-    protected $messages = array(
-        'notFound' => 'Mercurial could not be found on this system',
-    );
+    protected $_repository;
 
     /**
      * Constructor
      *
-     * @param string $path is the path to a mercurial repo (optional)
+     * @param string $repository is the path to a mercurial repo (optional)
      *
      * @return void
      */
-    public function __construct($path = null)
+    public function __construct($repository = null)
     {
-        $this->setHgExecutable();
-        $this->setVersion();
-        //we also let users call setRepository($path) if they want
-        if ($path !== null) {
-            $this->setRepository($path);
+        $this->setExecutable();
+
+        if ($repository !== null) {
+            $this->setRepository($repository);
         }
 
     }
 
-    //@todo this *really* should be proxied with __call instead of implementing
-    //even a call to the command in this class...
     /**
-     * Proxy to setVersion; distinguish between accessor getVersion()
-     * and command 'version'
+     * Sets the repository property
      *
-     * @param array $options are the runtime switches for this command
+     * @param string $repository is the path to a valid Mercurial repository
      *
-     * @return string
+     * @return void
+     * @see this::_repository
      */
-    public function version(array $options)
+    public function setRepository($repository)
     {
-        $command = new VersionControl_Hg_Command($this);
-        return $command->version($options);
+        $this->_repository = new VersionControl_Hg_Container_Repository($repository);
     }
 
     /**
-     * Returns the version of the Mercurial executable.
+     * Returns the repository property
      *
-     * Implements the version command of the command-line client.
-     * Possible values are:
-     * (version 1.1), (version 1.1+20081220), (version 1.1+e54ac289bed), (unknown)
-     *
-     * @return array
-     * @see $_version
+     * @return VersionControl_Hg_Container_Repository
      */
-    public function setVersion()
+    public function getRepository()
     {
-        $command = new VersionControl_Hg_Command($this);
-        $this->_version = $command->version(array('quiet' => null));
-    }
-
-    /**
-     * Get the version of Mercurial we are currently using
-     *
-     * @return string
-     */
-    public function getVersion()
-    {
-        /*
-         * I don't want programmers to have to test for null,
-         * especially when this is auto-set in the constructor
-         */
-        if ( $this->_version === null ) {
-            //@todo replace with a constant and a $message entry
+        if ( $this->_repository instanceof VersionControl_Hg_Container_Repository) {
+            return $this->_repository;
+        } else {
             throw new VersionControl_Hg_Exception(
-                'No Hg version has yet been set!'
+                'The repository has not been set'
             );
         }
-
-        return $this->_version;
     }
 
     /**
@@ -170,140 +115,74 @@ class VersionControl_Hg
      *
      * Usage:
      * <code>
-     * $hg = new VersionControl_Hg();
-     * $hg->setHgExecutable('/path/to/your/mercurial/binary');
+     * $hg = new VersionControl_Hg('/path/to/local/repository');
+     * //The executable was already automatically found, let's manually reset
+     * $hg->setExecutable('/path/to/your/mercurial/binary/hg.exe');
      * </code>
      *
      * @param string $path is the full path of the mercurial executable
      *
      * @return string
      */
-    public function setHgExecutable($path = null)
+    public function setExecutable($path = null)
     {
-        $executables = array();
-        /* list the default installation paths per platform */
-        $default_installation = array(
-            'WINNT' => '',
-            'WIN32' => '',
-            'Windows' => '',
-            'Linux' => '',
-            'FreeBSD' => '',
-            'NetBSD' => '',
-            'OpenBSD' => '',
-            'SunOS' => '',
-            'Darwin' => '',
-            'MacOS' => '',
-            'HP-UX' => '',
-            'IRIX64' => '',
-        );
-        //use PHP_OS (best), php_uname('s'), $_SERVER['OS']
-
-        if (null === $path) {
-            //proceed as below
-
-        } else {
-            //verify an hg executable in the location the user provided
-
-        }
-
-
-        /*
-         * is one of "Windows_NT",
-         * $_ENV under the windows xp cmd.com was completely empty
-         * using Php 5.2.9-cli
-         */
-        switch ($_SERVER['OS']) {
-            case 'Windows_NT':
-                $binary = 'hg.exe';
-                break;
-            default:
-                $binary = 'hg';
-                break;
-        }
-
-        $paths = split(PATH_SEPARATOR, $_SERVER['Path']);
-        foreach ($paths as $a_path) {
-            if (is_executable($a_path . DIRECTORY_SEPARATOR . $binary)) {
-                $executables[] = $a_path . DIRECTORY_SEPARATOR . $binary;
-            }
-        }
-
-        if ( count($executables) === 0) {
-            throw new VersionControl_Hg_Exception(
-                $this->messages[self::ERROR_HG_NOT_FOUND]
-            );
-        }
-
-        //@todo need a better algorithm to decide.
-        $this->hg = array_shift($executables);
-
-        return true;
+        $this->_executable = new VersionControl_Hg_Container_Executable($path);
     }
 
     /**
-     * Get the full path of the currently used Mercurial executable
+     * Gets the full path and name of the Mercurial executable in use
      *
-     * @return string
+     * Usage:
+     * <code>
+     * $hg = new VersionControl_Hg('/path/to/local/repository');
+     * echo $hg->getHgExecutable();
+     * </code>
+     *
+     * @return VersionControl_Hg_Container_Executable
+     * @throws VersionControl_Hg_Exception
      */
-    public function getHgExecutable()
+    public function getExecutable()
     {
-        /*
-         * I don't want programmers to have to test for null,
-         * especially when this is auto-set in the constructor
-         */
-        if ( $this->hg === null ) {
-            //@todo replace with a constant and a $message entry
+        if ( $this->_executable instanceof VersionControl_Hg_Container_Executable) {
+            return $this->_executable;
+        } else {
             throw new VersionControl_Hg_Exception(
-                'No Hg executable has yet been set!'
+                'The executable has not been set'
             );
         }
-
-        return $this->hg;
     }
 
     /**
-     * Proxy down to the repository class
+     * Proxy down to the command class
      *
-     * @param string $method    is the function being called
+     * @param string $method is the function being called
      * @param array  $arguments are the parameters passed to that function
      *
-     * @return mixed
+     * @return VersionControl_Hg_Command_Abstract
+     *
+     * implemented commands:
+     * @method array version()
+     * @method array status()
+     * @method array archive()
      */
     public function __call($method, $arguments)
     {
-        //@todo use an autoloader!
+        //proxy to Hg/Command.php
+        $hg_command = new VersionControl_Hg_CommandProxy($this);
+            //must pass an instance of VersionControl_Hg to provide it with
+            //the executable and repository
 
-        //@todo should I abstract this all out to Hg/Proxy.php?
-
-        //proxy to Hg/Command.php and see if $method belongs to it
-
-        //true = execute it
-
-        //false = proxy to the repository
-        include_once 'Hg/Registry.php';
-        include_once 'Hg/Repository.php';
-
-//@todo why not put this in the constructor?
-        $registry = VersionControl_Hg_Registry::getInstance();
-        //will not overwrite the Repository object on subsequent calls.
-        $registry->set('repository', new VersionControl_Hg_Repository($this));
-//var_dump($registry);
-        $repository = $registry->get('repository');
-//var_dump($repository);
-//var_dump($method);
-//var_dump($arguments);
-
-        $results = $repository->$method($arguments);
-
-//var_dump($results);
-        return $results;
-
-        //actually, if it doesn't exist, then we want it to "bubble down"
-        //so Hg_Repository will proxy it to the command factory class.
-
-        /*if (method_exists($repo, $method)) {
-
-        }*/
+        return call_user_func_array(array($hg_command, $method), $arguments);
     }
 
+    /**
+     * Print out the class' properties
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        echo 'Executable in use: ' . $this->_executable->getPath() . "\r\n";
+        echo 'Repository in use: ' . $this->_repository->getPath() . "\r\n";
+    }
 }

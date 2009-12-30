@@ -16,6 +16,9 @@
  * @see         VersionControl_Hg_Repository_Command_Archive::
  */
 
+/**
+ *
+ */
 require_once 'Interface.php';
 require_once 'Exception.php';
 
@@ -24,13 +27,7 @@ require_once 'Exception.php';
  *
  * Usage:
  * <code>
- * $hg = new VersionControl_Hg('/path/to/hg');
- * $hg->archive('tip', '/home/myself/releases/', 'tgz');
- * </code>
- *
- * Or, a forthcoming fluid api:
- * <code>
- * $hg->archive('tip')->to('/home/myself/releases/')->as('tgz');
+ * $hg->archive('tip')->to('/home/myself/releases/')->with('tgz')->run();
  * </code>
  *
  * PHP version 5
@@ -45,8 +42,8 @@ require_once 'Exception.php';
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Repository_Command_Archive
-    extends VersionControl_Hg_Repository_Command
-    implements VersionControl_Hg_Repository_Command_Interface
+    extends VersionControl_Hg_Command
+    implements VersionControl_Hg_Command_Interface
 {
     /**
      * For when the desired archive format is not one of the supported formats
@@ -54,18 +51,25 @@ class VersionControl_Hg_Repository_Command_Archive
     const ERROR_UNSUPPORTED_ARCHIVE_TYPE = 'unsupportedArchiveType';
 
     /**
-     * The Mercurial command to execute
-     *
-     * @var string
-     */
-    protected $command = 'archive';
-
-    /**
      * Which revision to use in this command
      *
      * @var string
      */
     protected $revision;
+
+    /**
+     * This command operates on a repository object.
+     *
+     * @var Hg_Repository
+     */
+    protected $container;
+
+    /**
+     * Let's the Proxy know which container to instantiate
+     *
+     * @var string
+     */
+    public $operates_on;
 
     /**
      * Where the archive should be saved to
@@ -79,7 +83,7 @@ class VersionControl_Hg_Repository_Command_Archive
      *
      * @var string
      */
-    protected $type;
+    protected $archive_type;
 
     /**
      * Possible options this command may have
@@ -87,7 +91,7 @@ class VersionControl_Hg_Repository_Command_Archive
      * @var mixed
      */
     protected $allowed_options = array(
-        'type', 'rev', 'prefix', 'excluding', 'including'
+        'rev', 'prefix', 'excluding', 'including', 'verbose', 'quiet'
     );
 
     /**
@@ -100,7 +104,11 @@ class VersionControl_Hg_Repository_Command_Archive
      * @var mixed
      */
     protected $required_options = array(
-        ''
+        'destination', 'type'
+    );
+
+    protected $_messages = array(
+        'unsupportedArchiveType' => 'That type of archive is not supported'
     );
 
     /**
@@ -125,9 +133,8 @@ class VersionControl_Hg_Repository_Command_Archive
      * @param   VersionControl_Hg_Repository $repository
      * @return  void
      */
-    public function __construct(VersionControl_Hg_Repository $repository)
-    {
-        $this->container = $repository;
+    public function __construct($param) {
+        $this->setRevision($param);
     }
 
     /**
@@ -143,9 +150,12 @@ class VersionControl_Hg_Repository_Command_Archive
     }
 
     /**
+     * Sets type of archive format.
      *
-     * @param $type
-     * @return unknown_type
+     * Valid values are 'files', 'tar', 'bzip2', 'gzip', 'zip'
+     *
+     * @param string $type is the archive type
+     * @return VersionControl_Hg_Command_Archive
      */
     public function with($type)
     {
@@ -156,33 +166,30 @@ class VersionControl_Hg_Repository_Command_Archive
     }
 
     /**
-     *
-     * @return mixed the results of execute()
-     */
-    public function run()
-    {
-        return $this->execute();
-    }
-
-
-    /**
      * (non-PHPdoc)
      * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
      */
-    public function execute($params)
+    public function execute(array $options)
     {
         //$global_options = $this->getGlobalOptions(); //implemented in parent
         //$options = array_merge($options, $global_options);
+        if ( is_array($options)) {
+            $this->addOptions($options);
+        } elseif ( is_string($options) ) {
+            //we want only a scalar and not an object nor a null
+            $this->addOption($options);
+        }
 
-        $this->options['rev'] = $params[0][0][0];//$this->getRevision();
-        $this->options['type'] = $this->_valid_archive_types[$params[0][0][2]];
+        $this->addOptions(array(
+            'rev' => $this->getRevision(),
+            'type' => $this->getArchiveType(),
+            'repository' => $this->container->getRepository(),
+        ));
 
-        $this->options['repository'] = $this->container->getRepository();
-
-        $destination = $params[0][0][1] .
+        $destination = $this->getDestination() .
             DIRECTORY_SEPARATOR .
             '%b-r%R.' .
-            $this->_valid_archive_types[$params[0][0][2]];
+            $this->options['type'];
 
         /* If files: destination must not already exist! Else, Hg will report "Permission denied" */
         if (is_file($destination) || is_dir($destination) ) {
@@ -190,30 +197,27 @@ class VersionControl_Hg_Repository_Command_Archive
                 'The destination directory already exists, but it should not'
             );
         }
-
-        /* if other than 'files', then it has to be a filename! */
-
-
-        $command_string = '"'.$this->container->hg->getHgExecutable().'" ' . $this->command;
-//var_dump($command_string);
+        /* if Not 'files', then it has to be a filename! */
 
         $modifiers = null;
-        foreach ($this->options as $option => $argument) {
+        foreach ($this->getOptions() as $option => $argument) {
             $modifiers .= ' --' . $option . ' ' . $argument;
         }
 
-        /* rtrim so we don't end up with no space before first switch:
-           "hg archive--rev tip" */
+        $command_string = '"'.$this->container->hg->getHgExecutable().'" ' . $this->command;
+        /* rtrim() instead of trim() so we don't end up with no space before
+         * first switch: "hg archive--rev tip" */
         $command_string .= rtrim($modifiers);
         $command_string .= " $destination";
+
 var_dump($params);
 echo "\r\n";
 var_dump($command_string);
 
         exec($command_string, $output, $command_status);
         //@todo remove the die()...
-        ($command_status == 0) or die("returned an error: $command_string");
-
+        ($command_status === 0) or
+            die("returned an error: " . var_dump($command_status));
     }
 
     /**
@@ -262,6 +266,13 @@ var_dump($command_string);
         return $this->destination;
     }
 
+    /**
+     *
+     * @todo move this function to VersionControl_Hg_Repository_Command
+     *
+     * @param $revision
+     * @return unknown_type
+     */
     public function setRevision($revision = 'tip')
     {
         $this->revision = $revision;
@@ -272,4 +283,11 @@ var_dump($command_string);
         return $this->revision;
     }
 
+    public function setRepository(Hg_Repository $repository) {
+        $this->repository = $repository;
+    }
+
+    public function getRepository() {
+        return $this->repository;
+    }
 }

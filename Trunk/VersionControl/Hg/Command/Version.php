@@ -1,7 +1,6 @@
 <?php
-
 /**
- *
+ * Contains the definition of the Version command
  *
  * PHP version 5
  *
@@ -16,16 +15,17 @@
  */
 
 require_once 'Interface.php';
+require_once 'Abstract.php';
 require_once 'Exception.php';
 
 /**
- *
+ * Implements the version command
  *
  * PHP version 5
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage  Commands
+ * @subpackage  Command
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -33,78 +33,71 @@ require_once 'Exception.php';
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Version
-    extends VersionControl_Hg_Command
+    extends VersionControl_Hg_Command_Abstract
     implements VersionControl_Hg_Command_Interface
 {
-    /**
-     *
-     * @var string
-     */
+	/**
+	 * The name of the mercurial command implemented here
+	 *
+	 * @var string
+	 */
     protected $command = 'version';
 
     /**
+     * There are no required options for this command
+     *
+     * Redefine it to an empty array to prevent parent from passing on any
+     * possible unnecessary required commands.
      *
      * @var mixed
      */
     protected $required_options = array();
 
     /**
+     * Constructor
      *
      * @param   VersionControl_Hg $hg
-     *
      * @return  void
      */
-    public function __construct(VersionControl_Hg $hg)
-    {
-        $this->container = $hg;
+    public function __construct($param = null) {
+
     }
 
     /**
      * (non-PHPdoc)
      * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
      */
-    public function execute($params)
+    public function execute(array $options)
     {
-        //$this->addOptions($params);
-        //$params = $this->getOptions();
-
         //process options array; everything should be in long format.
-        // the leading space in the join param: ' --' is essential.
-        //as is the blank space between hg and $command
-        //$this->_result = exec( 'hg' . ' ' . $command . join( ' --', $this->getOptions() ), $this->_output );
-
-
-        //@todo but, will this syntax work on Unix?
-        //$command_string = escapeshellcmd($this->hg->getHgExecutable()) . ' ' . $this->_command;
-        $command_string = '"'.$this->container->getHgExecutable().'" ' . $this->command;
-
-//var_dump($command_string);
-
         $modifiers = null;
-        foreach ($params as $option => $argument) {
-            $modifiers .= ' --' . $option . ' ' . $argument;
+        //this $options[0] thingy is because __call makes the arguments into an array
+        if ( is_array($options[0])) {
+            foreach ($options[0] as $option => $argument) {
+                $modifiers .= ' --' . $option . ' ' . $argument;
+            }
+        } elseif ( is_string($options[0]) ) {
+            //we want only a scalar and not an object nor a null
+            $modifiers .= ' --' . $options[0];
         }
-
+        //$command_string = escapeshellcmd();
+        $command_string = '"' . $this->container->getExecutable() . '" ' . $this->command;
         $command_string .= rtrim($modifiers);
 
-//var_dump($command_string);// die;
-
         exec($command_string, $output, $command_status);
-        //@todo remove the die()...
-        ($command_status == 0) or die("returned an error: $command_string");
 
-//var_dump($output);
+        //@todo remove the die()...
+        ($command_status === 0) or die("returned an error: $command_string");
 
         $ver_string = $output[0];
 
-        /*
-         * handle bad input
-         */
+        /* handle bad input */
+        //@todo replace with a constant and message
         if ( preg_match('/\(.*\)/', $ver_string, $ver_match) == 0 ) {
             throw new VersionControl_Hg_Command_Exception(
                 'Unrecognized version data'
             );
-        } //@todo replace with a constant and message
+        }
 
         $version['raw'] = trim(substr($ver_match[0], 8, strlen($ver_match[0])));
         //replace the parenthesis because my regex fu is out to lunch.
@@ -115,6 +108,7 @@ class VersionControl_Hg_Command_Version
         if ( strstr($version['raw'], '+') ) {
             $ver_parts = explode('+', $version['raw']);
             //handle if the text after '+' is a changeset, not a date
+            //@todo replace date_parse() this to remove dependency on Php 5.2.x
             if ( date_parse($ver_parts[1]) ) {
                 $version['date'] = $ver_parts[1];
             }

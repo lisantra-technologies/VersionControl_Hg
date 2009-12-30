@@ -36,7 +36,7 @@
  * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Repository
+class VersionControl_Hg_Container_Repository
 {
     /**
      * The name of all Mercurial repository roots.
@@ -48,35 +48,25 @@ class VersionControl_Hg_Repository
     const ROOT_NAME = '.hg';
 
     /**
-     * Holds the filesystem path of a Mercurial repository
-     *
-     * @var string
-     * @deprecated replaced by $_path_to_repository
-     */
-    protected $_repository;
-
-    /**
      * Path to a local Mercurial repository
      *
      * @var string
      */
-    protected $path_to_repository = null;
+    protected $path;
 
     /**
-     * Holds the current state of the Hg object
      *
-     * @var string
+     * @var string is local, ssh, http??
      */
-    public $hg;
+    protected $transport; //aka $is_remote ?
 
     /**
      * Repository constructor which currently does nothing.
      *
      * @todo might be a good place to set the transport method?
      */
-    public function __construct(VersionControl_Hg $hg)
-    {
-        $this->hg = $hg;
+    public function __construct($path) {
+        $this->path = $path;
     }
 
     /**
@@ -84,9 +74,9 @@ class VersionControl_Hg_Repository
      *
      * @param   string $path as a local filesystem path.
      * @return  mixed Repository to enable method chaining
-     * @see     $path_to_repository
+     * @see     $path
      */
-    public function setRepository($path)
+    public function setPath($path)
     {
         if (is_array($path)) {
             $path = $path[0];
@@ -103,34 +93,37 @@ class VersionControl_Hg_Repository
          * Let's not guess that the user wants to create a repo if none exists;
          * Throw and exception and let them decide what to do next.
          * Maybe they just gave the wrong path.
+         *
+         * Line breaks are transmitted to CLI apps; concat the strings to
+         * ignore them in output.
          */
         if ( ! $this->isRepository($path)) {
             throw new Exception(
                 'there is no Mercurial repository at: '
                 . $path
-                . '. Use $hg->create( \'/path/\' ) to create one and then use getRepository() to act upon it.' );
+                . '. Use $hg->setRepository(\'/path/to/repository\') to create '
+                . 'one and then use getRepository() to act upon it.'
+            );
         }
 
-        $this->path_to_repository = $path;
-       // return $this; //for chainable methods.
+        $this->path = $path;
+
+        return $this; //for chainable methods.
     }
 
     /**
      * Returns the path of a Mercurial repository as set by the user.
-     * It is validated before being set as a class member.
      *
-     * @return  string
-     * @see     $path_to_repository
+     * It is not validated before being set as a class member. This allows
+     * it to return null when it needs to and lets the programmer check if a
+     * repository has been set or not. Exceptions would remove this control.
+     *
+     * @return  string | null
+     * @see     $path
      */
-    public function getRepository()
+    public function getPath()
     {
-        /*if ( null === $this->_repository ) {
-            throw new Exception(
-                'There is no repository to return'
-            );
-        }*/
-
-        return $this->path_to_repository;
+        return $this->path;
     }
 
     /**
@@ -171,7 +164,7 @@ class VersionControl_Hg_Repository
      */
     public function create()
     {
-        $this->_command = new VersionControl_Hg_Repository_Command_Init();
+        $this->_command = new VersionControl_Hg_Command_Init();
         //$this->_command = new Hg_Repository_Command_Init($this);
             //pass $this as dependency injection instead of having
             //Hg_Repository_Command inherit from Hg_Repository?
@@ -196,26 +189,4 @@ class VersionControl_Hg_Repository
         }
 
     }
-
-    /**
-     * Proxy calls to the Command class
-     *
-     * @param   string $method
-     * @param   array $arguments
-     *
-     * @return  mixed
-     */
-    public function __call($method, $arguments)
-    {
-        //@todo ensure the names of the arguments and method are the same across
-        //all __call()'s in the chain!
-
-
-        include_once 'Repository/Command.php';
-        $command = new VersionControl_Hg_Repository_Command($this);
-        $params = $arguments[0]; //prevent too many nested arrays of args.
-        $command->$method($arguments);
-        //@todo if I return the above statement, maybe I can do the fluent API!
-    }
-
 }

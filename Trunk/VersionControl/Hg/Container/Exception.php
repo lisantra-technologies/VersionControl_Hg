@@ -29,7 +29,7 @@
  * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Repository_Command_Exception
+class VersionControl_Hg_Container_Exception
     extends VersionControl_Hg_Exception
 {
 
