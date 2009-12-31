@@ -61,22 +61,24 @@ abstract class VersionControl_Hg_Command_Abstract
     protected $container;
 
     /**
-     * The type of object the command operates on: 'hg', 'repository'
-     * or 'working_copy'
+     * All possible options the command may receive.
      *
-     * @var string
+     * Its constructed by merging $valid_options, $optional_options,
+     * and $required_options
+     *
+     * @var mixed
      */
-    public $operates_on;
+    protected $valid_options = array();
 
     /**
-     * Options which all commands in the package may have.
+     * Options which all commands may have.
      *
-     * Child classes shoud not override this property, nor add elements to it.
+     * Child classes should not override this property, nor add elements to it.
      * I wish the final keyword could be applied to properties. I could,
      * actually make it private with a public accessor, but the 'final'
      * keyword would be so much cleaner.
      *
-     * @var mixed
+     * @var array
      */
     protected $global_options = array(
         'encoding' => null,
@@ -85,11 +87,11 @@ abstract class VersionControl_Hg_Command_Abstract
     );
 
     /**
-     * Possible options this command may have
+     * Non-required options this command may receive
      *
      * @var mixed
      */
-    protected $allowed_options = array();
+    protected $optional_options = array();
 
     /**
      * Required options this command needs
@@ -99,9 +101,9 @@ abstract class VersionControl_Hg_Command_Abstract
     protected $required_options = array();
 
     /**
-     * Manages the options for the Hg executable.
+     * The current options applied to the Hg executable.
      *
-     * @var array
+     * @var mixed
      */
     protected $options = array();
 
@@ -111,7 +113,7 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @return void
      */
-    abstract function __construct($param);
+    abstract function __construct($params);
 
 /**
      * Executes the actual mercurial command
@@ -139,16 +141,19 @@ abstract class VersionControl_Hg_Command_Abstract
         switch ($method) {
             case 'run': //the special method ending the fluent chain
                 /* run the command class' execute method */
-                return $this->execute($arguments); //interface demands all command classes define this method
+                return $this->execute($arguments);
+                    //interface demands all command classes define this method
                 //alt: return call_user_func_array(array($command, 'execute'), $options);
                 break;
             default:
-            	//it must be one of the methods custom-defined for the command
-                //is it a method of the currently instantiated command implementor?
+            	/* must be the command or one of its fluent api functions */
+                //is it a method of the currently instantiated command?
                 if ( method_exists($this, $method) ) {
                     return call_user_func_array(array($this, $method), $arguments);
                 } else {
-                	throw new VersionControl_Hg_Command_Exception();
+                	throw new VersionControl_Hg_Command_Exception(
+                	    "This method '{$method}' does not exist in this class"
+                	);
                 }
         }
     }
@@ -164,7 +169,8 @@ abstract class VersionControl_Hg_Command_Abstract
      * @todo refactor out to Hg/Command/Filter/Excluding.php
      *
      * @param   $filter string
-     * @return  Command
+     *
+     * @return  VersionControl_Hg_Command
      */
     public function excluding($filter)
     {
@@ -187,7 +193,8 @@ abstract class VersionControl_Hg_Command_Abstract
      * @todo refactor out to Hg/Command/Filter/Including.php
      *
      * @param   $filter string
-     * @return  Command
+     *
+     * @return  VersionControl_Hg_Command
      */
     public function including($filter)
     {
@@ -199,7 +206,90 @@ abstract class VersionControl_Hg_Command_Abstract
         return $this;
     }
 
-    //@todo consider refactoring into its own Option class?
+//@todo consider refactoring into its own Option class?
+
+    /**
+     * Processes the options specified in client code and populates
+     * $valid_options class member if it wasn't already set.
+     *
+     * @param array $options the options to set
+     *
+     * @return void
+     * @throws void
+     */
+    protected function setOptions(array $options)
+    {
+    	if ( empty($this->valid_options) ) {
+    	    $this->valid_options = array_merge(
+                $this->allowed_options,
+                $this->global_options,
+                $this->required_options
+            );
+    	}
+
+        /* $param[0] causes a Php Notice when its an empty array without this
+         * topmost check
+         */
+        if ( count($options) > 0 ) {
+        	/* redefine $options; 0th index because __call shunts all args
+        	 * into an array.
+        	 */
+        	$options = $options[0];
+
+            if ( is_array($options) ) {
+                $keys = array_keys($options);
+                /* reassign params so the values become string keys and
+                 * replace the numeric values with nulls for options
+                 */
+                if ( is_numeric($keys) ) {
+                    $options = array_flip($options);
+                    foreach ( $options as $key => $value ) {
+                        $options[$key] = null;
+                    }
+                }
+                $this->addOptions($options);
+            }
+            elseif ( is_string($options) ) {
+                //addOption() checks for validity
+                $this->addOption($options, null);
+            }
+        }
+    }
+
+    /**
+     * Formats the options to a string in CLI style: ' --option [ = value]'
+     *
+     * @param mixed $options the options in an array to format
+     *
+     * @return string the formatted options
+     */
+    protected function formatOptions(array $options)
+    {
+        $modifiers = null;
+        /*
+         * ensure all required options are defined
+         */
+        $missing_required_options =
+            array_diff_key($this->required_options, $options);
+        if ( count($missing_required_options) > 0 ) {
+            throw new VersionControl_Hg_Command_Exception(
+                'Required option(s) missing: ' .
+                implode(', ', $missing_required_options)
+            );
+        }
+        /* good, we have all required options, so let's format them */
+        foreach ($options as $option => $argument) {
+        	/*
+        	 * this is why we have nulls as values for options which do not
+        	 * have arguments. A better way later may be checking is_null()
+        	 * and remove the extra space, but the Hg executable does not seem
+        	 * to mind extra spaces in the command line.
+        	 */
+            $modifiers .= ' --' . $option . ' ' . $argument;
+        }
+
+        return $modifiers;
+    }
 
     /**
      * Add an option
@@ -212,9 +302,9 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     protected function addOption($name, $value = NULL)
     {
-        if ( ! array_key_exists($name, $this->allowed_options) ) {
+        if ( ! array_key_exists($name, $this->valid_options) ) {
             throw new VersionControl_Hg_Command_Exception(
-                "The option '{$name}' is not an allowed option"
+                "The option '{$name}' is not an valid option"
             );
         }
 
@@ -229,7 +319,7 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @param   array $options
      *
-     * @return  unknown_type
+     * @return  boolean
      */
     protected function addOptions(array $options)
     {
@@ -242,6 +332,8 @@ abstract class VersionControl_Hg_Command_Abstract
         foreach ($options as $name => $value) {
             $this->addOption($name, $value);
         }
+
+        return true;
     }
 
     /**
@@ -252,7 +344,6 @@ abstract class VersionControl_Hg_Command_Abstract
     public function getOptions()
     {
         //@todo check that defined options satisfy $required_options
-
         return $this->options;
     }
 
@@ -265,54 +356,60 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     public function unsetOption($option)
     {
-        $status = false;
+        $unset = false;
 
         if( array_key_exists($this->getOptions(), $option) ) {
             /* unset is a language construct and returns void, so no shortcuts
              * like if( unset(...) = array_key_exists(...) ) */
             unset( $this->_options[$option] );
-            $status = true;
+            $unset = true;
         }
 
-        return $status;
+        return $unset;
     }
 
     /**
+     * Parses the result of the Mercurial CLI operation into a semantic
+     * associative array
      *
      * @todo refactor into Hg/Command/Result/Parser.php
      *
-     * @param   mixed $commandOutput
-     * @param   mixed $fields array holds the labels of the fields
-     * @return
+     * @param   mixed $output is the output to parse into an array of arrays
+     * @param   mixed $fields array are the labels of columns;
+     *
+     * @return mixed
      */
-    protected function parseOutput(array $fields, array $commandOutput)
+    protected function parseOutput(array $output, $fields = null)
     {
-        $output = array();
+        $parsed_output = array();
 
-        /*
-         * preg_split returns an array.
-         * Regex accounts for the different line endings on the 3 platforms: Win32, Mac and *nix.
-         */
-        $lines = preg_split( '/\r\n|\r|\n/', $fixture );
+        foreach ( $output as $line ) {
+	        /* split each line into columns by any type of space character
+	         * repeated any number of times.
+	         */
+        	$bundle = preg_split('/\s/', $line);
+            /* replace the numeric key with a field label
+             * a list() idiom might be best here
+             */
+        	if ( ! is_null($fields) ) {
+                //counts of field and output lengths must match.
+                if ( count($fields) !== count($bundle) ) {
+                    throw new VersionControl_Hg_Command_Exception(
+                        'fields do not match the output'
+                    );
+                }
 
-        //split each line into columns by any type of space charachter repeated any number of times.
-        foreach( $lines as $a_line ) {
-            $output[] = preg_split( '/[\s]+/', $a_line );
+		        foreach ( $bundle as $key => $value ) {
+                    unset($bundle[$key]);
+                    $bundle[$fields[$key]] = $value;
+		        }
+        	}
+
+            $parsed_output[] = $bundle;
+                //'/[\s]+/' which is better?
         }
 
-        //list() idiom might be best here
-        foreach ( $output as $row_num => $row ) {
-            //counts of field and output lengths must match.
-            $field_length = count( $fields );
-            $output_row_length = count( $row );
-
-            //loop through the variable-length output row.
-            foreach ( $row as $position => $value ) {
-                $result[$row_num][$fields[$position]] = $value;
-            }
-        }
-
-        return $output;
+        return $parsed_output;
     }
 
     /**
@@ -342,7 +439,7 @@ abstract class VersionControl_Hg_Command_Abstract
      * @param   $first
      * @param   $last
      *
-     * @return  Command
+     * @return  VersionControl_Hg_Command
      */
     public function changeset($first, $last)
     {

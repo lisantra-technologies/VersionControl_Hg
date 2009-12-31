@@ -31,6 +31,6 @@
  */
 interface VersionControl_Hg_Command_Interface
 {
-    public function execute(array $options);
+    public function execute($params = null);
     public function setContainer($container);
 }

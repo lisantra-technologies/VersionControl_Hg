@@ -75,6 +75,14 @@ class VersionControl_Hg_Command_Status
         'repository' => null,
     );
 
+    /**
+     * Permissable options.
+     *
+     * The actual option must be the key, while 'null' is a value here to
+     * accommodate the current implementation of setting options.
+     *
+     * @var mixed
+     */
     protected $allowed_options = array(
         'all' => null,
         'modified' => null,
@@ -93,90 +101,55 @@ class VersionControl_Hg_Command_Status
      *
      * @return void
      */
-    public function __construct($param = null)
+    public function __construct($params = null)
     {
-    	$this->allowed_options = array_merge(
-    	   $this->allowed_options,
-    	   $this->global_options,
-    	   $this->required_options
-    	);
-    	/*
-    	 * $param[0] causes a Php Notice when its an empty array without this
-    	 * topmost check
-    	 */
-    	if ( (! is_null($param) ) && ( count($param) > 0 ) ) {
-	    	if ( is_array($param[0]) ) {
-	    		$keys = array_keys($param[0]);
-	    		if ( is_numeric($keys[0]) ) {
-	    			//reassign params so the values become string keys
-                    $param[0] = array_flip($param[0]);//replace the numeric values with nulls for options
-                    foreach ( $param[0] as $key => $value ) {
-                        $param[0][$key] = null;
-                    }
-	    		}
-	            $this->addOptions($param[0]);
-	        }
-	        elseif ( is_string($param[0]) ) {
-	        	//addOption() checks for validity
-	            $this->addOption($param[0], null);
-	        }
-        }
+    	if ( ! is_null($params) ) {
+            $this->setOptions($params);
+    	}
     }
 
     /**
      * (non-PHPdoc)
      * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
      */
-    public function execute(array $options)
+    public function execute($params = null)
     {
-        //this $options[0] thingy is because __call makes the arguments into an array
-        if ( is_array($options[0])) {
-            $this->addOptions($options[0]);
+        if ( ! is_null($params) ) {
+            $this->setOptions($params);
         }
-        elseif ( is_string($options[0]) ) {
-            $this->addOption($options[0]);
-        }
+
         /* set the required options */
         $this->addOptions(array(
             'noninteractive' => null,
             'repository' => $this->container->getRepository()->getPath(),
         ));
 
-        $modifiers = null;
-        $options = $this->getOptions();
-        $missing_required_options = array_diff_key($this->required_options, $options);
-        if ( count($missing_required_options) > 0 ) {
-        	throw new VersionControl_Hg_Command_Exception(
-        	    'Required option(s) missing: ' .
-        	    implode(', ', $missing_required_options)
-            );
-        }
+        //@todo use this: $command_string = escapeshellcmd() but it causes
+        //problems on windows...
+        $command_string =
+            '"' .
+            $this->container->getExecutable()->getExecutable() .
+            '" ' . $this->command .
+            rtrim($this->formatOptions($this->getOptions()));
 
-        foreach ($options as $option => $argument) {
-
-            $modifiers .= ' --' . $option . ' ' . $argument;
-        }
-
-        //$command_string = escapeshellcmd();
-        $command_string = '"' . $this->container->getExecutable()->getExecutable() . '" ' . $this->command;
-        $command_string .= rtrim($modifiers);
-
-        exec($command_string, $output, $command_status);
+        exec($command_string, $output, $status);
 
         //@todo remove the die()...
-        ($command_status === 0) or die("returned an error: $command_string");
+        ($status === 0) or die("returned an error: $command_string");
 
-        $status = array();
-
-        foreach ( $output as $line ) {
-        	array_push($status, preg_split('/\s/', $line));
-        }
-        array_push($status, $command_string);
-
-        $this->status = $command_status;
+        /* set the class properties for possible future use... */
+        $this->status = $status;
         $this->output = $output;
 
-        return $status;
+        $parsed_output = $this->parseOutput(
+            $output,
+            array('status', 'file')
+        );
+
+        //@todo remove after testing!
+        array_push($parsed_output, $command_string);
+
+        return $parsed_output;
     }
 
     /**
