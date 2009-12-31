@@ -124,32 +124,16 @@ class VersionControl_Hg_Command_Status
             'repository' => $this->container->getRepository()->getPath(),
         ));
 
-        //@todo use this: $command_string = escapeshellcmd() but it causes
-        //problems on windows...
-        $command_string =
-            '"' .
-            $this->container->getExecutable()->getExecutable() .
-            '" ' . $this->command .
-            rtrim($this->formatOptions($this->getOptions()));
+        //despite its being so not variable, we need to set the command string
+        //only after manually setting options and other command-specific data
+        $this->setCommandString();
 
-        exec($command_string, $output, $status);
+        exec($this->getCommandString(), $this->output, $this->status);
 
         //@todo remove the die()...
-        ($status === 0) or die("returned an error: $command_string");
+        ($this->status === 0) or die("returned an error: $this->command_string");
 
-        /* set the class properties for possible future use... */
-        $this->status = $status;
-        $this->output = $output;
-
-        $parsed_output = $this->parseOutput(
-            $output,
-            array('status', 'file')
-        );
-
-        //@todo remove after testing!
-        array_push($parsed_output, $command_string);
-
-        return $parsed_output;
+        return $this->parseOutput($this->output, array('status', 'file'));
     }
 
     /**

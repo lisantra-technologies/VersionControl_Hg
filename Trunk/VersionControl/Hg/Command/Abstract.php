@@ -61,6 +61,13 @@ abstract class VersionControl_Hg_Command_Abstract
     protected $container;
 
     /**
+     * The string of the full command executed by Mercurial
+     *
+     * @var string
+     */
+    protected $command_string;
+
+    /**
      * All possible options the command may receive.
      *
      * Its constructed by merging $valid_options, $optional_options,
@@ -417,7 +424,8 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @param $container VersionControl_Hg
      */
-    public function setContainer($container) {
+    public function setContainer($container)
+    {
     	$this->container = $container;
     }
 
@@ -426,8 +434,37 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @return VersionControl_Hg
      */
-    public function getContainer() {
+    public function getContainer()
+    {
         return $this->container;
+    }
+
+    /**
+     * Sets the command string
+     *
+     * @param void is void because the function is generic enough to not
+     *             require any variable parameters.
+     *
+     * @todo use this: $command_string = escapeshellcmd() but it causes
+     * problems on windows...I think
+     */
+    public function setCommandString()
+    {
+        $this->command_string =
+            '"' .
+            $this->container->getExecutable()->getExecutable() .
+            '" ' . $this->command .
+            rtrim($this->formatOptions($this->getOptions()));
+    }
+
+    /**
+     * Returns the command string
+     *
+     * @return string
+     */
+    public function getCommandString()
+    {
+        return $this->command_string;
     }
 
     /**
