@@ -117,23 +117,6 @@ class VersionControl_Hg_Executable
     public function setExecutable($path = null) {
         $executables = array();
 
-        /* list the default installation paths per platform */
-        $default_installation = array(
-            'WINNT' => 'C:\Program Files\Mercurial',
-            'WIN32' => 'C:\Program Files\Mercurial',
-            'Windows' => 'C:\Program Files\Mercurial',
-            //@TODO Do all Linux distros install in the same location?
-            'Linux' => '/usr/bin',
-            'FreeBSD' => '', // /usr/local/bin ?
-            'NetBSD' => '',
-            'OpenBSD' => '',
-            'SunOS' => '',
-            'Darwin' => '',
-            'MacOS' => '',
-            'HP-UX' => '',
-            'IRIX64' => '',
-        );
-
         /* Set the binary name per platform */
         //@todo use PHP_OS (best), php_uname('s'), $_SERVER['OS']
         switch ($_SERVER['OS']) {
