@@ -6,14 +6,11 @@
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage  Container
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-
-require_once 'Abstract.php';
 
 /**
  * Provides access to the Hg executable
@@ -24,14 +21,12 @@ require_once 'Abstract.php';
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage  Container
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Container_Executable
-    extends VersionControl_Hg_Container_Abstract
+class VersionControl_Hg_Executable
 {
     /**
      * Use the executable found in the default installation location
@@ -42,18 +37,6 @@ class VersionControl_Hg_Container_Executable
      * Use the executable specified by the user
      */
     const CUSTOM_EXECUTABLE = "custom";
-
-    /**
-     * error constant for when the mercurial executable cannot be found
-     */
-    const ERROR_HG_NOT_FOUND = 'notFound';
-
-    /**
-     * error constant for when operations are called before setting the Hg
-     * executable. Should not normally happen since its set in the constructor
-     * and throws an exception when an executable cannot be found.
-     */
-    const ERROR_HG_YET_UNSET = 'yetUnset';
 
     /**
      * Path to the excutable binary

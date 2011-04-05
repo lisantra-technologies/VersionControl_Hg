@@ -77,7 +77,7 @@ class VersionControl_Hg
     /**
      * The executable this package will use
      *
-     * @var VersionControl_Hg_Container_Executable
+     * @var VersionControl_Hg_Executable
      */
     protected $_executable;
 
@@ -159,7 +159,7 @@ class VersionControl_Hg
      */
     public function setExecutable($path = null)
     {
-        $this->_executable = new VersionControl_Hg_Container_Executable($path);
+        $this->_executable = new VersionControl_Hg_Executable($path);
     }
 
     /**
@@ -176,7 +176,7 @@ class VersionControl_Hg
      */
     public function getExecutable()
     {
-        if ( $this->_executable instanceof VersionControl_Hg_Container_Executable) {
+        if ( $this->_executable instanceof VersionControl_Hg_Executable) {
             return $this->_executable;
         } else {
             throw new VersionControl_Hg_Exception(
