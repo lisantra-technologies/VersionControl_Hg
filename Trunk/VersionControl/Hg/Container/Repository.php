@@ -15,6 +15,16 @@
  */
 
 /**
+ * Provides the container exception
+ */
+require_once 'Exception.php';
+
+/**
+ * Provides the container interface
+ */
+require_once 'Interface.php';
+
+/**
  * The Mercurial repository
  *
  * Usage:
@@ -35,7 +45,7 @@
  * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Container_Repository
+class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Container_Interface
 {
     /**
      * The name of all Mercurial repository roots.
@@ -51,7 +61,7 @@ class VersionControl_Hg_Container_Repository
      *
      * @var string
      */
-    protected $path;
+    protected $_path;
 
     /**
      *
@@ -65,7 +75,7 @@ class VersionControl_Hg_Container_Repository
      * @todo might be a good place to set the transport method?
      */
     public function __construct($path) {
-        $this->path = $path;
+        $this->setPath($path);
     }
 
     /**
@@ -83,7 +93,7 @@ class VersionControl_Hg_Container_Repository
 
         //is it even a real path?
         if ( ! realpath($path)) {
-            throw new Exception(
+            throw new VersionControl_Hg_Container_Exception(
                 'The path: ' . $path . ' does not exist on this system'
             );
         }
@@ -97,15 +107,15 @@ class VersionControl_Hg_Container_Repository
          * ignore them in output.
          */
         if ( ! $this->isRepository($path)) {
-            throw new Exception(
-                'there is no Mercurial repository at: '
+            throw new VersionControl_Hg_Container_Exception(
+                'There is no Mercurial repository at: '
                 . $path
                 . '. Use $hg->setRepository(\'/path/to/repository\') to create '
                 . 'one and then use getRepository() to act upon it.'
             );
         }
 
-        $this->path = $path;
+        $this->_path = $path;
 
         return $this; //for chainable methods.
     }
@@ -122,7 +132,7 @@ class VersionControl_Hg_Container_Repository
      */
     public function getPath()
     {
-        return $this->path;
+        return $this->_path;
     }
 
     /**
@@ -161,7 +171,7 @@ class VersionControl_Hg_Container_Repository
      *
      * @return
      */
-    public function create()
+    public function create($path)
     {
         $this->_command = new VersionControl_Hg_Command_Init();
         //$this->_command = new Hg_Repository_Command_Init($this);
@@ -180,12 +190,23 @@ class VersionControl_Hg_Container_Repository
      */
     public function delete()
     {
-        if ( unlink(  ) ) {
+        if ( unlink($this->_path) ) {
             return true;
         } else {
-            return false;
-            //throw new Exception( 'The repository could not be deleted.' );
+            //return false;
+            throw new VersionControl_Hg_Container_ExceptionException('The repository could not be deleted.');
         }
+    }
 
+    /**
+     * Prints the repository path.
+     *
+     * May be expanded to provide other useful data about the repository as
+     * a string.
+     *
+     * @return string
+     */
+    public function __toString() {
+        return $this->getPath();
     }
 }
