@@ -67,25 +67,17 @@ class VersionControl_Hg_Executable
     protected $_version;
 
     /**
-     * Error messages for humans
+     * Constructor
      *
-     * @var array
-     */
-    protected $_messages = array(
-        'notFound' => 'Mercurial could not be found on this system',
-        'yetUnset' => 'The Mercurial executable has not yet been set; that is unusual!',
-    );
-
-    /**
-     * Constructs class with a path to the executable
+     * Finds and sets the system's existing Mercurial executable binary which
+     * with all future operations will use.
      *
      * @param string $path
      * @return void
      */
     public function __construct($path) {
-        $this->setPath($path);
-        $this->setExecutable();
-        //$this->setVersion();
+        /* Attempt to set the executable */
+        $this->setExecutable($path);
     }
 
     /**
@@ -113,9 +105,9 @@ class VersionControl_Hg_Executable
      * the system
      *
      * @return void
-     * @throws VersionControl_Hg_Container_Exception
+     * @throws VersionControl_Hg_Executable_Exception
      */
-    public function setExecutable() {
+    public function setExecutable($path = null) {
         $executables = array();
 
         /* list the default installation paths per platform */
@@ -133,10 +125,11 @@ class VersionControl_Hg_Executable
             'HP-UX' => '',
             'IRIX64' => '',
         );
-        //use PHP_OS (best), php_uname('s'), $_SERVER['OS']
+
         /*
          * set the binary name per platform
          */
+        //@todo use PHP_OS (best), php_uname('s'), $_SERVER['OS']
         switch ($_SERVER['OS']) {
             case 'Windows_NT':
                 $binary = 'hg.exe';
@@ -146,37 +139,40 @@ class VersionControl_Hg_Executable
                 break;
         }
 
-        $path = $this->getPath();
-
         if (null !== $path) {
             /* use the user provided path to an executable */
-            if (is_executable($path . DIRECTORY_SEPARATOR . $binary)) {
+            if ( is_executable($path . DIRECTORY_SEPARATOR . $binary) ) {
                 $executables[] = $path . DIRECTORY_SEPARATOR . $binary;
             }
-        } else {
-            /* iterate through the system's path to automagically find
-             * an executable */
+        }
+
+        /* If the user supplied path was bad or not supplied, autosearch */
+        if ( ( empty($executables) ) || ( null === $path ) ) {
+            /* iterate through the system's path to automagically find an
+             * executable */
             $paths = split(PATH_SEPARATOR, $_SERVER['Path']);
 
-            foreach ($paths as $a_path) {
-                if (is_executable($a_path . DIRECTORY_SEPARATOR . $binary)) {
-                    $executables[] = $a_path . DIRECTORY_SEPARATOR . $binary;
+            foreach ( $paths as $path ) {
+                if (is_executable($path . DIRECTORY_SEPARATOR . $binary)) {
+                    $executables[] = $path . DIRECTORY_SEPARATOR . $binary;
                 }
             }
 
-            if ( count($executables) === 0) {
-                throw new VersionControl_Hg_Container_Exception(
-                    $this->_messages[self::ERROR_HG_NOT_FOUND]
+            if ( count($executables) === 0 ) {
+                throw new VersionControl_Hg_Executable_Exception(
+                    VersionControl_Hg_Executable_Exception::ERROR_HG_NOT_FOUND
                 );
             }
         }
 
         /* use only the first instance found of a mercurial executable */
         $this->_executable = array_shift($executables);
+        $this->setPath(dirname($this->_executable));
+        $this->setVersion();
     }
 
     /**
-     * Get the full path of the currently used Mercurial executable
+     * Get the object representing the currently used Mercurial executable
      *
      * @return string
      */
@@ -228,8 +224,8 @@ class VersionControl_Hg_Executable
          */
         if ( $this->_version === null ) {
             //@todo replace with a constant and a $message entry
-            throw new VersionControl_Hg_Container_Exception(
-                'No Hg version has yet been set!'
+            throw new VersionControl_Hg_Exception(
+                VersionControl_Hg_Executable_Exception::ERROR_NO_VERSION
             );
         }
 
