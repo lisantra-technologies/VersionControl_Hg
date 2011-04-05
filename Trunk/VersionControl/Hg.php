@@ -13,13 +13,37 @@
  * @link      http://pear.php.net/package/VersionControl_Hg
  */
 
+/**
+ * Provides the base exception
+ */
 require_once 'Hg/Exception.php';
+
+/**
+ * Provides access to the Mercurial executable
+ */
 require_once 'Hg/Container/Executable.php';
+
+/**
+ * Provides access to the SCM repository
+ */
 require_once 'Hg/Container/Repository.php';
+
+/**
+ * Interfaces with the classes which implement the commands
+ */
 require_once 'Hg/CommandProxy.php';
 
 /**
  * Base class to begin the fluent API
+ *
+ * This package interfaces with the Mercurial command-line binary, which
+ * must be installed on the same system as this package. The author of Mercurial
+ * is on record preferring that all non-python programs interface with the
+ * CLI binary.
+ *
+ * There are no C-bindings, so a PECL extension is unlikely, as is a pure PHP
+ * implementation due to the tremendous workload involved in keeping up with
+ * changes Mercurial.
  *
  * PHP version 5
  *
@@ -33,15 +57,20 @@ require_once 'Hg/CommandProxy.php';
  *
  * Usage:
  * <code>
+ * require_once 'VersionControl/Hg.php';
  * $hg = new VersionControl_Hg('/path/to/repository');
  * </code>
  *
  * Or, provide a location of a repository after instantiation:
  *
  * <code>
+ * require_once 'VersionControl/Hg.php';
  * $hg = new VersionControl_Hg();
  * $hg->setRepository('/path/to/repository');
  * </code>
+ *
+ * Calling all commands other than 'version' without having already set a
+ * valid repository will raise an exception.
  */
 class VersionControl_Hg
 {
@@ -72,9 +101,11 @@ class VersionControl_Hg
     {
         $this->setExecutable();
 
-        if ($repository !== null) {
-            $this->setRepository($repository);
+        if ($repository === null) {
+            throw new VersionControl_Hg_Exception(VersionControl_Hg_Exception::NO_REPOSITORY);
         }
+
+        $this->setRepository($repository);
 
     }
 
@@ -101,9 +132,7 @@ class VersionControl_Hg
         if ( $this->_repository instanceof VersionControl_Hg_Container_Repository) {
             return $this->_repository;
         } else {
-            throw new VersionControl_Hg_Exception(
-                'The repository has not been set'
-            );
+            throw new VersionControl_Hg_Exception(VersionControl_Hg_Exception::INVALID_REPOSITORY);
         }
     }
 
@@ -177,6 +206,22 @@ class VersionControl_Hg
             //the executable and repository
 
         return call_user_func_array(array($hg_command, $method), $arguments);
+    }
+
+    /**
+     * Returns a property, usually handled by a subcommand
+     *
+     * Instead of calling <code>$hg->getVersion();</code>, we simplify:
+     * <code>$version = $hg->version</code>.
+     *
+     * @param string $param is the property to get
+     */
+    public function __get($param) {
+        $method = "$param";
+        //proxy to Hg/Command.php
+        $hg_command = new VersionControl_Hg_CommandProxy($this);
+
+        return call_user_func_array(array($hg_command, $method), array());
     }
 
     /**
