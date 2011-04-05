@@ -10,7 +10,6 @@
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 
@@ -29,7 +28,6 @@ require_once 'Abstract.php';
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Container_Executable
@@ -57,14 +55,14 @@ class VersionControl_Hg_Container_Executable
      */
     const ERROR_HG_YET_UNSET = 'yetUnset';
 
-	/**
-	 * Path to the excutable binary
-	 *
-	 * @var string
-	 */
-	protected $_path;
+    /**
+     * Path to the excutable binary
+     *
+     * @var string
+     */
+    protected $_path;
 
-	/**
+    /**
      * The Mercurial binary being used
      *
      * There may well be multiple versions in use; lets track which one
@@ -74,9 +72,9 @@ class VersionControl_Hg_Container_Executable
      * Mercurial project, since HG is the chemical symbol of the element:
      * Mercury.
      *
-	 * @var string
-	 */
-	protected $_executable;
+     * @var string
+     */
+    protected $_executable;
 
     /**
      * The version of the Mercurial executable.
@@ -95,17 +93,17 @@ class VersionControl_Hg_Container_Executable
         'yetUnset' => 'The Mercurial executable has not yet been set; that is unusual!',
     );
 
-	/**
-	 * Constructs class with a path to the executable
-	 *
-	 * @param string $path
-	 * @return void
-	 */
-	public function __construct($path) {
-		$this->setPath($path);
-		$this->setExecutable();
-		//$this->setVersion();
-	}
+    /**
+     * Constructs class with a path to the executable
+     *
+     * @param string $path
+     * @return void
+     */
+    public function __construct($path) {
+        $this->setPath($path);
+        $this->setExecutable();
+        //$this->setVersion();
+    }
 
     /**
      * Sets the user-defined path on which to search for an Hg executable
@@ -127,15 +125,15 @@ class VersionControl_Hg_Container_Executable
         return $this->_path;
     }
 
-	/**
-	 * Validates the existance and viability of the Mercurial executable on
-	 * the system
-	 *
-	 * @return void
-	 * @throws VersionControl_Hg_Container_Exception
-	 */
-	public function setExecutable() {
-		$executables = array();
+    /**
+     * Validates the existance and viability of the Mercurial executable on
+     * the system
+     *
+     * @return void
+     * @throws VersionControl_Hg_Container_Exception
+     */
+    public function setExecutable() {
+        $executables = array();
 
         /* list the default installation paths per platform */
         $default_installation = array(
@@ -173,8 +171,8 @@ class VersionControl_Hg_Container_Executable
                 $executables[] = $path . DIRECTORY_SEPARATOR . $binary;
             }
         } else {
-        	/* iterate through the system's path to automagically find
-        	 * an executable */
+            /* iterate through the system's path to automagically find
+             * an executable */
             $paths = split(PATH_SEPARATOR, $_SERVER['Path']);
 
             foreach ($paths as $a_path) {
@@ -192,7 +190,7 @@ class VersionControl_Hg_Container_Executable
 
         /* use only the first instance found of a mercurial executable */
         $this->_executable = array_shift($executables);
-	}
+    }
 
     /**
      * Get the full path of the currently used Mercurial executable
@@ -253,6 +251,13 @@ class VersionControl_Hg_Container_Executable
         }
 
         return $this->_version;
+    }
+
+    /**
+     * Print the full path of the system's command line Mrcurial
+     */
+    public function __toString() {
+        return $this->_executable;
     }
 
 }
