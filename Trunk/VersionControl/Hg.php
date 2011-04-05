@@ -217,7 +217,7 @@ class VersionControl_Hg
      * @param string $param is the property to get
      */
     public function __get($param) {
-        $method = "$param";
+        $method = 'get' . ucfirst($param);
         //proxy to Hg/Command.php
         $hg_command = new VersionControl_Hg_CommandProxy($this);
 
@@ -231,7 +231,7 @@ class VersionControl_Hg
      */
     public function __toString()
     {
-        echo 'Executable in use: ' . $this->_executable->getPath() . "\r\n";
-        echo 'Repository in use: ' . $this->_repository->getPath() . "\r\n";
+        echo 'Executable: ' . $this->_executable->getPath() . "\r\n";
+        echo 'Repository: ' . $this->_repository->getPath() . "\r\n";
     }
 }
