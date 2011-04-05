@@ -69,7 +69,7 @@ class VersionControl_Hg_Executable_Exception extends VersionControl_Hg_Exception
      * @param string $message is equivalent to the error constants
      */
     public function __construct($message) {
-        parent::__construct($this->_messages($message));
+        parent::__construct($this->_messages[$message]);
     }
 
 }
