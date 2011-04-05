@@ -9,7 +9,6 @@
  * @author    Michael Gatto <mgatto@lisantra.com>
  * @copyright 2009 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version   SVN: 0.3
  * @link      http://pear.php.net/package/VersionControl_Hg
  */
 
@@ -21,7 +20,7 @@ require_once 'Hg/Exception.php';
 /**
  * Provides access to the Mercurial executable
  */
-require_once 'Hg/Container/Executable.php';
+require_once 'Hg/Executable.php';
 
 /**
  * Provides access to the SCM repository
@@ -52,7 +51,6 @@ require_once 'Hg/CommandProxy.php';
  * @author    Michael Gatto <mgatto@lisantra.com>
  * @copyright 2009 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version   Release:
  * @link      http://pear.php.net/package/VersionControl_Hg
  *
  * Usage:
@@ -60,13 +58,24 @@ require_once 'Hg/CommandProxy.php';
  * require_once 'VersionControl/Hg.php';
  * $hg = new VersionControl_Hg('/path/to/repository');
  * </code>
+ * Setting the repository also automatically finds and sets the local
+ * installation of the Mercurial binary it will use.
  *
- * Or, provide a location of a repository after instantiation:
+ * Of course, you may explicitly set the executable you wish to use:
+ * <code>
+ * $hg->setExecutable('/path/to/hg');
+ * or
+ * $hg->executable = '/path/to/hg';
+ * </code>
+ * A failed explicit setting will not clear the automatically set executable.
  *
+ * You may also provide a location of a repository after instantiation:
  * <code>
  * require_once 'VersionControl/Hg.php';
  * $hg = new VersionControl_Hg();
  * $hg->setRepository('/path/to/repository');
+ * or
+ * $hg->repository = '/path/to/repository';
  * </code>
  *
  * Calling all commands other than 'version' without having already set a
@@ -74,13 +83,6 @@ require_once 'Hg/CommandProxy.php';
  */
 class VersionControl_Hg
 {
-    /**
-     * The executable this package will use
-     *
-     * @var VersionControl_Hg_Executable
-     */
-    protected $_executable;
-
     /**
      * The repository Hg will act upon
      *
@@ -94,7 +96,6 @@ class VersionControl_Hg
      * Assumes to be working on a local filesystem repository
      *
      * @param string $repository is the path to a mercurial repo (optional)
-     *
      * @return void
      */
     public function __construct($repository = null)
@@ -102,11 +103,12 @@ class VersionControl_Hg
         $this->setExecutable();
 
         if ($repository === null) {
-            throw new VersionControl_Hg_Exception(VersionControl_Hg_Exception::NO_REPOSITORY);
+            throw new VersionControl_Hg_Exception(
+                VersionControl_Hg_Exception::NO_REPOSITORY
+            );
         }
 
         $this->setRepository($repository);
-
     }
 
     /**
@@ -137,56 +139,15 @@ class VersionControl_Hg
     }
 
     /**
-     * Set the Hg executable's path manually
-     *
-     * If you need to specifiy a particular Hg executable to use, then pass in
-     * the full path to Mercurial as a paramter of this function.
-     *
-     * It could have been passed into VersionControl_Hg's constructor, but I
-     * feel it is uncommon enough to pass in a custom Hg path that it could
-     * be relegated to a separate function call.
-     *
-     * Usage:
-     * <code>
-     * $hg = new VersionControl_Hg('/path/to/local/repository');
-     * //The executable was already automatically found, let's manually reset
-     * $hg->setExecutable('/path/to/your/mercurial/binary/hg.exe');
-     * </code>
-     *
-     * @param string $path is the full path of the mercurial executable
-     *
-     * @return string
-     */
-    public function setExecutable($path = null)
-    {
-        $this->_executable = new VersionControl_Hg_Executable($path);
-    }
-
-    /**
-     * Gets the full path and name of the Mercurial executable in use
-     *
-     * Usage:
-     * <code>
-     * $hg = new VersionControl_Hg('/path/to/local/repository');
-     * echo $hg->getHgExecutable();
-     * </code>
-     *
-     * @return VersionControl_Hg_Container_Executable
-     * @throws VersionControl_Hg_Exception
-     */
-    public function getExecutable()
-    {
-        if ( $this->_executable instanceof VersionControl_Hg_Executable) {
-            return $this->_executable;
-        } else {
-            throw new VersionControl_Hg_Exception(
-                'The executable has not been set'
-            );
-        }
-    }
-
-    /**
      * Proxy down to the command class
+     *
+     * This also allows programmers to use both
+     * <code>
+     * $executables_object = $hg->executable;
+     * and
+     * $executables_object = $hg->getExecutable();
+     * </code>
+     * to both return an instance of VersionControl_Hg_Executable, for example.
      *
      * @param string $method is the function being called
      * @param array  $arguments are the parameters passed to that function
@@ -200,28 +161,91 @@ class VersionControl_Hg
      */
     public function __call($method, $arguments)
     {
-        //proxy to Hg/Command.php
-        $hg_command = new VersionControl_Hg_CommandProxy($this);
-            //must pass an instance of VersionControl_Hg to provide it with
-            //the executable and repository
+        switch (strtolower(substr($method, 0, 3))) {
+            //@TODO how do we know what we are setting?
+            case 'set':
+                $object = strtolower(substr($method, 3));
+                //Ex. $hg->getExecutable() => $hg->executable->getPath()
+                break;
+            //@TODO do we 'get' the object or the property?
+            case 'get':
+                break;
+            default:
+                /* proxy to Hg/Command.php */
+                $hg_command = new VersionControl_Hg_CommandProxy($this);
+                    //must pass an instance of VersionControl_Hg to provide it with
+                    //the executable and repository
+                return call_user_func_array(array($hg_command, $method), $arguments);
+                break;
+        }
 
-        return call_user_func_array(array($hg_command, $method), $arguments);
     }
 
     /**
-     * Returns a property, usually handled by a subcommand
+     * Returns an object, usually handled by a subcommand
+     *
+     * A $name is a lowercase, short name of the object:
+     * $hg->executable is an instance of VersionControl_Hg_Executable and can
+     * be echoed to invoke __toString() to get a pertinent piece of metadata.
      *
      * Instead of calling <code>$hg->getVersion();</code>, we simplify:
      * <code>$version = $hg->version</code>.
      *
-     * @param string $param is the property to get
+     * @param string $name is the object to get
      */
-    public function __get($param) {
-        $method = 'get' . ucfirst($param);
-        //proxy to Hg/Command.php
-        $hg_command = new VersionControl_Hg_CommandProxy($this);
+    public function __get($name) {
+        /* Instantiate the object corresponding to the short name
+         * most are commands, some are top-level objects */
+        switch ($name) {
+            case 'repository':
+                /* Singleton let's us use an instance or create a new one if
+                 * not instantiated
+                 *
+                 * We're ok with a null argument here since to even use
+                 * this, $hg would already have to be instantitated
+                 * successfully with a repo argument.
+                 */
+                return VersionControl_Hg_Container_Repository::construct();
+                break;
+            case 'executable':
+                /* Singleton let's us use an instance or create a new one if
+                 * not instantiated */
+                return VersionControl_Hg_Executable::construct();
+                break;
+            default:
+                // its a command
+                $command = new VersionControl_Hg_CommandProxy($this);
+                return call_user_func_array(array($command, $method), array());
+                break;
+        }
+    }
 
-        return call_user_func_array(array($hg_command, $method), array());
+    /**
+     *
+     *
+     * @param string $name
+     * @param string $value
+     */
+    public function __set($name, $value) {
+        /* Instantiate the object corresponding to the short name
+         * most are commands, some are top-level objects */
+        switch ($name) {
+            case 'repository':
+                /* Singleton let's us use an instance or create a new one if
+                 * not instantiated */
+                return VersionControl_Hg_Container_Repository::construct($value);
+                break;
+            case 'executable':
+                /* Singleton let's us use an instance or create a new one if
+                 * not instantiated */
+                return VersionControl_Hg_Executable::construct($value);
+                break;
+            default:
+                //its a command
+                $command = new VersionControl_Hg_CommandProxy($this);
+                return call_user_func_array(array($command, $method), array());
+                break;
+        }
     }
 
     /**
@@ -231,7 +255,10 @@ class VersionControl_Hg
      */
     public function __toString()
     {
-        echo 'Executable: ' . $this->_executable->getPath() . "\r\n";
-        echo 'Repository: ' . $this->_repository->getPath() . "\r\n";
+        /* This automagically calls $this::__get() and then automagically
+         * invokes VersionControl_Hg_Executable::__toString() */
+        echo 'Executable: ' . $this->executable . "\r\n";
+        echo 'Repository: ' . $this->repository . "\r\n";
+        echo 'Version: ' . $this->version . "\r\n";
     }
 }

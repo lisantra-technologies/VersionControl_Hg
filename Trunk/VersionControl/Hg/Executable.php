@@ -38,6 +38,9 @@ class VersionControl_Hg_Executable
      */
     const CUSTOM_EXECUTABLE = "custom";
 
+    // Hold an instance of the class
+    private static $_instance;
+
     /**
      * Path to the excutable binary
      *
@@ -75,9 +78,25 @@ class VersionControl_Hg_Executable
      * @param string $path is the full path to the user defined executable
      * @return void
      */
-    public function __construct($path) {
+    private function __construct($path) {
         /* Attempt to set the executable */
         $this->setExecutable($path);
+    }
+
+    /**
+     * The singleton method
+     *
+     * @param string $path
+     * @return VersionControl_Hg_Executable
+     */
+    public static function construct($path = null)
+    {
+        if ( ! isset(self::$_instance) ) {
+            $singleton_class = __CLASS__;
+            self::$_instance = new $singleton_class($path);
+        }
+
+        return self::$_instance;
     }
 
     /**
@@ -107,7 +126,10 @@ class VersionControl_Hg_Executable
      * Validates the existance and viability of the Mercurial executable on
      * the system
      *
-     * Programmer may reset this at any time:
+     * If you need to specifiy a particular Hg executable to use, then pass
+     * the full path to Mercurial as a paramter of this function.
+     *
+     * Usage:
      * <code>$hg->setExecutable('/path/to/hg');</code>
      * A failed reset/change will not clear the previously set executable.
      *
@@ -168,7 +190,7 @@ class VersionControl_Hg_Executable
     }
 
     /**
-     * Get the object representing the currently used Mercurial executable
+     * Get the full path of the currently used Mercurial executable
      *
      * @return string
      * @throws VersionControl_Hg_Executable_Exception
@@ -187,7 +209,7 @@ class VersionControl_Hg_Executable
     }
 
     /**
-     * Returns the version of the Mercurial executable.
+     * Sets the version of the Mercurial executable
      *
      * Implements the version command of the command-line client.
      * Possible values are:
@@ -201,7 +223,7 @@ class VersionControl_Hg_Executable
         //@todo why am I passing $this to the Command?
         $command = new VersionControl_Hg_CommandProxy();
 
-        $this->_version = $command->version()->run(array('quiet' => true));
+        $this->_version = $command->version()->run('quiet');
         // = $command->version()->run('quiet');
     }
 
@@ -227,10 +249,18 @@ class VersionControl_Hg_Executable
     }
 
     /**
-     * Print the full path of the system's command line Mrcurial
+     * Print the full path of the system's command line Mercurial
      */
     public function __toString() {
-        return $this->_executable;
+        return $this->getExecutable();
+    }
+
+    /**
+     * Prevent users to clone the instance
+     */
+    public function __clone()
+    {
+        trigger_error('Clone is not allowed.', E_USER_ERROR);
     }
 
 }
