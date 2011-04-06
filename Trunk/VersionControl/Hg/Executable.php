@@ -123,7 +123,7 @@ class VersionControl_Hg_Executable
      * @return void
      * @see self::$_path
      */
-    protected function setPath($path) {
+    protected function setPath($path = null) {
         if ( empty($path) ) {
             $path = dirname($this->_executable);
         }
