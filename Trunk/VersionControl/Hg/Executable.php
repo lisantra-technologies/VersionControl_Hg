@@ -81,6 +81,13 @@ class VersionControl_Hg_Executable
     private function __construct($path) {
         /* Attempt to set the executable */
         $this->setExecutable($path);
+
+        /* We only set version and path if we found a valid executable */
+        $this->setPath();
+
+        /* disabled, since calling a command before setting the executable has
+         * finished seems to tear a hole in the unniverse... */
+        //$this->setVersion();
     }
 
     /**
@@ -89,11 +96,10 @@ class VersionControl_Hg_Executable
      * @param string $path
      * @return VersionControl_Hg_Executable
      */
-    public static function construct($path = null)
+    public static function getInstance($path = null)
     {
-        if ( ! isset(self::$_instance) ) {
-            $singleton_class = __CLASS__;
-            self::$_instance = new $singleton_class($path);
+        if (self::$_instance === null) {
+            self::$_instance = new VersionControl_Hg_Executable($path);
         }
 
         return self::$_instance;
@@ -108,8 +114,15 @@ class VersionControl_Hg_Executable
      * @return void
      * @see self::$_path
      */
-    protected function setPath($path) {
+    protected function setPath($path = null) {
+        if ( empty($path) ) {
+            $path = dirname($this->_executable);
+        }
+
         $this->_path = $path;
+
+        //Fluid API
+        return $this;
     }
 
     /**
@@ -163,11 +176,11 @@ class VersionControl_Hg_Executable
         if ( ( empty($executables) ) || ( null === $path ) ) {
             /* iterate through the system's path to automagically find an
              * executable */
-            $paths = split(PATH_SEPARATOR, $_SERVER['Path']);
+            $paths = explode(PATH_SEPARATOR, $_SERVER['Path']);
 
             foreach ( $paths as $path ) {
-                if (is_executable($path . DIRECTORY_SEPARATOR . $binary)) {
-                    $executables[] = $path . DIRECTORY_SEPARATOR . $binary;
+                if (is_executable($path . $binary)) { //DIRECTORY_SEPARATOR .
+                    $executables[] = $path . $binary;
                 }
             }
 
@@ -180,10 +193,6 @@ class VersionControl_Hg_Executable
 
         /* use only the first instance found of a mercurial executable */
         $this->_executable = array_shift($executables);
-
-        /* We only set version and path if we found a valid executable */
-        $this->setPath(dirname($this->_executable));
-        $this->setVersion();
 
         /* For fluid API */
         return $this;
@@ -220,10 +229,14 @@ class VersionControl_Hg_Executable
      */
     protected function setVersion()
     {
-        //@todo why am I passing $this to the Command?
-        $command = new VersionControl_Hg_CommandProxy();
+        $this->_version = $this->_base->version()->run('quiet');
 
-        $this->_version = $command->version()->run('quiet');
+        //$command = new VersionControl_Hg_CommandProxy($this->_base);
+        //return
+        //$version = call_user_func_array(array($command, 'version'), array('quiet'));
+
+        //$version2 = $command->version()->run('quiet');
+//var_dump($command, $version, $version2);die;
         // = $command->version()->run('quiet');
     }
 
