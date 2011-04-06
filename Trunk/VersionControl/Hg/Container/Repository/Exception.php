@@ -14,11 +14,6 @@
  */
 
 /**
- * Provides the base exception
- */
-require_once '../../Hg/Exception.php';
-
-/**
  * Exception for Mercurial repositories
  *
  * PHP version 5
