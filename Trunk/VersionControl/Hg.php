@@ -84,13 +84,6 @@ require_once 'Hg/CommandProxy.php';
 class VersionControl_Hg
 {
     /**
-     * The repository Hg will act upon
-     *
-     * @var VersionControl_Hg_Container_Repository
-     */
-    protected $_repository;
-
-    /**
      * Constructor
      *
      * Assumes to be working on a local filesystem repository
@@ -100,42 +93,13 @@ class VersionControl_Hg
      */
     public function __construct($repository = null)
     {
-        $this->setExecutable();
-
-        if ($repository === null) {
-            throw new VersionControl_Hg_Exception(
-                VersionControl_Hg_Exception::NO_REPOSITORY
-            );
-        }
-
+        /* invalid repository will trigger an exception in the
+         * child class VersionControl_Hg_Container_Repository */
         $this->setRepository($repository);
-    }
 
-    /**
-     * Sets the repository property
-     *
-     * @param string $repository is the path to a valid Mercurial repository
-     *
-     * @return void
-     * @see $_repository
-     */
-    public function setRepository($repository)
-    {
-        $this->_repository = new VersionControl_Hg_Container_Repository($repository);
-    }
-
-    /**
-     * Returns the repository property
-     *
-     * @return VersionControl_Hg_Container_Repository
-     */
-    public function getRepository()
-    {
-        if ( $this->_repository instanceof VersionControl_Hg_Container_Repository) {
-            return $this->_repository;
-        } else {
-            throw new VersionControl_Hg_Exception(VersionControl_Hg_Exception::INVALID_REPOSITORY);
-        }
+        /* let's make an invalid repo fail first; why look for an executable
+         * if the passed repo path is no good? */
+        $this->setExecutable();
     }
 
     /**
@@ -161,20 +125,37 @@ class VersionControl_Hg
      */
     public function __call($method, $arguments)
     {
-        switch (strtolower(substr($method, 0, 3))) {
-            //@TODO how do we know what we are setting?
+        $possible_prefix = strtolower(substr($method, 0, 3));
+        $possible_object = strtolower(substr($method, 3));
+
+        switch ( $possible_prefix ) {
+            /* Very limited use:
+             * $hg->getExecutable()->getPath() = $hg->executable->getPath() */
             case 'set':
-                $object = strtolower(substr($method, 3));
-                //Ex. $hg->getExecutable() => $hg->executable->getPath()
+                $value = ( empty($arguments) ) ? null : $arguments[0];
+
+                if ( $possible_object === 'repository' ) {
+                    return VersionControl_Hg_Container_Repository::getInstance($value);
+                } elseif ( $possible_object === 'executable' ) {
+                    return VersionControl_Hg_Executable::getInstance($value);
+                } else {
+                    throw new ErrorException("set$possible_object is not implemented");
+                }
                 break;
-            //@TODO do we 'get' the object or the property?
             case 'get':
+                if ( $possible_object === 'repository' ) {
+                    return VersionControl_Hg_Container_Repository::getInstance();
+                } elseif ( $possible_object === 'executable' ) {
+                    return VersionControl_Hg_Executable::getInstance();
+                } else {
+                    throw new ErrorException("get$possible_object is not implemented");
+                }
                 break;
+            /* proxy to Hg/Command.php */
             default:
-                /* proxy to Hg/Command.php */
+                /* must pass an instance of VersionControl_Hg to provide it with
+                 * the executable and repository */
                 $hg_command = new VersionControl_Hg_CommandProxy($this);
-                    //must pass an instance of VersionControl_Hg to provide it with
-                    //the executable and repository
                 return call_user_func_array(array($hg_command, $method), $arguments);
                 break;
         }
@@ -205,17 +186,17 @@ class VersionControl_Hg
                  * this, $hg would already have to be instantitated
                  * successfully with a repo argument.
                  */
-                return VersionControl_Hg_Container_Repository::construct();
+                return VersionControl_Hg_Container_Repository::getInstance();
                 break;
             case 'executable':
                 /* Singleton let's us use an instance or create a new one if
                  * not instantiated */
-                return VersionControl_Hg_Executable::construct();
+                return VersionControl_Hg_Executable::getInstance();//null, $this
                 break;
             default:
                 // its a command
                 $command = new VersionControl_Hg_CommandProxy($this);
-                return call_user_func_array(array($command, $method), array());
+                return call_user_func_array(array($command, $name), array());
                 break;
         }
     }
@@ -233,12 +214,12 @@ class VersionControl_Hg
             case 'repository':
                 /* Singleton let's us use an instance or create a new one if
                  * not instantiated */
-                return VersionControl_Hg_Container_Repository::construct($value);
+                return VersionControl_Hg_Container_Repository::getInstance($value);
                 break;
             case 'executable':
                 /* Singleton let's us use an instance or create a new one if
                  * not instantiated */
-                return VersionControl_Hg_Executable::construct($value);
+                return VersionControl_Hg_Executable::getInstance($value);
                 break;
             default:
                 //its a command

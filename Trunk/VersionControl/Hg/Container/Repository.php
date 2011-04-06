@@ -10,14 +10,13 @@
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
  * @link 		http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
  * Provides the container exception
  */
-require_once 'Exception.php';
+require_once 'Repository/Exception.php';
 
 /**
  * Provides the container interface
@@ -31,7 +30,9 @@ require_once 'Interface.php';
  * All calls are proxied from Hg
  * <code>
  * $hg = new VersionControl_Hg('/path/to/repo');
- * $repository = $hg->getRepository();
+ * $repository = $hg->getRepository()->getPath();
+ * or
+ * $repository = $hg->repository->delete();
  * </code>
  *
  * PHP version 5
@@ -50,11 +51,17 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
     /**
      * The name of all Mercurial repository roots.
      *
+     * @FIXME: is this still needed to say?
      * Leading backslash is needed since _path may not have a trailing slash.
      *
      * @const string
      */
     const ROOT_NAME = '.hg';
+
+    /*
+     * Hold an instance of the class
+     */
+    private static $_instance;
 
     /**
      * Path to a local Mercurial repository
@@ -74,8 +81,24 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      *
      * @todo might be a good place to set the transport method?
      */
-    public function __construct($path) {
+    private function __construct($path) {
         $this->setPath($path);
+    }
+
+    /**
+     * The singleton method
+     *
+     * @param string $path
+     * @return VersionControl_Hg_Executable
+     */
+    public static function getInstance($path = null)
+    {
+        if ( ! isset(self::$_instance) ) {
+            $singleton_class = __CLASS__;
+            self::$_instance = new $singleton_class($path);
+        }
+
+        return self::$_instance;
     }
 
     /**
@@ -107,11 +130,8 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
          * ignore them in output.
          */
         if ( ! $this->isRepository($path)) {
-            throw new VersionControl_Hg_Container_Exception(
-                'There is no Mercurial repository at: '
-                . $path
-                . '. Use $hg->setRepository(\'/path/to/repository\') to create '
-                . 'one and then use getRepository() to act upon it.'
+            throw new VersionControl_Hg_Container_Repository_Exception(
+                VersionControl_Hg_Container_Repository_Exception::NO_REPOSITORY
             );
         }
 
@@ -208,5 +228,13 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      */
     public function __toString() {
         return $this->getPath();
+    }
+
+    /**
+     * Prevent users to clone the instance
+     */
+    public function __clone()
+    {
+        trigger_error('Clone is not allowed.', E_USER_ERROR);
     }
 }
