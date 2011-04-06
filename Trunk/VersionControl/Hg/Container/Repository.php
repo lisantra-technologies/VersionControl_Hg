@@ -57,6 +57,15 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      */
     const ROOT_NAME = '.hg';
 
+    /**
+     * Base class in this package
+     *
+     * Provides ability to call commands
+     *
+     * @var VersionControl_Hg
+     */
+    protected $hg;
+
     /*
      * Hold an instance of the class
      */
@@ -80,7 +89,7 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      *
      * @todo might be a good place to set the transport method?
      */
-    private function __construct($path) {
+    private function __construct($hg, $path) {
         $this->setPath($path);
     }
 
@@ -90,11 +99,11 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      * @param string $path
      * @return VersionControl_Hg_Executable
      */
-    public static function getInstance($path = null)
+    public static function getInstance($hg = null, $path = null)
     {
         if ( ! isset(self::$_instance) ) {
             $singleton_class = __CLASS__;
-            self::$_instance = new $singleton_class($path);
+            self::$_instance = new $singleton_class($hg, $path);
         }
 
         return self::$_instance;
@@ -109,6 +118,12 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      */
     public function setPath($path)
     {
+        /* not passing in a path is OK, especially since the programmer may
+         * want to call create() */
+        if ( is_null($path) ) {
+            return;
+        }
+
         if (is_array($path)) {
             $path = $path[0];
         }
@@ -192,6 +207,9 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      */
     public function create($path)
     {
+        //must call is_repository on the path first, since setPath was not used in instantiation...?
+
+
         $this->_command = new VersionControl_Hg_Command_Init();
         //$this->_command = new Hg_Repository_Command_Init($this);
             //pass $this as dependency injection instead of having

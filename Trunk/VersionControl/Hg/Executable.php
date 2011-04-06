@@ -38,6 +38,15 @@ class VersionControl_Hg_Executable
      */
     const CUSTOM_EXECUTABLE = "custom";
 
+    /**
+     * Base class in this package
+     *
+     * Provides ability to call commands
+     *
+     * @var VersionControl_Hg
+     */
+    protected $hg;
+
     // Hold an instance of the class
     private static $_instance;
 
@@ -78,7 +87,7 @@ class VersionControl_Hg_Executable
      * @param string $path is the full path to the user defined executable
      * @return void
      */
-    private function __construct($path) {
+    private function __construct($hg, $path) {
         /* Attempt to set the executable */
         $this->setExecutable($path);
 
@@ -96,10 +105,10 @@ class VersionControl_Hg_Executable
      * @param string $path
      * @return VersionControl_Hg_Executable
      */
-    public static function getInstance($path = null)
+    public static function getInstance($hg = null, $path = null)
     {
         if (self::$_instance === null) {
-            self::$_instance = new VersionControl_Hg_Executable($path);
+            self::$_instance = new VersionControl_Hg_Executable($hg, $path);
         }
 
         return self::$_instance;
@@ -114,7 +123,7 @@ class VersionControl_Hg_Executable
      * @return void
      * @see self::$_path
      */
-    protected function setPath($path = null) {
+    protected function setPath($path) {
         if ( empty($path) ) {
             $path = dirname($this->_executable);
         }

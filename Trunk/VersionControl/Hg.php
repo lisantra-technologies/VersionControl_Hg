@@ -135,9 +135,9 @@ class VersionControl_Hg
                 $value = ( empty($arguments) ) ? null : $arguments[0];
 
                 if ( $possible_object === 'repository' ) {
-                    return VersionControl_Hg_Container_Repository::getInstance($value);
+                    return VersionControl_Hg_Container_Repository::getInstance($this, $value);
                 } elseif ( $possible_object === 'executable' ) {
-                    return VersionControl_Hg_Executable::getInstance($value);
+                    return VersionControl_Hg_Executable::getInstance($this, $value);
                 } else {
                     throw new ErrorException("set$possible_object is not implemented");
                 }
@@ -155,8 +155,8 @@ class VersionControl_Hg
             default:
                 /* must pass an instance of VersionControl_Hg to provide it with
                  * the executable and repository */
-                $hg_command = new VersionControl_Hg_CommandProxy($this);
-                return call_user_func_array(array($hg_command, $method), $arguments);
+                $command = new VersionControl_Hg_CommandProxy($this);
+                return call_user_func_array(array($command, $method), $arguments);
                 break;
         }
 
@@ -214,12 +214,12 @@ class VersionControl_Hg
             case 'repository':
                 /* Singleton let's us use an instance or create a new one if
                  * not instantiated */
-                return VersionControl_Hg_Container_Repository::getInstance($value);
+                return VersionControl_Hg_Container_Repository::getInstance($this, $value);
                 break;
             case 'executable':
                 /* Singleton let's us use an instance or create a new one if
                  * not instantiated */
-                return VersionControl_Hg_Executable::getInstance($value);
+                return VersionControl_Hg_Executable::getInstance($this, $value);
                 break;
             default:
                 //its a command
