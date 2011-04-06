@@ -1,6 +1,5 @@
 <?php
 
-    require_once 'PHPUnit/Framework.php';
     require_once '../../VersionControl/Hg.php';
 
     /**
@@ -15,8 +14,8 @@
          */
         private $_object;
 
-        public $basepath = "../Functional/";
-        public $test_repository = 'V:\Development\_Webroot\Trunk\Tests\Fixtures\Test_Repository';
+        //public $basepath = "../Functional/";
+        public $test_repository = 'H:\Development\_Webroot\Trunk\Tests\Fixtures\Test_Repository';
         public $invalid_repo = 'C:\Windows\Temp';
         public $nonexistant_path = 'C:\Temp';
 
@@ -28,82 +27,30 @@
 
         public function testConstructorWithNullSignature()
         {
+            $this->setExpectedException('VersionControl_Hg_Exception');
             $hg = new VersionControl_Hg();
-            $expected = NULL;
-            $this->assertEquals($expected, $hg->getRepository());
         }
 
         public function testConstructorWithValidRepository()
         {
             $hg = new VersionControl_Hg($this->test_repository);
             $expected = $this->test_repository;
-            $this->assertEquals($expected, $hg->getRepository());
+            $actual = $hg->getRepository()->getPath();
+            $this->assertEquals($expected, $actual);
         }
 
         public function testConstructorWithAnInvalidRepository()
         {
-            try {
-                $hg = new VersionControl_Hg($this->invalid_repo);
-                //include $this->basepath . 'test_HgConstructor_InvalidRepository.php';
-            }
-            catch (Exception $e) {
-                $this->assertThat(
-                    $e->getMessage(),
-                    $this->stringContains(
-                        'there is no Mercurial repository at'//does not exist on this system
-                    )
-                );
-                return;
-            }
-            $this->fail('An expected exception has not been raised.');
+
+            $this->setExpectedException('VersionControl_Hg_Container_Repository_Exception');
+            $hg = new VersionControl_Hg($this->invalid_repo);
         }
 
-        public function testConstructorWithANonexistantPath()
+        public function testConstructorWithNonExistantPath()
         {
-            try {
-                $hg = new VersionControl_Hg($this->nonexistant_path);
-                //include $this->basepath . 'test_HgConstructor_NonexistantPath.php';
-            }
-            catch (Exception $e) {
-                $this->assertThat(
-                    $e->getMessage(),
-                    $this->stringContains(
-                        'does not exist on this system'
-                    )
-                );
-                return;
-            }
-            $this->fail('An expected exception has not been raised.');
+            $this->setExpectedException('VersionControl_Hg_Container_Repository_Exception');
+            $hg = new VersionControl_Hg($this->nonexistant_path);
         }
-
-        /*public function testSetVersion()
-        {
-
-        }
-
-        public function testGetVersion()
-        {
-            $version = $this->_object->getVersion(); //returns an array.
-            print_r($version);
-            //these values will be different on other actual installations.
-            $this->assertEquals( $version['raw'], '1.1+20081203');
-            $this->assertEquals( $version['complete'], '1.1');
-            $this->assertEquals( $version['major'], '1');
-            $this->assertEquals( $version['minor'], '1');
-            $this->assertEquals( $version['date'], '20081203');
-
-        }
-
-        public function testGetVersionWithUnrecognizableInput()
-        {
-            try {
-                //this should raise an exception.
-                $this->_object->getVersion('unknown');
-            }
-            catch(Exception $e) {
-                return;
-            }
-        }*/
 
         /**
          * Tears down the fixture, for example, closes a network connection.
