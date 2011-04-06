@@ -73,7 +73,7 @@ class VersionControl_Hg_CommandProxy
      * @param $command VersionControl_Hg_Command_Interface
      */
     public function setCommand(VersionControl_Hg_Command_Interface $command) {
-    	$this->_command = $command;
+        $this->_command = $command;
     }
 
     /**
@@ -82,7 +82,7 @@ class VersionControl_Hg_CommandProxy
      * @return VersionControl_Hg_Command_Interface
      */
     public function getCommand() {
-    	return $this->_command;
+        return $this->_command;
     }
 
     /**
@@ -94,7 +94,9 @@ class VersionControl_Hg_CommandProxy
      * @throws VersionControl_Hg_Exception
      */
     public function __call($method, $arguments = null) {
-    	if ( ! in_array($method, $this->allowed_commands) ) {
+        //@TODO is_callable & method_exists
+
+        if ( ! in_array($method, $this->allowed_commands) ) {
             return new VersionControl_Hg_Exception(
                 'The command is unrecognized or unimplemented'
             );
