@@ -160,7 +160,7 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      * @param   string $repo is the full repository path.
      * @return  boolean
      */
-    public function isRepository($path)
+    protected function isRepository($path)
     {
         /*
          * @todo a valid repo has this structure, so test for this:
