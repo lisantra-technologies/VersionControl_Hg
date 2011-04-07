@@ -10,7 +10,6 @@
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     SVN:
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 
@@ -49,7 +48,6 @@ require_once 'Exception.php';
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Release: 0.3.0
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Status
@@ -170,7 +168,7 @@ class VersionControl_Hg_Command_Status
      */
     public function all()
     {
-        $this->addOption('all', null);
+        $this->addOption('all');
         return $this; //for the fluent API
     }
 
@@ -189,7 +187,7 @@ class VersionControl_Hg_Command_Status
      */
     public function modified()
     {
-        $this->addOption('modified', null);
+        $this->addOption('modified');
         return $this; //for the fluent API
     }
 
@@ -208,7 +206,7 @@ class VersionControl_Hg_Command_Status
      */
     public function added()
     {
-        $this->addOption('added', null);
+        $this->addOption('added');
         return $this; //for the fluent API
     }
 
@@ -227,7 +225,7 @@ class VersionControl_Hg_Command_Status
      */
     public function removed()
     {
-        $this->addOption('removed', null);
+        $this->addOption('removed');
         return $this; //for the fluent API
     }
 
@@ -246,7 +244,7 @@ class VersionControl_Hg_Command_Status
      */
     public function deleted()
     {
-        $this->addOption('deleted', null);
+        $this->addOption('deleted');
         return $this; //for the fluent API
     }
 
@@ -265,7 +263,7 @@ class VersionControl_Hg_Command_Status
      */
     public function clean()
     {
-        $this->addOption('clean', null);
+        $this->addOption('clean');
         return $this; //for the fluent API
     }
 
@@ -284,7 +282,7 @@ class VersionControl_Hg_Command_Status
      */
     public function unknown()
     {
-        $this->addOption('unknown', null);
+        $this->addOption('unknown');
         return $this; //for the fluent API
     }
 
@@ -303,7 +301,7 @@ class VersionControl_Hg_Command_Status
      */
     public function ignored()
     {
-        $this->addOption('ignored', null);
+        $this->addOption('ignored');
         return $this; //for the fluent API
     }
 
