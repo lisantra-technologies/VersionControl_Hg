@@ -90,8 +90,27 @@ class VersionControl_Hg_Command_Status
         'removed' => null,
         'deleted' => null,
         'clean' => null,
-        'unknown' => null,
+        'unknown' => null, //could be 'not tracked'? but we need one word
         'ignored' => null,
+    );
+
+    /**
+     * Mapping between native Hg output codes and human readable outputs
+     * I'd like VersionControl_Hg to return to the programmer.
+     *
+     * @TODO add optional functionality for this to parent::parseOutput()
+     *
+     * @var mixed
+     */
+    protected $output_codes = array(
+        'M' => 'modified',
+        'A' => 'added',
+        'R' => 'removed',
+        'C' => 'clean',
+        '!' => 'missing',
+        //should be unknown here to match above, but HG docs use 'not tracked'
+        '?' => 'not tracked',
+        'I' => 'ignored',
     );
 
     /**
@@ -103,16 +122,16 @@ class VersionControl_Hg_Command_Status
      */
     public function __construct($params = null)
     {
-    	if ( ! is_null($params) ) {
+        if ( ! is_null($params) ) {
             $this->setOptions($params);
-    	}
+        }
     }
 
     /**
      * (non-PHPdoc)
      * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
      */
-    public function execute($params = null)
+    public function execute(array $params = null)
     {
         if ( ! is_null($params) ) {
             $this->setOptions($params);
@@ -124,14 +143,14 @@ class VersionControl_Hg_Command_Status
             'repository' => $this->container->getRepository()->getPath(),
         ));
 
-        //despite its being so not variable, we need to set the command string
-        //only after manually setting options and other command-specific data
+        /* Despite its being so not variable, we need to set the command string
+         * only after manually setting options and other command-specific data */
         $this->setCommandString();
 
-        exec($this->getCommandString(), $this->output, $this->status);
+        exec($this->command_string, $this->output, $this->status);
 
         //@todo remove the die()...
-        ($this->status === 0) or die("returned an error: $this->command_string");
+        ($this->status === 0) or die("returned an error: $this->status on: $this->command_string");
 
         return $this->parseOutput($this->output, array('status', 'file'));
     }
@@ -295,6 +314,6 @@ class VersionControl_Hg_Command_Status
      */
     public function __toString()
     {
-    	var_dump($this->output);
+        return $this->output;
     }
 }
