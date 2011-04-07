@@ -26,8 +26,7 @@
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Container_Repository_Exception
-    extends VersionControl_Hg_Exception
+class VersionControl_Hg_Container_Repository_Exception extends Exception
 {
     /**
      * Error constant
@@ -38,6 +37,12 @@ class VersionControl_Hg_Container_Repository_Exception
      * Error constant
      */
     const INVALID_REPOSITORY = 'invalidRepository';
+
+    /**
+     * Error constant
+     */
+    const DOES_NOT_EXIST = 'doesNotExist';
+
 
     /**
      * Error messages for humans
@@ -51,6 +56,7 @@ class VersionControl_Hg_Container_Repository_Exception
         'invalidRepository' => 'Invalid repository was passed: Mercurial could
                                 not open the repository. Is there an .hg
                                 directory there? Is it corrupted?',
+        'doesNotExist' => 'The path does not exist on this system',
     );
 
     /**

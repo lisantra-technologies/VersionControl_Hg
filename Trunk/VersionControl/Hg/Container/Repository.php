@@ -130,8 +130,8 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
 
         //is it even a real path?
         if ( ! realpath($path)) {
-            throw new VersionControl_Hg_Container_Exception(
-                'The path: ' . $path . ' does not exist on this system'
+            throw new VersionControl_Hg_Container_Repository_Exception(
+                VersionControl_Hg_Container_Repository_Exception::DOES_NOT_EXIST
             );
         }
 
