@@ -11,7 +11,6 @@
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 
@@ -26,11 +25,9 @@
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 interface VersionControl_Hg_Command_Interface
 {
-    public function execute($params = null);
-    public function setContainer($container);
+    public function execute(array $options = null);
 }
