@@ -116,7 +116,7 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      * @return  mixed Repository to enable method chaining
      * @see     $path
      */
-    public function setPath($path)
+    public function setPath($path = null)
     {
         /* not passing in a path is OK, especially since the programmer may
          * want to call create() */
@@ -244,7 +244,12 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      * @return string
      */
     public function __toString() {
-        return $this->getPath();
+        /* necessary because __toString() MUST return a string, but if
+         * getPath() is called on a now-permissible null repository path,
+         * we will get a PHP error. */
+        $path = ( $this->getPath() ) ? $this->getPath() : "";
+
+        return $path;
     }
 
     /**
