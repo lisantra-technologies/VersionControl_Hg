@@ -17,9 +17,18 @@
  */
 
 /**
- *
+ * Provides the required interface for all commands
  */
 require_once 'Interface.php';
+
+/**
+ * Provides base functionality common to all commands
+ */
+require_once 'Abstract.php';
+
+/**
+ * Provides Exceptions for commands (VersionControl_Hg_Command_Exception)
+ */
 require_once 'Exception.php';
 
 /**
@@ -170,7 +179,7 @@ class VersionControl_Hg_Command_Archive
         $this->addOptions(array(
             'rev' => $this->getRevision(),
             'type' => $this->getArchiveType(),
-            'repository' => $this->container->getRepository(),
+            'repository' => $this->hg->getRepository()->getPath(),
         ));
 
         $destination = $this->getDestination() .
@@ -191,7 +200,7 @@ class VersionControl_Hg_Command_Archive
             $modifiers .= ' --' . $option . ' ' . $argument;
         }
 
-        $command_string = '"'.$this->container->hg->getHgExecutable().'" ' . $this->command;
+        $command_string = '"'.$this->hg->getHgExecutable().'" ' . $this->command;
         /* rtrim() instead of trim() so we don't end up with no space before
          * first switch: "hg archive--rev tip" */
         $command_string .= rtrim($modifiers);

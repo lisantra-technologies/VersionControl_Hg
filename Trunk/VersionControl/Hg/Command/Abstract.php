@@ -1,16 +1,15 @@
 <?php
 /**
- * Contains definition for the Abstract class inherited by all command classes
+ * Contains definition for the Abstract class
  *
  * PHP version 5
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage
+ * @subpackage  Command
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version Hg: $Revision$
  * @link 		http://pear.php.net/package/VersionControl_Hg
  */
 
@@ -20,7 +19,7 @@
 require_once 'Exception.php';
 
 /**
- *
+ * Gathers common code needed by all Command implementations
  *
  * implements the following global options:
  * -I --include    include names matching the given patterns
@@ -30,11 +29,10 @@ require_once 'Exception.php';
  *
  * @category    VersionControl
  * @package     Hg
- * @subpackage
+ * @subpackage 	Command
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version Hg: $Revision$
  * @link 		http://pear.php.net/package/VersionControl_Hg
  */
 abstract class VersionControl_Hg_Command_Abstract
@@ -54,11 +52,11 @@ abstract class VersionControl_Hg_Command_Abstract
     protected $output;
 
     /**
-     * Object representing the container the command operated upon
+     * Object representing the base hg object command operates on behalf of
      *
      * @var VersionControl_Hg
      */
-    protected $container;
+    protected $hg;
 
     /**
      * The string of the full command executed by Mercurial
@@ -90,7 +88,9 @@ abstract class VersionControl_Hg_Command_Abstract
     protected $global_options = array(
         'encoding' => null,
         'quiet' => null,
-        'verbose' => null
+        'verbose' => null,
+        'include' => null,
+        'exclude' => null,
     );
 
     /**
@@ -116,7 +116,7 @@ abstract class VersionControl_Hg_Command_Abstract
 
     /**
      * Class constructors must be redefined in each Command parent class,
-     * since it must have its dependencies for $container passed in.
+     * since it must have its dependencies for $hg injected.
      *
      * @return void
      */
@@ -153,14 +153,14 @@ abstract class VersionControl_Hg_Command_Abstract
                 //alt: return call_user_func_array(array($command, 'execute'), $options);
                 break;
             default:
-            	/* must be the command or one of its fluent api functions */
+                /* must be the command or one of its fluent api functions */
                 //is it a method of the currently instantiated command?
                 if ( method_exists($this, $method) ) {
                     return call_user_func_array(array($this, $method), $arguments);
                 } else {
-                	throw new VersionControl_Hg_Command_Exception(
-                	    "This method '{$method}' does not exist in this class"
-                	);
+                    throw new VersionControl_Hg_Command_Exception(
+                        "This method '{$method}' does not exist in this class"
+                    );
                 }
         }
     }
@@ -182,7 +182,7 @@ abstract class VersionControl_Hg_Command_Abstract
     public function excluding($filter)
     {
         $this->addOption(
-            'exclude', 'glob: '. escapeshellarg($filter)
+            'exclude', "'{$filter}'"
         );
 
         /* let me be chainable! */
@@ -205,8 +205,9 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     public function including($filter)
     {
+        //@todo escapeshellarg()
         $this->addOption(
-            'include', 'glob: '. escapeshellarg($filter)
+            'include', "'{$filter}'"
         );
 
         /* let me be chainable! */
@@ -226,24 +227,26 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     protected function setOptions(array $options)
     {
-    	if ( empty($this->valid_options) ) {
-    	    $this->valid_options = array_merge(
+        if ( empty($this->valid_options) ) {
+            $this->valid_options = array_merge(
                 $this->allowed_options,
                 $this->global_options,
                 $this->required_options
             );
-    	}
+        }
 
         /* $param[0] causes a Php Notice when its an empty array without this
          * topmost check
          */
         if ( count($options) > 0 ) {
-        	/* redefine $options; 0th index because __call shunts all args
-        	 * into an array.
-        	 */
-        	$options = $options[0];
+            /* redefine $options; 0th index because __call shunts all args
+             * into an array.
+             */
+            $options = $options[0];
 
             if ( is_array($options) ) {
+                //@todo how to handle $hg->status(array('removed', 'deleted'))
+                //      recurse?
                 $keys = array_keys($options);
                 /* reassign params so the values become string keys and
                  * replace the numeric values with nulls for options
@@ -286,12 +289,12 @@ abstract class VersionControl_Hg_Command_Abstract
         }
         /* good, we have all required options, so let's format them */
         foreach ($options as $option => $argument) {
-        	/*
-        	 * this is why we have nulls as values for options which do not
-        	 * have arguments. A better way later may be checking is_null()
-        	 * and remove the extra space, but the Hg executable does not seem
-        	 * to mind extra spaces in the command line.
-        	 */
+            /*
+             * this is why we have nulls as values for options which do not
+             * have arguments. A better way later may be checking is_null()
+             * and remove the extra space, but the Hg executable does not seem
+             * to mind extra spaces in the command line.
+             */
             $modifiers .= ' --' . $option . ' ' . $argument;
         }
 
@@ -391,14 +394,14 @@ abstract class VersionControl_Hg_Command_Abstract
         $parsed_output = array();
 
         foreach ( $output as $line ) {
-	        /* split each line into columns by any type of space character
-	         * repeated any number of times.
-	         */
-        	$bundle = preg_split('/\s/', $line);
+            /* split each line into columns by any type of space character
+             * repeated any number of times.
+             */
+            $bundle = preg_split('/\s/', $line);
             /* replace the numeric key with a field label
              * a list() idiom might be best here
              */
-        	if ( ! is_null($fields) ) {
+            if ( ! is_null($fields) ) {
                 //counts of field and output lengths must match.
                 if ( count($fields) !== count($bundle) ) {
                     throw new VersionControl_Hg_Command_Exception(
@@ -406,11 +409,11 @@ abstract class VersionControl_Hg_Command_Abstract
                     );
                 }
 
-		        foreach ( $bundle as $key => $value ) {
+                foreach ( $bundle as $key => $value ) {
                     unset($bundle[$key]);
                     $bundle[$fields[$key]] = $value;
-		        }
-        	}
+                }
+            }
 
             $parsed_output[] = $bundle;
                 //'/[\s]+/' which is better?
@@ -420,23 +423,23 @@ abstract class VersionControl_Hg_Command_Abstract
     }
 
     /**
-     * Sets the container in which  the command operates
+     * Sets the base $hg instance on whose behalf command operates
      *
-     * @param $container VersionControl_Hg
+     * @param $hg VersionControl_Hg
      */
-    public function setContainer($container)
+    public function setContainer(VersionControl_Hg $hg)
     {
-    	$this->container = $container;
+        $this->hg = $hg;
     }
 
     /**
-     * Returns the container in which  the command operates
+     * Returns the base $hg instance on whose behalf the command operates
      *
      * @return VersionControl_Hg
      */
     public function getContainer()
     {
-        return $this->container;
+        return $this->hg;
     }
 
     /**
@@ -452,7 +455,7 @@ abstract class VersionControl_Hg_Command_Abstract
     {
         $this->command_string =
             '"' .
-            $this->container->getExecutable()->getExecutable() .
+            $this->hg->executable .
             '" ' . $this->command .
             rtrim($this->formatOptions($this->getOptions()));
     }

@@ -144,7 +144,7 @@ class VersionControl_Hg_Command_Status
         //@TODO move this, if possible, to Abstract.php since it seems required for all commands
         $this->addOptions(array(
             'noninteractive' => null,
-            'repository' => $this->container->getRepository()->getPath(),
+            'repository' => $this->hg->getRepository()->getPath(),
         ));
 
         /* Despite its being so not variable, we need to set the command string

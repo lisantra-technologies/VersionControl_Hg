@@ -14,8 +14,19 @@
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 
+/**
+ * Provides the required interface for all commands
+ */
 require_once 'Interface.php';
+
+/**
+ * Provides base functionality common to all commands
+ */
 require_once 'Abstract.php';
+
+/**
+ * Provides Exceptions for commands (VersionControl_Hg_Command_Exception)
+ */
 require_once 'Exception.php';
 
 /**
@@ -36,11 +47,11 @@ class VersionControl_Hg_Command_Version
     extends VersionControl_Hg_Command_Abstract
     implements VersionControl_Hg_Command_Interface
 {
-	/**
-	 * The name of the mercurial command implemented here
-	 *
-	 * @var string
-	 */
+    /**
+     * The name of the mercurial command implemented here
+     *
+     * @var string
+     */
     protected $command = 'version';
 
     /**
@@ -67,7 +78,7 @@ class VersionControl_Hg_Command_Version
      * (non-PHPdoc)
      * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
      */
-    public function execute(array $options)
+    public function execute(array $options = null)
     {
         //process options array; everything should be in long format.
         $modifiers = null;
@@ -81,7 +92,10 @@ class VersionControl_Hg_Command_Version
             $modifiers .= ' --' . $options[0];
         }
         //$command_string = escapeshellcmd();
-        $command_string = '"' . $this->container->getExecutable() . '" ' . $this->command;
+
+//var_dump($this->hg, $this->hg->executable);die;
+
+        $command_string = '"' . $this->hg->executable . '" ' . $this->command;
         $command_string .= rtrim($modifiers);
 
         exec($command_string, $output, $command_status);
@@ -128,5 +142,13 @@ class VersionControl_Hg_Command_Version
         $version['minor'] = $version_tmp[1];
 
         return $version['raw'];
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function __toString() {
+        return ""; //join(" ", $this->output);
     }
 }
