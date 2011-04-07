@@ -49,6 +49,9 @@ require_once 'Exception.php';
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link        http://pear.php.net/package/VersionControl_Hg
+ *
+ * @TODO implement -C / --copied options
+ * @TODO implement ability to show only particular files' status
  */
 class VersionControl_Hg_Command_Status
     extends VersionControl_Hg_Command_Abstract
@@ -93,12 +96,10 @@ class VersionControl_Hg_Command_Status
     );
 
     /**
-     * Mapping between native Hg output codes and human readable outputs
-     * I'd like VersionControl_Hg to return to the programmer.
-     *
-     * @TODO add optional functionality for this to parent::parseOutput()
+     * Mapping between native Hg output codes and human readable outputs.
      *
      * @var mixed
+     * @TODO add optional functionality for this to parent::parseOutput()
      */
     protected $output_codes = array(
         'M' => 'modified',
@@ -115,7 +116,6 @@ class VersionControl_Hg_Command_Status
      * Constructor
      *
      * @param array $param is one or more parameters to modify the command
-     *
      * @return void
      */
     public function __construct($params = null)
@@ -135,7 +135,13 @@ class VersionControl_Hg_Command_Status
             $this->setOptions($params);
         }
 
-        /* set the required options */
+        /*
+         * --noninteractive is required since issuing the command is
+         * unattended by nature of using this package.
+         * --repository PATH is required since the PWD on which hg is invoked
+         * will not be within the working copy of the repo.
+         */
+        //@TODO move this, if possible, to Abstract.php since it seems required for all commands
         $this->addOptions(array(
             'noninteractive' => null,
             'repository' => $this->container->getRepository()->getPath(),
@@ -145,25 +151,29 @@ class VersionControl_Hg_Command_Status
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
 
+        /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
-        //@todo remove the die()...
-        ($this->status === 0) or die("returned an error: $this->status on: $this->command_string");
+        if ( $this->status === 0 ) {
+            throw new VersionControl_Hg_Command_Exception(
+                VersionControl_Hg_Command_Exception::COMMANDLINE_ERROR
+            );
+        }
 
         return $this->parseOutput($this->output, array('status', 'file'));
     }
 
     /**
-     * Sets the 'all' option as part of the fluent API
+     * Sets the 'all' option
+     *
+     * Returns all files in the repository no matter their status.
      *
      * Usage:
      * <code>$hg->status()->all()->run();</code>
-     *
-     * An alternative to this style:
+     * or
      * <code>$hg->status('all')->run();</code>
      *
      * @param null
-     *
      * @return null
      */
     public function all()
@@ -173,16 +183,16 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'modified' option as part of the fluent API
+     * Sets the 'modified' option
+     *
+     * Returns only files which have been modified in the working copy.
      *
      * Usage:
-     * <code>$hg->status()->all()->modified();</code>
-     *
-     * An alternative to this style:
+     * <code>$hg->status()->modified();</code>
+     * or
      * <code>$hg->status('modified')->run();</code>
      *
      * @param null
-     *
      * @return null
      */
     public function modified()
@@ -192,16 +202,16 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'all' option as part of the fluent API
+     * Sets the 'added' option
+     *
+     * Returns only files newly added to the repository.
      *
      * Usage:
      * <code>$hg->status()->all()->run();</code>
-     *
-     * An alternative to this style:
+     * or
      * <code>$hg->status('all')->run();</code>
      *
      * @param null
-     *
      * @return null
      */
     public function added()
@@ -211,16 +221,17 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'all' option as part of the fluent API
+     * Sets the 'removed' option
+     *
+     * Returns only files which have been removed from the working copy
+     * and are no longer tracked by Mercurial.
      *
      * Usage:
-     * <code>$hg->status()->all()->run();</code>
-     *
-     * An alternative to this style:
-     * <code>$hg->status('all')->run();</code>
+     * <code>$hg->status()->removed()->run();</code>
+     * or
+     * <code>$hg->status('removed')->run();</code>
      *
      * @param null
-     *
      * @return null
      */
     public function removed()
@@ -230,16 +241,16 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'all' option as part of the fluent API
+     * Sets the 'deleted' option
+     *
+     * Returns all files which have been deleted from the working copy.
      *
      * Usage:
-     * <code>$hg->status()->all()->run();</code>
-     *
-     * An alternative to this style:
-     * <code>$hg->status('all')->run();</code>
+     * <code>$hg->status()->deleted()->run();</code>
+     * or
+     * <code>$hg->status('deleted')->run();</code>
      *
      * @param null
-     *
      * @return null
      */
     public function deleted()
@@ -249,16 +260,17 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'all' option as part of the fluent API
+     * Sets the 'clean' option
+     *
+     * Returns files which have no changes; i.e. they are identical in both
+     * the repository and working copy.
      *
      * Usage:
-     * <code>$hg->status()->all()->run();</code>
-     *
-     * An alternative to this style:
-     * <code>$hg->status('all')->run();</code>
+     * <code>$hg->status()->clean()->run();</code>
+     * or
+     * <code>$hg->status('clean')->run();</code>
      *
      * @param null
-     *
      * @return null
      */
     public function clean()
@@ -268,16 +280,16 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'all' option as part of the fluent API
+     * Sets the 'unknown' option
+     *
+     * Returns all files not being tracked by Mercurial.
      *
      * Usage:
-     * <code>$hg->status()->all()->run();</code>
-     *
-     * An alternative to this style:
-     * <code>$hg->status('all')->run();</code>
+     * <code>$hg->status()->unknown()->run();</code>
+     * or
+     * <code>$hg->status('unknown')->run();</code>
      *
      * @param null
-     *
      * @return null
      */
     public function unknown()
@@ -287,16 +299,14 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'all' option as part of the fluent API
+     * Sets the 'ignored' option as part of the fluent API
      *
      * Usage:
-     * <code>$hg->status()->all()->run();</code>
-     *
-     * An alternative to this style:
-     * <code>$hg->status('all')->run();</code>
+     * <code>$hg->status()->ignored()->run();</code>
+     * or
+     * <code>$hg->status('ignored')->run();</code>
      *
      * @param null
-     *
      * @return null
      */
     public function ignored()
