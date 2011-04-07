@@ -110,6 +110,13 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
     }
 
     /**
+     * FOR UNIT TESTING OF THIS SINGLETON, ONLY!
+     */
+    public static function reset() {
+        self::$_instance = NULL;
+    }
+
+    /**
      * Sets the path of a Mercurial repository after validating it as a Hg repo.
      *
      * @param   string $path as a local filesystem path.
