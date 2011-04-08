@@ -40,7 +40,7 @@ class VersionControl_Hg_Command_Exception extends Exception
      * @var array
      */
     protected $_messages = array(
-        'commandLineError' => "The command line returned an error status of '0'. Please examine the output of \$object->getCommandString() to see the actual shell command issued.",
+        'commandLineError' => "The command line returned an error status. Please examine the output of \$object->getCommandString() to see the actual shell command issued.",
     );
 
     /**
