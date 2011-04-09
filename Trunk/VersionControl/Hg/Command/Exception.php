@@ -50,6 +50,12 @@ class VersionControl_Hg_Command_Exception extends Exception
      * @param string $message is equivalent to the error constants
      */
     public function __construct($message) {
-        parent::__construct($this->_messages[$message]);
+        /* does the class constant invoked in the constructor exist here?
+         * If not, just let through the message as defined in the caller */
+        if ( constant($message) ) {
+            $message = $this->_messages[$message];
+        }
+
+        parent::__construct($message);
     }
 }
