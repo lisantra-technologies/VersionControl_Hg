@@ -407,7 +407,7 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @return mixed
      */
-    protected function parseOutput(array $output, $fields = null, $map = null)
+    protected function parseOutput(array $output, $fields = null)
     {
         $parsed_output = array();
 
@@ -421,6 +421,7 @@ abstract class VersionControl_Hg_Command_Abstract
              * a list() idiom might be best here */
             if ( ! empty($fields) ) {
                 /* counts of field and output lengths must match. */
+                // @TODO meh, this comparison is done on each loop!
                 if ( count($fields) !== count($bundle) ) {
                     throw new VersionControl_Hg_Command_Exception(
                         VersionControl_Hg_Command_Exception::MISMATCHED_FIELDS
@@ -431,9 +432,10 @@ abstract class VersionControl_Hg_Command_Abstract
                  * and format! */
                 foreach ( $bundle as $key => $value ) {
                     /* substitute the key for that in the mapping, if any */
-                    if ( (! empty($map)) && ($fields[$key] === $map['column']) ) {
+                    if ( is_array($fields[$key]) ) {
                         unset($bundle[$key]);
-                        $bundle[$fields[$key]] = $map['map'][$value];
+                        /* This is one helluva array "syntax" abuse */
+                        $bundle[key($fields[$key])] = $fields[$key][key($fields[$key])][$value];
                     } else {
                     /* no mapping, so continue */
                         unset($bundle[$key]);

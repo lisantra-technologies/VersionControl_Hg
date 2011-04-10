@@ -159,21 +159,10 @@ class VersionControl_Hg_Command_Status
             );
         }
 
-        //return $this->parseOutput($this->output, array('status', 'file'));
         return $this->parseOutput(
             $this->output,
-            array('status', 'file'),
-            array(
-                'map' => $this->output_map,
-                'column' => 'status',
-            )
+            array(array('status' => $this->output_map), 'file')
         );
-
-        //alt: define the map within $fields
-        /*return $this->parseOutput(
-            $this->output,
-            array(array('status' => $this->output_map, 'file'))
-        );*/
     }
 
     /**Adds 'all' to the stack of command line options
