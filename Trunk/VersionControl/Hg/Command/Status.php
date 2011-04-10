@@ -49,9 +49,6 @@ require_once 'Exception.php';
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link        http://pear.php.net/package/VersionControl_Hg
- *
- * @TODO implement -C / --copied options
- * @TODO implement ability to show only particular files' status
  */
 class VersionControl_Hg_Command_Status
     extends VersionControl_Hg_Command_Abstract
@@ -93,6 +90,7 @@ class VersionControl_Hg_Command_Status
         'clean' => null,
         'unknown' => null, //could be 'not tracked'? but we need one word
         'ignored' => null,
+        'files' => null,
     );
 
     /**
@@ -101,7 +99,7 @@ class VersionControl_Hg_Command_Status
      * @var mixed
      * @TODO add optional functionality for this to parent::parseOutput()
      */
-    protected $output_codes = array(
+    protected $output_map = array(
         'M' => 'modified',
         'A' => 'added',
         'R' => 'removed',
@@ -126,6 +124,10 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
+     * Running this with no arguments (eg. $hg->status()->run(); ) will only
+     * show what Hg would show: only changes and not all files. Specify
+     * status('all') or add all() to the method chain to get all files.
+     *
      * (non-PHPdoc)
      * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
      */
@@ -135,13 +137,10 @@ class VersionControl_Hg_Command_Status
             $this->setOptions($params);
         }
 
-        /*
-         * --noninteractive is required since issuing the command is
+        /* --noninteractive is required since issuing the command is
          * unattended by nature of using this package.
          * --repository PATH is required since the PWD on which hg is invoked
-         * will not be within the working copy of the repo.
-         */
-        //@TODO move this, if possible, to Abstract.php since it seems required for all commands
+         * will not be within the working copy of the repo. */
         $this->addOptions(array(
             'noninteractive' => null,
             'repository' => $this->hg->getRepository()->getPath(),
@@ -154,17 +153,30 @@ class VersionControl_Hg_Command_Status
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
-        if ( $this->status === 0 ) {
+        if ( $this->status !== 0 ) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::COMMANDLINE_ERROR
             );
         }
 
-        return $this->parseOutput($this->output, array('status', 'file'));
+        //return $this->parseOutput($this->output, array('status', 'file'));
+        return $this->parseOutput(
+            $this->output,
+            array('status', 'file'),
+            array(
+                'map' => $this->output_map,
+                'column' => 'status',
+            )
+        );
+
+        //alt: define the map within $fields
+        /*return $this->parseOutput(
+            $this->output,
+            array(array('status' => $this->output_map, 'file'))
+        );*/
     }
 
-    /**
-     * Sets the 'all' option
+    /**Adds 'all' to the stack of command line options
      *
      * Returns all files in the repository no matter their status.
      *
@@ -183,7 +195,7 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'modified' option
+     * Adds 'modified' to the stack of command line options
      *
      * Returns only files which have been modified in the working copy.
      *
@@ -202,7 +214,7 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'added' option
+     * Adds 'added' to the stack of command line options
      *
      * Returns only files newly added to the repository.
      *
@@ -221,7 +233,7 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'removed' option
+     * Adds 'removed' to the stack of command line options
      *
      * Returns only files which have been removed from the working copy
      * and are no longer tracked by Mercurial.
@@ -241,7 +253,7 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'deleted' option
+     * Adds 'deleted' to the stack of command line options
      *
      * Returns all files which have been deleted from the working copy.
      *
@@ -260,7 +272,7 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'clean' option
+     * Adds 'clean' to the stack of command line options
      *
      * Returns files which have no changes; i.e. they are identical in both
      * the repository and working copy.
@@ -280,9 +292,9 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'unknown' option
+     * Adds 'unknown' to the stack of command line options
      *
-     * Returns all files not being tracked by Mercurial.
+     * Returns all files not being tracked by Mercurial (i.e. not added).
      *
      * Usage:
      * <code>$hg->status()->unknown()->run();</code>
@@ -299,7 +311,9 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Sets the 'ignored' option as part of the fluent API
+     * Adds'ignored' to the stack of command line options
+     *
+     * Returns only files ignored on purpose by Mercurial (in .hgignore)
      *
      * Usage:
      * <code>$hg->status()->ignored()->run();</code>
@@ -312,6 +326,47 @@ class VersionControl_Hg_Command_Status
     public function ignored()
     {
         $this->addOption('ignored');
+        return $this; //for the fluent API
+    }
+
+    /**
+     * Adds a list of files to the stack of command line options
+     *
+     * List status information for only the files specified. Abstract::formatOptions
+     * will automatically place this as the last option since a files list
+     * must be the last item on the command line.
+     *
+     * Usage:
+     * <code>$hg->status()->files(array('index.php'))->run();</code>
+     * or
+     * <code>$hg->status(array('files' => array('index.php')))->run();</code>
+     *
+     * @param mixed $files the list of files as a simple array
+     * @return null
+     *
+     * @TODO how to ensure this is the final option??
+     */
+    public function files(array $files)
+    {
+        $this->addOption('files', join(' ', $files));
+        return $this; //for the fluent API
+    }
+
+    /**
+     * Adds 'copied' to the stack of command line options
+     *
+     * Returns only files copied within the working copy
+     *
+     * Usage:
+     * <code>$hg->status()->copied()->run();</code>
+     * or
+     * <code>$hg->status('copied')->run();</code>
+     *
+     * @param null
+     * @return null
+     */
+    public function copied() {
+        $this->addOption('copied');
         return $this; //for the fluent API
     }
 

@@ -91,6 +91,7 @@ abstract class VersionControl_Hg_Command_Abstract
         'verbose' => null,
         'include' => null,
         'exclude' => null,
+        'cwd' => null,
     );
 
     /**
@@ -122,7 +123,7 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     abstract function __construct($params);
 
-/**
+    /**
      * Executes the actual mercurial command
      *
      * For example, the programmer writes <code>$hg->archive('tip');</code>.
@@ -154,10 +155,11 @@ abstract class VersionControl_Hg_Command_Abstract
                 break;
             default:
                 /* must be the command or one of its fluent api functions */
-                //is it a method of the currently instantiated command?
                 if ( method_exists($this, $method) ) {
+                /* is it a method of the currently instantiated command? */
                     return call_user_func_array(array($this, $method), $arguments);
                 } else {
+                /* an optional method is not defined in the command class */
                     throw new VersionControl_Hg_Command_Exception(
                         "This method '{$method}' does not exist in this class"
                     );
@@ -182,7 +184,7 @@ abstract class VersionControl_Hg_Command_Abstract
     public function excluding($filter)
     {
         $this->addOption(
-            'exclude', $this->hg->repository . DIRECTORY_SEPARATOR . $filter
+            'exclude', "'{$filter}'" // $this->hg->repository . DIRECTORY_SEPARATOR . $filter
         );
 
         /* let me be chainable! */
@@ -209,7 +211,7 @@ abstract class VersionControl_Hg_Command_Abstract
         /* Must have full path to repository;
          * @TODO is the root only needed? Is this recursive */
         $this->addOption(
-            'include', $this->hg->repository . DIRECTORY_SEPARATOR . $filter
+            'include', "'{$filter}'" //$this->hg->repository . DIRECTORY_SEPARATOR . $filter
         );
 
         /* let me be chainable! */
@@ -278,26 +280,40 @@ abstract class VersionControl_Hg_Command_Abstract
     protected function formatOptions(array $options)
     {
         $modifiers = null;
-        /*
-         * ensure all required options are defined
-         */
-        $missing_required_options =
-            array_diff_key($this->required_options, $options);
+
+        /* Ensure all required options are defined */
+        $missing_required_options = array_diff_key($this->required_options, $options);
         if ( count($missing_required_options) > 0 ) {
             throw new VersionControl_Hg_Command_Exception(
                 'Required option(s) missing: ' .
                 implode(', ', $missing_required_options)
             );
         }
+
+        /* add a --cwd to avoid multitides of "XYZ not under root" errors
+         * emanating from hg's cli */
+        $options['cwd'] = $this->hg->repository;
+
+        /* Sort options so a files list is the last
+         * This method is the fastest; 300 X better than a uksort() */
+        if ( array_key_exists('files', $options) ) {
+            $files = $options['files'];
+            unset($options['files']);
+            /* Null key, since we want just a list without a --files argument.
+             * A blank key like [] will give a cli option of --0 */
+            $options[null] = $files;
+        } //must be last option modification
+
         /* good, we have all required options, so let's format them */
         foreach ($options as $option => $argument) {
-            /*
-             * this is why we have nulls as values for options which do not
+            /* Some options _might_ have a null key, like 'files' */
+            $modifiers .= (! empty($option)) ? "--{$option}" : '';
+
+            /* This is why we have nulls as values for options which do not
              * have arguments. A better way later may be checking is_null()
              * and remove the extra space, but the Hg executable does not seem
-             * to mind extra spaces in the command line.
-             */
-            $modifiers .= ' --' . $option . ' ' . $argument;
+             * to mind extra spaces in the command line. */
+            $modifiers .= ' ' . $argument . ' '; //always want a space before it
         }
 
         return $modifiers;
@@ -391,34 +407,46 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @return mixed
      */
-    protected function parseOutput(array $output, $fields = null)
+    protected function parseOutput(array $output, $fields = null, $map = null)
     {
         $parsed_output = array();
 
         foreach ( $output as $line ) {
-            /* split each line into columns by any type of space character
-             * repeated any number of times.
-             */
+            /* split each line into an array of columns by any type of
+             * white space character repeated any number of times. */
             $bundle = preg_split('/\s/', $line);
+                //'/[\s]+/' is better?
+
             /* replace the numeric key with a field label
-             * a list() idiom might be best here
-             */
-            if ( ! is_null($fields) ) {
-                //counts of field and output lengths must match.
+             * a list() idiom might be best here */
+            if ( ! empty($fields) ) {
+                /* counts of field and output lengths must match. */
                 if ( count($fields) !== count($bundle) ) {
                     throw new VersionControl_Hg_Command_Exception(
-                        'fields do not match the output'
+                        VersionControl_Hg_Command_Exception::MISMATCHED_FIELDS
                     );
                 }
 
+                /* loop through the array of columns for this specific line
+                 * and format! */
                 foreach ( $bundle as $key => $value ) {
-                    unset($bundle[$key]);
-                    $bundle[$fields[$key]] = $value;
+                    /* substitute the key for that in the mapping, if any */
+                    if ( (! empty($map)) && ($fields[$key] === $map['column']) ) {
+                        unset($bundle[$key]);
+                        $bundle[$fields[$key]] = $map['map'][$value];
+                    } else {
+                    /* no mapping, so continue */
+                        unset($bundle[$key]);
+                        $bundle[$fields[$key]] = $value;
+                    }
                 }
+            } else {
+            /* Well, buddy, $fields was empty, so now what? */
+                /* It would seem that the raw array (i.e. $bundle) is simply
+                 * passed through */
             }
 
             $parsed_output[] = $bundle;
-                //'/[\s]+/' which is better?
         }
 
         return $parsed_output;
@@ -458,7 +486,7 @@ abstract class VersionControl_Hg_Command_Abstract
         $this->command_string =
             '"' .
             $this->hg->executable .
-            '" ' . $this->command .
+            '" ' . $this->command . ' ' .
             rtrim($this->formatOptions($this->getOptions()));
     }
 
