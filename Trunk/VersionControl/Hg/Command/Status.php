@@ -88,7 +88,7 @@ class VersionControl_Hg_Command_Status
         'removed' => null,
         'deleted' => null,
         'clean' => null,
-        'unknown' => null, //could be 'not tracked'? but we need one word
+        'unknown' => null, //could be 'not tracked' or unversioned? but we need one word
         'ignored' => null,
         'files' => null,
     );
@@ -106,7 +106,7 @@ class VersionControl_Hg_Command_Status
         'C' => 'clean',
         '!' => 'missing',
         //should be unknown here to match above, but HG docs use 'not tracked'
-        '?' => 'not tracked',
+        '?' => 'not tracked', //or 'unversioned'
         'I' => 'ignored',
     );
 
