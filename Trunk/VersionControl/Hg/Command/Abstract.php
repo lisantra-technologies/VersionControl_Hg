@@ -19,6 +19,11 @@
 require_once 'Exception.php';
 
 /**
+ * Include optional formatting for XML, JSON, etc.
+ */
+require_once 'Output/Formatter.php';
+
+/**
  * Gathers common code needed by all Command implementations
  *
  * implements the following global options:
@@ -50,6 +55,13 @@ abstract class VersionControl_Hg_Command_Abstract
      * @var array
      */
     protected $output;
+
+    /**
+     * Stores the output format for the returned data from the cli
+     *
+     * @var string
+     */
+    protected $output_format;
 
     /**
      * Object representing the base hg object command operates on behalf of
@@ -92,6 +104,7 @@ abstract class VersionControl_Hg_Command_Abstract
         'include' => null,
         'exclude' => null,
         'cwd' => null,
+        'format' => null,
     );
 
     /**
@@ -218,6 +231,32 @@ abstract class VersionControl_Hg_Command_Abstract
         return $this;
     }
 
+    public function format($format = null) {
+        /* make 'array' the default */
+        if ( empty($format) ) {
+            $format = 'array';
+        } else {
+            /* give programmer some slack and just accept any case! */
+            $format = strtolower($format);
+        }
+
+        if ( ! in_array($format, VersionControl_Hg_Command_Output_Formatter::$formats)  ) {
+            $formats = join(', ', VersionControl_Hg_Command_Output_Formatter::$formats);
+
+            throw new VersionControl_Hg_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                "The format must be either blank or be one of the following: {$formats}. " .
+                "You passed the value '{$format}', instead. "
+            );
+        }
+
+        $this->addOption('format', $format);
+
+        /* let me be chainable! */
+        return $this;
+
+    }
+
 //@todo consider refactoring into its own Option class?
 
     /**
@@ -293,6 +332,12 @@ abstract class VersionControl_Hg_Command_Abstract
         /* add a --cwd to avoid multitides of "XYZ not under root" errors
          * emanating from hg's cli */
         $options['cwd'] = $this->hg->repository;
+
+        /* This option is internal, and must not be printed to the command line */
+        if ( array_key_exists('format', $options) ) {
+            $this->output_format = $options['format'];
+            unset($options['format']);
+        }
 
         /* Sort options so a files list is the last
          * This method is the fastest; 300 X better than a uksort() */
@@ -409,13 +454,30 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     protected function parseOutput(array $output, $fields = null)
     {
+        if ( ! empty($this->output_format) ) {
+            $formatter = new VersionControl_Hg_Command_Output_Formatter();
+            $method =  'to' . ucfirst($this->output_format);
+
+            /* if 'raw', we shortcircuit processing right here, since now,
+             * $output is merely an array of one element per line of output
+             * from the Hg cli, which is much easier to put back together as
+             * raw text rather than splitting it below and THEN reassembling
+             * it! */
+            if ( $this->output_format === 'raw' ) {
+                //@TODO is there a better way than 'return'ing here? I like only a single return per function.
+                return $formatter->$method($output);
+            }
+        }
+
+        /* Begin parsing each column of data into an array element in an
+         * array of arrays. */
         $parsed_output = array();
 
         foreach ( $output as $line ) {
             /* split each line into an array of columns by any type of
              * white space character repeated any number of times. */
+            //@TODO '/[\s]+/' is better?
             $bundle = preg_split('/\s/', $line);
-                //'/[\s]+/' is better?
 
             /* replace the numeric key with a field label
              * a list() idiom might be best here */
@@ -448,10 +510,17 @@ abstract class VersionControl_Hg_Command_Abstract
                  * passed through */
             }
 
+            /* [] is needed to prevent overwriting of output lines */
             $parsed_output[] = $bundle;
         }
 
-        return $parsed_output;
+        if ( ! empty($this->output_format )) {
+            $formatted_output = $formatter->$method($parsed_output);
+        } else {
+            $formatted_output = $parsed_output;
+        }
+
+        return $formatted_output;
     }
 
     /**

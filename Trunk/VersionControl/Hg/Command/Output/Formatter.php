@@ -28,53 +28,81 @@
  */
 class VersionControl_Hg_Command_Output_Formatter
 {
-    const FETCH_RAW = 'raw'; //AKA text / plain text
-    const FETCH_ARRAY = 'array'; //default!
-    //const FETCH_OBJECT = 'object'; //but why?? seriously, why?
-    const FETCH_XML = 'xml';
-    const FETCH_JSON = 'json';
-    const FETCH_YAML = 'yaml';
-    const FETCH_SERIALIZE = 'serialize';
-
+    /**
+     * Implemented output types.
+     *
+     * Array is the default, by nature of the code.
+     *
+     * @var mixed
+     */
     public static $formats = array(
-        'raw', 'serialize', 'array', 'xml', 'json', 'yaml',
+        'json', 'serialize', 'raw', 'yaml', //xml
     );
-
-    protected $fetch_mode;
 
     //Having run() return an VersionControl_Hg_Command_Output object
     //might just be useful, sort of how PDO / Doctrine can...
     //though we might be overengineering, just a wee tad bit.
 
-    //we probably really don't need the mode set upon instantiation
+    /**
+     * Class constructor.
+     */
     public function __construct()
     {
     }
 
-    //public function parse() {}
-
-    public function getFetchMode() {
-        return $this->fetch_mode;
+    /**
+     * Convert array to PHP JSON text format
+     *
+     * @param array $output is the passed-in, parsed output from the cli
+     */
+    public function toJson(array $output) {
+        //output must be in UTF-8...
+        return json_encode($output);
     }
 
-    protected function setFetchMode($mode) {
-        $this->$fetch_mode = $mode;
+    /**
+     * Convert array to YAML text format
+     *
+     * @param array $output is the passed-in, parsed output from the cli
+     */
+    public function toYaml(array $output) {
+        if ( extension_loaded('yaml') ) {
+            throw new VersionControl_Hg_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                "The required PECL Yaml extension is not installed. "
+            );
+        }
+
+        return yaml_emit($output);
     }
 
-    //Hmmm, how to reconstruct
+    /**
+     * Convert array to PHP serialized text format
+     *
+     * @param array $output is the passed-in, parsed output from the cli
+     *
+     * @TODO Hmmm, how to reconstruct from the array? or get it before parsing??
+     */
     public function toRaw(array $output) {
-        return var_export($output);
+        $raw = "";
+
+        foreach ( $output as $line ) {
+           $raw .= $line . PHP_EOL;
+        }
+
+        return $raw;
     }
 
+    /**
+     * Convert array to PHP serialized text format
+     *
+     * @param array $output is the passed-in, parsed output from the cli
+     */
     public function toSerialize(array $output) {
         return serialize($output);
     }
 
-    //public function toArray() {}
-    //public function toAssoc() {}
-    //public function toObject() {}
-
-/**
+    /**
      * The main function for converting to an XML document.
      * Pass in a multi dimensional array and this recrusively loops through and builds up an XML document.
      *
@@ -82,6 +110,8 @@ class VersionControl_Hg_Command_Output_Formatter
      * @param string $rootNodeName - what you want the root node to be - defaultsto data.
      * @param SimpleXMLElement $xml - should only be used recursively
      * @return string XML
+     *
+     * @TODO This should probably be implemented in each command which can output to XML, since the vocabulary will be different in each case.
      */
     public static function toXML( $data, $rootNodeName = 'ResultSet', &$xml=null ) {
 
@@ -131,11 +161,4 @@ class VersionControl_Hg_Command_Output_Formatter
     public static function isAssoc( $array ) {
         return (is_array($array) && 0 !== count(array_diff_key($array, array_keys(array_keys($array)))));
     }
-
-    public function toJson(array $output) {
-        //output must be in UTF-8...
-        return json_encode($output);
-    }
-
-    public function toYaml(array $output) {}
 }
