@@ -91,6 +91,7 @@ class VersionControl_Hg_Command_Status
         'unknown' => null, //could be 'not tracked' or unversioned? but we need one word
         'ignored' => null,
         'files' => null,
+        'rev' => null,
     );
 
     /**
@@ -149,7 +150,7 @@ class VersionControl_Hg_Command_Status
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
-
+var_dump($this->command_string);
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
@@ -356,6 +357,32 @@ class VersionControl_Hg_Command_Status
      */
     public function copied() {
         $this->addOption('copied');
+        return $this; //for the fluent API
+    }
+
+    /**
+     * Adds 'rev' to the stack of command line options
+     *
+     * Specified the revision to restrict the status operation to
+
+     * Usage:
+     * <code>$hg->status('all')->revision(7)->run();</code>
+     * or
+     * <code>$hg->status(array('revision' => 7 ))->all()->run();</code>
+     *
+     * @param int|string $revision
+     * @return void
+     */
+    public function revision($revision) {
+        //@TODO I would prefer to test for is_int...
+        if ( empty($revision)) { //! is_integer
+            throw new VersionControl_Hg_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT
+            );
+        }
+
+        $this->addOption('rev', $revision);
+
         return $this; //for the fluent API
     }
 
