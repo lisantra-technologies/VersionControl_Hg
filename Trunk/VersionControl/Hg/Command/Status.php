@@ -150,7 +150,7 @@ class VersionControl_Hg_Command_Status
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
-var_dump($this->command_string);
+
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
