@@ -40,13 +40,19 @@ class VersionControl_Hg_Command_Exception extends Exception
     const MISMATCHED_FIELDS = 'mismatchedOutputFields';
 
     /**
+     * Error Constant
+     */
+    const BAD_ARGUMENT = 'badArgument';
+
+    /**
      * Error messages for humans
      *
      * @var array
      */
     protected $_messages = array(
-        'commandLineError' => "The command line returned an error status. Please examine the output of \$object->getCommandString() to see the actual shell command issued.",
-        'mismatchedOutputFields' =>  "Fields do not match the output",
+        'commandLineError' => "The command line returned an error status. Please examine the output of \$object->getCommandString() to see the actual shell command issued. ",
+        'mismatchedOutputFields' =>  "Fields do not match the output. ",
+        'badArgument' => "The passed argument is not valid. ",
     );
 
     /**
@@ -55,12 +61,10 @@ class VersionControl_Hg_Command_Exception extends Exception
      *
      * @param string $message is equivalent to the error constants
      */
-    public function __construct($message) {
+    public function __construct($message, $custom_message = null) {
         /* does the class constant invoked in the constructor exist here?
          * If not, just let through the message as defined in the caller */
-        if ( ! self::$$message) {
-            $message = $this->_messages[$message];
-        }
+        $message = $this->_messages[$message] . $custom_message;
 
         parent::__construct($message);
     }
