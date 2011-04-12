@@ -377,6 +377,7 @@ abstract class VersionControl_Hg_Command_Abstract
     {
         if ( ! array_key_exists($name, $this->valid_options) ) {
             throw new VersionControl_Hg_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                 "The option '{$name}' is not an valid option"
             );
         }
