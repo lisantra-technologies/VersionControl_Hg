@@ -11,7 +11,6 @@
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  * @see         VersionControl_Hg_Repository_Command_Archive::
  */
@@ -47,99 +46,135 @@ require_once 'Exception.php';
  * @author      Michael Gatto <mgatto@lisantra.com>
  * @copyright   2009 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Archive
     extends VersionControl_Hg_Command_Abstract
-    implements VersionControl_Hg_Command_Interface
+        implements VersionControl_Hg_Command_Interface
 {
     /**
-     * For when the desired archive format is not one of the supported formats
-     */
-    const ERROR_UNSUPPORTED_ARCHIVE_TYPE = 'unsupportedArchiveType';
-
-    /**
-     * Which revision to use in this command
+     * The name of the mercurial command implemented here
      *
      * @var string
      */
-    protected $revision;
+    protected $command = 'archive';
 
     /**
-     * Where the archive should be saved to
+     * The path where the archive will be saved
      *
      * @var string
      */
     protected $destination;
 
     /**
-     * Default archive type is 'files'.
-     *
-     * @var string
-     */
-    protected $archive_type;
-
-    /**
-     * Possible options this command may have
-     *
-     * @var mixed
-     */
-    protected $allowed_options = array(
-        'rev', 'prefix', 'excluding', 'including', 'verbose', 'quiet'
-    );
-
-    /**
      * Required options this command needs
      *
-     * --type defaults to 'files';
-     * --rev defaults to tip;
-     * --prefix defaults to ;
+     * destination is always variable
      *
      * @var mixed
      */
     protected $required_options = array(
-        'destination', 'type'
-    );
-
-    protected $_messages = array(
-        'unsupportedArchiveType' => 'That type of archive is not supported'
+        'files' => null, //AKA destination
+        'noninteractive' => null,
+        'repository' => null,
     );
 
     /**
-     * Valid formats for the archive.
+     * Possible options this command may have
      *
+     * --type defaults to 'files'
+     * --prefix defaults to ''
+     * --rev defaults to tip
+     *
+     * @var mixed
+     */
+    protected $allowed_options = array(
+        'rev' => null,
+        'prefix' => null,
+        'type' => null,
+    );
+
+    /**
+     * Valid formats for the archive
+     *
+     * Keys are the 'type', while values are the file extensions.
      * This is dictated by the formats which Mercurial natively supports.
+     *
      * LZMA would be nice.
      *
      * @var mixed
      */
-    private $_valid_archive_types = array(
-        'nothing' => 'files',
+    protected $archive_types = array(
+        'files' => '',
         'tar' => 'tar',
         'bzip2' => 'tbz2',
         'gzip' => 'tgz',
         'zip' => 'zip',
+        'uzip' => 'zip',
     );
 
     /**
      * Constructor
      *
-     * @param   VersionControl_Hg_Repository $repository
+     * @param   mixed $params
      * @return  void
      */
-    public function __construct($param)
+    public function __construct($params = null)
     {
-        $this->setRevision($param);
+        /* should always be called so we have a full array of valid options */
+        $this->setOptions(array()); //should be renamed as joinPossibleOptions()
+
+        /* Remap the options to match the function names with valid hg options
+         * Normally, this would be handled by setOptions($params), but the names
+         * such as 'revision' are not valid HG options, but are just so darn
+         * semantic and "fluidic", that I can't give them up. Thus: */
+        if ( array_key_exists(0, $params) ) {
+        /* sometimes $params is not an array! */
+            foreach ( $params[0] as $key => $value ) {
+                switch ($key) {
+                    case 'revision':
+                    case 'to':
+                    case 'with':
+                    case 'prefix':
+                        $this->$key($value);
+                        break;
+                    default:
+                    /* default is to just ignore unkown ones */
+                        break;
+                }
+            }
+        }
     }
 
     /**
-     * (non-PHPdoc)
-     * @see VersionControl/Hg/VersionControl_Hg_Command#to($directory)
+     * Sets the directory path to which the archive will be saved
+     *
+     * Must be the last option, like files
+     *
+     * @param string $directory
+     * @return VersionControl_Hg_Command_Abstract
+     * @throws VersionControl_Hg_Repository_Command_Exception
      */
     public function to($directory)
     {
-        $this->setDestination($directory);
+        /* empty paths not valid */
+        if ( empty($directory) ) {
+            throw new VersionControl_Hg_Repository_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                'You must supply a directory to archive to.' .
+                'Instead, its empty.'
+            );
+        }
+
+        /* test path's validity */
+        if ( $directory != realpath($directory) ) {
+            throw new VersionControl_Hg_Repository_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                "The canonical path '{$directory}' does not seem to exist on this server. "
+            );
+        }
+
+        $this->destination = $directory;
 
         /* for the fluent api */
         return $this;
@@ -148,153 +183,136 @@ class VersionControl_Hg_Command_Archive
     /**
      * Sets type of archive format.
      *
-     * Valid values are 'files', 'tar', 'bzip2', 'gzip', 'zip'
+     * Valid values are 'files', 'tar', 'bzip2', 'gzip', 'zip', 'uzip'
      *
      * @param string $type is the archive type
      * @return VersionControl_Hg_Command_Archive
+     * @throws VersionControl_Hg_Repository_Command_Exception
      */
-    public function with($type)
+    public function with($type = 'files')
     {
-        $this->setArchiveType($type);
+        if ( ! array_key_exists($type, $this->archive_types)) {
+            throw new VersionControl_Hg_Repository_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                "The {$type} archive type is not supported. "
+            );
+        }
+
+        $this->addOption('type', $this->archive_types[$type]);
 
         /* for the fluent api */
         return $this;
     }
 
     /**
+     * Adds 'rev' to the stack of command line options
+     *
+     * Specified the revision to restrict the status operation to
+
+     * Usage:
+     * <code>$hg->archive()->revision(7)->run();</code>
+     * or
+     * <code>$hg->archive(array('revision' => 7 ))->to('path/to)->run();</code>
+     *
+     * @param int|string $revision
+     * @return void
+     */
+    public function revision($revision = 'tip') {
+        //@TODO Technically, this shouldn't occur since 'tip' is default
+        if ( empty($revision)) {
+            throw new VersionControl_Hg_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT
+            );
+        }
+
+        $this->addOption('rev', $revision);
+
+        return $this; //for the fluent API
+    }
+
+    /**
+     * Adds 'prefix' to the stack of command line options
+     *
+     * Specifies a directory prefix to wrap the exported files to within the archive
+
+     * Usage:
+     * <code>$hg->archive()->prefix('My Project')->to('/path/to')->run();</code>
+     * or
+     * <code>$hg->archive(array('prefix' => 'My Project'))->to('path/to)->run();</code>
+     *
+     * @param int|string $prefix
+     * @return void
+     */
+    public function prefix($prefix) {
+        if ( empty($prefix)) {
+            throw new VersionControl_Hg_Command_Exception(
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                "A prefix must not be empty if you use this function or option. "
+            );
+        }
+
+        $this->addOption('prefix', $prefix);
+
+        return $this; //for the fluent API
+    }
+
+    /**
      * (non-PHPdoc)
      * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
      */
-    public function execute(array $options)
+    public function execute(array $params = null)
     {
-        //$global_options = $this->getGlobalOptions(); //implemented in parent
-        //$options = array_merge($options, $global_options);
-        if ( is_array($options)) {
-            $this->addOptions($options);
-        } elseif ( is_string($options) ) {
-            //we want only a scalar and not an object nor a null
-            $this->addOption($options);
+        /* take care of options passed in as such:
+         * $hg->archive(array('revision' => 'tip', 'to' => realpath('../')));
+         */
+        if ( ! empty($params) ) {
+            $this->setOptions($params);
         }
 
+        /* --noninteractive is required since issuing the command is
+         * unattended by nature of using this package.
+         * --repository PATH is required since the PWD on which hg is invoked
+         * will not be within the working copy of the repo. */
         $this->addOptions(array(
-            'rev' => $this->getRevision(),
-            'type' => $this->getArchiveType(),
+            'noninteractive' => null,
             'repository' => $this->hg->getRepository()->getPath(),
         ));
 
-        $destination = $this->getDestination() .
-            DIRECTORY_SEPARATOR .
-            '%b-r%R.' .
-            $this->options['type'];
-
-        /* If files: destination must not already exist! Else, Hg will report "Permission denied" */
-        if (is_file($destination) || is_dir($destination) ) {
+        /* If files: destination must not already exist! Else, Hg will report "Permission denied"
+         * This seems not to be the case anymore...at least with hg cli 1.8.2...
+         * */
+        /*if (is_file($destination) || is_dir($destination) ) {
             throw new VersionControl_Hg_Repository_Command_Exception(
+                null,
                 'The destination directory already exists, but it should not'
             );
-        }
-        /* if Not 'files', then it has to be a filename! */
+        }*/
 
-        $modifiers = null;
-        foreach ($this->getOptions() as $option => $argument) {
-            $modifiers .= ' --' . $option . ' ' . $argument;
-        }
+        /* build the full path to the archive.
+         * Default name, hardcoded is: Test_Repository-r4.zip */
+        $saved_to = $this->destination .
+                   DIRECTORY_SEPARATOR .
+                   '%b-r%R.' .
+                   $this->options['type'];
 
-        $command_string = '"'.$this->hg->getHgExecutable().'" ' . $this->command;
-        /* rtrim() instead of trim() so we don't end up with no space before
-         * first switch: "hg archive--rev tip" */
-        $command_string .= rtrim($modifiers);
-        $command_string .= " $destination";
+        $this->addOption(
+            'files',
+            $saved_to
+        );
 
-var_dump($params);
-echo "\r\n";
-var_dump($command_string);
+        /* Despite its being so not variable, we need to set the command string
+         * only after manually setting options and other command-specific data */
+        $this->setCommandString();
+var_dump($this->command_string);
+        /* no var assignment, since 2nd param holds output */
+        exec($this->command_string, $this->output, $this->status);
 
-        exec($command_string, $output, $command_status);
-        //@todo remove the die()...
-        ($command_status === 0) or
-            die("returned an error: " . var_dump($command_status));
-    }
-
-    /**
-     * Mutator for the archive's format
-     *
-     * @param  string $format
-     * @return void
-     * @throws VersionControl_Hg_Repository_Command_Exception
-     */
-    public function setArchiveType($type = 'files')
-    {
-        if ( ! in_array($type, $this->_valid_archive_types)) {
-            throw new VersionControl_Hg_Repository_Command_Exception(
-                self::ERROR_UNSUPPORTED_ARCHIVE_TYPE
+        if ( $this->status !== 0 ) {
+            throw new VersionControl_Hg_Command_Exception(
+                VersionControl_Hg_Command_Exception::COMMANDLINE_ERROR
             );
         }
 
-        $this->type = $this->_valid_archive_types[$type];
-    }
-
-    /**
-     * Accessor for the archive's format
-     *
-     * @return string
-     * @see $_archive_format
-     * @see $_valid_archive_formats
-     */
-    public function getArchiveType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Sets the directory path to which the archive will be saved
-     *
-     * @param string $directory
-     *
-     * @return void
-     */
-    public function setDestination($directory)
-    {
-        if ( empty($directory) ) {
-            throw new VersionControl_Hg_Repository_Command_Exception(
-                'I was not told where the archive should go to'
-            );
-        }
-
-        $this->destination = $directory;
-    }
-
-    /**
-     * Gets the directory path to which the archive will be saved
-     *
-     * @return string
-     */
-    public function getDestination()
-    {
-        return $this->destination;
-    }
-
-    /**
-     * Sets the change set revision to archive
-     *
-     * @param $revision
-     *
-     * @return void
-     *
-     * @todo move this function to VersionControl_Hg_Command_Archive
-     */
-    public function setRevision($revision = 'tip')
-    {
-        $this->revision = $revision;
-    }
-
-    /**
-     * Gets the change set revision to archive
-     *
-     * @return string
-     */
-    public function getRevision()
-    {
-        return $this->revision;
+        return $saved_to;
     }
 }
