@@ -80,7 +80,7 @@ abstract class VersionControl_Hg_Command_Abstract
     /**
      * All possible options the command may receive.
      *
-     * Its constructed by merging $valid_options, $optional_options,
+     * Its constructed by merging $valid_options, $allowed_options,
      * and $required_options
      *
      * @var mixed
@@ -256,8 +256,6 @@ abstract class VersionControl_Hg_Command_Abstract
         return $this;
 
     }
-
-//@todo consider refactoring into its own Option class?
 
     /**
      * Processes the options specified in client code and populates
