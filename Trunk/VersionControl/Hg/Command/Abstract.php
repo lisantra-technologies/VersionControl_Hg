@@ -324,8 +324,9 @@ abstract class VersionControl_Hg_Command_Abstract
         $missing_required_options = array_diff_key($this->required_options, $options);
         if ( count($missing_required_options) > 0 ) {
             throw new VersionControl_Hg_Command_Exception(
-                'Required option(s) missing: ' .
-                implode(', ', $missing_required_options)
+                VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                'Required option(s) are missing: ' .
+                    implode(', ', $missing_required_options)
             );
         }
 
