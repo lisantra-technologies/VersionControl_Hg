@@ -197,7 +197,7 @@ abstract class VersionControl_Hg_Command_Abstract
     public function excluding($filter)
     {
         $this->addOption(
-            'exclude', "'{$filter}'" // $this->hg->repository . DIRECTORY_SEPARATOR . $filter
+            'exclude', "{$filter}" // $this->hg->repository . DIRECTORY_SEPARATOR . $filter
         );
 
         /* let me be chainable! */
@@ -224,7 +224,7 @@ abstract class VersionControl_Hg_Command_Abstract
         /* Must have full path to repository;
          * @TODO is the root only needed? Is this recursive */
         $this->addOption(
-            'include', "'{$filter}'" //$this->hg->repository . DIRECTORY_SEPARATOR . $filter
+            'include', "{$filter}" //$this->hg->repository . DIRECTORY_SEPARATOR . $filter
         );
 
         /* let me be chainable! */
