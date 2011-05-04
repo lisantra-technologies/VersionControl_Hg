@@ -4,13 +4,12 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category  VersionControl
+ * @package   Hg
+ * @author    Michael Gatto <mgatto@lisantra.com>
+ * @copyright 2009 Lisantra Technologies, LLC
+ * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link      http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -25,13 +24,12 @@ require_once 'Exception.php';
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version     Hg: $Revision$
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category  VersionControl
+ * @package   Hg
+ * @author    Michael Gatto <mgatto@lisantra.com>
+ * @copyright 2009 Lisantra Technologies, LLC
+ * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link      http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_CommandProxy
 {
@@ -41,7 +39,7 @@ class VersionControl_Hg_CommandProxy
      * @var array
      */
     protected $allowed_commands = array(
-        'version', 'archive', 'status',
+        'version', 'archive', 'status', 'log',
     );
 
     /**
@@ -49,31 +47,36 @@ class VersionControl_Hg_CommandProxy
      *
      * @var VersionControl_Hg_Command_Abstract
      */
-    protected $_command;
+    protected $command;
 
     /**
      * The parent, core object
      *
      * @var VersionControl_Hg
      */
-    protected $_hg;
+    protected $hg;
 
     /**
      * Constructor
      *
-     * @param   VersionControl_Hg $hg
+     * @param VersionControl_Hg $hg is the root object
      */
-    public function __construct(VersionControl_Hg $hg) {
-        $this->_hg = $hg;
+    public function __construct(VersionControl_Hg $hg)
+    {
+        $this->hg = $hg;
     }
 
     /**
      * Sets the command property
      *
-     * @param $command VersionControl_Hg_Command_Interface
+     * @param VersionControl_Hg_Command_Interface $command is the command
+     * instance to execute
+     *
+     * @return null
      */
-    public function setCommand(VersionControl_Hg_Command_Interface $command) {
-        $this->_command = $command;
+    public function setCommand(VersionControl_Hg_Command_Interface $command)
+    {
+        $this->command = $command;
     }
 
     /**
@@ -81,19 +84,22 @@ class VersionControl_Hg_CommandProxy
      *
      * @return VersionControl_Hg_Command_Interface
      */
-    public function getCommand() {
-        return $this->_command;
+    public function getCommand()
+    {
+        return $this->command;
     }
 
     /**
      * Proxies to the actual implementations of the commands
      *
-     * @param $method string
-     * @param $arguments array
+     * @param string $method 	is the command to instantiate
+     * @param array  $arguments for the command
+     *
      * @return VersionControl_Hg_Command_Interface
      * @throws VersionControl_Hg_Exception
      */
-    public function __call($method, $arguments = null) {
+    public function __call($method, $arguments = null)
+    {
         //@TODO is_callable & method_exists
 
         if ( ! in_array($method, $this->allowed_commands) ) {
@@ -101,10 +107,13 @@ class VersionControl_Hg_CommandProxy
                 'The command is unrecognized or unimplemented'
             );
         }
+
         $class = 'VersionControl_Hg_Command_' . ucfirst($method);
+
         /* We don't want relative paths because of Php's seemingly odd
          * handling of relative includes within includes */
-        require_once dirname(__FILE__) . '/Command/' . ucfirst($method) . ".php";
+        include_once dirname(__FILE__) . '/Command/' . ucfirst($method) . ".php";
+
         /* this tests only if the class exists in the included file */
         if ( ! class_exists($class, false) ) {
             throw new VersionControl_Hg_Exception(
@@ -113,9 +122,10 @@ class VersionControl_Hg_CommandProxy
             );
         }
 
-        $this->_command = new $class($arguments);
-        $this->_command->setContainer($this->_hg);
+        $this->command = new $class($arguments);
+        $this->command->setContainer($this->hg);
 
-        return $this->_command; //for fluent API
+        /* for fluent API */
+        return $this->command;
     }
 }
