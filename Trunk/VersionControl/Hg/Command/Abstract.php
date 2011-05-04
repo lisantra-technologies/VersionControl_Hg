@@ -452,7 +452,7 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @return mixed
      */
-    protected function parseOutput(array $output, $fields = null)
+    protected function parseOutput(array $output, $fields = null, $delimiter = '\s')
     {
         if ( ! empty($this->output_format) ) {
             $formatter = new VersionControl_Hg_Command_Output_Formatter();
@@ -477,7 +477,7 @@ abstract class VersionControl_Hg_Command_Abstract
             /* split each line into an array of columns by any type of
              * white space character repeated any number of times. */
             //@TODO '/[\s]+/' is better?
-            $bundle = preg_split('/\s/', $line);
+            $bundle = preg_split("/{$delimiter}/", $line);
 
             /* replace the numeric key with a field label
              * a list() idiom might be best here */
