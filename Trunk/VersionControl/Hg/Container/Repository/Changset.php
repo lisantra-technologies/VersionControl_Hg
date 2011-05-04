@@ -1,8 +1,8 @@
 <?php
 
-	class Branch
-	{
+    class VersionControl_Hg_Repository_ChangeSet
+    {
 
-	}
+    }
 
 ?>
