@@ -52,7 +52,7 @@ require_once 'Exception.php';
  */
 class VersionControl_Hg_Command_Status
     extends VersionControl_Hg_Command_Abstract
-    implements VersionControl_Hg_Command_Interface
+        implements VersionControl_Hg_Command_Interface
 {
     /**
      * The name of the mercurial command implemented here
@@ -119,9 +119,8 @@ class VersionControl_Hg_Command_Status
      */
     public function __construct($params = null)
     {
-        if ( ! is_null($params) ) {
-            $this->setOptions($params);
-        }
+        /* should always be called so we have a full array of valid options */
+        $this->setOptions($params);
     }
 
     /**
@@ -134,7 +133,11 @@ class VersionControl_Hg_Command_Status
      */
     public function execute(array $params = null)
     {
-        if ( ! is_null($params) ) {
+        /* take care of options passed in as such:
+         * $hg->status(array('revision' => 3, 'all' => null));
+         * We need 'all' to be the key, and not have it interpreted as
+         * 	revision => 3, 0 => all  */
+        if ( ! empty($params) ) {
             $this->setOptions($params);
         }
 
@@ -373,9 +376,9 @@ class VersionControl_Hg_Command_Status
      * @param int|string $revision
      * @return void
      */
-    public function revision($revision) {
-        //@TODO I would prefer to test for is_int...
-        if ( empty($revision)) { //! is_integer
+    public function revision($revision = 'tip') {
+        //@TODO Technically, the following shouldn't occur since 'tip' is default
+        if ( empty($revision)) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT
             );
@@ -383,16 +386,7 @@ class VersionControl_Hg_Command_Status
 
         $this->addOption('rev', $revision);
 
-        return $this; //for the fluent API
-    }
-
-    /**
-     * Print out the class' properties
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->output;
+        /* For the fluent API */
+        return $this;
     }
 }
