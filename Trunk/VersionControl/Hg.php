@@ -125,6 +125,8 @@ class VersionControl_Hg
      */
     public function __call($method, $arguments)
     {
+        $value = ( empty($arguments) ) ? null : $arguments[0];
+
         $possible_prefix = strtolower(substr($method, 0, 3));
         $possible_object = strtolower(substr($method, 3));
 
@@ -132,8 +134,6 @@ class VersionControl_Hg
             /* Very limited use:
              * $hg->getExecutable()->getPath() = $hg->executable->getPath() */
             case 'set':
-                $value = ( empty($arguments) ) ? null : $arguments[0];
-
                 if ( $possible_object === 'repository' ) {
                     return VersionControl_Hg_Container_Repository::getInstance($this, $value);
                 } elseif ( $possible_object === 'executable' ) {
@@ -153,6 +153,11 @@ class VersionControl_Hg
                 break;
             /* proxy to Hg/Command.php */
             default:
+                /* nicely semantic alias for setRepository() */
+                /*if ( $method === 'use' ) {
+                    return VersionControl_Hg_Container_Repository::getInstance($this, $value);
+                } use is a PHP keyword!! */
+
                 /* must pass an instance of VersionControl_Hg to provide it with
                  * the executable and repository */
                 $command = new VersionControl_Hg_CommandProxy($this);
@@ -238,8 +243,8 @@ class VersionControl_Hg
     {
         /* This automagically calls $this::__get() and then automagically
          * invokes VersionControl_Hg_Executable::__toString() */
-        echo 'Executable: ' . $this->executable . "\r\n";
-        echo 'Repository: ' . $this->repository . "\r\n";
-        echo 'Version: ' . $this->version . "\r\n";
+        return 	'Executable: ' . $this->executable . "\r\n" .
+                'Repository: ' . $this->repository . "\r\n" .
+                'Version: ' . $this->version . "\r\n";
     }
 }
