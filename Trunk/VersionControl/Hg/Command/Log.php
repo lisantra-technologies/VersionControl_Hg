@@ -99,6 +99,7 @@ class VersionControl_Hg_Command_Log
         'branch' => null, //or should we force a branch selection first?
         'copies' => null, //show copied files
         'removed' => null, //show removed files
+        'date' => null,
     );
 
     /**
@@ -143,10 +144,10 @@ class VersionControl_Hg_Command_Log
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
-//var_dump($this->command_string);
+
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
-//var_dump($this->output);
+
         if ( $this->status !== 0 ) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::COMMANDLINE_ERROR
@@ -246,5 +247,61 @@ class VersionControl_Hg_Command_Log
     {
         $this->addOption('files', join(' ', $files));
         return $this; //for the fluent API
+    }
+
+    /**
+     * Adds the date option to the stack of cli options
+     *
+     * Restricts the log to changesets only commited on $date
+     *
+     * @param string $date
+     */
+    public function on($date) {
+        $this->addOption('date', "\"" . date('Y-m-d G:i:s', strtotime($date)) . "\"");
+
+        return $this;
+    }
+
+    /**
+     * Adds the date option to the stack of cli options
+     *
+     * Restricts the log to changesets only commited on $date
+     *
+     * @param string $date
+     */
+    public function before($date) {
+        $this->addOption('date', "\"<" . date('Y-m-d G:i:s', strtotime($date)) . "\"");
+
+        return $this;
+    }
+
+    /**
+     * Adds the date option to the stack of cli options
+     *
+     * Restricts the log to changesets only commited on $date
+     *
+     * @param string $date
+     */
+    public function after($date) {
+        $this->addOption('date', "\">" . date('Y-m-d G:i:s', strtotime($date)) . "\"");
+
+        return $this;
+    }
+
+    /**
+     * Adds the date option to the stack of cli options
+     *
+     * Restricts log output to changeset between $from and $to
+     *
+     * @param string $from
+     * @param string $to
+     */
+    public function between($from, $to) {
+        /* validate inputs */
+        //if ( empty() ) {
+
+        $this->addOption('date', "\"" . date('Y-m-d G:i:s', strtotime($from)) . " to " . date('Y-m-d G:i:s', strtotime($to)) . "\"");
+
+        return $this;
     }
 }
