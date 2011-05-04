@@ -27,7 +27,7 @@
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Executable_Exception extends VersionControl_Hg_Exception
+class VersionControl_Hg_Executable_Exception extends Exception
 {
     /**
      * Error constant for when the mercurial executable cannot be found
