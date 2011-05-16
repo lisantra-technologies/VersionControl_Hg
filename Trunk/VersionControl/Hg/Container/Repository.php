@@ -51,7 +51,8 @@ require_once 'Repository/Exception.php';
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Container_Repository
-    implements VersionControl_Hg_Container_Interface
+    extends VersionControl_Hg_Container_Abstract
+        implements VersionControl_Hg_Container_Interface
 {
     /**
      * The name of all Mercurial repository roots.
