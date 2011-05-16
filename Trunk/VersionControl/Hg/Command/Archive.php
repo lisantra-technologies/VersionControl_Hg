@@ -5,14 +5,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
- * @see         VersionControl_Hg_Repository_Command_Archive::
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -40,13 +39,13 @@ require_once 'Exception.php';
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Archive
     extends VersionControl_Hg_Command_Abstract
@@ -116,8 +115,9 @@ class VersionControl_Hg_Command_Archive
     /**
      * Constructor
      *
-     * @param   mixed $params
-     * @return  void
+     * @param mixed $params are the data values passed to the command
+     *
+     * @return void
      */
     public function __construct($params = null)
     {
@@ -129,7 +129,7 @@ class VersionControl_Hg_Command_Archive
          * such as 'revision' are not valid HG options, but are just so darn
          * semantic and "fluidic", that I can't give them up. Thus: */
         if ( array_key_exists(0, $params) ) {
-        /* sometimes $params is not an array! */
+            /* sometimes $params is not an array! */
             foreach ( $params[0] as $key => $value ) {
                 switch ($key) {
                     case 'revision':
@@ -151,7 +151,8 @@ class VersionControl_Hg_Command_Archive
      *
      * Must be the last option, like files
      *
-     * @param string $directory
+     * @param string $directory is directory to which archives are saved
+     *
      * @return VersionControl_Hg_Command_Abstract
      * @throws VersionControl_Hg_Repository_Command_Exception
      */
@@ -170,7 +171,8 @@ class VersionControl_Hg_Command_Archive
         if ( $directory != realpath($directory) ) {
             throw new VersionControl_Hg_Repository_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
-                "The canonical path '{$directory}' does not seem to exist on this server. "
+                "The canonical path '{$directory}' does not seem to exist on
+                this server. "
             );
         }
 
@@ -186,6 +188,7 @@ class VersionControl_Hg_Command_Archive
      * Valid values are 'files', 'tar', 'bzip2', 'gzip', 'zip', 'uzip'
      *
      * @param string $type is the archive type
+     *
      * @return VersionControl_Hg_Command_Archive
      * @throws VersionControl_Hg_Repository_Command_Exception
      */
@@ -214,10 +217,12 @@ class VersionControl_Hg_Command_Archive
      * or
      * <code>$hg->archive(array('revision' => 7 ))->to('path/to)->run();</code>
      *
-     * @param int|string $revision
+     * @param string $revision is the optional revision to archive
+     *
      * @return void
      */
-    public function revision($revision = 'tip') {
+    public function revision($revision = 'tip')
+    {
         //@TODO Technically, this shouldn't occur since 'tip' is default
         if ( empty($revision)) {
             throw new VersionControl_Hg_Command_Exception(
@@ -238,16 +243,22 @@ class VersionControl_Hg_Command_Archive
      * Usage:
      * <code>$hg->archive()->prefix('My Project')->to('/path/to')->run();</code>
      * or
-     * <code>$hg->archive(array('prefix' => 'My Project'))->to('path/to)->run();</code>
+     * <code>
+     * $hg->archive(array('prefix' => 'My Project'))->to('path/to)->run();
+     * </code>
      *
-     * @param int|string $prefix
+     * @param string $prefix is the string prefixed to the directory within
+     *                       the archive.
+     *
      * @return void
      */
-    public function prefix($prefix) {
-        if ( empty($prefix)) {
+    public function prefix($prefix)
+    {
+        if ( empty($prefix) ) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
-                "A prefix must not be empty if you use this function or option. "
+                "A prefix must not be empty if you use this function or
+                 option. "
             );
         }
 
@@ -273,13 +284,16 @@ class VersionControl_Hg_Command_Archive
          * unattended by nature of using this package.
          * --repository PATH is required since the PWD on which hg is invoked
          * will not be within the working copy of the repo. */
-        $this->addOptions(array(
-            'noninteractive' => null,
-            'repository' => $this->hg->getRepository()->getPath(),
-        ));
+        $this->addOptions(
+            array(
+                'noninteractive' => null,
+                'repository' => $this->hg->getRepository()->getPath(),
+            )
+        );
 
-        /* If files: destination must not already exist! Else, Hg will report "Permission denied"
-         * This seems not to be the case anymore...at least with hg cli 1.8.2...
+        /* If files: destination must not already exist! Else, Hg will report
+         * "Permission denied"
+         * This seems not to be the case anymore...at least with hg cli 1.8.2.
          * */
         /*if (is_file($destination) || is_dir($destination) ) {
             throw new VersionControl_Hg_Repository_Command_Exception(
@@ -295,15 +309,12 @@ class VersionControl_Hg_Command_Archive
                    '%b-r%R.' .
                    $this->options['type'];
 
-        $this->addOption(
-            'files',
-            $saved_to
-        );
+        $this->addOption('files', $saved_to);
 
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
-var_dump($this->command_string);
+
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
