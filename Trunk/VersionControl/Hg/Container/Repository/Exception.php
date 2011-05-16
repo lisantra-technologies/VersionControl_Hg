@@ -4,13 +4,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Repository
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Repository
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -18,13 +18,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Repository
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Repository
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Container_Repository_Exception extends Exception
 {
@@ -49,7 +49,7 @@ class VersionControl_Hg_Container_Repository_Exception extends Exception
      *
      * @var array
      */
-    protected $_messages = array(
+    protected $messages = array(
         'noRepository' => 'No repository was passed in.
                            Use $hg->setRepository(\'/path/to/repository\') to
                            create a repository.',
@@ -65,7 +65,8 @@ class VersionControl_Hg_Container_Repository_Exception extends Exception
      *
      * @param string $message is equivalent to the error constants
      */
-    public function __construct($message) {
-        parent::__construct($this->_messages[$message]);
+    public function __construct($message)
+    {
+        parent::__construct($this->messages[$message]);
     }
 }

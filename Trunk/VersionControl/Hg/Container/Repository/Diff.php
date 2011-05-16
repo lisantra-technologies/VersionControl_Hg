@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains definition of the Branch class
+ * Contains definition of the Diff class
  *
  * PHP version 5
  *
@@ -19,7 +19,7 @@
 require_once 'Exception.php';
 
 /**
- * A Branch in a Mercurial Repository
+ * A Diff between revisions or between working copy files and a revision
  *
  * PHP version 5
  *
@@ -31,7 +31,7 @@ require_once 'Exception.php';
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link       http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Container_Repository_Branch
+class VersionControl_Hg_Container_Repository_Diff
 {
 
 }
