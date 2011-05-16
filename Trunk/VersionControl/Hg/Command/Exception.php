@@ -1,17 +1,16 @@
 <?php
-
 /**
  * Exception for Hg commands
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Exceptions
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Exceptions
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -19,13 +18,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Exceptions
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Exceptions
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Exception extends Exception
 {
@@ -49,8 +48,11 @@ class VersionControl_Hg_Command_Exception extends Exception
      *
      * @var array
      */
-    protected $_messages = array(
-        'commandLineError' => "The command line returned an error status. Please examine the output of \$object->getCommandString() to see the actual shell command issued. ",
+    protected $messages = array(
+        'commandLineError' => "The command line returned an error status.
+                               Please examine the output of
+                               \$object->getCommandString() to see the actual
+                               shell command issued. ",
         'mismatchedOutputFields' =>  "Fields do not match the output. ",
         'badArgument' => "The passed argument is not valid. ",
     );
@@ -59,12 +61,15 @@ class VersionControl_Hg_Command_Exception extends Exception
      * Override constructor so we can make exception messages more structured
      * like Zend Framework's.
      *
-     * @param string $message is equivalent to the error constants
+     * @param string $message        is equivalent to the error constants
+     * @param string $custom_message is a message appended to the default for
+     *                               an error constant.
      */
-    public function __construct($message, $custom_message = null) {
+    public function __construct($message, $custom_message = null)
+    {
         /* does the class constant invoked in the constructor exist here?
          * If not, just let through the message as defined in the caller */
-        $message = $this->_messages[$message] . $custom_message;
+        $message = $this->messages[$message] . $custom_message;
 
         parent::__construct($message);
     }
