@@ -4,12 +4,12 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category  VersionControl
+ * @package   Hg
+ * @author    Michael Gatto <mgatto@lisantra.com>
+ * @copyright 2011 Lisantra Technologies, LLC
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @link      http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -19,24 +19,24 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category  VersionControl
+ * @package   Hg
+ * @author    Michael Gatto <mgatto@lisantra.com>
+ * @copyright 2011 Lisantra Technologies, LLC
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @link      http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Executable
 {
     /**
      * Use the executable found in the default installation location
      */
-    const DEFAULT_EXECUTABLE = "default";
+    const DEFAULTEXECUTABLE = "default";
 
     /**
      * Use the executable specified by the user
      */
-    const CUSTOM_EXECUTABLE = "custom";
+    const CUSTOMEXECUTABLE = "custom";
 
     /**
      * Base class in this package
@@ -55,7 +55,7 @@ class VersionControl_Hg_Executable
      *
      * @var string
      */
-    protected $_path;
+    protected $path;
 
     /**
      * The Mercurial binary being used
@@ -69,14 +69,14 @@ class VersionControl_Hg_Executable
      *
      * @var string
      */
-    protected $_executable;
+    protected $executable;
 
     /**
      * The version of the Mercurial executable.
      *
      * @var float
      */
-    protected $_version;
+    protected $version;
 
     /**
      * Constructor
@@ -84,10 +84,13 @@ class VersionControl_Hg_Executable
      * Finds and sets the system's existing Mercurial executable binary which
      * with all future operations will use.
      *
+     * @param object $hg   is the root object
      * @param string $path is the full path to the user defined executable
+     *
      * @return void
      */
-    private function __construct($hg, $path) {
+    private function __construct($hg, $path)
+    {
         /* Attempt to set the executable */
         $this->setExecutable($path);
 
@@ -102,7 +105,9 @@ class VersionControl_Hg_Executable
     /**
      * The singleton method
      *
-     * @param string $path
+     * @param object $hg   is an instance of VersionControl_Hg
+     * @param string $path is the path to the executable to use
+     *
      * @return VersionControl_Hg_Executable
      */
     public static function getInstance($hg = null, $path = null)
@@ -119,16 +124,18 @@ class VersionControl_Hg_Executable
      *
      * For informational purposes only; not used to search a path.
      *
-     * @param $path string
+     * @param string $path is the path to the hg executable
+     *
      * @return void
-     * @see self::$_path
+     * @see self::$path
      */
-    protected function setPath($path = null) {
+    protected function setPath($path = null)
+    {
         if ( empty($path) ) {
-            $path = dirname($this->_executable);
+            $path = dirname($this->executable);
         }
 
-        $this->_path = $path;
+        $this->path = $path;
 
         //Fluid API
         return $this;
@@ -138,10 +145,11 @@ class VersionControl_Hg_Executable
      * Gets the path of a valid Mercurial executable already set
      *
      * @return string
-     * @see self::$_path
+     * @see self::$path
      */
-    public function getPath() {
-        return $this->_path;
+    public function getPath()
+    {
+        return $this->path;
     }
 
     /**
@@ -155,10 +163,13 @@ class VersionControl_Hg_Executable
      * <code>$hg->setExecutable('/path/to/hg');</code>
      * A failed reset/change will not clear the previously set executable.
      *
+     * @param string $path is the path to the hg executable
+     *
      * @return void
      * @throws VersionControl_Hg_Executable_Exception
      */
-    public function setExecutable($path = null) {
+    public function setExecutable($path = null)
+    {
         $executables = array();
 
         /* Set the binary name per platform */
@@ -173,11 +184,11 @@ class VersionControl_Hg_Executable
         }
 
         if (null !== $path) {
+            //@TODO Do we care to use the CUSTOMEXECUTABLE constant in this case??
             /* use the user provided path to an executable */
-            if ( is_executable($path . DIRECTORY_SEPARATOR . $binary) ) {
+            if ( isexecutable($path . DIRECTORY_SEPARATOR . $binary) ) {
                 $executables[] = $path . DIRECTORY_SEPARATOR . $binary;
 
-                //@TODO Do we care to use the CUSTOM_EXECUTABLE constant in this case??
             }
         }
 
@@ -201,7 +212,7 @@ class VersionControl_Hg_Executable
         }
 
         /* use only the first instance found of a mercurial executable */
-        $this->_executable = array_shift($executables);
+        $this->executable = array_shift($executables);
 
         /* For fluid API */
         return $this;
@@ -217,13 +228,13 @@ class VersionControl_Hg_Executable
     {
         /* I don't want programmers to have to test for null,
          * especially when this is auto-set in the constructor */
-        if ( empty($this->_executable) ) {
+        if ( empty($this->executable) ) {
             throw new VersionControl_Hg_Executable_Exception(
                 VersionControl_Hg_Executable_Exception::ERROR_HG_YET_UNSET
             );
         }
 
-        return $this->_executable;
+        return $this->executable;
     }
 
     /**
@@ -234,18 +245,20 @@ class VersionControl_Hg_Executable
      * (version 1.1), (version 1.1+20081220), (version 1.1+e54ac289bed), (unknown)
      *
      * @return array
-     * @see $_version
+     * @see $version
      */
     protected function setVersion()
     {
-        $this->_version = $this->_base->version()->run('quiet');
+        $this->version = $this->_base->version()->run('quiet');
 
         //$command = new VersionControl_Hg_CommandProxy($this->_base);
         //return
-        //$version = call_user_func_array(array($command, 'version'), array('quiet'));
+        /*$version = call_user_func_array(
+            array($command, 'version'), array('quiet')
+        );*/
 
         //$version2 = $command->version()->run('quiet');
-//var_dump($command, $version, $version2);die;
+        //var_dump($command, $version, $version2);die;
         // = $command->version()->run('quiet');
     }
 
@@ -260,25 +273,30 @@ class VersionControl_Hg_Executable
          * I don't want programmers to have to test for null,
          * especially when this is auto-set in the constructor
          */
-        if ( $this->_version === null ) {
+        if ( $this->version === null ) {
             //@todo replace with a constant and a $message entry
             throw new VersionControl_Hg_Exception(
                 VersionControl_Hg_Executable_Exception::ERROR_NO_VERSION
             );
         }
 
-        return $this->_version;
+        return $this->version;
     }
 
     /**
      * Print the full path of the system's command line Mercurial
+     *
+     * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return $this->getExecutable();
     }
 
     /**
      * Prevent users to clone the instance
+     *
+     * @return null
      */
     public function __clone()
     {

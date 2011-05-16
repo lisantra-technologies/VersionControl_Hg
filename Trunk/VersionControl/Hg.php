@@ -7,13 +7,14 @@
  * @category  VersionControl
  * @package   Hg
  * @author    Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
+ * @copyright 2011 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
  * Provides the base exception
+ * @TODO Consider removing since we don't appear to actually use it (?)
  */
 require_once 'Hg/Exception.php';
 
@@ -49,7 +50,7 @@ require_once 'Hg/CommandProxy.php';
  * @category  VersionControl
  * @package   Hg
  * @author    Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
+ * @copyright 2011 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://pear.php.net/package/VersionControl_Hg
  *
@@ -89,6 +90,7 @@ class VersionControl_Hg
      * Assumes to be working on a local filesystem repository
      *
      * @param string $repository is the path to a mercurial repo (optional)
+     *
      * @return void
      */
     public function __construct($repository = null)
@@ -113,7 +115,7 @@ class VersionControl_Hg
      * </code>
      * to both return an instance of VersionControl_Hg_Executable, for example.
      *
-     * @param string $method is the function being called
+     * @param string $method    is the function being called
      * @param array  $arguments are the parameters passed to that function
      *
      * @return VersionControl_Hg_Command_Abstract
@@ -122,6 +124,7 @@ class VersionControl_Hg
      * @method array version()
      * @method array status()
      * @method array archive()
+     * @method array log()
      */
     public function __call($method, $arguments)
     {
@@ -130,16 +133,21 @@ class VersionControl_Hg
         $possible_prefix = strtolower(substr($method, 0, 3));
         $possible_object = strtolower(substr($method, 3));
 
+        /* Very limited use:
+         * $hg->getExecutable()->getPath() = $hg->executable->getPath()
+         */
         switch ( $possible_prefix ) {
-            /* Very limited use:
-             * $hg->getExecutable()->getPath() = $hg->executable->getPath() */
             case 'set':
                 if ( $possible_object === 'repository' ) {
-                    return VersionControl_Hg_Container_Repository::getInstance($this, $value);
+                    return VersionControl_Hg_Container_Repository::getInstance(
+                        $this, $value
+                    );
                 } elseif ( $possible_object === 'executable' ) {
                     return VersionControl_Hg_Executable::getInstance($this, $value);
                 } else {
-                    throw new ErrorException("set$possible_object is not implemented");
+                    throw new ErrorException(
+                        "set$possible_object is not implemented"
+                    );
                 }
                 break;
             case 'get':
@@ -148,14 +156,18 @@ class VersionControl_Hg
                 } elseif ( $possible_object === 'executable' ) {
                     return VersionControl_Hg_Executable::getInstance();
                 } else {
-                    throw new ErrorException("get$possible_object is not implemented");
+                    throw new ErrorException(
+                        "get$possible_object is not implemented"
+                    );
                 }
                 break;
             /* proxy to Hg/Command.php */
             default:
                 /* nicely semantic alias for setRepository() */
                 /*if ( $method === 'use' ) {
-                    return VersionControl_Hg_Container_Repository::getInstance($this, $value);
+                    return VersionControl_Hg_Container_Repository::getInstance(
+                        $this, $value
+                    );
                 } use is a PHP keyword!! */
 
                 /* must pass an instance of VersionControl_Hg to provide it with
@@ -178,8 +190,11 @@ class VersionControl_Hg
      * <code>$version = $hg->version</code>.
      *
      * @param string $name is the object to get
+     *
+     * @return mixed
      */
-    public function __get($name) {
+    public function __get($name)
+    {
         /* Instantiate the object corresponding to the short name
          * most are commands, some are top-level objects */
         switch ($name) {
@@ -207,19 +222,24 @@ class VersionControl_Hg
     }
 
     /**
+     * Magic setter for properties of commands and more.
      *
+     * @param string $name  is the property's name
+     * @param string $value is the property's value
      *
-     * @param string $name
-     * @param string $value
+     * @return mixed
      */
-    public function __set($name, $value) {
+    public function __set($name, $value)
+    {
         /* Instantiate the object corresponding to the short name
          * most are commands, some are top-level objects */
         switch ($name) {
             case 'repository':
                 /* Singleton let's us use an instance or create a new one if
                  * not instantiated */
-                return VersionControl_Hg_Container_Repository::getInstance($this, $value);
+                return VersionControl_Hg_Container_Repository::getInstance(
+                    $this, $value
+                );
                 break;
             case 'executable':
                 /* Singleton let's us use an instance or create a new one if

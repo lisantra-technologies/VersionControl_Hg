@@ -92,7 +92,7 @@ class VersionControl_Hg_CommandProxy
     /**
      * Proxies to the actual implementations of the commands
      *
-     * @param string $method 	is the command to instantiate
+     * @param string $method    is the command to instantiate
      * @param array  $arguments for the command
      *
      * @return VersionControl_Hg_Command_Interface

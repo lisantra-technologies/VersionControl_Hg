@@ -7,9 +7,8 @@
  * @category  VersionControl
  * @package   Hg
  * @author    Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
+ * @copyright 2011 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @version   SVN: 0.3
  * @link      http://pear.php.net/package/VersionControl_Hg
  */
 
@@ -21,7 +20,7 @@
  * @category  VersionControl
  * @package   Hg
  * @author    Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
+ * @copyright 2011 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://pear.php.net/package/VersionControl_Hg
  */
