@@ -8,20 +8,25 @@
  * @package     Hg
  * @subpackage  Container
  * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
+ * @copyright   2011 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link 		http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
- * Provides the container exception
+ * Provides the abstraction for containers
  */
-require_once 'Repository/Exception.php';
+require_once 'Abstract.php';
 
 /**
  * Provides the container interface
  */
 require_once 'Interface.php';
+
+/**
+ * Provides the container exception
+ */
+require_once 'Repository/Exception.php';
 
 /**
  * The Mercurial repository
@@ -41,17 +46,18 @@ require_once 'Interface.php';
  * @package     Hg
  * @subpackage  Container
  * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
+ * @copyright   2011 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link        http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Container_Interface
+class VersionControl_Hg_Container_Repository
+    implements VersionControl_Hg_Container_Interface
 {
     /**
      * The name of all Mercurial repository roots.
      *
      * @FIXME: is this still needed to say?
-     * Leading backslash is needed since _path may not have a trailing slash.
+     * Leading backslash is needed since path may not have a trailing slash.
      *
      * @const string
      */
@@ -69,14 +75,14 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
     /*
      * Hold an instance of the class
      */
-    private static $_instance;
+    private static $instance;
 
     /**
      * Path to a local Mercurial repository
      *
      * @var string
      */
-    protected $_path;
+    protected $path;
 
     /**
      *
@@ -86,42 +92,50 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
 
     /**
      * Repository constructor which currently does nothing.
+     *    *
+     * @param object $hg   is the root object and as a singleton
+     *                     will always be an instance of VersionControl_Hg
+     * @param string $path is the full path to the user defined executable
      *
-     * @todo might be a good place to set the transport method?
+     * @return void
      */
-    private function __construct($hg, $path) {
+    private function __construct(VersionControl_Hg $hg, $path) {
         $this->setPath($path);
+        $this->hg = $hg;
     }
 
     /**
      * The singleton method
+     *     *
+     * @param object $hg   is an instance of VersionControl_Hg
+     * @param string $path is the path to the executable to use
      *
-     * @param string $path
-     * @return VersionControl_Hg_Executable
+     * @return VersionControl_Hg_Repository
      */
     public static function getInstance($hg = null, $path = null)
     {
-        if ( ! isset(self::$_instance) ) {
+        if ( ! isset(self::$instance) ) {
             $singleton_class = __CLASS__;
-            self::$_instance = new $singleton_class($hg, $path);
+            self::$instance = new $singleton_class($hg, $path);
         }
 
-        return self::$_instance;
+        return self::$instance;
     }
 
     /**
      * FOR UNIT TESTING OF THIS SINGLETON, ONLY!
      */
     public static function reset() {
-        self::$_instance = NULL;
+        self::$instance = NULL;
     }
 
     /**
      * Sets the path of a Mercurial repository after validating it as a Hg repo.
      *
-     * @param   string $path as a local filesystem path.
-     * @return  mixed Repository to enable method chaining
-     * @see     $path
+     * @param string $path is the path to the hg executable
+     * @see self::$path
+     *
+     * @return VersionControl_Hg to enable method chaining
      */
     public function setPath($path = null)
     {
@@ -156,30 +170,16 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
             );
         }
 
-        $this->_path = $path;
+        $this->path = $path;
 
         return $this; //for chainable methods.
-    }
-
-    /**
-     * Returns the path of a Mercurial repository as set by the user.
-     *
-     * It is not validated before being set as a class member. This allows
-     * it to return null when it needs to and lets the programmer check if a
-     * repository has been set or not. Exceptions would remove this control.
-     *
-     * @return  string | null
-     * @see     $path
-     */
-    public function getPath()
-    {
-        return $this->_path;
     }
 
     /**
      * Checks if $this is in fact a valid
      *
      * @param   string $repo is the full repository path.
+     *
      * @return  boolean
      */
     protected function isRepository($path)
@@ -214,6 +214,7 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      */
     public function create($path)
     {
+        //@TODO FINISH THIS!
         //must call is_repository on the path first, since setPath was not used in instantiation...?
 
 
@@ -234,29 +235,12 @@ class VersionControl_Hg_Container_Repository implements VersionControl_Hg_Contai
      */
     public function delete()
     {
-        if ( unlink($this->_path) ) {
+        if ( unlink($this->path) ) {
             return true;
         } else {
             //return false;
             throw new VersionControl_Hg_Container_ExceptionException('The repository could not be deleted.');
         }
-    }
-
-    /**
-     * Prints the repository path.
-     *
-     * May be expanded to provide other useful data about the repository as
-     * a string.
-     *
-     * @return string
-     */
-    public function __toString() {
-        /* necessary because __toString() MUST return a string, but if
-         * getPath() is called on a now-permissible null repository path,
-         * we will get a PHP error. */
-        $path = ( $this->getPath() ) ? $this->getPath() : "";
-
-        return $path;
     }
 
     /**

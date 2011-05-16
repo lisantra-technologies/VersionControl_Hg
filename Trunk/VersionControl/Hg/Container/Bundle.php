@@ -4,24 +4,29 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Container
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link 		http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Container
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
- * Provides the container exception
+ * Provides the abstraction for containers
  */
-require_once 'Bundle/Exception.php';
+require_once 'Abstract.php';
 
 /**
  * Provides the container interface
  */
 require_once 'Interface.php';
+
+/**
+ * Provides the container exception
+ */
+require_once 'Repository/Exception.php';
 
 /**
  * A bundle of Mercurial revisions/changesets
@@ -37,15 +42,15 @@ require_once 'Interface.php';
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Container
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Container
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Container_Repository_Bundle
+class VersionControl_Container_Bundle
     extends VersionControl_Hg_Container_Abstract
         implements VersionControl_Hg_Container_Interface
 {
@@ -81,14 +86,15 @@ class VersionControl_Container_Repository_Bundle
 
     /**
      * Bundle constructor
-     *    *
+     *
      * @param object $hg   is the root object and
      *                     will always be an instance of VersionControl_Hg
      * @param string $path is the full path to the user defined executable
      *
      * @return void
      */
-    public function __construct(VersionControl_Hg $hg, $path) {
+    public function __construct(VersionControl_Hg $hg, $path)
+    {
 
     }
 
@@ -97,8 +103,7 @@ class VersionControl_Container_Repository_Bundle
      *
      * @param string $path is the path to the bundle on the filesystem
      *
-     * @return VersionControl_Container_Repository_Bundle is an instance of
-     * 													  a bundle.
+     * @return VersionControl_Container_Bundle is an instance of a bundle.
      */
     public function create($path)
     {
@@ -121,11 +126,15 @@ class VersionControl_Container_Repository_Bundle
     /**
      * Add a revision to the bundle
      *
-     * @param VersionControl_Hg_Container_Repository_Revision $revision
+     * @param VersionControl_Hg_Container_Bundle_Revision $revision is the
+     *                                                              revision to
+     *                                                              add to the
+     *                                                              bundle.
      *
      * @return VersionControl_Hg_Container_Bundle for fluent API
      */
-    public function addRevision(VersionControl_Hg_Container_Repository_Revision $revision) {
+    public function addRevision($revision)
+    {
 
     }
 
@@ -136,11 +145,21 @@ class VersionControl_Container_Repository_Bundle
      *
      * @return boolean
      */
-    public function removeRevision($revision) {
+    public function removeRevision($revision)
+    {
 
     }
 
-    public function setRevisions($revisions) {
+    /**
+     * Set the revisions en masse which are contained in this bundle
+     *
+     * @param unknown_type $revisions is the collection/range of revisions
+     *                                the bundle is instantiated with.
+     *
+     * @return null
+     */
+    protected function setRevisions($revisions)
+    {
 
     }
 
@@ -149,11 +168,12 @@ class VersionControl_Container_Repository_Bundle
      * bundle
      *
      * @param string $path is the path to the hg executable
+     *
      * @see self::$path
      *
      * @return VersionControl_Hg to enable method chaining
      */
-    public function setPath($path = null)
+    protected function setPath($path = null)
     {
         /* not passing in a path is OK, especially since the programmer may
          * want to call create() */
@@ -167,8 +187,8 @@ class VersionControl_Container_Repository_Bundle
 
         //is it even a real path?
         if ( ! realpath($path)) {
-            throw new VersionControl_Hg_Container_Repository_Exception(
-                VersionControl_Hg_Container_Repository_Exception::DOES_NOT_EXIST
+            throw new VersionControl_Hg_Container_Bundle_Exception(
+                VersionControl_Hg_Container_Bundle_Exception::DOES_NOT_EXIST
             );
         }
 
@@ -180,9 +200,9 @@ class VersionControl_Container_Repository_Bundle
          * Line breaks are transmitted to CLI apps; concat the strings to
          * ignore them in output.
          */
-        if ( ! $this->isRepository($path)) {
-            throw new VersionControl_Hg_Container_Repository_Exception(
-                VersionControl_Hg_Container_Repository_Exception::NO_REPOSITORY
+        if ( ! $this->isBundle($path)) {
+            throw new VersionControl_Hg_Container_Bundle_Exception(
+                VersionControl_Hg_Container_Bundle_Exception::NO_REPOSITORY
             );
         }
 
@@ -194,9 +214,9 @@ class VersionControl_Container_Repository_Bundle
     /**
     * Checks if $this is in fact a valid
     *
-    * @param   string $repo is the full repository path.
+    * @param string $path is the full repository path.
     *
-    * @return  boolean
+    * @return boolean
     */
     protected function isBundle($path)
     {
@@ -217,7 +237,10 @@ class VersionControl_Container_Repository_Bundle
      * Mutator for the compression type
      *
      * @param string $type is the type of compression used to make the bundle
+     *
      * @throws VersionControl_Hg_Container_Bundle_Exception
+     *
+     * @return null
      */
     protected function setCompressionType($type)
     {
