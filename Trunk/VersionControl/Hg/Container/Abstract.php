@@ -29,10 +29,6 @@
  */
 abstract class VersionControl_Hg_Container_Abstract
 {
-    public function __construct() {
-
-    }
-
     /**
      * Setting the path is overridden because each container implementation
      * will validate if the path contains a valid container of the same type
