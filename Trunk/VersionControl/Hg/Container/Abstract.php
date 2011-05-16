@@ -40,9 +40,7 @@ abstract class VersionControl_Hg_Container_Abstract
      *
      * @param string $path
      */
-    abstract public function setPath($path = null) {
-
-    }
+    abstract public function setPath($path = null);
 
     /**
      * Returns the path of a Mercurial repository as set by the user.
