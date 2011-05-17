@@ -522,12 +522,27 @@ abstract class VersionControl_Hg_Command_Abstract
                         unset($bundle[$key]);
                         $bundle[$fields[$key]] = $value;
                         if ( 'datetime' === $fields[$key] ) {
-                            $split_datetime = preg_split('/\./', $bundle[$fields[$key]]);
+                            $split_datetime
+                                = preg_split('/\./', $bundle[$fields[$key]]);
                             $timestamp = $split_datetime[0];
                             $offset = $split_datetime[1];
 
                             /* format to something human freindly */
-                            $bundle[$fields[$key]] = date("F j, Y, g:i a", $timestamp);
+                            $bundle[$fields[$key]] = date(
+                                "F j, Y, g:i a",
+                                $timestamp
+                            );
+                        } elseif ( 'files' === $fields[$key] ) {
+                            /* Do we have multiple files in the field? */
+                            if ( preg_match('/\s/', $bundle[$fields[$key]]) ) {
+                                /*@TODO This will totally bork file nams with
+                                  spaces!! */
+                                $bundle[$fields[$key]]
+                                    = preg_split('/\s/', $bundle[$fields[$key]]);
+                            } else {
+                                /* put even a single file into an array */
+                                $bundle[$fields[$key]] = array($value);
+                            }
                         }
                     }
                 }
