@@ -391,6 +391,15 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     protected function addOption($name, $value = null)
     {
+        /* Construct all options */
+        if ( empty($this->valid_options) ) {
+            $this->valid_options = array_merge(
+                $this->allowed_options,
+                $this->global_options,
+                $this->required_options
+            );
+        }
+
         if ( ! array_key_exists($name, $this->valid_options) ) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
