@@ -4,13 +4,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -42,13 +42,13 @@ require_once 'Exception.php';
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Status
     extends VersionControl_Hg_Command_Abstract
@@ -88,7 +88,8 @@ class VersionControl_Hg_Command_Status
         'removed' => null,
         'deleted' => null,
         'clean' => null,
-        'unknown' => null, //could be 'not tracked' or unversioned? but we need one word
+        //could be 'not tracked' or unversioned? but we need one word
+        'unknown' => null,
         'ignored' => null,
         'files' => null,
         'rev' => null,
@@ -114,7 +115,8 @@ class VersionControl_Hg_Command_Status
     /**
      * Constructor
      *
-     * @param array $param is one or more parameters to modify the command
+     * @param array $params is one or more parameters to modify the command
+     *
      * @return void
      */
     public function __construct($params = null)
@@ -128,8 +130,9 @@ class VersionControl_Hg_Command_Status
      * show what Hg would show: only changes and not all files. Specify
      * status('all') or add all() to the method chain to get all files.
      *
-     * (non-PHPdoc)
-     * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
+     * @param mixed $params The options passed to the Log command
+     *
+     * @return string
      */
     public function execute(array $params = null)
     {
@@ -145,10 +148,12 @@ class VersionControl_Hg_Command_Status
          * unattended by nature of using this package.
          * --repository PATH is required since the PWD on which hg is invoked
          * will not be within the working copy of the repo. */
-        $this->addOptions(array(
-            'noninteractive' => null,
-            'repository' => $this->hg->getRepository()->getPath(),
-        ));
+        $this->addOptions(
+            array(
+                'noninteractive' => null,
+                'repository' => $this->hg->getRepository()->getPath(),
+            )
+        );
 
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
@@ -169,7 +174,8 @@ class VersionControl_Hg_Command_Status
         );
     }
 
-    /**Adds 'all' to the stack of command line options
+    /**
+     * Adds 'all' to the stack of command line options
      *
      * Returns all files in the repository no matter their status.
      *
@@ -178,13 +184,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('all')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
     public function all()
     {
         $this->addOption('all');
-        return $this; //for the fluent API
+
+        /* for the fluent API */
+        return $this;
     }
 
     /**
@@ -197,13 +204,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('modified')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
     public function modified()
     {
         $this->addOption('modified');
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -216,13 +224,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('all')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
     public function added()
     {
         $this->addOption('added');
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -236,13 +245,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('removed')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
     public function removed()
     {
         $this->addOption('removed');
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -255,13 +265,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('deleted')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
     public function deleted()
     {
         $this->addOption('deleted');
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -275,13 +286,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('clean')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
     public function clean()
     {
         $this->addOption('clean');
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -294,13 +306,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('unknown')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
     public function unknown()
     {
         $this->addOption('unknown');
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -313,13 +326,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('ignored')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
     public function ignored()
     {
         $this->addOption('ignored');
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -334,15 +348,18 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status(array('files' => array('index.php')))->run();</code>
      *
-     * @param mixed $files the list of files as a simple array
-     * @return null
+     * @param mixed $files Only show the status for these files
+     *
+     * @return VersionControl_Hg_Command_Status
      *
      * @TODO how to ensure this is the final option??
      */
     public function files(array $files)
     {
         $this->addOption('files', join(' ', $files));
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -355,12 +372,14 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status('copied')->run();</code>
      *
-     * @param null
-     * @return null
+     * @return VersionControl_Hg_Command_Status
      */
-    public function copied() {
+    public function copied()
+    {
         $this->addOption('copied');
-        return $this; //for the fluent API
+
+        /* For the fluent API */
+        return $this;
     }
 
     /**
@@ -373,10 +392,12 @@ class VersionControl_Hg_Command_Status
      * or
      * <code>$hg->status(array('revision' => 7 ))->all()->run();</code>
      *
-     * @param int|string $revision
-     * @return void
+     * @param string $revision The revision for which to get the status
+     *
+     * @return VersionControl_Hg_Command_Status
      */
-    public function revision($revision = 'tip') {
+    public function revision($revision = 'tip')
+    {
         //@TODO Technically, the following shouldn't occur since 'tip' is default
         if ( empty($revision)) {
             throw new VersionControl_Hg_Command_Exception(
