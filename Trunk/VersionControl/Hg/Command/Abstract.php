@@ -516,10 +516,19 @@ abstract class VersionControl_Hg_Command_Abstract
                         /* This is one helluva array "syntax" abuse */
                         $bundle[key($fields[$key])]
                             = $fields[$key][key($fields[$key])][$value];
+
                     } else {
                         /* no mapping, so continue */
                         unset($bundle[$key]);
                         $bundle[$fields[$key]] = $value;
+                        if ( 'datetime' === $fields[$key] ) {
+                            $split_datetime = preg_split('/\./', $bundle[$fields[$key]]);
+                            $timestamp = $split_datetime[0];
+                            $offset = $split_datetime[1];
+
+                            /* format to something human freindly */
+                            $bundle[$fields[$key]] = date("F j, Y, g:i a", $timestamp);
+                        }
                     }
                 }
             } else {
