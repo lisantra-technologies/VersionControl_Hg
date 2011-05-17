@@ -104,6 +104,7 @@ class VersionControl_Hg_Command_Log
         'copies' => null, //show copied files
         'removed' => null, //show removed files
         'date' => null,
+        'rev' => null,
     );
 
     /**
