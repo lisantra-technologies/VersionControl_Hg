@@ -4,13 +4,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -35,17 +35,21 @@ require_once 'Exception.php';
  *
  * Patching and diffing options are not available in this class. Please select
  * a file first and then request a diff for it:
- * <code>$hg->diff('git'|'gnu')->files(array('index.php', 'default.html'))->between('tip|2011-04-11')->revision(22)|->date('2011-03-01');</code>
+ *
+ * <code>
+ * $hg->diff('git'|'gnu')->files(array('index.php', 'default.html'))
+ *   ->between('tip'|'2011-04-11')->revision(22)|->date('2011-03-01');
+ * </code>
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Log
     extends VersionControl_Hg_Command_Abstract
@@ -105,7 +109,8 @@ class VersionControl_Hg_Command_Log
     /**
      * Constructor
      *
-     * @param array $param is one or more parameters to modify the command
+     * @param mixed $params is one or more parameters to modify the command
+     *
      * @return void
      */
     public function __construct($params = null)
@@ -119,8 +124,9 @@ class VersionControl_Hg_Command_Log
     /**
      * Execute the command and return the results.
      *
-     * (non-PHPdoc)
-     * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
+     * @param mixed $params The options passed to the Log command
+     *
+     * @return string
      */
     public function execute(array $params = null)
     {
@@ -136,10 +142,12 @@ class VersionControl_Hg_Command_Log
          * unattended by nature of using this package.
          * --repository PATH is required since the PWD on which hg is invoked
          * will not be within the working copy of the repo. */
-        $this->addOptions(array(
-            'noninteractive' => null,
-            'repository' => $this->hg->getRepository()->getPath(),
-        ));
+        $this->addOptions(
+            array(
+                'noninteractive' => null,
+                'repository' => $this->hg->getRepository()->getPath(),
+            )
+        );
 
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
@@ -171,17 +179,19 @@ class VersionControl_Hg_Command_Log
      * or
      * <code>$hg->log(array('revision' => 7 ))->all()->run();</code>
      *
-     * @param int|string $revision
+     * @param string $revision The revision for which to show the log for
+     *
      * @return void
      */
-    public function revision($revision = 'tip') {
+    public function revision($revision = 'tip')
+    {
         //@TODO Technically, the following shouldn't occur since 'tip' is default
         if ( empty($revision)) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT
             );
         }
-
+        //@TODO Init an instance of a Revision object
         $this->addOption('rev', $revision);
 
         /* For the fluent API */
@@ -199,7 +209,6 @@ class VersionControl_Hg_Command_Log
      * or
      * <code>$hg->log('removed')->run();</code>
      *
-     * @param null
      * @return null
      */
     public function removed()
@@ -218,10 +227,10 @@ class VersionControl_Hg_Command_Log
      * or
      * <code>$hg->log('copied')->run();</code>
      *
-     * @param null
      * @return null
      */
-    public function copied() {
+    public function copied()
+    {
         $this->addOption('copied');
         return $this; //for the fluent API
     }
@@ -239,6 +248,7 @@ class VersionControl_Hg_Command_Log
      * <code>$hg->log(array('files' => array('index.php')))->run();</code>
      *
      * @param mixed $files the list of files as a simple array
+     *
      * @return null
      *
      * @TODO how to ensure this is the final option??
@@ -254,10 +264,16 @@ class VersionControl_Hg_Command_Log
      *
      * Restricts the log to changesets only commited on $date
      *
-     * @param string $date
+     * @param string $date Show log entries only for this exact date
+     *
+     * @return VersionControl_Hg_Command_Log
      */
-    public function on($date) {
-        $this->addOption('date', "\"" . date('Y-m-d G:i:s', strtotime($date)) . "\"");
+    public function on($date)
+    {
+        $this->addOption(
+            'date',
+            "\"" . date('Y-m-d G:i:s', strtotime($date)) . "\""
+        );
 
         return $this;
     }
@@ -267,10 +283,16 @@ class VersionControl_Hg_Command_Log
      *
      * Restricts the log to changesets only commited on $date
      *
-     * @param string $date
+     * @param string $date Show log entries only before this date
+     *
+     * @return VersionControl_Hg_Command_Log
      */
-    public function before($date) {
-        $this->addOption('date', "\"<" . date('Y-m-d G:i:s', strtotime($date)) . "\"");
+    public function before($date)
+    {
+        $this->addOption(
+            'date',
+            "\"<" . date('Y-m-d G:i:s', strtotime($date)) . "\""
+        );
 
         return $this;
     }
@@ -280,10 +302,16 @@ class VersionControl_Hg_Command_Log
      *
      * Restricts the log to changesets only commited on $date
      *
-     * @param string $date
+     * @param string $date Show log entries only after this date
+     *
+     * @return VersionControl_Hg_Command_Log
      */
-    public function after($date) {
-        $this->addOption('date', "\">" . date('Y-m-d G:i:s', strtotime($date)) . "\"");
+    public function after($date)
+    {
+        $this->addOption(
+            'date',
+            "\">" . date('Y-m-d G:i:s', strtotime($date)) . "\""
+        );
 
         return $this;
     }
@@ -293,14 +321,21 @@ class VersionControl_Hg_Command_Log
      *
      * Restricts log output to changeset between $from and $to
      *
-     * @param string $from
-     * @param string $to
+     * @param string $from Show log entries from this date forward
+     * @param string $to   Show log entries only before this date
+     *
+     * @return VersionControl_Hg_Command_Log
      */
-    public function between($from, $to) {
+    public function between($from, $to)
+    {
         /* validate inputs */
         //if ( empty() ) {
 
-        $this->addOption('date', "\"" . date('Y-m-d G:i:s', strtotime($from)) . " to " . date('Y-m-d G:i:s', strtotime($to)) . "\"");
+        $this->addOption(
+            'date',
+            "\"" . date('Y-m-d G:i:s', strtotime($from)) . " to " .
+            date('Y-m-d G:i:s', strtotime($to)) . "\""
+        );
 
         return $this;
     }
