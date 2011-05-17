@@ -164,7 +164,7 @@ class VersionControl_Hg_Command_Log
 
         return $this->parseOutput(
             $this->output,
-            array('rev', 'branch', 'file', 'datetime', 'author', 'description'),
+            array('rev', 'branch', 'files', 'datetime', 'author', 'description'),
             '##'
         );
     }
