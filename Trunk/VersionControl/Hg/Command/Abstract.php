@@ -4,13 +4,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link 		http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -32,13 +32,13 @@ require_once 'Output/Formatter.php';
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage 	Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link 		http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 abstract class VersionControl_Hg_Command_Abstract
 {
@@ -132,6 +132,8 @@ abstract class VersionControl_Hg_Command_Abstract
      * Class constructors must be redefined in each Command parent class,
      * since it must have its dependencies for $hg injected.
      *
+     * @param mixed $params The options and arguments passed to the command
+     *
      * @return void
      */
     abstract function __construct($params);
@@ -150,21 +152,25 @@ abstract class VersionControl_Hg_Command_Abstract
      * i.e. it will always be intercepted by __call in
      * VersionControl_Hg_Repository_Command.
      *
-     * @param   string $method
-     * @param   mixed $args
+     * @param string $method    The function called in the fluent API after the
+     *                          base command Class is called/instantiated.
+     * @param mixed  $arguments The function's arguments, if any.
      *
-     * @return  mixed
-     * @throws  VersionControl_Hg_Command_Exception
+     * @return mixed
+     * @throws VersionControl_Hg_Command_Exception
      */
-    public function __call($method, $arguments) {
+    public function __call($method, $arguments)
+    {
         /* $arguments is an array which may be empty if $hg->command() [->run()]
            has no parameters */
         switch ($method) {
             case 'run': //the special method ending the fluent chain
                 /* run the command class' execute method */
                 return $this->execute($arguments);
-                    //interface demands all command classes define this method
-                //alt: return call_user_func_array(array($command, 'execute'), $options);
+                //interface demands all command classes define this method
+                /*alternative:
+                 return call_user_func_array(array($command, 'execute'), $options);
+                 */
                 break;
             default:
                 /* must be the command or one of its fluent api functions */
@@ -188,16 +194,17 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * Mercurial expects the pattern to start with 'glob: ' or 're: '.
      *
+     * @param string $filter The pattern of filenames to exlude
+     *
+     * @return VersionControl_Hg_Command
+     *
      * @todo refactor out to Hg/Command/Filter/Excluding.php
-     *
-     * @param   $filter string
-     *
-     * @return  VersionControl_Hg_Command
      */
     public function excluding($filter)
     {
         $this->addOption(
-            'exclude', "{$filter}" // $this->hg->repository . DIRECTORY_SEPARATOR . $filter
+            'exclude', "{$filter}"
+            // $this->hg->repository . DIRECTORY_SEPARATOR . $filter
         );
 
         /* let me be chainable! */
@@ -212,11 +219,11 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * Mercurial expects the pattern to start with 'glob: ' or 're: '.
      *
+     * @param string $filter The pattern of filenames to include
+     *
+     * @return VersionControl_Hg_Command
+     *
      * @todo refactor out to Hg/Command/Filter/Including.php
-     *
-     * @param   $filter string
-     *
-     * @return  VersionControl_Hg_Command
      */
     public function including($filter)
     {
@@ -224,14 +231,25 @@ abstract class VersionControl_Hg_Command_Abstract
         /* Must have full path to repository;
          * @TODO is the root only needed? Is this recursive */
         $this->addOption(
-            'include', "{$filter}" //$this->hg->repository . DIRECTORY_SEPARATOR . $filter
+            'include', "{$filter}"
+            //$this->hg->repository . DIRECTORY_SEPARATOR . $filter
         );
 
         /* let me be chainable! */
         return $this;
     }
 
-    public function format($format = null) {
+    /**
+     * Format the output
+     *
+     * Usual output formats are Raw, (PHP) Array, and JSON.
+     *
+     * @param string $format The format identifier: 'array', 'raw', 'json'.
+     *
+     * @return VersionControl_Hg_Command_Abstract
+     */
+    public function format($format = null)
+    {
         /* make 'array' the default */
         if ( empty($format) ) {
             $format = 'array';
@@ -240,13 +258,13 @@ abstract class VersionControl_Hg_Command_Abstract
             $format = strtolower($format);
         }
 
-        if ( ! in_array($format, VersionControl_Hg_Command_Output_Formatter::$formats)  ) {
+        if ( ! in_array($format, VersionControl_Hg_Command_Output_Formatter::$formats) ) {
             $formats = join(', ', VersionControl_Hg_Command_Output_Formatter::$formats);
 
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
-                "The format must be either blank or be one of the following: {$formats}. " .
-                "You passed the value '{$format}', instead. "
+                "The format must be either blank or be one of the following:
+                 {$formats} You passed the value '{$format}', instead. "
             );
         }
 
@@ -254,7 +272,6 @@ abstract class VersionControl_Hg_Command_Abstract
 
         /* let me be chainable! */
         return $this;
-
     }
 
     /**
@@ -299,8 +316,7 @@ abstract class VersionControl_Hg_Command_Abstract
                     }
                 }
                 $this->addOptions($options);
-            }
-            elseif ( is_string($options) ) {
+            } elseif ( is_string($options) ) {
                 //addOption() checks for validity
                 $this->addOption($options, null);
             }
@@ -319,12 +335,13 @@ abstract class VersionControl_Hg_Command_Abstract
         $modifiers = null;
 
         /* Ensure all required options are defined */
-        $missing_required_options = array_diff_key($this->required_options, $options);
+        $missing_required_options
+            = array_diff_key($this->required_options, $options);
         if ( count($missing_required_options) > 0 ) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
-                'Required option(s) are missing: ' .
-                    implode(', ', $missing_required_options)
+                "Required option(s) are missing: " .
+                implode(', ', $missing_required_options)
             );
         }
 
@@ -366,13 +383,13 @@ abstract class VersionControl_Hg_Command_Abstract
     /**
      * Add an option
      *
-     * @param   $name is the name of the option which Mercurial recognizes
-     * @param   $value is optional since not all Hg options need a value
+     * @param string $name  The name of the option which Mercurial recognizes
+     * @param string $value Optional since not all Hg options need a value
      *
      * @return  boolean
      * @throws  VersionControl_Hg_Command_Exception
      */
-    protected function addOption($name, $value = NULL)
+    protected function addOption($name, $value = null)
     {
         if ( ! array_key_exists($name, $this->valid_options) ) {
             throw new VersionControl_Hg_Command_Exception(
@@ -390,9 +407,9 @@ abstract class VersionControl_Hg_Command_Abstract
     /**
      * Add a set of options all at once
      *
-     * @param   array $options
+     * @param mixed $options The collections of options to pass to the command
      *
-     * @return  boolean
+     * @return boolean
      */
     protected function addOptions(array $options)
     {
@@ -423,7 +440,7 @@ abstract class VersionControl_Hg_Command_Abstract
     /**
      * Remove an option from the command by its name
      *
-     * @param string $option
+     * @param string $option The single option to pass to the command
      *
      * @return boolean is false when $option does not exist in the options array
      */
@@ -431,7 +448,7 @@ abstract class VersionControl_Hg_Command_Abstract
     {
         $unset = false;
 
-        if( array_key_exists($this->getOptions(), $option) ) {
+        if ( array_key_exists($this->getOptions(), $option) ) {
             /* unset is a language construct and returns void, so no shortcuts
              * like if( unset(...) = array_key_exists(...) ) */
             unset( $this->_options[$option] );
@@ -445,10 +462,10 @@ abstract class VersionControl_Hg_Command_Abstract
      * Parses the result of the Mercurial CLI operation into a semantic
      * associative array
      *
-     * @todo refactor into Hg/Command/Result/Parser.php
-     *
-     * @param   mixed $output is the output to parse into an array of arrays
-     * @param   mixed $fields array are the labels of columns;
+     * @param mixed  $output    The output to parse into an array of arrays
+     * @param mixed  $fields    The labels of columns;
+     * @param string $delimiter Delimits the fields returned by Mercurial.
+     *                          Defaults to whitespace.
      *
      * @return mixed
      */
@@ -464,7 +481,7 @@ abstract class VersionControl_Hg_Command_Abstract
              * raw text rather than splitting it below and THEN reassembling
              * it! */
             if ( $this->output_format === 'raw' ) {
-                //@TODO is there a better way than 'return'ing here? I like only a single return per function.
+                //@TODO I like only a single return per function.
                 return $formatter->$method($output);
             }
         }
@@ -497,15 +514,16 @@ abstract class VersionControl_Hg_Command_Abstract
                     if ( is_array($fields[$key]) ) {
                         unset($bundle[$key]);
                         /* This is one helluva array "syntax" abuse */
-                        $bundle[key($fields[$key])] = $fields[$key][key($fields[$key])][$value];
+                        $bundle[key($fields[$key])]
+                            = $fields[$key][key($fields[$key])][$value];
                     } else {
-                    /* no mapping, so continue */
+                        /* no mapping, so continue */
                         unset($bundle[$key]);
                         $bundle[$fields[$key]] = $value;
                     }
                 }
             } else {
-            /* Well, buddy, $fields was empty, so now what? */
+                /* Well, buddy, $fields was empty, so now what? */
                 /* It would seem that the raw array (i.e. $bundle) is simply
                  * passed through */
             }
@@ -526,7 +544,9 @@ abstract class VersionControl_Hg_Command_Abstract
     /**
      * Sets the base $hg instance on whose behalf command operates
      *
-     * @param $hg VersionControl_Hg
+     * @param VersionControl_Hg $hg The root object instance
+     *
+     * @return null
      */
     public function setContainer(VersionControl_Hg $hg)
     {
@@ -546,18 +566,17 @@ abstract class VersionControl_Hg_Command_Abstract
     /**
      * Sets the command string
      *
-     * @param void is void because the function is generic enough to not
-     *             require any variable parameters.
+     * @return void
      *
+     * @TODO should return something! Now, it merely manipulates command_string
      * @todo use this: $command_string = escapeshellcmd() but it causes
      * problems on windows...I think
      */
     public function setCommandString()
     {
-        $this->command_string =
-            '"' .
-            $this->hg->executable .
-            '" ' . $this->command . ' ' .
+        $this->command_string = '"' .
+            $this->hg->executable . '" ' .
+            $this->command . ' ' .
             rtrim($this->formatOptions($this->getOptions()));
     }
 
@@ -574,17 +593,22 @@ abstract class VersionControl_Hg_Command_Abstract
     /**
      * Specify which revisions to operate upon in the repository
      *
-     * revisions are considered inclusive: r1 to r3 includes data
+     * Revisions are considered inclusive: r1 to r3 includes data
      * from r1,r2,r3.
      *
-     * @param   $first
-     * @param   $last
+     * @param string $first The first revision for a command to act on
+     * @param string $last  The last revision for a command to act on
      *
      * @return  VersionControl_Hg_Command
+     *
+     * @TODO Handle $last as well!
+     * @TODO Consider whether this is a good idea, since between() handles
+     * this for some commands...
      */
     public function changeset($first, $last)
     {
         $this->addOption('rev', $first);
+
         /* let me be chainable! */
         return $this;
     }
