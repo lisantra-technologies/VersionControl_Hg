@@ -1,31 +1,68 @@
 <?php
 
-    $fixture = file_get_contents('H:\Development\_Webroot\Trunk\Tests\Fixtures\output-status.txt');
+/*
+ * Test with safe_mode enabled!
+ * Note: When safe mode is enabled, you can only execute files within the safe_mode_exec_dir. For practical reasons, it is currently not allowed to have .. components in the path to the executable.
+ * With safe mode enabled, the command string is escaped with escapeshellcmd(). Thus, echo y | echo x becomes echo y \| echo x.
+ */
+ini_set('safe_mode', 1);
 
-    $fields = array('status', 'entity');
+include_once '../VersionControl/Hg.php';
+$hg = new VersionControl_Hg('H:\Development\_Webroot\Trunk\Tests\Fixtures\Test_Repository');
 
-    //split into lines first
+//var_dump($hg->status()->all()->run('verbose'));
 
-    //account for the different line endings on the 3 platforms: Win32, Mac and *nix.
-    $lines = preg_split( '/\r\n|\r|\n/', $fixture );
+//var_dump($hg->status(array('removed', 'deleted'))->run('verbose'));
+//var_dump($hg->status()->removed()->deleted()->run('verbose'));
 
-    //split each line into columns
-    foreach( $lines as $a_line ) {
-       $output[] = preg_split( '/[\s]+/', $a_line );
-    }
+/*
+ * for the syntax of a single arg for the base command function, it must be
+ * the name of a function within the command, and not need a value. In this case,
+ * 'all' is a solitary modifier represented by array('all' => null) in Status.php */
+var_dump($hg->status('all')->revision('2')->format('raw')->run('verbose'));
 
-    //list() idiom might be best here
-    foreach ( $output as $row_num => $row ) {
-        //counts of field and output lengths must match.
-        $field_length = count( $fields );
-        $output_row_length = count( $row );
+var_dump($hg->status()->all()->revision('2')->run('verbose'));
 
-        //loop through the variable-length output row.
-        foreach ( $row as $position => $value ) {
-            $result[$row_num][$fields[$position]] = $value;
-        }
-    }
+var_dump($hg->status('all')->files(array('index.php'))->run());
 
-    print_r( $result );
+/* without 'all', result is empty EVEN though there are items which should display  */
+var_dump($hg->status()->files(array('index.php'))->run());
 
-?>
+/* In this case, 'excluding' did not work and we did indeed get 'all' files,
+ * including index.php */
+var_dump($hg->status()->all()->excluding('**.php')->run());
+
+/* In this case, we left out 'all' which correctly excludes index.php */
+var_dump($hg->status()->excluding('**.php')->run());
+
+/* this displays nothing! Seems to be by design */
+var_dump($hg->status()->including('**.php')->run());
+
+/* Displays index.php */
+var_dump($hg->status()->all()->including('**.php')->run());
+
+/* Displays index.php */
+var_dump($hg->status('all')->files(array('index.php'))->excluding('**.php')->run());
+
+/* Returns nothing! */
+var_dump($hg->status()->files(array('index.php'))->excluding('**.php')->run());
+
+/*
+ * In a case like the following:
+ * <code>$hg->status('all')->files(array('index.php'))->excluding('**.php')->run();</code>
+ * The apparently conflicting options do not cause an exception. The behavior is that
+ * apparently, files, takes complete precedence over excluding. However, all such
+ * combinations have not been fully tested yet, so you may not get the results
+ * you expect by using options which conceptually conflict with each other.
+ */
+
+
+/*
+ * Future concepts, but 'asXml' violates my no camel case API design principle
+var_dump($hg->status('all')->asXml()->run('verbose'));
+var_dump($hg->status('all')->toXml()->run('verbose'));
+var_dump($hg->status('all')->xml()->run('verbose'));
+
+'at' could be confused with a time/date
+var_dump($hg->status('all')->at('22')->run('verbose'));
+*/
