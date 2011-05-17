@@ -191,8 +191,14 @@ class VersionControl_Hg_Command_Log
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT
             );
         }
-        //@TODO Init an instance of a Revision object
-        $this->addOption('rev', $revision);
+
+        //@TODO Not sure of the value of this here, instead of a raw string
+        /*require_once realpath('../Container/Repository/Revision.php');
+        $revision_instance = new VersionControl_Hg_Repository_Revision(
+            $revision
+        );*/
+
+        $this->addOption('rev', $revision); //$revision_instance
 
         /* For the fluent API */
         return $this;

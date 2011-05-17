@@ -398,9 +398,14 @@ abstract class VersionControl_Hg_Command_Abstract
             );
         }
 
+        if ( is_object($value) ) {
+            $type = get_class($value);
+
+            $value = print_r($type, true);
+        }
+
         $this->options[$name] = $value;
-        //this will always return true unless it throws an exception, so
-        //why return anything at all?
+
         return true;
     }
 
