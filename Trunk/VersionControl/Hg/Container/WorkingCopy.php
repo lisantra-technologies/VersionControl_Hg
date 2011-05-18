@@ -14,15 +14,19 @@
  */
 
 /**
- * Provides the container exception
+ * Provides the abstraction for containers
  */
-require_once 'WorkingCopy/Exception.php';
+require_once 'Abstract.php';
 
 /**
  * Provides the container interface
  */
 require_once 'Interface.php';
 
+/**
+ * Provides the container exception
+ */
+require_once 'WorkingCopy/Exception.php';
 
 /**
  * A bundle of Mercurial revisions/changesets
