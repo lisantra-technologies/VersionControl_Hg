@@ -105,4 +105,16 @@ class VersionControl_Hg_Container_WorkingCopy
 
     }
 
+    /**
+     * Sets the path of a changegroup bundle after validating it as an actual
+     * bundle
+     *
+     * @param string $path is the path to the hg executable
+     *
+     * @see self::$path
+     *
+     * @return VersionControl_Hg to enable method chaining
+     */
+    public function setPath($path = null) {}
+
 }
