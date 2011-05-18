@@ -43,7 +43,7 @@
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link       http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Hg_Repository_Revision
+class VersionControl_Hg_Container_Repository_Revision
 {
     /**
      * Revision identifier is an integer
