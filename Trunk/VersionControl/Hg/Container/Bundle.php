@@ -50,7 +50,7 @@ require_once 'Repository/Exception.php';
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link       http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Container_Bundle
+class VersionControl_Hg_Container_Bundle
     extends VersionControl_Hg_Container_Abstract
         implements VersionControl_Hg_Container_Interface
 {
@@ -173,7 +173,7 @@ class VersionControl_Container_Bundle
      *
      * @return VersionControl_Hg to enable method chaining
      */
-    protected function setPath($path = null)
+    public function setPath($path = null)
     {
         /* not passing in a path is OK, especially since the programmer may
          * want to call create() */

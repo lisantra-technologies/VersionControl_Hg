@@ -46,7 +46,7 @@ require_once 'Interface.php';
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link       http://pear.php.net/package/VersionControl_Hg
  */
-class VersionControl_Container_WorkingCopy
+class VersionControl_Hg_Container_WorkingCopy
     extends VersionControl_Hg_Container_Abstract
         implements VersionControl_Hg_Container_Interface
 {
