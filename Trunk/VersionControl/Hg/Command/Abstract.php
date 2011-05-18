@@ -292,7 +292,7 @@ abstract class VersionControl_Hg_Command_Abstract
                 $this->required_options
             );
         }
-
+var_dump($this->valid_options);die();
         /* $param[0] causes a Php Notice when its an empty array without this
          * topmost check
          */
@@ -347,7 +347,10 @@ abstract class VersionControl_Hg_Command_Abstract
 
         /* add a --cwd to avoid multitides of "XYZ not under root" errors
          * emanating from hg's cli */
-        $options['cwd'] = $this->hg->repository;
+        if ( ! empty($this->hg->repository) ) {
+            /* Init doesn't need this  */
+            $options['cwd'] = $this->hg->repository;
+        }
 
         /* This option is internal, and must not be printed to the command line */
         if ( array_key_exists('format', $options) ) {
@@ -427,11 +430,12 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     protected function addOptions(array $options)
     {
+        //@todo is this necessary since array is hinted in the signature?
         if ( ! is_array($options)) {
             throw new VersionControl_Hg_Command_Exception(
                 'Options is not an array'
             );
-        } //@todo is this necessary since array is hinted in the signature?
+        }
 
         foreach ($options as $name => $value) {
             $this->addOption($name, $value);
@@ -449,6 +453,15 @@ abstract class VersionControl_Hg_Command_Abstract
     {
         //@todo check that defined options satisfy $required_options
         return $this->options;
+    }
+
+    /**
+     * Get a named options from the current list of options
+     *
+     * @param string $name The name of the option we are getting
+     */
+    public function getOption($name) {
+        return $this->options[$name];
     }
 
     /**
