@@ -115,6 +115,8 @@ class VersionControl_Hg_Container_WorkingCopy
      *
      * @return VersionControl_Hg to enable method chaining
      */
-    public function setPath($path = null) {}
+    public function setPath($path = null)
+    {
 
+    }
 }

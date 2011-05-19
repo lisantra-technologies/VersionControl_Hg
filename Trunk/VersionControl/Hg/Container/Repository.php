@@ -4,13 +4,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Container
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link 		http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Container
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -36,19 +36,19 @@ require_once 'Repository/Exception.php';
  * <code>
  * $hg = new VersionControl_Hg('/path/to/repo');
  * $repository = $hg->getRepository()->getPath();
- * or
- * $repository = $hg->repository->delete();
  * </code>
+ * or
+ * <code>$repository = $hg->repository->delete();</code>
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Container
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Container
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Container_Repository
     extends VersionControl_Hg_Container_Abstract
@@ -57,7 +57,6 @@ class VersionControl_Hg_Container_Repository
     /**
      * The name of all Mercurial repository roots.
      *
-     * @FIXME: is this still needed to say?
      * Leading backslash is needed since path may not have a trailing slash.
      *
      * @const string
@@ -76,7 +75,7 @@ class VersionControl_Hg_Container_Repository
     /*
      * Hold an instance of the class
      */
-    private static $instance;
+    private static $_instance;
 
     /**
      * Path to a local Mercurial repository
@@ -87,14 +86,17 @@ class VersionControl_Hg_Container_Repository
 
     /**
      * Repository constructor which currently does nothing.
-     *    *
-     * @param object $hg   is the root object and as a singleton
-     *                     will always be an instance of VersionControl_Hg
-     * @param string $path is the full path to the user defined executable
+     *
+     * @param VersionControl_Hg $hg   is the root object and as a singleton
+     *                                will always be an instance of
+     *                                VersionControl_Hg
+     * @param string            $path is the full path to the user defined
+     *                                executable
      *
      * @return void
      */
-    private function __construct(VersionControl_Hg $hg, $path) {
+    private function __construct(VersionControl_Hg $hg, $path)
+    {
         $this->setPath($path);
         $this->hg = $hg;
     }
@@ -109,12 +111,12 @@ class VersionControl_Hg_Container_Repository
      */
     public static function getInstance($hg = null, $path = null)
     {
-        if ( ! isset(self::$instance) ) {
+        if ( ! isset(self::$_instance) ) {
             $singleton_class = __CLASS__;
-            self::$instance = new $singleton_class($hg, $path);
+            self::$_instance = new $singleton_class($hg, $path);
         }
 
-        return self::$instance;
+        return self::$_instance;
     }
 
     /**
@@ -122,8 +124,9 @@ class VersionControl_Hg_Container_Repository
      *
      * @return null
      */
-    public static function reset() {
-        self::$instance = NULL;
+    public static function reset()
+    {
+        self::$_instance = null;
     }
 
     /**
@@ -131,6 +134,7 @@ class VersionControl_Hg_Container_Repository
      * repository
      *
      * @param string $path The path to the hg executable
+     *
      * @see self::$path
      *
      * @return VersionControl_Hg
@@ -177,7 +181,7 @@ class VersionControl_Hg_Container_Repository
     /**
      * Checks if $this is in fact a valid
      *
-     * @param  string $repo The full repository path.
+     * @param string $path The full repository path.
      *
      * @return boolean
      */
@@ -204,24 +208,30 @@ class VersionControl_Hg_Container_Repository
     }
 
     /**
+     * Create a repository
      *
+     * This would make sense in only a very few isntances. For example, if a
+     * programmer instantiated $hg without a path, and did this:
+     * <code>
+     * $hg = new VersionControl_Hg();
+     * $repository = $hg->repository()->create('/path/to/repo');
+     * </code>
      *
-     * @return
+     * However, its probably better to directly use the Init command, since
+     * this create() function merely proxies it.
+     *
+     * @param string $path The path at which to create a new Mercurial
+     *                     repository.
+     *
+     * @return VersionControl_Hg_Container_Repository
      */
     public function create($path)
     {
-        //@TODO FINISH THIS!
-        //must call is_repository on the path first, since setPath was not used in instantiation...?
+        $command = new VersionControl_Hg_Command_Init($path);
+        $repository = $command->run('verbose');
 
-
-        $this->_command = new VersionControl_Hg_Command_Init();
-        //$this->_command = new Hg_Repository_Command_Init($this);
-            //pass $this as dependency injection instead of having
-            //Hg_Repository_Command inherit from Hg_Repository?
-
-
-        //return it so we can chain it
-        return $this->_command;
+        /* return it so we can chain it */
+        return $repository;
     }
 
     /**
@@ -232,15 +242,21 @@ class VersionControl_Hg_Container_Repository
     public function delete()
     {
         if ( unlink($this->path) ) {
+            self::reset();
+
             return true;
         } else {
-            //return false;
-            throw new VersionControl_Hg_Container_ExceptionException('The repository could not be deleted.');
+            //or, return false;
+            throw new VersionControl_Hg_Container_ExceptionException(
+                'The repository could not be deleted.'
+            );
         }
     }
 
     /**
      * Prevent users to clone the instance
+     *
+     * @return Exception
      */
     public function __clone()
     {

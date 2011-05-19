@@ -4,13 +4,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Container
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Container
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -19,22 +19,26 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Container
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Container
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 abstract class VersionControl_Hg_Container_Abstract
 {
     /**
+     * Sets the path to the container
+     *
      * Setting the path is overridden because each container implementation
      * will validate if the path contains a valid container of the same type
      * as itself
      *
-     * @param string $path
+     * @param string $path the path to the container
+     *
+     * @return null
      */
     abstract public function setPath($path = null);
 
@@ -45,8 +49,8 @@ abstract class VersionControl_Hg_Container_Abstract
      * it to return null when it needs to and lets the programmer check if a
      * repository has been set or not. Exceptions would remove this control.
      *
-     * @return  string | null
-     * @see     $path
+     * @return string | null
+     * @see $path
      */
     public function getPath()
     {
@@ -61,7 +65,8 @@ abstract class VersionControl_Hg_Container_Abstract
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         /* necessary because __toString() MUST return a string, but if
          * getPath() is called on a now-permissible null repository path,
          * we will get a PHP error. */
@@ -69,6 +74,4 @@ abstract class VersionControl_Hg_Container_Abstract
 
         return $path;
     }
-
-
 }
