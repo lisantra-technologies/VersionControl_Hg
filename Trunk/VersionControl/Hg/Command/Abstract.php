@@ -292,7 +292,7 @@ abstract class VersionControl_Hg_Command_Abstract
                 $this->required_options
             );
         }
-var_dump($this->valid_options);die();
+
         /* $param[0] causes a Php Notice when its an empty array without this
          * topmost check
          */
