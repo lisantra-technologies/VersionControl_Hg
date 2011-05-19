@@ -6,7 +6,7 @@
  *
  * @category   VersionControl
  * @package    Hg
- * @subpackage Exceptions
+ * @subpackage Bundle
  * @author     Michael Gatto <mgatto@lisantra.com>
  * @copyright  2011 Lisantra Technologies, LLC
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -20,7 +20,7 @@
  *
  * @category   VersionControl
  * @package    Hg
- * @subpackage Exceptions
+ * @subpackage Bundle
  * @author     Michael Gatto <mgatto@lisantra.com>
  * @copyright  2011 Lisantra Technologies, LLC
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
