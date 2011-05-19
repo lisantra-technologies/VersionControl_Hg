@@ -41,15 +41,18 @@ class VersionControl_Hg_Executable
     const CUSTOMEXECUTABLE = "custom";
 
     /**
-     * Base class in this package
-     *
-     * Provides ability to call commands
+     * Base class in this package which provides access to the repository and
+     * command objects
      *
      * @var VersionControl_Hg
      */
     protected $hg;
 
-    // Hold an instance of the class
+    /**
+     * Storage var for the singleton
+     *
+     * @var VersionControl_Hg_Executable
+     */
     private static $_instance;
 
     /**
@@ -86,8 +89,9 @@ class VersionControl_Hg_Executable
      * Finds and sets the system's existing Mercurial executable binary which
      * with all future operations will use.
      *
-     * @param object $hg   is the root object
-     * @param string $path is the full path to the user defined executable
+     * @param VersionControl_Hg $hg   The root object
+     * @param string            $path The full path to the user defined
+     *                                executable
      *
      * @return void
      */
@@ -165,7 +169,7 @@ class VersionControl_Hg_Executable
      * <code>$hg->setExecutable('/path/to/hg');</code>
      * A failed reset/change will not clear the previously set executable.
      *
-     * @param string $path is the path to the hg executable
+     * @param string $path The path to the hg executable
      *
      * @return void
      * @throws VersionControl_Hg_Executable_Exception
