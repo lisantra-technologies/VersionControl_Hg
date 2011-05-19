@@ -45,29 +45,20 @@ require_once 'Hg/CommandProxy.php';
  * implementation due to the tremendous workload involved in keeping up with
  * changes Mercurial.
  *
- * PHP version 5
- *
- * @category  VersionControl
- * @package   Hg
- * @author    Michael Gatto <mgatto@lisantra.com>
- * @copyright 2011 Lisantra Technologies, LLC
- * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link      http://pear.php.net/package/VersionControl_Hg
- *
  * Usage:
  * <code>
  * require_once 'VersionControl/Hg.php';
  * $hg = new VersionControl_Hg('/path/to/repository');
  * </code>
+ *
  * Setting the repository also automatically finds and sets the local
- * installation of the Mercurial binary it will use.
+ * path of the Mercurial binary it will use.
  *
  * Of course, you may explicitly set the executable you wish to use:
- * <code>
- * $hg->setExecutable('/path/to/hg');
+ * <code>$hg->setExecutable('/path/to/hg');</code>
  * or
- * $hg->executable = '/path/to/hg';
- * </code>
+ * <code>$hg->executable = '/path/to/hg';</code>
+ *
  * A failed explicit setting will not clear the automatically set executable.
  *
  * You may also provide a location of a repository after instantiation:
@@ -75,21 +66,40 @@ require_once 'Hg/CommandProxy.php';
  * require_once 'VersionControl/Hg.php';
  * $hg = new VersionControl_Hg();
  * $hg->setRepository('/path/to/repository');
- * or
- * $hg->repository = '/path/to/repository';
  * </code>
+ * or
+ * <code>$hg->repository = '/path/to/repository';</code>
  *
  * Calling all commands other than 'version' without having already set a
  * valid repository will raise an exception.
+ *
+ * PHP version 5
+ * @category  VersionControl
+ * @package   Hg
+ * @author    Michael Gatto <mgatto@lisantra.com>
+ * @copyright 2011 Lisantra Technologies, LLC
+ * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link      http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg
 {
     /**
      * Constructor
      *
-     * Assumes to be working on a local filesystem repository
+     * Assumes it will be working on a local filesystem repository
      *
-     * @param string $repository is the path to a mercurial repo (optional)
+     * The repository path is optional in the constructor.
+     * It can be set with an explicit setting of the repository's path.
+     * You can only set the path once since Repository is a singleton;
+     * All subsqeuent attempts will silently fail after one of the below
+     * has been performed:
+     * <code>$hg->setRepository('/path/to/repository');</code>
+     * or
+     * <code>$hg->repository->setPath('/path/to/repository');</code>
+     * or
+     * <code>$hg->repository = '/path/to/repository';</code>
+     *
+     * @param string $repository Optional path to a mercurial repository.
      *
      * @return void
      */
@@ -99,8 +109,8 @@ class VersionControl_Hg
          * child class VersionControl_Hg_Container_Repository */
         $this->setRepository($repository);
 
-        /* let's make an invalid repo fail first; why look for an executable
-         * if the passed repo path is no good? */
+        /* This is second, since why look for an executable if the passed
+         * repository path is no good? */
         $this->setExecutable();
     }
 
@@ -108,23 +118,15 @@ class VersionControl_Hg
      * Proxy down to the command class
      *
      * This also allows programmers to use both
-     * <code>
-     * $executables_object = $hg->executable;
+     * <code>$executables_object = $hg->executable;</code>
      * and
-     * $executables_object = $hg->getExecutable();
-     * </code>
+     * <code>$executables_object = $hg->getExecutable();</code>
      * to both return an instance of VersionControl_Hg_Executable, for example.
      *
-     * @param string $method    is the function being called
-     * @param array  $arguments are the parameters passed to that function
+     * @param string $method    The function being called
+     * @param mixed  $arguments The parameters passed to that function
      *
      * @return VersionControl_Hg_Command_Abstract
-     *
-     * implemented commands:
-     * @method array version()
-     * @method array status()
-     * @method array archive()
-     * @method array log()
      */
     public function __call($method, $arguments)
     {
@@ -163,33 +165,27 @@ class VersionControl_Hg
                 break;
             /* proxy to Hg/Command.php */
             default:
-                /* nicely semantic alias for setRepository() */
-                /*if ( $method === 'use' ) {
-                    return VersionControl_Hg_Container_Repository::getInstance(
-                        $this, $value
-                    );
-                } use is a PHP keyword!! */
-
                 /* must pass an instance of VersionControl_Hg to provide it with
                  * the executable and repository */
                 $command = new VersionControl_Hg_CommandProxy($this);
                 return call_user_func_array(array($command, $method), $arguments);
                 break;
         }
-
     }
 
     /**
-     * Returns an object, usually handled by a subcommand
+     * Returns an object, usually handled by a command
      *
      * A $name is a lowercase, short name of the object:
      * $hg->executable is an instance of VersionControl_Hg_Executable and can
      * be echoed to invoke __toString() to get a pertinent piece of metadata.
      *
-     * Instead of calling <code>$hg->getVersion();</code>, we simplify:
+     * Instead of calling:
+     * <code>$hg->getVersion();</code>,
+     * we simplify:
      * <code>$version = $hg->version</code>.
      *
-     * @param string $name is the object to get
+     * @param string $name The object to get
      *
      * @return mixed
      */
@@ -214,7 +210,7 @@ class VersionControl_Hg
                 return VersionControl_Hg_Executable::getInstance();//null, $this
                 break;
             default:
-                // its a command
+                /* its a command */
                 $command = new VersionControl_Hg_CommandProxy($this);
                 return call_user_func_array(array($command, $name), array());
                 break;
@@ -224,8 +220,8 @@ class VersionControl_Hg
     /**
      * Magic setter for properties of commands and more.
      *
-     * @param string $name  is the property's name
-     * @param string $value is the property's value
+     * @param string $name  The property's name
+     * @param string $value The property's value
      *
      * @return mixed
      */
@@ -247,7 +243,7 @@ class VersionControl_Hg
                 return VersionControl_Hg_Executable::getInstance($this, $value);
                 break;
             default:
-                //its a command
+                /* its a command */
                 $command = new VersionControl_Hg_CommandProxy($this);
                 return call_user_func_array(array($command, $method), array());
                 break;
