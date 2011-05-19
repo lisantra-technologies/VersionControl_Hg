@@ -7,14 +7,13 @@
  * @category  VersionControl
  * @package   Hg
  * @author    Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
+ * @copyright 2011 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
- * Include the Exception class manually. I use require because we want a fatal
- * error if the file is not found.
+ * Include the Exception class manually.
  */
 require_once 'Exception.php';
 
@@ -27,7 +26,7 @@ require_once 'Exception.php';
  * @category  VersionControl
  * @package   Hg
  * @author    Michael Gatto <mgatto@lisantra.com>
- * @copyright 2009 Lisantra Technologies, LLC
+ * @copyright 2011 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://pear.php.net/package/VersionControl_Hg
  */
@@ -92,8 +91,8 @@ class VersionControl_Hg_CommandProxy
     /**
      * Proxies to the actual implementations of the commands
      *
-     * @param string $method    is the command to instantiate
-     * @param array  $arguments for the command
+     * @param string $method    The command to instantiate
+     * @param array  $arguments Parameters for the command
      *
      * @return VersionControl_Hg_Command_Interface
      * @throws VersionControl_Hg_Exception
