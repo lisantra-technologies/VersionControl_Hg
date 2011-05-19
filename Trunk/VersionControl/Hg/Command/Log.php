@@ -205,8 +205,6 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Adds 'rev' to the stack of command line options
-     *
      * Specified the revision to restrict the log operation to
      *
      * Usage:
@@ -240,8 +238,6 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Adds 'removed' to the stack of command line options
-     *
      * Returns only files which have been removed from the working copy
      * and are no longer tracked by Mercurial.
      *
@@ -259,8 +255,6 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Adds 'copied' to the stack of command line options
-     *
      * Returns only files copied within the working copy
      *
      * Usage:
@@ -277,11 +271,11 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Adds a list of files to the stack of command line options
+     * List status information for only the files specified.
      *
-     * List status information for only the files specified. Abstract::formatOptions
-     * will automatically place this as the last option since a files list
-     * must be the last item on the command line.
+     * VersionControl_Hg_Command_Abstract::formatOptions will automatically
+     * make this the last option since a files list must be the last item on
+     * the command line.
      *
      * Usage:
      * <code>$hg->log()->files(array('index.php'))->run();</code>
@@ -299,9 +293,10 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Adds the date option to the stack of cli options
-     *
      * Restricts the log to changesets only commited on $date
+     *
+     * Usage:
+     * <code>$hg->log()->on('Dec 27, 2010')->run();</code>
      *
      * @param string $date Show log entries only for this exact date
      *
@@ -318,9 +313,11 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Adds the date option to the stack of cli options
-     *
      * Restricts the log to changesets only commited on $date
+     *
+     * Usage:
+     * <code>
+     * * $hg->log()->before('Dec 27, 2010')->run();</code>
      *
      * @param string $date Show log entries only before this date
      *
@@ -337,9 +334,11 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Adds the date option to the stack of cli options
-     *
      * Restricts the log to changesets only commited on $date
+     *
+     * Usage:
+     * <code>
+     * $hg->log()->after('Dec 27, 2010')->run();</code>
      *
      * @param string $date Show log entries only after this date
      *
@@ -356,9 +355,10 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Adds the date option to the stack of cli options
+     * Restricts log output to changesets between $from and $to
      *
-     * Restricts log output to changeset between $from and $to
+     * Usage:
+     * <code>$hg->log()->between('Dec 27, 2010', '2010-12-31')->run();</code>
      *
      * @param string $from Show log entries from this date forward
      * @param string $to   Show log entries only before this date
