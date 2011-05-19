@@ -1,0 +1,73 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.getinstance">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Repository::getInstance</function>
+  </refname>
+  <refpurpose>The singleton method</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     VersionControl_Hg_Repository
+     <function>VersionControl_Hg_Container_Repository::getInstance</function>
+    </funcdef>
+    <paramdef>
+     object
+     <parameter>
+      <optional>$hg = &null;</optional>
+     </parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$path = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.getinstance.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.getinstance.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.object;
+      <parameter>$hg</parameter>
+     </term>
+     <listitem>
+      <para>Instance of VersionControl_Hg</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>The path to the executable to use</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.getinstance.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.getinstance.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

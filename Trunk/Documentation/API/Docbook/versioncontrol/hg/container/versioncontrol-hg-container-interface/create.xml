@@ -1,0 +1,54 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.create">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Interface::create</function>
+  </refname>
+  <refpurpose>Create a container</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Interface.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Container_Interface::create</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$path</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.create.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.create.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>is the path to the container on the filesystem</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.create.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.create.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

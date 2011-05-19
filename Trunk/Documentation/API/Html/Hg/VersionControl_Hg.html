@@ -16,31 +16,29 @@
 	<div class="info-box-title">Description</div>
 	<div class="nav-bar">
 					<span class="disabled">Description</span> |
-													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
-						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 						
 					</div>
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Assumes to be working on a local filesystem repository</p>
-<p class="description"><p>PHP version 5</p></p>
+<p class="short-description">Base class to begin the fluent API</p>
+<p class="description"><p>This package interfaces with the Mercurial command-line binary, which  must be installed on the same system as this package. The author of Mercurial  is on record preferring that all non-python programs interface with the  CLI binary.</p><p>There are no C-bindings, so a PECL extension is unlikely, as is a pure PHP  implementation due to the tremendous workload involved in keeping up with  changes Mercurial.</p><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-inc">require_once&nbsp;</span><span class="src-str">'VersionControl/Hg.php'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/repository'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Setting the repository also automatically finds and sets the local  path of the Mercurial binary it will use.</p><p>Of course, you may explicitly set the executable you wish to use:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">setExecutable</span><span class="src-sym">(</span><span class="src-str">'/path/to/hg'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">executable&nbsp;</span>=&nbsp;<span class="src-str">'/path/to/hg'</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>A failed explicit setting will not clear the automatically set executable.</p><p>You may also provide a location of a repository after instantiation:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-inc">require_once&nbsp;</span><span class="src-str">'VersionControl/Hg.php'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">setRepository</span><span class="src-sym">(</span><span class="src-str">'/path/to/repository'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">repository&nbsp;</span>=&nbsp;<span class="src-str">'/path/to/repository'</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Calling all commands other than 'version' without having already set a  valid repository will raise an exception.</p><p>PHP version 5</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
-				<li><span class="field">version:</span> Release:</li>
-				<li><span class="field">copyright:</span> 2009 Lisantra Technologies, LLC</li>
-				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">Usage:
- &lt;code&gt;
- $hg = new VersionControl_Hg();
- &lt;/code&gt;
-
- Or, provide a location of a repository:
- &lt;code&gt;
- $hg = new VersionControl_Hg('/path/to/repository');
- &lt;/code&gt;</a></li>
+				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
+				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Hg.php.html">/Hg.php</a> (line <span class="field">44</span>)
+			Located in <a class="field" href="_Hg.php.html">/Hg.php</a> (line <span class="field">84</span>)
 		</p>
 		
 				
@@ -51,72 +49,36 @@
 
 
 
-	<a name="sec-var-summary"></a>
-	<div class="info-box">
-		<div class="info-box-title">Variable Summary</span></div>
-		<div class="nav-bar">
-			<a href="#sec-description">Description</a> |
-						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
-							| 
-									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
-							
-								</div>
-		<div class="info-box-body">
-			<div class="var-summary">
-																																<div class="var-title">
-					<span class="var-type"><a href="../Hg/Container/VersionControl_Hg_Container_Executable.html">VersionControl_Hg_Container_Executable</a></span>
-					<a href="#$_executable" title="details" class="var-name">$_executable</a>
-				</div>
-																<div class="var-title">
-					<span class="var-type"><a href="../Hg/Container/VersionControl_Hg_Container_Repository.html">VersionControl_Hg_Container_Repository</a></span>
-					<a href="#$_repository" title="details" class="var-name">$_repository</a>
-				</div>
-											</div>
-		</div>
-	</div>
 
 	<a name="sec-method-summary"></a>
 	<div class="info-box">
 		<div class="info-box-title">Method Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
-				 
-				|
-						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																												
+																																												
 												<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
 											([<span class="var-type">string</span>&nbsp;<span class="var-name">$repository</span> = <span class="var-default">null</span>])
 									</div>
 																<div class="method-definition">
-											<span class="method-result"><a href="../Hg/Container/VersionControl_Hg_Container_Executable.html">VersionControl_Hg_Container_Executable</a></span>
-										<a href="#getExecutable" title="details" class="method-name">getExecutable</a>
-										()
-									</div>
-																<div class="method-definition">
-											<span class="method-result"><a href="../Hg/Container/VersionControl_Hg_Container_Repository.html">VersionControl_Hg_Container_Repository</a></span>
-										<a href="#getRepository" title="details" class="method-name">getRepository</a>
-										()
-									</div>
-																<div class="method-definition">
-											<span class="method-result">string</span>
-										<a href="#setExecutable" title="details" class="method-name">setExecutable</a>
-											([<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span> = <span class="var-default">null</span>])
-									</div>
-																<div class="method-definition">
-											<span class="method-result">void</span>
-										<a href="#setRepository" title="details" class="method-name">setRepository</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$repository</span>)
-									</div>
-																<div class="method-definition">
-											<span class="method-result"><a href="../Hg/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+											<span class="method-result"><a href="../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
 										<a href="#__call" title="details" class="method-name">__call</a>
-											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$arguments</span>)
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$arguments</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#__set" title="details" class="method-name">__set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -127,88 +89,31 @@
 		</div>
 	</div>		
 
-	<a name="sec-vars"></a>
-	<div class="info-box">
-		<div class="info-box-title">Variables</div>
-		<div class="nav-bar">
-			<a href="#sec-description">Description</a> |
-										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
-						
-			
-										| 
-									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
-							
-					</div>
-		<div class="info-box-body">
-			<a name="var$_executable" id="$_executable"><!-- --></A>
-<div class="evenrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type"><a href="../Hg/Container/VersionControl_Hg_Container_Executable.html">VersionControl_Hg_Container_Executable</a></span>
-			<span class="var-name">$_executable</span>
-						(line <span class="line-number">51</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">The executable this package will use</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> protected</li>
-			</ul>
-	
-	
-		
-		
-
-</div>
-<a name="var$_repository" id="$_repository"><!-- --></A>
-<div class="oddrow">
-
-	<div class="var-header">
-		<span class="var-title">
-			<span class="var-type"><a href="../Hg/Container/VersionControl_Hg_Container_Repository.html">VersionControl_Hg_Container_Repository</a></span>
-			<span class="var-name">$_repository</span>
-						(line <span class="line-number">58</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">The repository Hg will act upon</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> protected</li>
-			</ul>
-	
-	
-		
-		
-
-</div>
-						
-		</div>
-	</div>
 	
 	<a name="sec-methods"></a>
 	<div class="info-box">
 		<div class="info-box-title">Methods</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
-																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
 						
 		</div>
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">67</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">106</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Constructor</p>
+<p class="description"><p>Assumes it will be working on a local filesystem repository</p><p>The repository path is optional in the constructor.  It can be set with an explicit setting of the repository's path.  You can only set the path once since Repository is a singleton;  All subsqeuent attempts will silently fail after one of the below  has been performed:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">setRepository</span><span class="src-sym">(</span><span class="src-str">'/path/to/repository'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">repository</span><span class="src-sym">-&gt;</span><span class="src-id">setPath</span><span class="src-sym">(</span><span class="src-str">'/path/to/repository'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">repository&nbsp;</span>=&nbsp;<span class="src-str">'/path/to/repository'</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -224,164 +129,115 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$repository</span><span class="var-description">: is the path to a mercurial repo (optional)</span>			</li>
-				</ul>
-		
-			
-	</div>
-<a name="methodgetExecutable" id="getExecutable"><!-- --></a>
-<div class="oddrow">
-	
-	<div class="method-header">
-		<span class="method-title">getExecutable</span> (line <span class="line-number">144</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Gets the full path and name of the Mercurial executable in use</p>
-<p class="description"><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/local/repository'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">getHgExecutable</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol></div></p></p>
-	<ul class="tags">
-				<li><span class="field">throws:</span> VersionControl_Hg_Exception</li>
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result"><a href="../Hg/Container/VersionControl_Hg_Container_Executable.html">VersionControl_Hg_Container_Executable</a></span>
-		<span class="method-name">
-			getExecutable
-		</span>
-				()
-			</div>
-	
-		
-			
-	</div>
-<a name="methodgetRepository" id="getRepository"><!-- --></a>
-<div class="evenrow">
-	
-	<div class="method-header">
-		<span class="method-title">getRepository</span> (line <span class="line-number">95</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns the repository property</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result"><a href="../Hg/Container/VersionControl_Hg_Container_Repository.html">VersionControl_Hg_Container_Repository</a></span>
-		<span class="method-name">
-			getRepository
-		</span>
-				()
-			</div>
-	
-		
-			
-	</div>
-<a name="methodsetExecutable" id="setExecutable"><!-- --></a>
-<div class="oddrow">
-	
-	<div class="method-header">
-		<span class="method-title">setExecutable</span> (line <span class="line-number">127</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Set the Hg executable's path manually</p>
-<p class="description"><p>If you need to specifiy a particular Hg executable to use, then pass in  the full path to Mercurial as a paramter of this function.</p><p>It could have been passed into VersionControl_Hg's constructor, but I  feel it is uncommon enough to pass in a custom Hg path that it could  be relegated to a separate function call.</p><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/local/repository'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-comm">//The&nbsp;executable&nbsp;was&nbsp;already&nbsp;automatically&nbsp;found,&nbsp;let's&nbsp;manually&nbsp;reset</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><a href="../Hg/VersionControl_Hg.html#methodsetExecutable">setExecutable</a><span class="src-sym">(</span><span class="src-str">'/path/to/your/mercurial/binary/hg.exe'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol></div></p></p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result">string</span>
-		<span class="method-name">
-			setExecutable
-		</span>
-					([<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span> = <span class="var-default">null</span>])
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$path</span><span class="var-description">: is the full path of the mercurial executable</span>			</li>
-				</ul>
-		
-			
-	</div>
-<a name="methodsetRepository" id="setRepository"><!-- --></a>
-<div class="evenrow">
-	
-	<div class="method-header">
-		<span class="method-title">setRepository</span> (line <span class="line-number">85</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Sets the repository property</p>
-	<ul class="tags">
-				<li><span class="field">see:</span> this::_repository</li>
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result">void</span>
-		<span class="method-name">
-			setRepository
-		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$repository</span>)
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">string</span>
-				<span class="var-name">$repository</span><span class="var-description">: is the path to a valid Mercurial repository</span>			</li>
+				<span class="var-name">$repository</span><span class="var-description">: Optional path to a mercurial repository.</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="method__call" id="__call"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__call</span> (line <span class="line-number">168</span>)
+		<span class="method-title">__call</span> (line <span class="line-number">131</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Proxy down to the command class</p>
+<p class="description"><p>This also allows programmers to use both  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$executables_object&nbsp;</span>=&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">executable</span><span class="src-sym">;</span></div></li>
+</ol></div>  and  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$executables_object&nbsp;</span>=&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">getExecutable</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  to both return an instance of VersionControl_Hg_Executable, for example.</p></p>
 	<ul class="tags">
-				<li><span class="field">return:</span> implemented commands:</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result"><a href="../Hg/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-result"><a href="../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
 		<span class="method-name">
 			__call
 		</span>
-					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$arguments</span>)
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$arguments</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">string</span>
-				<span class="var-name">$method</span><span class="var-description">: is the function being called</span>			</li>
+				<span class="var-name">$method</span><span class="var-description">: The function being called</span>			</li>
 					<li>
-				<span class="var-type">array</span>
-				<span class="var-name">$arguments</span><span class="var-description">: are the parameters passed to that function</span>			</li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$arguments</span><span class="var-description">: The parameters passed to that function</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__get" id="__get"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__get</span> (line <span class="line-number">192</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an object, usually handled by a command</p>
+<p class="description"><p>A $name is a lowercase, short name of the object:  $hg-&gt;executable is an instance of VersionControl_Hg_Executable and can  be echoed to invoke __toString() to get a pertinent piece of metadata.</p><p>Instead of calling:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">getVersion</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>,  we simplify:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$version&nbsp;</span>=&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">version</span></div></li>
+</ol></div>.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The object to get</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__set" id="__set"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__set</span> (line <span class="line-number">228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Magic setter for properties of commands and more.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			__set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The property's name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The property's value</span>			</li>
 				</ul>
 		
 			
 	</div>
 <a name="method__toString" id="__toString"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">183</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">258</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -407,7 +263,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 29 Dec 2009 21:54:56 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 18 May 2011 23:08:08 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

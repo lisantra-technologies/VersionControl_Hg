@@ -3,19 +3,28 @@
   <refname>
    <function>VersionControl_Hg_Container_Repository::setPath</function>
   </refname>
-  <refpurpose>Sets the path of a Mercurial repository after validating it as a Hg repo.</refpurpose>
+  <refpurpose>
+   Sets the path of a Mercurial repository after validating it as a Hg
+   repository
+</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     mixed
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">
+       <classname>VersionControl_Hg</classname>
+      </link>
+     </replaceable>
      <function>VersionControl_Hg_Container_Repository::setPath</function>
     </funcdef>
     <paramdef>
      string
-     <parameter>$path</parameter>
+     <parameter>
+      <optional>$path = &null;</optional>
+     </parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
@@ -34,24 +43,17 @@
       <parameter>$path</parameter>
      </term>
      <listitem>
-      <para>as a local filesystem path.</para>
+      <para>The path to the hg executable</para>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
- </refsect1>
- <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.setpath.returns">
-  &title.returns;
-  <para>
-   <emphasis>returns</emphasis>
-   Repository to enable method chaining
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.setpath.see">
   &title.see;
   <para>
    <emphasis>see</emphasis>
-   <varname>VersionControl_Hg_Container_Repository::$path</varname>
+   self::$path
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.setpath.throws">

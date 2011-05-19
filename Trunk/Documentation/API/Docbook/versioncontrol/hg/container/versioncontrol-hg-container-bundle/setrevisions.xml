@@ -1,0 +1,57 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setrevisions">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Bundle::setRevisions</function>
+  </refname>
+  <refpurpose>Set the revisions en masse which are contained in this bundle</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Container_Bundle::setRevisions</function>
+    </funcdef>
+    <paramdef>
+     unknown_type
+     <parameter>$revisions</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setrevisions.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setrevisions.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>unknown_type</type>
+      <parameter>$revisions</parameter>
+     </term>
+     <listitem>
+      <para>
+       is the collection/range of revisions                                 the
+       bundle is instantiated with.
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setrevisions.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setrevisions.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

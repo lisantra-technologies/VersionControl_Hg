@@ -1,0 +1,79 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.--call">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::__call</function>
+  </refname>
+  <refpurpose>Executes the actual mercurial command</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>VersionControl_Hg_Command_Abstract::__call</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$method</parameter>
+    </paramdef>
+    <paramdef>
+     mixed
+     <parameter>$arguments</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.--call.desc">
+  &title.desc;
+  <para>
+   For example, the programmer writes
+   <programlisting role="php">
+<![CDATA[$hg->archive('tip');]]>
+   </programlisting>
+   .  &apos;archive&apos; and its parameter &apos;tip&apos; are passed by a series of __call()  invocations. &apos;archive&apos; is used to identify the class which implements  the command, while its parameter will be used in the constructor. We  have to be a little rigid and say that archive()&apos;s only parameter can  be the revision we want to archive.
+  </para>
+  <para>`run()` is used to trigger execution. But, it is a virtual function:  i.e. it will always be intercepted by __call in  VersionControl_Hg_Repository_Command.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.--call.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$method</parameter>
+     </term>
+     <listitem>
+      <para>
+       The function called in the fluent API after the
+       base command Class is called/instantiated.
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$arguments</parameter>
+     </term>
+     <listitem>
+      <para>The function&apos;s arguments, if any.</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.--call.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   VersionControl_Hg_Command_Exception
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.--call.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

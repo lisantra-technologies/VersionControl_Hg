@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="HgTest" file="V:\Development\_Webroot\Trunk\Tests\Unit\HgTest.php" tests="4" assertions="4" failures="0" errors="0" time="1.522369">
-    <testcase name="testConstructorWithNullSignature" class="HgTest" file="V:\Development\_Webroot\Trunk\Tests\Unit\HgTest.php" line="29" assertions="1" time="0.382178"/>
-    <testcase name="testConstructorWithValidRepository" class="HgTest" file="V:\Development\_Webroot\Trunk\Tests\Unit\HgTest.php" line="36" assertions="1" time="0.388378"/>
-    <testcase name="testConstructorWithAnInvalidRepository" class="HgTest" file="V:\Development\_Webroot\Trunk\Tests\Unit\HgTest.php" line="43" assertions="1" time="0.382122"/>
-    <testcase name="testConstructorWithANonexistantPath" class="HgTest" file="V:\Development\_Webroot\Trunk\Tests\Unit\HgTest.php" line="61" assertions="1" time="0.369691"/>
-  </testsuite>
-</testsuites>

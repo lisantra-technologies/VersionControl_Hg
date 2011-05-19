@@ -1,0 +1,63 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.files">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Log::files</function>
+  </refname>
+  <refpurpose>List status information for only the files specified.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Log.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Command_Log::files</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$files</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.files.desc">
+  &title.desc;
+  <para>VersionControl_Hg_Command_Abstract::formatOptions will automatically  make this the last option since a files list must be the last item on  the command line.</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->log()->files(array('index.php'))->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->log(array('files' => array('index.php')))->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.files.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$files</parameter>
+     </term>
+     <listitem>
+      <para>the list of files as a simple array</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.files.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.files.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.--tostring">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Repository_Revision::__toString</function>
+  </refname>
+  <refpurpose>Dumps the revision of whichever identifier type</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository/Revision.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Container_Repository_Revision::__toString</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.--tostring.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.--tostring.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.--tostring.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

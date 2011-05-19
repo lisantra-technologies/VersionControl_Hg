@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="1.3.0">
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg.php">
+  <error line="91" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="117" column="1" severity="error" message="The comments for parameters $method (1) and $arguments (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
+  <error line="136" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="137" column="17" severity="error" message="Line indented incorrectly; expected 12 spaces, found 16" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="138" column="95" severity="warning" message="Line exceeds 85 characters; contains 94 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="139" column="19" severity="error" message="Line indented incorrectly; expected 12 spaces, found 16" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="141" column="19" severity="error" message="Line indented incorrectly; expected 12 spaces, found 16" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="142" column="88" severity="warning" message="Line exceeds 85 characters; contains 87 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="145" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="146" column="17" severity="error" message="Line indented incorrectly; expected 12 spaces, found 16" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="148" column="19" severity="error" message="Line indented incorrectly; expected 12 spaces, found 16" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="150" column="19" severity="error" message="Line indented incorrectly; expected 12 spaces, found 16" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="151" column="88" severity="warning" message="Line exceeds 85 characters; contains 87 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="155" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="158" column="1" severity="warning" message="Line exceeds 85 characters; contains 94 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="181" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="182" column="34" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="186" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="196" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="201" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="210" column="1" severity="error" message="Extra newline(s) found before function comment short description" source="PEAR.Commenting.FunctionComment.SpacingBeforeShort"/>
+  <error line="212" column="1" severity="error" message="Missing comment for param &quot;$name&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="212" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
+  <error line="213" column="1" severity="error" message="The comments for parameters $name (1) and $value (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
+  <error line="213" column="1" severity="error" message="Missing comment for param &quot;$value&quot; at position 2" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="214" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="215" column="42" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="219" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="222" column="91" severity="warning" message="Line exceeds 85 characters; contains 90 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="224" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="229" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php">
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 2 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@author tag comment indented incorrectly; expected 4 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 1 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@license tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="warning" message="Invalid version &quot;Hg: $Revision: de3cf362e5e3 $&quot; in file comment; consider &quot;CVS: &lt;cvs_id&gt;&quot; or &quot;SVN: &lt;svn_id&gt;&quot; instead" source="PEAR.Commenting.FileComment.InvalidVersion"/>
+  <error line="12" column="1" severity="error" message="@version tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 6 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="28" column="1" severity="error" message="@category tag comment indented incorrectly; expected 2 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="29" column="1" severity="error" message="@package tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="30" column="1" severity="error" message="@author tag comment indented incorrectly; expected 4 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="31" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 1 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="32" column="1" severity="error" message="@license tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="33" column="1" severity="warning" message="Invalid version &quot;Hg: $Revision: de3cf362e5e3 $&quot; in doc comment; consider &quot;Release: &lt;package_version&gt;&quot; instead" source="PEAR.Commenting.ClassComment.InvalidVersion"/>
+  <error line="33" column="1" severity="error" message="@version tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="34" column="1" severity="error" message="@link tag comment indented incorrectly; expected 6 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="52" column="15" severity="error" message="Protected member variable &quot;_command&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="59" column="15" severity="error" message="Protected member variable &quot;_hg&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="64" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="64" column="1" severity="error" message="Missing comment for param &quot;$hg&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="66" column="56" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="73" column="1" severity="error" message="Doc comment for var VersionControl_Hg_Command_Interface does not match actual variable name $command at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="73" column="1" severity="error" message="Missing comment for param &quot;VersionControl_Hg_Command_Interface&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="74" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="75" column="78" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="84" column="34" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="91" column="1" severity="error" message="Doc comment for var string does not match actual variable name $method at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="91" column="1" severity="error" message="Missing comment for param &quot;string&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="92" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="92" column="1" severity="error" message="The variable names for parameters string (1) and array (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterNamesNotAligned"/>
+  <error line="92" column="1" severity="error" message="The comments for parameters string (1) and array (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
+  <error line="92" column="1" severity="error" message="Doc comment for var array does not match actual variable name $arguments at position 2" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="92" column="1" severity="error" message="Missing comment for param &quot;array&quot; at position 2" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="96" column="56" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="107" column="9" severity="error" message="File is being conditionally included; use &quot;include_once&quot; instead" source="PEAR.Files.IncludingFile.UseIncludeOnce"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php">
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 1" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="35" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="36" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="38" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="39" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="40" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="41" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 1" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="131" column="5" severity="error" message="Doc comment for &quot;$params&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="153" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="153" column="1" severity="error" message="Missing comment for param &quot;$method&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="154" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="154" column="1" severity="error" message="The variable names for parameters $method (1) and $args (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterNamesNotAligned"/>
+  <error line="154" column="1" severity="error" message="The comments for parameters $method (1) and $args (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
+  <error line="154" column="1" severity="error" message="Doc comment for var $args does not match actual variable name $arguments at position 2" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="154" column="1" severity="error" message="Missing comment for param &quot;$args&quot; at position 2" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="159" column="49" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="163" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="167" column="17" severity="warning" message="Line exceeds 85 characters; contains 89 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="169" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="171" column="17" severity="error" message="Line indented incorrectly; expected 12 spaces, found 16" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="174" column="19" severity="error" message="Line indented incorrectly; expected 12 spaces, found 16" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="193" column="1" severity="error" message="Parameters must appear immediately after the comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeParams"/>
+  <error line="193" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="193" column="1" severity="error" message="Doc comment for var string does not match actual variable name $filter at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="193" column="1" severity="error" message="Missing comment for param &quot;string&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="200" column="36" severity="warning" message="Line exceeds 85 characters; contains 91 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="217" column="1" severity="error" message="Parameters must appear immediately after the comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeParams"/>
+  <error line="217" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="217" column="1" severity="error" message="Doc comment for var string does not match actual variable name $filter at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="217" column="1" severity="error" message="Missing comment for param &quot;string&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="227" column="36" severity="warning" message="Line exceeds 85 characters; contains 90 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="234" column="12" severity="error" message="You must use &quot;/**&quot; style comments for a function comment" source="PEAR.Commenting.FunctionComment.WrongStyle"/>
+  <error line="234" column="44" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="243" column="92" severity="warning" message="Line exceeds 85 characters; contains 91 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="244" column="89" severity="warning" message="Line exceeds 85 characters; contains 88 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="248" column="93" severity="warning" message="Line exceeds 85 characters; contains 92 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="303" column="13" severity="error" message="Expected &quot;} elseif (...) {\n&quot;; found &quot;}\n            elseif (...) {\n&quot;" source="PEAR.ControlStructures.ControlSignature"/>
+  <error line="322" column="87" severity="warning" message="Line exceeds 85 characters; contains 86 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="327" column="1" severity="error" message="Multi-line function call not indented correctly; expected 16 spaces but found 20" source="PEAR.Functions.FunctionCallSignature.Indent"/>
+  <error line="369" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="369" column="1" severity="error" message="Doc comment for var is does not match actual variable name $name at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="370" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="370" column="1" severity="error" message="The variable names for parameters is (1) and is (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterNamesNotAligned"/>
+  <error line="370" column="1" severity="error" message="Doc comment for var is does not match actual variable name $value at position 2" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="375" column="50" severity="error" message="TRUE, FALSE and NULL must be lowercase; expected &quot;null&quot; but found &quot;NULL&quot;" source="Generic.PHP.LowerCaseConstant.Found"/>
+  <error line="393" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="393" column="1" severity="error" message="Missing comment for param &quot;$options&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="426" column="1" severity="error" message="Missing comment for param &quot;$option&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="434" column="9" severity="error" message="Expected &quot;if (...) {\n&quot;; found &quot;if(...) {\n&quot;" source="PEAR.ControlStructures.ControlSignature"/>
+  <error line="450" column="1" severity="error" message="Parameters must appear immediately after the comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeParams"/>
+  <error line="450" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="451" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="451" column="1" severity="error" message="Doc comment for &quot;$delimiter&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="467" column="17" severity="warning" message="Line exceeds 85 characters; contains 110 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="500" column="97" severity="warning" message="Line exceeds 85 characters; contains 96 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="502" column="21" severity="error" message="Line indented incorrectly; expected at least 24 spaces, found 20" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="508" column="13" severity="error" message="Line indented incorrectly; expected at least 16 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="529" column="1" severity="error" message="Doc comment for var VersionControl_Hg does not match actual variable name $hg at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="529" column="1" severity="error" message="Missing comment for param &quot;VersionControl_Hg&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="530" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="549" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="554" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="557" column="31" severity="error" message="Multi-line assignments must have the equal sign on the second line" source="PEAR.Formatting.MultiLineAssignment.EqualSignLine"/>
+  <error line="580" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="580" column="1" severity="error" message="Doc comment for var [ UNKNOWN ] does not match actual variable name $first at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="580" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="580" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="581" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="581" column="1" severity="error" message="The variable names for parameters UNKNOWN (1) and [ UNKNOWN ] (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterNamesNotAligned"/>
+  <error line="581" column="1" severity="error" message="Doc comment for var [ UNKNOWN ] does not match actual variable name $last at position 2" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="581" column="1" severity="error" message="Missing parameter name at position 2" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="581" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 2" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="8" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="14" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="15" column="1" severity="error" message="@see tag comment indented incorrectly; expected 8 spaces but found 9" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="43" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="44" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="45" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="46" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="47" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="48" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="49" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="119" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="119" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="119" column="1" severity="error" message="Missing comment for param &quot;$params&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="132" column="9" severity="error" message="Line indented incorrectly; expected at least 12 spaces, found 8" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="135" column="21" severity="error" message="Line indented incorrectly; expected 16 spaces, found 20" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="136" column="21" severity="error" message="Line indented incorrectly; expected 16 spaces, found 20" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="137" column="21" severity="error" message="Line indented incorrectly; expected 16 spaces, found 20" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="138" column="21" severity="error" message="Line indented incorrectly; expected 16 spaces, found 20" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="141" column="21" severity="error" message="Line indented incorrectly; expected 16 spaces, found 20" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="154" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="154" column="1" severity="error" message="Missing comment for param &quot;$directory&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="173" column="92" severity="warning" message="Line exceeds 85 characters; contains 91 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="188" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="216" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="216" column="1" severity="error" message="Missing comment for param &quot;$revision&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="220" column="49" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="241" column="1" severity="warning" message="Line exceeds 85 characters; contains 87 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="242" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="242" column="1" severity="error" message="Missing comment for param &quot;$prefix&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="246" column="37" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="259" column="5" severity="error" message="Doc comment for &quot;$params&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="261" column="1" severity="warning" message="Line exceeds 85 characters; contains 90 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="261" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
+  <error line="262" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="276" column="16" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <error line="279" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+  <error line="281" column="9" severity="warning" message="Line exceeds 85 characters; contains 97 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="306" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 0" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php">
+  <error line="8" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="14" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="28" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="52" column="15" severity="error" message="Protected member variable &quot;_messages&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="53" column="175" severity="warning" message="Line exceeds 85 characters; contains 174 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="62" column="1" severity="error" message="Doc comment for &quot;$custom_message&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="64" column="67" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php">
+  <error line="8" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="14" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="28" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="32" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="38" column="1" severity="warning" message="Line exceeds 85 characters; contains 144 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="42" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="43" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="44" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="45" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="46" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="47" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="48" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="108" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="108" column="1" severity="error" message="Doc comment for var $param does not match actual variable name $params at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="119" column="5" severity="error" message="Doc comment for &quot;$params&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="123" column="1" severity="warning" message="Line exceeds 85 characters; contains 90 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="123" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
+  <error line="124" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="139" column="16" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <error line="142" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+  <error line="147" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 0" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="150" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 0" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="173" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="173" column="1" severity="error" message="Missing comment for param &quot;$revision&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="177" column="49" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="202" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="202" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="202" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="202" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="221" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="221" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="221" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="221" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="224" column="30" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="241" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="257" column="1" severity="error" message="Missing comment for param &quot;$date&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="258" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="259" column="31" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="260" column="87" severity="warning" message="Line exceeds 85 characters; contains 86 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="270" column="1" severity="error" message="Missing comment for param &quot;$date&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="271" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="272" column="35" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="273" column="88" severity="warning" message="Line exceeds 85 characters; contains 87 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="283" column="1" severity="error" message="Missing comment for param &quot;$date&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="284" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="285" column="34" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="286" column="88" severity="warning" message="Line exceeds 85 characters; contains 87 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="296" column="1" severity="error" message="Missing comment for param &quot;$from&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="297" column="1" severity="error" message="The comments for parameters $from (1) and $to (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
+  <error line="297" column="1" severity="error" message="Missing comment for param &quot;$to&quot; at position 2" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="298" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="299" column="41" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="303" column="134" severity="warning" message="Line exceeds 85 characters; contains 133 characters" source="Generic.Files.LineLength.TooLong"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="21" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="57" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="58" column="43" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="67" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="68" column="43" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="85" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="86" column="42" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="90" column="12" severity="error" message="Line indented incorrectly; expected at least 12 spaces, found 11" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="100" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="101" column="48" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="107" column="1" severity="warning" message="Line exceeds 85 characters; contains 106 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="109" column="1" severity="error" message="Missing comment for param &quot;$data&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="110" column="1" severity="warning" message="Line exceeds 85 characters; contains 89 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="110" column="1" severity="error" message="The variable names for parameters $data (1) and $rootNodeName (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterNamesNotAligned"/>
+  <error line="110" column="1" severity="error" message="The comments for parameters $data (1) and $rootNodeName (2) do not align" source="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
+  <error line="111" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="111" column="1" severity="error" message="The variable names for parameters $rootNodeName (2) and $xml (3) do not align" source="PEAR.Commenting.FunctionComment.ParameterNamesNotAligned"/>
+  <error line="111" column="1" severity="error" message="The comments for parameters $rootNodeName (2) and $xml (3) do not align" source="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
+  <error line="111" column="1" severity="error" message="Doc comment for var $xml does not match actual variable name &amp;$xml at position 3" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="114" column="1" severity="warning" message="Line exceeds 85 characters; contains 142 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="116" column="84" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="119" column="9" severity="warning" message="Line exceeds 85 characters; contains 106 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="120" column="9" severity="warning" message="Inline control structures are discouraged" source="Generic.ControlStructures.InlineControlStructure.Discouraged"/>
+  <error line="120" column="14" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="120" column="28" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="120" column="39" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="120" column="65" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="123" column="9" severity="error" message="Expected &quot;foreach (...) {\n&quot;; found &quot;foreach(...) {\n&quot;" source="PEAR.ControlStructures.ControlSignature"/>
+  <error line="126" column="18" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="126" column="35" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="135" column="18" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="135" column="35" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="136" column="31" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="136" column="48" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="136" column="70" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="136" column="85" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="136" column="94" severity="warning" message="Line exceeds 85 characters; contains 93 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="139" column="17" severity="warning" message="Inline control structures are discouraged" source="Generic.ControlStructures.InlineControlStructure.Discouraged"/>
+  <error line="140" column="23" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="140" column="50" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="144" column="26" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="144" column="47" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="145" column="23" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="145" column="46" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="152" column="5" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 4" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="161" column="19" severity="error" message="You must use &quot;/**&quot; style comments for a function comment" source="PEAR.Commenting.FunctionComment.WrongStyle"/>
+  <error line="161" column="46" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="162" column="106" severity="warning" message="Line exceeds 85 characters; contains 105 characters" source="Generic.Files.LineLength.TooLong"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="45" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="46" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="47" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="48" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="49" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="50" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="51" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="91" column="28" severity="warning" message="Line exceeds 85 characters; contains 88 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="117" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="117" column="1" severity="error" message="Doc comment for var $param does not match actual variable name $params at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="126" column="5" severity="error" message="Doc comment for &quot;$params&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="132" column="1" severity="warning" message="Line exceeds 85 characters; contains 90 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="132" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
+  <error line="133" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="148" column="16" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <error line="151" column="10" severity="error" message="Closing parenthesis of a multi-line function call must be on a line by itself" source="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+  <error line="184" column="12" severity="error" message="You must use &quot;/**&quot; style comments for a function comment" source="PEAR.Commenting.FunctionComment.WrongStyle"/>
+  <error line="200" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="200" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="200" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="200" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="219" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="219" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="219" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="219" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="239" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="239" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="239" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="239" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="258" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="258" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="258" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="258" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="278" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="278" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="278" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="278" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="297" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="297" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="297" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="297" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="316" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="316" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="316" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="316" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="337" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="358" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="358" column="1" severity="error" message="Superfluous doc comment at position 1" source="PEAR.Commenting.FunctionComment.ExtraParamComment"/>
+  <error line="358" column="1" severity="error" message="Missing parameter name at position 1" source="PEAR.Commenting.FunctionComment.MissingParamName"/>
+  <error line="358" column="1" severity="error" message="Missing comment for param &quot;[ UNKNOWN ]&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="361" column="30" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="375" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="375" column="1" severity="error" message="Missing comment for param &quot;$revision&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="379" column="49" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="36" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="37" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="38" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="39" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="40" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="41" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="42" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="68" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="68" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="68" column="1" severity="error" message="Doc comment for var $hg does not match actual variable name $param at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="68" column="1" severity="error" message="Missing comment for param &quot;$hg&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="71" column="48" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="75" column="5" severity="error" message="Doc comment for &quot;$options&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="77" column="1" severity="warning" message="Line exceeds 85 characters; contains 90 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="77" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
+  <error line="78" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="94" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 0" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="116" column="27" severity="error" message="Space found before comma in function call" source="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma"/>
+  <error line="117" column="27" severity="error" message="Space found before comma in function call" source="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma"/>
+  <error line="127" column="13" severity="error" message="Expected &quot;} else {\n&quot;; found &quot;}\n            else{\n&quot;" source="PEAR.ControlStructures.ControlSignature"/>
+  <error line="128" column="16" severity="error" message="Line indented incorrectly; expected at least 16 spaces, found 15" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="131" column="9" severity="error" message="Expected &quot;} else {\n&quot;; found &quot;}\n        else {\n&quot;" source="PEAR.ControlStructures.ControlSignature"/>
+  <error line="146" column="1" severity="error" message="Extra newline(s) found before function comment short description" source="PEAR.Commenting.FunctionComment.SpacingBeforeShort"/>
+  <error line="147" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
+  <error line="149" column="34" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@version tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="14" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="28" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="29" column="1" severity="warning" message="Invalid version &quot;SVN:&quot; in doc comment; consider &quot;Release: &lt;package_version&gt;&quot; instead" source="PEAR.Commenting.ClassComment.InvalidVersion"/>
+  <error line="29" column="1" severity="error" message="@version tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="30" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="34" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="34" column="2" severity="error" message="Line indented incorrectly; expected at least 4 spaces, found 1" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="34" column="9" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="34" column="9" severity="error" message="Line indented incorrectly; expected 4 spaces, found 1" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="34" column="32" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="36" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php">
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="warning" message="Invalid version &quot;Hg: $Revision$&quot; in file comment; consider &quot;CVS: &lt;cvs_id&gt;&quot; or &quot;SVN: &lt;svn_id&gt;&quot; instead" source="PEAR.Commenting.FileComment.InvalidVersion"/>
+  <error line="13" column="1" severity="error" message="@version tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="14" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="28" column="1" severity="error" message="@version tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="29" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="49" column="15" severity="error" message="Protected member variable &quot;_messages&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="62" column="43" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="21" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="31" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+  <error line="32" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 1" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="40" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="41" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="42" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="43" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="44" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="45" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="46" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="48" column="94" severity="warning" message="Line exceeds 85 characters; contains 93 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="79" column="15" severity="error" message="Protected member variable &quot;_path&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="87" column="5" severity="error" message="Doc comment for &quot;$hg&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="87" column="5" severity="error" message="Doc comment for &quot;$path&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="92" column="46" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="99" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="99" column="1" severity="error" message="Doc comment for var $path does not match actual variable name $hg at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="99" column="1" severity="error" message="Missing comment for param &quot;$path&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="99" column="1" severity="error" message="Doc comment for &quot;$path&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="114" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="115" column="36" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="116" column="28" severity="error" message="TRUE, FALSE and NULL must be lowercase; expected &quot;null&quot; but found &quot;NULL&quot;" source="Generic.PHP.LowerCaseConstant.Found"/>
+  <error line="122" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="122" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="182" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="182" column="1" severity="error" message="Expected 1 space before variable type" source="PEAR.Commenting.FunctionComment.SpacingBeforeParamType"/>
+  <error line="182" column="1" severity="error" message="Doc comment for var $repo does not match actual variable name $path at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="210" column="5" severity="error" message="Doc comment for &quot;$path&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="211" column="1" severity="error" message="Extra newline(s) found before function comment short description" source="PEAR.Commenting.FunctionComment.SpacingBeforeShort"/>
+  <error line="213" column="1" severity="error" message="@return tag is empty in function comment" source="PEAR.Commenting.FunctionComment.EmptyReturn"/>
+  <error line="213" column="1" severity="error" message="There must be exactly one blank line before the tags in function comment" source="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
+  <error line="217" column="9" severity="warning" message="Line exceeds 85 characters; contains 100 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="241" column="110" severity="warning" message="Line exceeds 85 characters; contains 109 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="253" column="34" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="264" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Branch.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="3" column="1" severity="error" message="Missing class doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="3" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="3" column="2" severity="error" message="Missing class doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
+  <error line="3" column="2" severity="error" message="Line indented incorrectly; expected 0 spaces, found 1" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="4" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="4" column="2" severity="error" message="Expected 0 spaces before opening brace; 1 found" source="PEAR.Classes.ClassDeclaration.SpaceBeforeBrace"/>
+  <error line="6" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php">
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="21" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="52" column="15" severity="error" message="Protected member variable &quot;_messages&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="68" column="43" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Interface.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="3" column="1" severity="error" message="Missing interface doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="3" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="3" column="2" severity="error" message="Missing class doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
+  <error line="3" column="2" severity="error" message="Line indented incorrectly; expected 0 spaces, found 1" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="4" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="4" column="2" severity="error" message="Expected 0 spaces before opening brace; 1 found" source="PEAR.Classes.ClassDeclaration.SpaceBeforeBrace"/>
+  <error line="6" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="3" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="3" column="2" severity="error" message="Missing class doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
+  <error line="3" column="2" severity="error" message="Line indented incorrectly; expected 0 spaces, found 1" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="4" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="4" column="2" severity="error" message="Expected 0 spaces before opening brace; 1 found" source="PEAR.Classes.ClassDeclaration.SpaceBeforeBrace"/>
+  <error line="6" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php">
+  <error line="1" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php">
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="warning" message="Invalid version &quot;Hg: $Revision$&quot; in file comment; consider &quot;CVS: &lt;cvs_id&gt;&quot; or &quot;SVN: &lt;svn_id&gt;&quot; instead" source="PEAR.Commenting.FileComment.InvalidVersion"/>
+  <error line="13" column="1" severity="error" message="@version tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="14" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="28" column="1" severity="error" message="@version tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="29" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="49" column="15" severity="error" message="Protected member variable &quot;_messages&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="62" column="43" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Exception.php">
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="7" column="1" severity="error" message="@category tag comment indented incorrectly; expected 2 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="8" column="1" severity="error" message="@package tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@author tag comment indented incorrectly; expected 4 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 1 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@license tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@link tag comment indented incorrectly; expected 6 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@category tag comment indented incorrectly; expected 2 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@package tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@author tag comment indented incorrectly; expected 4 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 1 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@license tag comment indented incorrectly; expected 3 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@link tag comment indented incorrectly; expected 6 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="58" column="15" severity="error" message="Protected member variable &quot;_path&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="72" column="15" severity="error" message="Protected member variable &quot;_executable&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="79" column="15" severity="error" message="Protected member variable &quot;_version&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="87" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="87" column="1" severity="error" message="Doc comment for var $path does not match actual variable name $hg at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="87" column="1" severity="error" message="Doc comment for &quot;$path&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="90" column="46" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="105" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="105" column="1" severity="error" message="Doc comment for var $path does not match actual variable name $hg at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="105" column="1" severity="error" message="Missing comment for param &quot;$path&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="105" column="1" severity="error" message="Doc comment for &quot;$path&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="122" column="1" severity="error" message="Last parameter comment requires a blank newline after it" source="PEAR.Commenting.FunctionComment.SpacingAfterParams"/>
+  <error line="122" column="1" severity="error" message="Doc comment for var string does not match actual variable name $path at position 1" source="PEAR.Commenting.FunctionComment.ParamNameNoMatch"/>
+  <error line="122" column="1" severity="error" message="Missing comment for param &quot;string&quot; at position 1" source="PEAR.Commenting.FunctionComment.MissingParamComment"/>
+  <error line="126" column="46" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="143" column="31" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="147" column="5" severity="error" message="Doc comment for &quot;$path&quot; missing" source="PEAR.Commenting.FunctionComment.MissingParamTag"/>
+  <error line="161" column="49" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="167" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="170" column="13" severity="error" message="Line indented incorrectly; expected 8 spaces, found 12" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="180" column="17" severity="warning" message="Line exceeds 85 characters; contains 87 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="245" column="9" severity="warning" message="Line exceeds 85 characters; contains 86 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="248" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 0" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
+  <error line="275" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+  <error line="276" column="34" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+  <error line="282" column="1" severity="error" message="Missing @return tag in function comment" source="PEAR.Commenting.FunctionComment.MissingReturn"/>
+ </file>
+ <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php">
+  <error line="8" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="9" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="10" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="11" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="12" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="13" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="14" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.FileComment.TagIndent"/>
+  <error line="22" column="1" severity="error" message="@category tag comment indented incorrectly; expected 3 spaces but found 4" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="23" column="1" severity="error" message="@package tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="24" column="1" severity="error" message="@subpackage tag comment indented incorrectly; expected 1 spaces but found 2" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="25" column="1" severity="error" message="@author tag comment indented incorrectly; expected 5 spaces but found 6" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="26" column="1" severity="error" message="@copyright tag comment indented incorrectly; expected 2 spaces but found 3" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="27" column="1" severity="error" message="@license tag comment indented incorrectly; expected 4 spaces but found 5" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="28" column="1" severity="error" message="@link tag comment indented incorrectly; expected 7 spaces but found 8" source="PEAR.Commenting.ClassComment.TagIndent"/>
+  <error line="59" column="15" severity="error" message="Protected member variable &quot;_messages&quot; must not be prefixed with an underscore" source="PEAR.NamingConventions.ValidVariableName.PublicUnderscore"/>
+  <error line="71" column="43" severity="error" message="Opening brace should be on a new line" source="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/>
+ </file>
+</checkstyle>

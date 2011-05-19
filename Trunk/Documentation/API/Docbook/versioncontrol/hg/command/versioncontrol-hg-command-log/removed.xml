@@ -1,0 +1,47 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.removed">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Log::removed</function>
+  </refname>
+  <refpurpose>
+   Returns only files which have been removed from the working copy  and are
+   no longer tracked by Mercurial.
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Log.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Command_Log::removed</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.removed.desc">
+  &title.desc;
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->log()->removed()->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->log('removed')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.removed.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.removed.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

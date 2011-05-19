@@ -3,24 +3,57 @@
   <refname>
    <function>VersionControl_Hg_Container_Repository::create</function>
   </refname>
-  <refpurpose>create</refpurpose>
+  <refpurpose>Create a repository</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.container.versioncontrol-hg-container-repository-summary">
+       <classname>VersionControl_Hg_Container_Repository</classname>
+      </link>
+     </replaceable>
      <function>VersionControl_Hg_Container_Repository::create</function>
     </funcdef>
-    <paramdef />
+    <paramdef>
+     string
+     <parameter>$path</parameter>
+    </paramdef>
    </funcprototype>
   </funcsynopsis>
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.create.desc">
   &title.desc;
-  &notdocumented;
-</refsect1>
+  <para>
+   This would make sense in only a very few isntances. For example, if a  programmer instantiated $hg without a path, and did this:
+   <programlisting role="php">
+<![CDATA[ $hg = new VersionControl_Hg();
+ $repository = $hg->repository()->create('/path/to/repo');]]>
+   </programlisting>
+  </para>
+  <para>However, its probably better to directly use the Init command, since  this create() function merely proxies it.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.create.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>
+       The path at which to create a new Mercurial
+       repository.
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.create.throws">
   &title.throws;
   <para>

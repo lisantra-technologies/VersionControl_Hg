@@ -18,11 +18,11 @@
      <function>VersionControl_Hg_CommandProxy::__call</function>
     </funcdef>
     <paramdef>
-     $method
+     string
      <parameter>$method</parameter>
     </paramdef>
     <paramdef>
-     $arguments
+     array
      <parameter>
       <optional>$arguments = &null;</optional>
      </parameter>
@@ -40,22 +40,22 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type>$method</type>
+      &type.string;
       <parameter>$method</parameter>
      </term>
      <listitem>
-      <para>string</para>
+      <para>is the command to instantiate</para>
      </listitem>
     </varlistentry>
    </variablelist>
    <variablelist>
     <varlistentry>
      <term>
-      <type>$arguments</type>
+      &type.array;
       <parameter>$arguments</parameter>
      </term>
      <listitem>
-      <para>array</para>
+      <para>for the command</para>
      </listitem>
     </varlistentry>
    </variablelist>

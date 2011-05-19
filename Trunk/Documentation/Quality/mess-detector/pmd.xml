@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pmd version="1.1.0" timestamp="2011-05-02T20:35:14-07:00">
+  <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg.php">
+    <violation beginline="232" endline="232" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$method'.
+    </violation>
+  </file>
+  <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php">
+    <violation beginline="43" endline="591" rule="TooManyMethods" ruleset="Code Size Rules" package="Hg\Command" externalInfoUrl="http://phpmd.org/rules/codesize.html#toomanymethods" class="VersionControl_Hg_Command_Abstract" priority="3">
+      This class has too many methods, consider refactoring it.
+    </violation>
+    <violation beginline="297" endline="297" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$value'.
+    </violation>
+    <violation beginline="585" endline="585" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$last'.
+    </violation>
+  </file>
+  <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php">
+    <violation beginline="53" endline="392" rule="TooManyMethods" ruleset="Code Size Rules" package="Hg\Command" externalInfoUrl="http://phpmd.org/rules/codesize.html#toomanymethods" class="VersionControl_Hg_Command_Status" priority="3">
+      This class has too many methods, consider refactoring it.
+    </violation>
+  </file>
+  <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php">
+    <violation beginline="71" endline="71" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$param'.
+    </violation>
+  </file>
+  <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php">
+    <violation beginline="92" endline="92" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$hg'.
+    </violation>
+    <violation beginline="215" endline="215" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$path'.
+    </violation>
+  </file>
+  <file name="H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php">
+    <violation beginline="90" endline="90" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$hg'.
+    </violation>
+  </file>
+</pmd>

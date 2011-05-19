@@ -1,0 +1,10 @@
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg.php:232	Avoid unused local variables such as '$method'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:43	This class has too many methods, consider refactoring it.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:297	Avoid unused local variables such as '$value'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:585	Avoid unused parameters such as '$last'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php:53	This class has too many methods, consider refactoring it.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:71	Avoid unused parameters such as '$param'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:92	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:215	Avoid unused parameters such as '$path'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php:90	Avoid unused parameters such as '$hg'.

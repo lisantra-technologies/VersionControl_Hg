@@ -1,0 +1,65 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg.--get">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg::__get</function>
+  </refname>
+  <refpurpose>Returns an object, usually handled by a command</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>VersionControl_Hg::__get</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$name</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--get.desc">
+  &title.desc;
+  <para>A $name is a lowercase, short name of the object:  $hg-&gt;executable is an instance of VersionControl_Hg_Executable and can  be echoed to invoke __toString() to get a pertinent piece of metadata.</para>
+  <para>
+   Instead of calling:
+   <programlisting role="php">
+<![CDATA[$hg->getVersion();]]>
+   </programlisting>
+   ,  we simplify:
+   <programlisting role="php">
+<![CDATA[$version = $hg->version]]>
+   </programlisting>
+   .
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--get.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>The object to get</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--get.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--get.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

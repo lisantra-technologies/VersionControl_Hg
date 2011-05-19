@@ -15,6 +15,11 @@
      <function>VersionControl_Hg_Container_Repository::__construct</function>
     </funcdef>
     <paramdef>
+     <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+     <parameter>$hg</parameter>
+    </paramdef>
+    <paramdef>
+     string
      <parameter>$path</parameter>
     </paramdef>
    </funcprototype>
@@ -30,21 +35,33 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type />
-      <parameter>$path</parameter>
+      <type>
+       <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+      </type>
+      <parameter>$hg</parameter>
      </term>
      <listitem>
-      <para />
+      <para>
+       is the root object and as a singleton                                 will
+       always be an instance of                                 VersionControl_Hg
+</para>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
- </refsect1>
- <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.--construct.todo">
-  &title.todo;
-  <para>
-   <emphasis>todo</emphasis>
-   might be a good place to set the transport method?
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>
+       is the full path to the user defined
+       executable
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.--construct.throws">

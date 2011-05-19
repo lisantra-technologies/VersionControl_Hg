@@ -25,8 +25,22 @@
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--construct.desc">
   &title.desc;
-  &notdocumented;
-</refsect1>
+  <para>Assumes it will be working on a local filesystem repository</para>
+  <para>
+   The repository path is optional in the constructor.  It can be set with an explicit setting of the repository&apos;s path.  You can only set the path once since Repository is a singleton;  All subsqeuent attempts will silently fail after one of the below  has been performed:
+   <programlisting role="php">
+<![CDATA[$hg->setRepository('/path/to/repository');]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->repository->setPath('/path/to/repository');]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->repository = '/path/to/repository';]]>
+   </programlisting>
+  </para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--construct.param">
   &title.param;
   <para>
@@ -37,7 +51,7 @@
       <parameter>$repository</parameter>
      </term>
      <listitem>
-      <para>is the path to a mercurial repo (optional)</para>
+      <para>Optional path to a mercurial repository.</para>
      </listitem>
     </varlistentry>
    </variablelist>

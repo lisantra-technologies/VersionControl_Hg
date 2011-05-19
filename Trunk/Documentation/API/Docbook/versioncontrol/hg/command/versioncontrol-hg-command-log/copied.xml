@@ -1,0 +1,44 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.copied">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Log::copied</function>
+  </refname>
+  <refpurpose>Returns only files copied within the working copy</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Log.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Command_Log::copied</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.copied.desc">
+  &title.desc;
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->log()->copied()->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->log('copied')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.copied.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.copied.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

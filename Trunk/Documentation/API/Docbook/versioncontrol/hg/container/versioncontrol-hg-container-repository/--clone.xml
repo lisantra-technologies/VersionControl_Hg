@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.--clone">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Repository::__clone</function>
+  </refname>
+  <refpurpose>Prevent users to clone the instance</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     Exception
+     <function>VersionControl_Hg_Container_Repository::__clone</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.--clone.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.--clone.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.--clone.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

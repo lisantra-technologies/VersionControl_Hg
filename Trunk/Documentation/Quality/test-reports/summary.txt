@@ -1,0 +1,33 @@
+PHPUnit_Framework_Warning
+ [ ] Warning
+
+VersionControl_Hg_Container_Repository
+ [ ] Get instance
+ [ ] Accessing constructor explicitly should fail
+ [ ] Null path is o k
+ [ ] Constructor with null signature
+ [ ] Constructor with valid repository
+ [ ] Constructor with an invalid repository
+ [ ] Constructor with non existant path
+ [ ] Set path must always have an argument
+ [ ] Set path
+ [ ] Create
+ [ ] Delete
+ [ ] test  toString
+
+VersionControl_Hg_Executable
+ [ ] Set path
+ [ ] Get path
+ [ ] Set executable
+ [ ] Get executable
+ [ ] Set version
+ [ ] Get version
+ [ ] test  toString
+ [ ] Constructor with valid path
+ [ ] Constructor with invalid path
+
+VersionControl_Hg_CommandProxy
+ [ ] Set command
+ [ ] Get command
+ [ ] test  call
+

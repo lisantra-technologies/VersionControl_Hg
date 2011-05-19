@@ -16,8 +16,7 @@
 	<div class="info-box-title">Description</div>
 	<div class="nav-bar">
 					<span class="disabled">Description</span> |
-							<a href="#sec-descendents">Descendents</a>
-			|											<a href="#sec-vars">Vars</a>
+													<a href="#sec-vars">Vars</a>
 						|											<a href="#sec-methods">Methods</a>
 						
 					</div>
@@ -27,13 +26,12 @@
 <p class="description"><p>PHP version 5</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
-				<li><span class="field">version:</span> Release</li>
-				<li><span class="field">copyright:</span> 2009 Lisantra Technologies, LLC</li>
+				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
 				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Hg---Exception.php.html">/Hg/Exception.php</a> (line <span class="field">29</span>)
+			Located in <a class="field" href="_Hg---Exception.php.html">/Hg/Exception.php</a> (line <span class="field">27</span>)
 		</p>
 		
 				
@@ -44,37 +42,6 @@
 			</div>
 </div>
 
-	<a name="sec-descendents"></a>
-	<div class="info-box">
-		<div class="info-box-title">Direct descendents</div>
-		<div class="nav-bar">
-			<a href="#sec-description">Description</a> |
-			<span class="disabled">Descendents</span>
-			|												<a href="#sec-vars">Vars</a>
-								|															<a href="#sec-methods">Methods</a>
-							
-								</div>
-		<div class="info-box-body">
-			<table cellpadding="2" cellspacing="0" class="class-table">
-				<tr>
-					<th class="class-table-header">Class</th>
-					<th class="class-table-header">Description</th>
-				</tr>
-								<tr>
-					<td style="padding-right: 2em"><a href="../Hg/Exceptions/VersionControl_Hg_Command_Exception.html">VersionControl_Hg_Command_Exception</a></td>
-					<td>
-											Exception for Hg commands
-										</td>
-				</tr>
-								<tr>
-					<td style="padding-right: 2em"><a href="../Hg/Exceptions/VersionControl_Hg_Container_Exception.html">VersionControl_Hg_Container_Exception</a></td>
-					<td>
-											Exception for Hg commands
-										</td>
-				</tr>
-							</table>
-		</div>
-	</div>
 
 
 
@@ -84,7 +51,6 @@
 		<div class="info-box-title">Variables</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-							<a href="#sec-descendents">Descendents</a> |
 										<span class="disabled">Vars</span>
 						
 			
@@ -110,6 +76,9 @@
 								<span class="var-name">$message</span><br>
 							</span>
 													<span class="var-title">
+								<span class="var-name">$previous</span><br>
+							</span>
+													<span class="var-title">
 								<span class="var-name">$string</span><br>
 							</span>
 													<span class="var-title">
@@ -125,7 +94,6 @@
 		<div class="info-box-title">Methods</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-							<a href="#sec-descendents">Descendents</a> |
 															<a href="#sec-vars">Vars</a>
 																	<span class="disabled">Methods</span>
 						
@@ -138,11 +106,12 @@
 									<!-- =========== Summary =========== -->
 					<p>Inherited From <span class="classname">Exception (Internal Class)</span></p>
 					<blockquote>
-													<span class="method-name">constructor __construct ( [$message = ], [$code = ] )</span><br>
+													<span class="method-name">constructor __construct ( [$message = ], [$code = ], [$previous = ] )</span><br>
 													<span class="method-name">getCode (  )</span><br>
 													<span class="method-name">getFile (  )</span><br>
 													<span class="method-name">getLine (  )</span><br>
 													<span class="method-name">getMessage (  )</span><br>
+													<span class="method-name">getPrevious (  )</span><br>
 													<span class="method-name">getTrace (  )</span><br>
 													<span class="method-name">getTraceAsString (  )</span><br>
 													<span class="method-name">__clone (  )</span><br>
@@ -154,7 +123,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 29 Dec 2009 21:54:55 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 18 May 2011 23:08:05 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

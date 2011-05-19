@@ -1,0 +1,49 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcommandstring">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::setCommandString</function>
+  </refname>
+  <refpurpose>Sets the command string</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Abstract::setCommandString</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcommandstring.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcommandstring.note">
+  &title.note;
+  <para>
+   <emphasis>note</emphasis>
+   should return something! Now, it merely manipulates command_string
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcommandstring.todo">
+  &title.todo;
+  <para>
+   <emphasis>todo</emphasis>
+   use this: $command_string = escapeshellcmd() but it causes  problems on windows...I think
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcommandstring.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcommandstring.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

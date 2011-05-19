@@ -15,11 +15,10 @@
      <function>VersionControl_Hg_Command_Archive::__construct</function>
     </funcdef>
     <paramdef>
-     <parameter>$param</parameter>
-    </paramdef>
-    <paramdef>
-     VersionControl_Hg_Repository
-     <parameter>$repository</parameter>
+     mixed
+     <parameter>
+      <optional>$params = &null;</optional>
+     </parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
@@ -34,22 +33,11 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type />
-      <parameter>$param</parameter>
+      &type.mixed;
+      <parameter>$params</parameter>
      </term>
      <listitem>
-      <para />
-     </listitem>
-    </varlistentry>
-   </variablelist>
-   <variablelist>
-    <varlistentry>
-     <term>
-      <type>VersionControl_Hg_Repository</type>
-      <parameter>$repository</parameter>
-     </term>
-     <listitem>
-      <para />
+      <para>are the data values passed to the command</para>
      </listitem>
     </varlistentry>
    </variablelist>

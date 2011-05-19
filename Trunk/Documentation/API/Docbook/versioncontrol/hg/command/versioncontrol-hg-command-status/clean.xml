@@ -1,0 +1,49 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.clean">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Status::clean</function>
+  </refname>
+  <refpurpose>Adds &apos;clean&apos; to the stack of command line options</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-status-summary">
+       <classname>VersionControl_Hg_Command_Status</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Status::clean</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.clean.desc">
+  &title.desc;
+  <para>Returns files which have no changes; i.e. they are identical in both  the repository and working copy.</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->status()->clean()->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->status('clean')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.clean.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.clean.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

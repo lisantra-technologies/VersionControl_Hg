@@ -1,0 +1,66 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.prefix">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Archive::prefix</function>
+  </refname>
+  <refpurpose>Adds &apos;prefix&apos; to the stack of command line options</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Archive.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Archive::prefix</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$prefix</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.prefix.desc">
+  &title.desc;
+  <para>
+   Specifies a directory prefix to wrap the exported files to within the archive  Usage:
+   <programlisting role="php">
+<![CDATA[$hg->archive()->prefix('My Project')->to('/path/to')->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[ $hg->archive(array('prefix' => 'My Project'))->to('path/to)->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.prefix.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$prefix</parameter>
+     </term>
+     <listitem>
+      <para>
+       is the string prefixed to the directory within                        the
+       archive.
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.prefix.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.prefix.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

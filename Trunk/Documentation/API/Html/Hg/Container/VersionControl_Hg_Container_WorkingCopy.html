@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class VersionControl_Hg_Container_WorkingCopy</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class VersionControl_Hg_Container_WorkingCopy</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../../Hg/Container/VersionControl_Hg_Container_Interface.html">VersionControl_Hg_Container_Interface</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A bundle of Mercurial revisions/changesets</p>
+<p class="description"><p>This class is used by the 'bundle' command and represents the actual bundle  created. If its already created, then the command will return an instance  of this class.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
+				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
+				<li><span class="field">TODO:</span> <p>what exactly would we want to do with a bundle after getting it?</p><p>PHP version 5</p></li>
+				<li><span class="field">TODO:</span> what semantics shall we use for getting an existing bundle on disk?</li>
+				<li><span class="field">TODO:</span> should it be a singleton, too?? - No, because we can operate on many  bundles at once!</li>
+				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Hg---Container---WorkingCopy.php.html">/Hg/Container/WorkingCopy.php</a> (line <span class="field">53</span>)
+		</p>
+		
+				
+		<pre><a href="../../Hg/Container/VersionControl_Hg_Container_Abstract.html">VersionControl_Hg_Container_Abstract</a>
+   |
+   --VersionControl_Hg_Container_WorkingCopy</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$path" title="details" class="var-name">$path</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																				
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">VersionControl_Container_WorkingCopy</span>
+										<a href="#create" title="details" class="method-name">create</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#delete" title="details" class="method-name">delete</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+										<a href="#setPath" title="details" class="method-name">setPath</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span> = <span class="var-default">null</span>])
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$path" id="$path"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$path</span>
+						(line <span class="line-number">62</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Path to a working copy</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">73</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Working Copy constructor</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">object</span>
+				<span class="var-name">$hg</span><span class="var-description">: is the root object and                      will always be an instance of VersionControl_Hg</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: is the full path to the user defined executable</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreate" id="create"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">create</span> (line <span class="line-number">90</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a working copy</p>
+<p class="description"><p>This is usally done by calling `hg update` on a directory which  has a .hg repository, but no files, possibly because someone called  `hg update null`.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> is an instance of a                                               working copy.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">VersionControl_Container_WorkingCopy</span>
+		<span class="method-name">
+			create
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: is the path to the working copy on the filesystem</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Hg/Container/VersionControl_Hg_Container_Interface.html#methodcreate">VersionControl_Hg_Container_Interface::create()</a></dt>
+						<dd>Create a container</dd>
+					</dl>
+			
+	</div>
+<a name="methoddelete" id="delete"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">delete</span> (line <span class="line-number">103</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete the working copy</p>
+<p class="description"><p>Acts on an instantiated object representing a working copy, rather than  a file name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			delete
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Hg/Container/VersionControl_Hg_Container_Interface.html#methoddelete">VersionControl_Hg_Container_Interface::delete()</a></dt>
+						<dd>Delete a container</dd>
+					</dl>
+			
+	</div>
+<a name="methodsetPath" id="setPath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPath</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the path of a changegroup bundle after validating it as an actual  bundle</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> to enable method chaining</li>
+				<li><span class="field">see:</span> self::$path</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+		<span class="method-name">
+			setPath
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: is the path to the hg executable</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Hg/Container/VersionControl_Hg_Container_Abstract.html#methodsetPath">VersionControl_Hg_Container_Abstract::setPath()</a></dt>
+						<dd>Sets the path to the container</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../Hg/Container/VersionControl_Hg_Container_Abstract.html">VersionControl_Hg_Container_Abstract</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../Hg/Container/VersionControl_Hg_Container_Abstract.html#methodgetPath">VersionControl_Hg_Container_Abstract::getPath()</a></span><br>
+													<span class="method-name"><a href="../../Hg/Container/VersionControl_Hg_Container_Abstract.html#methodsetPath">VersionControl_Hg_Container_Abstract::setPath()</a></span><br>
+													<span class="method-name"><a href="../../Hg/Container/VersionControl_Hg_Container_Abstract.html#method__toString">VersionControl_Hg_Container_Abstract::__toString()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 18 May 2011 23:08:17 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

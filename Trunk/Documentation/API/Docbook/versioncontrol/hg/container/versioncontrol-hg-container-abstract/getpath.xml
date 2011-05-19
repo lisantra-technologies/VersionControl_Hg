@@ -1,0 +1,49 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.getpath">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Abstract::getPath</function>
+  </refname>
+  <refpurpose>Returns the path of a Mercurial repository as set by the user.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Container_Abstract::getPath</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.getpath.desc">
+  &title.desc;
+  <para>It is not validated before being set as a class member. This allows  it to return null when it needs to and lets the programmer check if a  repository has been set or not. Exceptions would remove this control.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.getpath.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   | null
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.getpath.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+   $path
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.getpath.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.getpath.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

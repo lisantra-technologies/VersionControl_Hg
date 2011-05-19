@@ -1,0 +1,53 @@
+<refentry id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toyaml">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Output_Formatter::toYaml</function>
+  </refname>
+  <refpurpose>Convert array to YAML text format</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Output/Formatter.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Output_Formatter::toYaml</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$output</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toyaml.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toyaml.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$output</parameter>
+     </term>
+     <listitem>
+      <para>is the passed-in, parsed output from the cli</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toyaml.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toyaml.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

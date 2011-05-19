@@ -1,0 +1,69 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.revision">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Status::revision</function>
+  </refname>
+  <refpurpose>Adds &apos;rev&apos; to the stack of command line options</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-status-summary">
+       <classname>VersionControl_Hg_Command_Status</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Status::revision</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$revision = &apos;tip&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.revision.desc">
+  &title.desc;
+  <para>
+   Specified the revision to restrict the status operation to  Usage:
+   <programlisting role="php">
+<![CDATA[$hg->status('all')->revision(7)->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->status(array('revision' => 7 ))->all()->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.revision.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$revision</parameter>
+     </term>
+     <listitem>
+      <para>The revision for which to get the status</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.revision.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.revision.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

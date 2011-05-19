@@ -1,0 +1,39 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::getContainer</function>
+  </refname>
+  <refpurpose>Returns the base $hg instance on whose behalf the command operates</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">
+       <classname>VersionControl_Hg</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Abstract::getContainer</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

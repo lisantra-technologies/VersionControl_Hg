@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-workingcopy.delete">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_WorkingCopy::delete</function>
+  </refname>
+  <refpurpose>Delete the working copy</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/WorkingCopy.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>VersionControl_Hg_Container_WorkingCopy::delete</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-workingcopy.delete.desc">
+  &title.desc;
+  <para>Acts on an instantiated object representing a working copy, rather than  a file name.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-workingcopy.delete.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-workingcopy.delete.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

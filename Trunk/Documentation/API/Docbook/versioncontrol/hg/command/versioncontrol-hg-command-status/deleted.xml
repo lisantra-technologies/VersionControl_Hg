@@ -1,0 +1,49 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.deleted">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Status::deleted</function>
+  </refname>
+  <refpurpose>Adds &apos;deleted&apos; to the stack of command line options</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-status-summary">
+       <classname>VersionControl_Hg_Command_Status</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Status::deleted</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.deleted.desc">
+  &title.desc;
+  <para>Returns all files which have been deleted from the working copy.</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->status()->deleted()->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->status('deleted')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.deleted.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.deleted.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

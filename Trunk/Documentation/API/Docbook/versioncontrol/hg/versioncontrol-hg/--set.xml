@@ -1,0 +1,69 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg.--set">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg::__set</function>
+  </refname>
+  <refpurpose>Magic setter for properties of commands and more.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>VersionControl_Hg::__set</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$name</parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>$value</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--set.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--set.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>The property&apos;s name</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$value</parameter>
+     </term>
+     <listitem>
+      <para>The property&apos;s value</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--set.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--set.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

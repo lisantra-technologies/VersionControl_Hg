@@ -26,13 +26,12 @@
 <p class="description"><p>PHP version 5</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
-				<li><span class="field">version:</span> Hg: $Revision$</li>
 				<li><span class="field">copyright:</span> 2009 Lisantra Technologies, LLC</li>
 				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Hg---CommandProxy.php.html">/Hg/CommandProxy.php</a> (line <span class="field">36</span>)
+			Located in <a class="field" href="_Hg---CommandProxy.php.html">/Hg/CommandProxy.php</a> (line <span class="field">34</span>)
 		</p>
 		
 				
@@ -60,12 +59,12 @@
 					<a href="#$allowed_commands" title="details" class="var-name">$allowed_commands</a>
 				</div>
 																<div class="var-title">
-					<span class="var-type"><a href="../Hg/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
-					<a href="#$_command" title="details" class="var-name">$_command</a>
+					<span class="var-type"><a href="../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+					<a href="#$command" title="details" class="var-name">$command</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
-					<a href="#$_hg" title="details" class="var-name">$_hg</a>
+					<a href="#$hg" title="details" class="var-name">$hg</a>
 				</div>
 											</div>
 		</div>
@@ -95,14 +94,14 @@
 										()
 									</div>
 																<div class="method-definition">
-											<span class="method-result">void</span>
+											<span class="method-result">null</span>
 										<a href="#setCommand" title="details" class="method-name">setCommand</a>
 											(<span class="var-type"><a href="../Hg/Interfaces/VersionControl_Hg_Command_Interface.html">VersionControl_Hg_Command_Interface</a></span>&nbsp;<span class="var-name">$command</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result"><a href="../Hg/Interfaces/VersionControl_Hg_Command_Interface.html">VersionControl_Hg_Command_Interface</a></span>
 										<a href="#__call" title="details" class="method-name">__call</a>
-											(<span class="var-type">$method</span>&nbsp;<span class="var-name">$method</span>, [<span class="var-type">$arguments</span>&nbsp;<span class="var-name">$arguments</span> = <span class="var-default">null</span>])
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$arguments</span> = <span class="var-default">null</span>])
 									</div>
 								</div>
 		</div>
@@ -128,7 +127,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$allowed_commands</span>
-			 = <span class="var-default">array(<br />        'version', 'archive', 'status',<br />    )</span>			(line <span class="line-number">43</span>)
+			 = <span class="var-default">array(<br />        'version', 'archive', 'status', 'log', 'init',<br />    )</span>			(line <span class="line-number">41</span>)
 		</span>
 	</div>
 
@@ -143,14 +142,14 @@
 		
 
 </div>
-<a name="var$_command" id="$_command"><!-- --></A>
+<a name="var$command" id="$command"><!-- --></A>
 <div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
-			<span class="var-type"><a href="../Hg/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
-			<span class="var-name">$_command</span>
-						(line <span class="line-number">52</span>)
+			<span class="var-type"><a href="../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+			<span class="var-name">$command</span>
+						(line <span class="line-number">50</span>)
 		</span>
 	</div>
 
@@ -165,14 +164,14 @@
 		
 
 </div>
-<a name="var$_hg" id="$_hg"><!-- --></A>
+<a name="var$hg" id="$hg"><!-- --></A>
 <div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
-			<span class="var-name">$_hg</span>
-						(line <span class="line-number">59</span>)
+			<span class="var-name">$hg</span>
+						(line <span class="line-number">57</span>)
 		</span>
 	</div>
 
@@ -207,7 +206,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">66</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">64</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -227,7 +226,7 @@
 			<ul class="parameters">
 					<li>
 				<span class="var-type"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
-				<span class="var-name">$hg</span>			</li>
+				<span class="var-name">$hg</span><span class="var-description">: is the root object</span>			</li>
 				</ul>
 		
 			
@@ -236,7 +235,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getCommand</span> (line <span class="line-number">84</span>)
+		<span class="method-title">getCommand</span> (line <span class="line-number">87</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -260,7 +259,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setCommand</span> (line <span class="line-number">75</span>)
+		<span class="method-title">setCommand</span> (line <span class="line-number">77</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -270,7 +269,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">void</span>
+		<span class="method-result">null</span>
 		<span class="method-name">
 			setCommand
 		</span>
@@ -279,8 +278,8 @@
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type">$command</span>
-				<span class="var-name">$command</span><span class="var-description">: VersionControl_Hg_Command_Interface</span>			</li>
+				<span class="var-type"><a href="../Hg/Interfaces/VersionControl_Hg_Command_Interface.html">VersionControl_Hg_Command_Interface</a></span>
+				<span class="var-name">$command</span><span class="var-description">: is the command  instance to execute</span>			</li>
 				</ul>
 		
 			
@@ -289,7 +288,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__call</span> (line <span class="line-number">96</span>)
+		<span class="method-title">__call</span> (line <span class="line-number">101</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -304,16 +303,16 @@
 		<span class="method-name">
 			__call
 		</span>
-					(<span class="var-type">$method</span>&nbsp;<span class="var-name">$method</span>, [<span class="var-type">$arguments</span>&nbsp;<span class="var-name">$arguments</span> = <span class="var-default">null</span>])
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$arguments</span> = <span class="var-default">null</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type">$method</span>
-				<span class="var-name">$method</span><span class="var-description">: string</span>			</li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span><span class="var-description">: is the command to instantiate</span>			</li>
 					<li>
-				<span class="var-type">$arguments</span>
-				<span class="var-name">$arguments</span><span class="var-description">: array</span>			</li>
+				<span class="var-type">array</span>
+				<span class="var-name">$arguments</span><span class="var-description">: for the command</span>			</li>
 				</ul>
 		
 			
@@ -324,7 +323,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 29 Dec 2009 21:54:54 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 18 May 2011 23:08:03 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

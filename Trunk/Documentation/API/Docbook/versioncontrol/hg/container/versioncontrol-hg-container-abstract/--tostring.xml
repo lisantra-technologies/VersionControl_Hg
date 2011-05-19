@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.--tostring">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Abstract::__toString</function>
+  </refname>
+  <refpurpose>Prints the container&apos;s path.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Container_Abstract::__toString</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.--tostring.desc">
+  &title.desc;
+  <para>May be expanded to provide other useful data about the repository as  a string.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.--tostring.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.--tostring.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

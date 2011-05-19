@@ -14,11 +14,8 @@
      <function>VersionControl_Hg_Container_Repository::isRepository</function>
     </funcdef>
     <paramdef>
-     <parameter>$path</parameter>
-    </paramdef>
-    <paramdef>
      string
-     <parameter>$repo</parameter>
+     <parameter>$path</parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
@@ -33,22 +30,11 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type />
+      &type.string;
       <parameter>$path</parameter>
      </term>
      <listitem>
-      <para />
-     </listitem>
-    </varlistentry>
-   </variablelist>
-   <variablelist>
-    <varlistentry>
-     <term>
-      &type.string;
-      <parameter>$repo</parameter>
-     </term>
-     <listitem>
-      <para>is the full repository path.</para>
+      <para>The full repository path.</para>
      </listitem>
     </varlistentry>
    </variablelist>

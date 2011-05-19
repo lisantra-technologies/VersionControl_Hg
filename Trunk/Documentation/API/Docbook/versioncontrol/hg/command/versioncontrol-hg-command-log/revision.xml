@@ -1,0 +1,65 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.revision">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Log::revision</function>
+  </refname>
+  <refpurpose>Specified the revision to restrict the log operation to</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Log.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Log::revision</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$revision = &apos;tip&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.revision.desc">
+  &title.desc;
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->log('all')->revision(7)->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->log(array('revision' => 7 ))->all()->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.revision.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$revision</parameter>
+     </term>
+     <listitem>
+      <para>The revision for which to show the log for</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.revision.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.revision.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

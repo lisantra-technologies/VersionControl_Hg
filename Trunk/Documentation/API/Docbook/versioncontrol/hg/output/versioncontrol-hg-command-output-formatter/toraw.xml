@@ -1,0 +1,60 @@
+<refentry id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Output_Formatter::toRaw</function>
+  </refname>
+  <refpurpose>Convert array to PHP serialized text format</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Output/Formatter.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Output_Formatter::toRaw</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$output</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$output</parameter>
+     </term>
+     <listitem>
+      <para>is the passed-in, parsed output from the cli</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw.note">
+  &title.note;
+  <para>
+   <emphasis>note</emphasis>
+   Hmmm, how to reconstruct from the array? or get it before parsing??
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

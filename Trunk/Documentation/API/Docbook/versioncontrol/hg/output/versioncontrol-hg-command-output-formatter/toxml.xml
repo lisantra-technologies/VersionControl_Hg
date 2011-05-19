@@ -1,0 +1,116 @@
+<refentry id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toxml">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Output_Formatter::toXML</function>
+  </refname>
+  <refpurpose>The main function for converting to an XML document.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Output/Formatter.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Command_Output_Formatter::toXML</function>
+    </funcdef>
+    <paramdef>
+     array
+     <parameter>$data</parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$rootNodeName = &apos;ResultSet&apos;</optional>
+     </parameter>
+    </paramdef>
+    <paramdef>
+     <parameter>
+      <optional>&amp;$xml = &null;</optional>
+     </parameter>
+    </paramdef>
+    <paramdef>
+     SimpleXMLElement
+     <parameter>$xml</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toxml.desc">
+  &title.desc;
+  <para>Pass in a multi dimensional array and this recrusively loops through and builds up an XML document.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toxml.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$data</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$rootNodeName</parameter>
+     </term>
+     <listitem>
+      <para>- what you want the root node to be - defaultsto data.</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>&amp;$xml</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>SimpleXMLElement</type>
+      <parameter>$xml</parameter>
+     </term>
+     <listitem>
+      <para>- should only be used recursively</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toxml.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   XML
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toxml.note">
+  &title.note;
+  <para>
+   <emphasis>note</emphasis>
+   This should probably be implemented in each command which can output to XML, since the vocabulary will be different in each case.
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toxml.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toxml.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

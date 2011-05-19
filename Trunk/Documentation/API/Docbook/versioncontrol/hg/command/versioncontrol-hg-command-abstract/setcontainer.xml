@@ -1,0 +1,56 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::setContainer</function>
+  </refname>
+  <refpurpose>Sets the base $hg instance on whose behalf command operates</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Command_Abstract::setContainer</function>
+    </funcdef>
+    <paramdef>
+     <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+     <parameter>$hg</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>
+       <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+      </type>
+      <parameter>$hg</parameter>
+     </term>
+     <listitem>
+      <para>The root object instance</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

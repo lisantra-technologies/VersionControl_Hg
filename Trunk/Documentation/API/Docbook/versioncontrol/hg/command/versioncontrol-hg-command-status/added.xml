@@ -1,0 +1,49 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.added">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Status::added</function>
+  </refname>
+  <refpurpose>Adds &apos;added&apos; to the stack of command line options</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-status-summary">
+       <classname>VersionControl_Hg_Command_Status</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Status::added</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.added.desc">
+  &title.desc;
+  <para>Returns only files newly added to the repository.</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->status()->all()->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->status('all')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.added.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.added.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

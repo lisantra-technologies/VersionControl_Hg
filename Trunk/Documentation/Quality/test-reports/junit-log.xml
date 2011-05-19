@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="." tests="11" assertions="0" failures="0" errors="11" time="0.150409">
+    <testsuite name="HgTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\HgTest.php" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" fullPackage="VersionControl.Hg.Container" tests="8" assertions="0" failures="0" errors="8" time="0.123401">
+      <testcase name="testGetInstance" class="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" line="56" assertions="0" time="0.056884">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_Container_RepositoryTest::testGetInstance
+Argument 1 passed to VersionControl_Hg_Container_Repository::__construct() must be an instance of VersionControl_Hg, null given, called in H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php on line 113 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:113
+H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php:58
+</error>
+      </testcase>
+      <testcase name="testNullPathIsOK" class="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" line="80" assertions="0" time="0.007493">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_Container_RepositoryTest::testNullPathIsOK
+Argument 1 passed to VersionControl_Hg_Container_Repository::__construct() must be an instance of VersionControl_Hg, null given, called in H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php on line 113 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:113
+H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php:81
+</error>
+      </testcase>
+      <testcase name="testConstructorWithNullSignature" class="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" line="89" assertions="0" time="0.010164">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_Container_RepositoryTest::testConstructorWithNullSignature
+Argument 1 passed to VersionControl_Hg_Container_Repository::__construct() must be an instance of VersionControl_Hg, null given, called in H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php on line 113 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:113
+H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php:91
+</error>
+      </testcase>
+      <testcase name="testConstructorWithValidRepository" class="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" line="100" assertions="0" time="0.007148">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_Container_RepositoryTest::testConstructorWithValidRepository
+Argument 1 passed to VersionControl_Hg_Container_Repository::__construct() must be an instance of VersionControl_Hg, null given, called in H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php on line 113 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:113
+H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php:102
+</error>
+      </testcase>
+      <testcase name="testConstructorWithAnInvalidRepository" class="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" line="115" assertions="0" time="0.007285">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_Container_RepositoryTest::testConstructorWithAnInvalidRepository
+Argument 1 passed to VersionControl_Hg_Container_Repository::__construct() must be an instance of VersionControl_Hg, null given, called in H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php on line 113 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:113
+H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php:119
+</error>
+      </testcase>
+      <testcase name="testConstructorWithNonExistantPath" class="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" line="124" assertions="0" time="0.015122">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_Container_RepositoryTest::testConstructorWithNonExistantPath
+Argument 1 passed to VersionControl_Hg_Container_Repository::__construct() must be an instance of VersionControl_Hg, null given, called in H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php on line 113 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:113
+H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php:128
+</error>
+      </testcase>
+      <testcase name="testSetPath" class="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" line="146" assertions="0" time="0.007528">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_Container_RepositoryTest::testSetPath
+Argument 1 passed to VersionControl_Hg_Container_Repository::__construct() must be an instance of VersionControl_Hg, null given, called in H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php on line 113 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:113
+H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php:148
+</error>
+      </testcase>
+      <testcase name="test__toString" class="VersionControl_Hg_Container_RepositoryTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php" line="184" assertions="0" time="0.011777">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_Container_RepositoryTest::test__toString
+Argument 1 passed to VersionControl_Hg_Container_Repository::__construct() must be an instance of VersionControl_Hg, null given, called in H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php on line 113 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:113
+H:\Development\_Webroot\Trunk\Tests\Unit\Container\RepositoryTest.php:186
+</error>
+      </testcase>
+    </testsuite>
+    <testsuite name="VersionControl_Hg_ExecutableTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\ExecutableTest.php" fullPackage="VersionControl.Hg" tests="0" assertions="0" failures="0" errors="0" time="0.000000"/>
+    <testsuite name="VersionControl_Hg_CommandProxyTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php" fullPackage="VersionControl.Hg" tests="3" assertions="0" failures="0" errors="3" time="0.027008">
+      <testcase name="testSetCommand" class="VersionControl_Hg_CommandProxyTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php" line="36" assertions="0" time="0.008695">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_CommandProxyTest::testSetCommand
+Argument 1 passed to VersionControl_Hg_CommandProxy::__construct() must be an instance of VersionControl_Hg, none given, called in H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php on line 22 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php:64
+H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php:22
+</error>
+      </testcase>
+      <testcase name="testGetCommand" class="VersionControl_Hg_CommandProxyTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php" line="47" assertions="0" time="0.011331">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_CommandProxyTest::testGetCommand
+Argument 1 passed to VersionControl_Hg_CommandProxy::__construct() must be an instance of VersionControl_Hg, none given, called in H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php on line 22 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php:64
+H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php:22
+</error>
+      </testcase>
+      <testcase name="test__call" class="VersionControl_Hg_CommandProxyTest" file="H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php" line="58" assertions="0" time="0.006982">
+        <error type="PHPUnit_Framework_Error">VersionControl_Hg_CommandProxyTest::test__call
+Argument 1 passed to VersionControl_Hg_CommandProxy::__construct() must be an instance of VersionControl_Hg, none given, called in H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php on line 22 and defined
+
+H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php:64
+H:\Development\_Webroot\Trunk\Tests\Unit\CommandProxyTest.php:22
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

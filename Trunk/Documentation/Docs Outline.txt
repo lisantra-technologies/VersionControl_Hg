@@ -1,0 +1,22 @@
+1. Introduction/Quick start
+
+2. Configuration
+This would deal with instantiation options, setting up a http proxy etc...
+
+3. Authentication / Security
+   3.1 Basic Auth
+   3.2 OAuth
+   3.3 Using SSL
+
+4. Making API calls
+This section would explain in details how to make API calls, how to deal 
+with required and optional parameters and how to manipulate the returned 
+results.
+
+5. Exceptions
+This section would tell the user how to handle exceptions with 
+Services_Twitter.
+
+6. Examples
+Simple and advanced examples of what can be done with the package.
+

@@ -19,14 +19,16 @@
     </funcdef>
     <paramdef>
      string
-     <parameter>$type</parameter>
+     <parameter>
+      <optional>$type = &apos;files&apos;</optional>
+     </parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.with.desc">
   &title.desc;
-  <para>Valid values are &apos;files&apos;, &apos;tar&apos;, &apos;bzip2&apos;, &apos;gzip&apos;, &apos;zip&apos;</para>
+  <para>Valid values are &apos;files&apos;, &apos;tar&apos;, &apos;bzip2&apos;, &apos;gzip&apos;, &apos;zip&apos;, &apos;uzip&apos;</para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.with.param">
   &title.param;
@@ -48,7 +50,7 @@
   &title.throws;
   <para>
    <emphasis>throws</emphasis>
-   no exceptions thrown
+   VersionControl_Hg_Repository_Command_Exception
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.with.note">

@@ -11,7 +11,7 @@
    <funcprototype>
     <funcdef>
      <replaceable>
-      <link linkend="package.versioncontrol.hg.versioncontrol-hg-command-abstract-summary">
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
        <classname>VersionControl_Hg_Command_Abstract</classname>
       </link>
      </replaceable>
@@ -22,7 +22,7 @@
      <parameter>$method</parameter>
     </paramdef>
     <paramdef>
-     array
+     mixed
      <parameter>$arguments</parameter>
     </paramdef>
    </funcprototype>
@@ -30,8 +30,18 @@
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.desc">
   &title.desc;
-  &notdocumented;
-</refsect1>
+  <para>
+   This also allows programmers to use both
+   <programlisting role="php">
+<![CDATA[$executables_object = $hg->executable;]]>
+   </programlisting>
+   and
+   <programlisting role="php">
+<![CDATA[$executables_object = $hg->getExecutable();]]>
+   </programlisting>
+   to both return an instance of VersionControl_Hg_Executable, for example.
+  </para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.param">
   &title.param;
   <para>
@@ -42,28 +52,21 @@
       <parameter>$method</parameter>
      </term>
      <listitem>
-      <para>is the function being called</para>
+      <para>The function being called</para>
      </listitem>
     </varlistentry>
    </variablelist>
    <variablelist>
     <varlistentry>
      <term>
-      &type.array;
+      &type.mixed;
       <parameter>$arguments</parameter>
      </term>
      <listitem>
-      <para>are the parameters passed to that function</para>
+      <para>The parameters passed to that function</para>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
- </refsect1>
- <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.returns">
-  &title.returns;
-  <para>
-   <emphasis>returns</emphasis>
-   implemented commands:
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.versioncontrol-hg.--call.throws">

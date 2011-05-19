@@ -1,0 +1,61 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.create">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Bundle::create</function>
+  </refname>
+  <refpurpose>Create a bundle of revisions</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     VersionControl_Container_Bundle
+     <function>VersionControl_Hg_Container_Bundle::create</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$path</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.create.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.create.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>is the path to the bundle on the filesystem</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.create.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   is an instance of a bundle.
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.create.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.create.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

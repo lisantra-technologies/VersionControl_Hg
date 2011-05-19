@@ -1,0 +1,93 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
+  </refname>
+  <refpurpose>
+   Parses the result of the Mercurial CLI operation into a semantic
+   associative array
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$output</parameter>
+    </paramdef>
+    <paramdef>
+     mixed
+     <parameter>
+      <optional>$fields = &null;</optional>
+     </parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$delimiter = &apos;\s&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$output</parameter>
+     </term>
+     <listitem>
+      <para>The output to parse into an array of arrays</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$fields</parameter>
+     </term>
+     <listitem>
+      <para>The labels of columns;</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$delimiter</parameter>
+     </term>
+     <listitem>
+      <para>
+       Delimits the fields returned by Mercurial.
+       Defaults to whitespace.
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

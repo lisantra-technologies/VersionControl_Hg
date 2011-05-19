@@ -1,0 +1,63 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.formatoptions">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::formatOptions</function>
+  </refname>
+  <refpurpose>
+   Formats the options to a string in CLI style: &apos; --option [ =
+   value]&apos;
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Command_Abstract::formatOptions</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$options</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.formatoptions.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.formatoptions.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$options</parameter>
+     </term>
+     <listitem>
+      <para>the options in an array to format</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.formatoptions.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   the formatted options
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.formatoptions.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.formatoptions.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

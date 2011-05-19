@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.versioncontrol-hg-executable.getexecutable">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Executable::getExecutable</function>
+  </refname>
+  <refpurpose>Get the full path of the currently used Mercurial executable</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Executable.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Executable::getExecutable</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-executable.getexecutable.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-executable.getexecutable.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   VersionControl_Hg_Executable_Exception
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.versioncontrol-hg-executable.getexecutable.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

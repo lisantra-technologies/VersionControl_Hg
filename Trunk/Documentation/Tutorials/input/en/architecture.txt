@@ -1,0 +1,55 @@
+Title: Architecture
+
+---
+Structure
+=========
+~~~
+|   Hg.php
+|
+\---Hg
+    |   Repository.php
+    |   Exception.php
+    |   Command.php
+    |   Registry.php
+    |
+    +---Repository
+    |   |   Branch.php
+    |   |   Tag.php
+    |   |   Tip.php
+    |   |   Changset.php
+    |   |   Exception.php
+    |   |   Command.php
+    |   |
+    |   \---Command
+    |           Status.php
+    |           Exception.php
+    |           Interface.php
+    |           Archive.php
+    |
+    \---Command
+            Version.php
+            Exception.php
+            Interface.php
+~~~
+
+
+Design Patterns
+===============
+I decided a factory is not appropriate because the commands implement different options as methods and thus will not have the same interface as should be the case for factories according to Gamma, et al (source: http://brian.deshong.net/talks/2009/atlphp/factory_method_pattern/factory_method_pattern.pdf).
+
+I struggled with an appropriate interface, first putting the command first and the repository an in independent object.
+However, I decided to use Hg.php as the root of all; implement modifiers and options as methods.
+For example, instead of $repo->status('modified')->excluding('*.bak') I decided to move excluding from Command.php to Repository.php
+
+I also coded first with the names of the objects without Hg_Command_Status for example, which is the preferred PEAR way.
+
+Exploring PEAR
+==============
+
+TDD
+===
+
+Developing on Windows
+=====================
+
+*

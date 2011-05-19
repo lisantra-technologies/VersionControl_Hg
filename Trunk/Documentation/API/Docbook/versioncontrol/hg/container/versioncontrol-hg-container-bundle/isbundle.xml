@@ -1,0 +1,54 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.isbundle">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Bundle::isBundle</function>
+  </refname>
+  <refpurpose>Checks if $this is in fact a valid</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>VersionControl_Hg_Container_Bundle::isBundle</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$path</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.isbundle.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.isbundle.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>is the full repository path.</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.isbundle.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.isbundle.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,63 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.on">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Log::on</function>
+  </refname>
+  <refpurpose>Restricts the log to changesets only commited on $date</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Log.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-log-summary">
+       <classname>VersionControl_Hg_Command_Log</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Log::on</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$date</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.on.desc">
+  &title.desc;
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->log()->on('Dec 27, 2010')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.on.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$date</parameter>
+     </term>
+     <listitem>
+      <para>Show log entries only for this exact date</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.on.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.on.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

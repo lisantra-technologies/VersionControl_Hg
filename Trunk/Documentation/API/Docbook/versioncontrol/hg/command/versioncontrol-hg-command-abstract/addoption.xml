@@ -1,0 +1,71 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.addoption">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::addOption</function>
+  </refname>
+  <refpurpose>Add an option</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>VersionControl_Hg_Command_Abstract::addOption</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$name</parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$value = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.addoption.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.addoption.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>The name of the option which Mercurial recognizes</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$value</parameter>
+     </term>
+     <listitem>
+      <para>Optional since not all Hg options need a value</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.addoption.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   VersionControl_Hg_Command_Exception
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.addoption.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

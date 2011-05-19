@@ -1,0 +1,74 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.files">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Status::files</function>
+  </refname>
+  <refpurpose>Adds a list of files to the stack of command line options</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-status-summary">
+       <classname>VersionControl_Hg_Command_Status</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Status::files</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$files</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.files.desc">
+  &title.desc;
+  <para>List status information for only the files specified. Abstract::formatOptions  will automatically place this as the last option since a files list  must be the last item on the command line.</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->status()->files(array('index.php'))->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->status(array('files' => array('index.php')))->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.files.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$files</parameter>
+     </term>
+     <listitem>
+      <para>Only show the status for these files</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.files.note">
+  &title.note;
+  <para>
+   <emphasis>note</emphasis>
+   how to ensure this is the final option??
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.files.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.files.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

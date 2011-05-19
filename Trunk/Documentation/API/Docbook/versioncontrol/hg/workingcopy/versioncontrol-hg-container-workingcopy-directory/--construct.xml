@@ -1,0 +1,36 @@
+<refentry id="package.versioncontrol.hg.workingcopy.versioncontrol-hg-container-workingcopy-directory.--construct">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>VersionControl_Hg_Container_WorkingCopy_Directory::__construct</function>
+  </refname>
+  <refpurpose>Constructor</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/WorkingCopy/Directory.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void      constructor
+     <function>VersionControl_Hg_Container_WorkingCopy_Directory::__construct</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.workingcopy.versioncontrol-hg-container-workingcopy-directory.--construct.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.workingcopy.versioncontrol-hg-container-workingcopy-directory.--construct.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.workingcopy.versioncontrol-hg-container-workingcopy-directory.--construct.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

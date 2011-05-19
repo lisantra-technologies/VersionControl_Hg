@@ -1,0 +1,57 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-backout.--construct">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>VersionControl_Hg_Command_Backout::__construct</function>
+  </refname>
+  <refpurpose>Constructor</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Backout.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void      constructor
+     <function>VersionControl_Hg_Command_Backout::__construct</function>
+    </funcdef>
+    <paramdef>
+     mixed
+     <parameter>
+      <optional>$params = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-backout.--construct.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-backout.--construct.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$params</parameter>
+     </term>
+     <listitem>
+      <para>is one or more parameters to modify the command</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-backout.--construct.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-backout.--construct.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

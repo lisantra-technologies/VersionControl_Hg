@@ -1,0 +1,80 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.changeset">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::changeset</function>
+  </refname>
+  <refpurpose>Specify which revisions to operate upon in the repository</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     VersionControl_Hg_Command
+     <function>VersionControl_Hg_Command_Abstract::changeset</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$first</parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>$last</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.changeset.desc">
+  &title.desc;
+  <para>Revisions are considered inclusive: r1 to r3 includes data  from r1,r2,r3.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.changeset.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$first</parameter>
+     </term>
+     <listitem>
+      <para>The first revision for a command to act on</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$last</parameter>
+     </term>
+     <listitem>
+      <para>The last revision for a command to act on</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.changeset.note">
+  &title.note;
+  <para>
+   <emphasis>note</emphasis>
+   Consider whether this is a good idea, since between() handles  this for some commands...
+  </para>
+  <para>
+   <emphasis>note</emphasis>
+   Handle $last as well!
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.changeset.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.changeset.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

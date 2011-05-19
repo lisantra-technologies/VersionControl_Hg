@@ -3,18 +3,24 @@
   <refname>
    <function>VersionControl_Hg_Command_Status::execute</function>
   </refname>
-  <refpurpose>(non-PHPdoc)</refpurpose>
+  <refpurpose>
+   Running this with no arguments (eg. $hg-&gt;status()-&gt;run(); ) will only
+   show what Hg would show: only changes and not all files. Specify
+   status(&apos;all&apos;) or add all() to the method chain to get all files.
+</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg/Command/Status.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     string
      <function>VersionControl_Hg_Command_Status::execute</function>
     </funcdef>
     <paramdef>
-     <parameter>$options</parameter>
+     <parameter>
+      <optional>$params = &null;</optional>
+     </parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
@@ -30,20 +36,13 @@
     <varlistentry>
      <term>
       <type />
-      <parameter>$options</parameter>
+      <parameter>$params</parameter>
      </term>
      <listitem>
-      <para />
+      <para>The options passed to the Log command</para>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
- </refsect1>
- <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.execute.see">
-  &title.see;
-  <para>
-   <emphasis>see</emphasis>
-   execute($params)
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.execute.throws">

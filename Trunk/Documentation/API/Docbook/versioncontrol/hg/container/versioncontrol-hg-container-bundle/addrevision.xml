@@ -1,0 +1,70 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.addrevision">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Bundle::addRevision</function>
+  </refname>
+  <refpurpose>Add a revision to the bundle</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle-summary">
+       <classname>VersionControl_Hg_Container_Bundle</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Container_Bundle::addRevision</function>
+    </funcdef>
+    <paramdef>
+     VersionControl_Hg_Container_Bundle_Revision
+     <parameter>$revision</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.addrevision.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.addrevision.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>VersionControl_Hg_Container_Bundle_Revision</type>
+      <parameter>$revision</parameter>
+     </term>
+     <listitem>
+      <para>
+       is the
+       revision to
+       add to the
+       bundle.
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.addrevision.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   for fluent API
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.addrevision.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.addrevision.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

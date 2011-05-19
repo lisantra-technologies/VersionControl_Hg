@@ -1,0 +1,63 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.format">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Abstract::format</function>
+  </refname>
+  <refpurpose>Format the output</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Abstract::format</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$format = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.format.desc">
+  &title.desc;
+  <para>Usual output formats are Raw, (PHP) Array, and JSON.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.format.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$format</parameter>
+     </term>
+     <listitem>
+      <para>
+       The format identifier: &apos;array&apos;, &apos;raw&apos;,
+       &apos;json&apos;.
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.format.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.format.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

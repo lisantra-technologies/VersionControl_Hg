@@ -1,0 +1,55 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-patch.execute">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Patch::execute</function>
+  </refname>
+  <refpurpose>Execute the command and return the results.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Patch.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Command_Patch::execute</function>
+    </funcdef>
+    <paramdef>
+     <parameter>
+      <optional>$params = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-patch.execute.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-patch.execute.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$params</parameter>
+     </term>
+     <listitem>
+      <para>The options passed to the Log command</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-patch.execute.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-patch.execute.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,53 @@
+<refentry id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toserialize">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Output_Formatter::toSerialize</function>
+  </refname>
+  <refpurpose>Convert array to PHP serialized text format</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Output/Formatter.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Output_Formatter::toSerialize</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$output</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toserialize.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toserialize.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$output</parameter>
+     </term>
+     <listitem>
+      <para>is the passed-in, parsed output from the cli</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toserialize.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toserialize.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

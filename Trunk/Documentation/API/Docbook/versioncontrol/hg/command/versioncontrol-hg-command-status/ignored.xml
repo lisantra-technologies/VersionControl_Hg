@@ -1,0 +1,49 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.ignored">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Status::ignored</function>
+  </refname>
+  <refpurpose>Adds&apos;ignored&apos; to the stack of command line options</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Status.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-status-summary">
+       <classname>VersionControl_Hg_Command_Status</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Status::ignored</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.ignored.desc">
+  &title.desc;
+  <para>Returns only files ignored on purpose by Mercurial (in .hgignore)</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->status()->ignored()->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->status('ignored')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.ignored.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.ignored.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

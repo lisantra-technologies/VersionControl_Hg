@@ -10,7 +10,7 @@
    <funcsynopsisinfo>require_once &apos;/Hg/CommandProxy.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     <replaceable>&null;</replaceable>
      <function>VersionControl_Hg_CommandProxy::setCommand</function>
     </funcdef>
     <paramdef>
@@ -36,7 +36,7 @@
       <parameter>$command</parameter>
      </term>
      <listitem>
-      <para>VersionControl_Hg_Command_Interface</para>
+      <para>is the command  instance to execute</para>
      </listitem>
     </varlistentry>
    </variablelist>

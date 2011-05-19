@@ -1,0 +1,77 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setpath">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Bundle::setPath</function>
+  </refname>
+  <refpurpose>
+   Sets the path of a changegroup bundle after validating it as an actual
+   bundle
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">
+       <classname>VersionControl_Hg</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Container_Bundle::setPath</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$path = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setpath.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setpath.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>is the path to the hg executable</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setpath.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   to enable method chaining
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setpath.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+   self::$path
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setpath.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setpath.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

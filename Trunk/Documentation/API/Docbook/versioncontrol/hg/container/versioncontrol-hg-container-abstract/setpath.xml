@@ -1,0 +1,62 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.setpath">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Abstract::setPath</function>
+  </refname>
+  <refpurpose>Sets the path to the container</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Abstract.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Container_Abstract::setPath</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$path = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.setpath.desc">
+  &title.desc;
+  <para>Setting the path is overridden because each container implementation  will validate if the path contains a valid container of the same type  as itself</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.setpath.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>the path to the container</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.setpath.abstract">
+  &title.abstract;
+  <para>
+   <emphasis>abstract</emphasis>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.setpath.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract.setpath.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

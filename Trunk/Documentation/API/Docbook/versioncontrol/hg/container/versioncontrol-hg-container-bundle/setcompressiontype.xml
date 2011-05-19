@@ -1,0 +1,54 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setcompressiontype">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Bundle::setCompressionType</function>
+  </refname>
+  <refpurpose>Mutator for the compression type</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Container_Bundle::setCompressionType</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$type</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setcompressiontype.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setcompressiontype.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para>is the type of compression used to make the bundle</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setcompressiontype.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   VersionControl_Hg_Container_Bundle_Exception
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.setcompressiontype.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

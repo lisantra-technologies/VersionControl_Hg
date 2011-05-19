@@ -1,0 +1,69 @@
+<refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.setrevision">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Repository_Revision::setRevision</function>
+  </refname>
+  <refpurpose>Set the revision as well as its identifier</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository/Revision.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Container_Repository_Revision::setRevision</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$revision</parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>$type</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.setrevision.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.setrevision.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$revision</parameter>
+     </term>
+     <listitem>
+      <para>the revision id from Mercurial</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para>is one of: &apos;hash&apos; or &apos;integer&apos;</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.setrevision.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.setrevision.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

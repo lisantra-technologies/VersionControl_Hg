@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.delete">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Bundle::delete</function>
+  </refname>
+  <refpurpose>Delete the bundle</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>VersionControl_Hg_Container_Bundle::delete</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.delete.desc">
+  &title.desc;
+  <para>Acts on an instantiated object representing a bundle, rather than  a file name.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.delete.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.delete.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

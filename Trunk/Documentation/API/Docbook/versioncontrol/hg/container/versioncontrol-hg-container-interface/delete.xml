@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.delete">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Interface::delete</function>
+  </refname>
+  <refpurpose>Delete a container</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Interface.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>VersionControl_Hg_Container_Interface::delete</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.delete.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.delete.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-interface.delete.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,38 @@
+<refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.getrevision">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Repository_Revision::getRevision</function>
+  </refname>
+  <refpurpose>
+   Return the revisions&apos; identifier in an array with the key being the
+   identifier&apos;s type.
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository/Revision.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>VersionControl_Hg_Container_Repository_Revision::getRevision</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.getrevision.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.getrevision.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.getrevision.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,41 @@
+<refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.getcompressiontype">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Bundle::getCompressionType</function>
+  </refname>
+  <refpurpose>Accessor for the compression type</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Container_Bundle::getCompressionType</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.getcompressiontype.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.getcompressiontype.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.getcompressiontype.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-bundle.getcompressiontype.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class VersionControl_Hg_Container_Abstract</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class VersionControl_Hg_Container_Abstract</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Provides common functionality to all container objects, but should not be  instantiated itself.</p>
+<p class="description"><p>PHP version 5</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
+				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Hg---Container---Abstract.php.html">/Hg/Container/Abstract.php</a> (line <span class="field">30</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../Hg/Container/VersionControl_Hg_Container_Bundle.html">VersionControl_Hg_Container_Bundle</a></td>
+					<td>
+											A bundle of Mercurial revisions/changesets
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../Hg/Container/VersionControl_Hg_Container_Repository.html">VersionControl_Hg_Container_Repository</a></td>
+					<td>
+											The Mercurial repository
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../Hg/Container/VersionControl_Hg_Container_WorkingCopy.html">VersionControl_Hg_Container_WorkingCopy</a></td>
+					<td>
+											A bundle of Mercurial revisions/changesets
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																												
+												<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPath" title="details" class="method-name">getPath</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">null</span>
+										<a href="#setPath" title="details" class="method-name">setPath</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodgetPath" id="getPath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPath</span> (line <span class="line-number">55</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the path of a Mercurial repository as set by the user.</p>
+<p class="description"><p>It is not validated before being set as a class member. This allows  it to return null when it needs to and lets the programmer check if a  repository has been set or not. Exceptions would remove this control.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> | null</li>
+				<li><span class="field">see:</span> $path</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPath
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetPath" id="setPath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPath</span> (line <span class="line-number">43</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the path to the container</p>
+<p class="description"><p>Setting the path is overridden because each container implementation  will validate if the path contains a valid container of the same type  as itself</p></p>
+	<ul class="tags">
+				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">null</span>
+		<span class="method-name">
+			setPath
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: the path to the container</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../Hg/Container/VersionControl_Hg_Container_Bundle.html#methodsetPath">VersionControl_Hg_Container_Bundle::setPath()</a>
+								: Sets the path of a changegroup bundle after validating it as an actual  bundle
+							</li>
+					<li>
+				<a href="../../Hg/Container/VersionControl_Hg_Container_Repository.html#methodsetPath">VersionControl_Hg_Container_Repository::setPath()</a>
+								: Sets the path of a Mercurial repository after validating it as a Hg  repository
+							</li>
+					<li>
+				<a href="../../Hg/Container/VersionControl_Hg_Container_WorkingCopy.html#methodsetPath">VersionControl_Hg_Container_WorkingCopy::setPath()</a>
+								: Sets the path of a changegroup bundle after validating it as an actual  bundle
+							</li>
+				</ul>
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">68</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Prints the container's path.</p>
+<p class="description"><p>May be expanded to provide other useful data about the repository as  a string.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 18 May 2011 23:07:58 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

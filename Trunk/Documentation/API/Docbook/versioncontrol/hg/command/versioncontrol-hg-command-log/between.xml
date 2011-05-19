@@ -1,0 +1,78 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.between">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Log::between</function>
+  </refname>
+  <refpurpose>Restricts log output to changesets between $from and $to</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Log.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-log-summary">
+       <classname>VersionControl_Hg_Command_Log</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Log::between</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$from</parameter>
+    </paramdef>
+    <paramdef>
+     string
+     <parameter>$to</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.between.desc">
+  &title.desc;
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->log()->between('Dec 27, 2010', '2010-12-31')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.between.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$from</parameter>
+     </term>
+     <listitem>
+      <para>Show log entries from this date forward</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$to</parameter>
+     </term>
+     <listitem>
+      <para>Show log entries only before this date</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.between.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-log.between.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

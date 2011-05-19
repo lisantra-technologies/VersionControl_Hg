@@ -3,17 +3,22 @@
   <refname>
    <function>VersionControl_Hg_Command_Archive::to</function>
   </refname>
-  <refpurpose>(non-PHPdoc)</refpurpose>
+  <refpurpose>Sets the directory path to which the archive will be saved</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg/Command/Archive.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
      <function>VersionControl_Hg_Command_Archive::to</function>
     </funcdef>
     <paramdef>
+     string
      <parameter>$directory</parameter>
     </paramdef>
    </funcprototype>
@@ -21,36 +26,29 @@
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.desc">
   &title.desc;
-  &notdocumented;
-</refsect1>
+  <para>Must be the last option, like files</para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.param">
   &title.param;
   <para>
    <variablelist>
     <varlistentry>
      <term>
-      <type />
+      &type.string;
       <parameter>$directory</parameter>
      </term>
      <listitem>
-      <para />
+      <para>is directory to which archives are saved</para>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
- </refsect1>
- <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.see">
-  &title.see;
-  <para>
-   <emphasis>see</emphasis>
-   to($directory)
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.throws">
   &title.throws;
   <para>
    <emphasis>throws</emphasis>
-   no exceptions thrown
+   VersionControl_Hg_Repository_Command_Exception
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.to.note">

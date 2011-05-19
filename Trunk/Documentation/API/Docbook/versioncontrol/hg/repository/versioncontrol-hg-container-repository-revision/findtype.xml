@@ -1,0 +1,54 @@
+<refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.findtype">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Container_Repository_Revision::findType</function>
+  </refname>
+  <refpurpose>Validate that the identifier actually matches its type</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Repository/Revision.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>VersionControl_Hg_Container_Repository_Revision::findType</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$id</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.findtype.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.findtype.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$id</parameter>
+     </term>
+     <listitem>
+      <para>is the revision&apos;s id.</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.findtype.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-revision.findtype.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

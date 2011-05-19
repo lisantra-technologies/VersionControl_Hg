@@ -25,8 +25,7 @@
 <p class="description"><p>PHP version 5</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
-				<li><span class="field">version:</span> SVN: 0.3</li>
-				<li><span class="field">copyright:</span> 2009 Lisantra Technologies, LLC</li>
+				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
 				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
@@ -53,7 +52,7 @@
 						<a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a>
 					</td>
 					<td>
-											Assumes to be working on a local filesystem repository
+											Base class to begin the fluent API
 										</td>
 				</tr>
 							</table>
@@ -70,59 +69,66 @@
 														</div>
 		<div class="info-box-body">	
 			<a name="_Hg/Exception_php"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div>
 		<span class="include-title">
 			<span class="include-type">require_once</span>
 			(<span class="include-name"><a href="../Hg/_Hg---Exception.php.html">'Hg/Exception.php'</a></span>)
-			(line <span class="line-number">16</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-</div>
-<a name="_Hg/Container/Executable_php"><!-- --></a>
-<div class="evenrow">
-	
-	<div>
-		<span class="include-title">
-			<span class="include-type">require_once</span>
-			(<span class="include-name"><a href="../Hg/Container/_Hg---Container---Executable.php.html">'Hg/Container/Executable.php'</a></span>)
-			(line <span class="line-number">17</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-</div>
-<a name="_Hg/Container/Repository_php"><!-- --></a>
-<div class="oddrow">
-	
-	<div>
-		<span class="include-title">
-			<span class="include-type">require_once</span>
-			(<span class="include-name"><a href="../Hg/Container/_Hg---Container---Repository.php.html">'Hg/Container/Repository.php'</a></span>)
-			(line <span class="line-number">18</span>)
-		</span>
-	</div>
-
-	<!-- ========== Info from phpDoc block ========= -->
-	
-</div>
-<a name="_Hg/CommandProxy_php"><!-- --></a>
-<div class="evenrow">
-	
-	<div>
-		<span class="include-title">
-			<span class="include-type">require_once</span>
-			(<span class="include-name"><a href="../Hg/_Hg---CommandProxy.php.html">'Hg/CommandProxy.php'</a></span>)
 			(line <span class="line-number">19</span>)
 		</span>
 	</div>
 
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Provides the base exception</p>
+	<ul class="tags">
+				<li><span class="field">TODO:</span> Consider removing since we don't appear to actually use it (?)</li>
+			</ul>
+	
+</div>
+<a name="_Hg/Executable_php"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name"><a href="../Hg/_Hg---Executable.php.html">'Hg/Executable.php'</a></span>)
+			(line <span class="line-number">24</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Provides access to the Mercurial executable</p>
+	
+</div>
+<a name="_Hg/Container/Repository_php"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name"><a href="../Hg/Container/_Hg---Container---Repository.php.html">'Hg/Container/Repository.php'</a></span>)
+			(line <span class="line-number">29</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Provides access to the SCM repository</p>
+	
+</div>
+<a name="_Hg/CommandProxy_php"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="include-title">
+			<span class="include-type">require_once</span>
+			(<span class="include-name"><a href="../Hg/_Hg---CommandProxy.php.html">'Hg/CommandProxy.php'</a></span>)
+			(line <span class="line-number">34</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Interfaces with the classes which implement the commands</p>
 	
 </div>
 		</div>
@@ -132,7 +138,7 @@
 	
 	
 	<p class="notes" id="credit">
-		Documentation generated on Tue, 29 Dec 2009 21:54:56 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 18 May 2011 23:08:08 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
