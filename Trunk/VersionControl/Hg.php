@@ -52,14 +52,9 @@ require_once 'Hg/CommandProxy.php';
  * </code>
  *
  * Setting the repository also automatically finds and sets the local
- * path of the Mercurial binary it will use.
- *
- * Of course, you may explicitly set the executable you wish to use:
- * <code>$hg->setExecutable('/path/to/hg');</code>
- * or
- * <code>$hg->executable = '/path/to/hg';</code>
- *
- * A failed explicit setting will not clear the automatically set executable.
+ * path of the Mercurial binary it will use. If multiple installations of
+ * Mercurial are found, this package will employ only the first found on the
+ * system path.
  *
  * You may also provide a location of a repository after instantiation:
  * <code>
@@ -148,7 +143,7 @@ class VersionControl_Hg
                     return VersionControl_Hg_Executable::getInstance($this, $value);
                 } else {
                     throw new ErrorException(
-                        "set$possible_object is not implemented"
+                        "set{$possible_object} is not implemented"
                     );
                 }
                 break;
@@ -159,7 +154,7 @@ class VersionControl_Hg
                     return VersionControl_Hg_Executable::getInstance();
                 } else {
                     throw new ErrorException(
-                        "get$possible_object is not implemented"
+                        "get{$possible_object} is not implemented"
                     );
                 }
                 break;
