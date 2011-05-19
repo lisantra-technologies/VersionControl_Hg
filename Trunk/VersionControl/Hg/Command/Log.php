@@ -24,7 +24,7 @@ require_once 'Interface.php';
 require_once 'Abstract.php';
 
 /**
- * Provides Exceptions for commands (VersionControl_Hg_Command_Exception)
+ * Provides Exceptions for commands
  */
 require_once 'Exception.php';
 
@@ -32,14 +32,49 @@ require_once 'Exception.php';
  * Implements the log command.
  *
  * The hg command-line client also uses 'history' as an alias.
- *
- * Patching and diffing options are not available in this class. Please select
- * a file first and then request a diff for it:
- *
- * <code>
- * $hg->diff('git'|'gnu')->files(array('index.php', 'default.html'))
- *   ->between('tip'|'2011-04-11')->revision(22)|->date('2011-03-01');
+ * * <code>
+ * include_once 'VersionControl/Hg.php';
+ * $hg = new VersionControl_Hg('/path/to/repository');
+ * $hg->log()->run('verbose');
  * </code>
+ *
+ * Show only log entries for the following dates:
+ * <code>
+ * $hg->log()->on('Dec 27, 2010')->run();
+ * $hg->log()->before('Dec 27, 2010')->run();
+ * $hg->log()->after('Dec 27, 2010')->run();
+ * $hg->log()->between('Dec 27, 2010', '2010-12-31')->run();
+ * </code>
+ *
+ * Show only log entries for revision 2:
+ * <code>
+ * $hg->log()->revision('2')->format('raw')->run('verbose');
+ * $hg->log()->revision('2')->run('verbose');
+ * </code>
+ *
+ * Show only log entries for specific files:
+ * <code>
+ * $hg->log()->files(array('index.php'))->run();
+ * </code>
+ *
+ * Exclude log entries for certain files:
+ * <code>
+ * $hg->log()->excluding('**.php')->run();
+ * </code>
+ *
+ * This displays nothing; excluding takes precedence. Remove excluding() to get only index.php:
+ * <code>
+ * $hg->log()->files(array('index.php'))->excluding('**.php')->run();
+ * </code>
+ *
+ * Include specific files, which might not show up otherwise. Using this with files can lead to unexpected results:
+ * <code>
+ * $hg->log()->including('**.php')->run();
+ * </code>
+ *
+ * Patching and diffing options are not available in this class as they might
+ * be when using the command line Mercurial client.
+ * @see VersionControl_Hg_Command_Diff
  *
  * PHP version 5
  *
@@ -63,18 +98,17 @@ class VersionControl_Hg_Command_Log
     protected $command = 'log';
 
     /**
-     * Template which Mercurial uses to ouput data.
-     *
-     * We want a single-line output which is easy to parse!
+     * Template which Mercurial uses to ouput data
      *
      * @var string
      */
     protected $template = '{rev}##{branch}##{files}##{date}##{author}##{desc}\r\n';
 
     /**
-     * Required options for this specific command. These may not be required
-     * by Mercurial itself, but are required for the proper functioning of
-     * this package.
+     * Required options for this specific command
+     *
+     * These may not be required by Mercurial itself, but are required for the
+     * proper functioning of VersionControl_Hg.
      *
      * @var mixed
      */
@@ -85,7 +119,7 @@ class VersionControl_Hg_Command_Log
     );
 
     /**
-     * Permissable options.
+     * Allowed options for this specific command
      *
      * The actual option must be the key, while 'null' is a value here to
      * accommodate the current implementation of setting options.
@@ -110,7 +144,7 @@ class VersionControl_Hg_Command_Log
     /**
      * Constructor
      *
-     * @param mixed $params is one or more parameters to modify the command
+     * @param mixed $params One or more parameters to modify the command
      *
      * @return void
      */
@@ -123,7 +157,7 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Execute the command and return the results.
+     * Execute the command and return the results
      *
      * @param mixed $params The options passed to the Log command
      *
@@ -174,7 +208,7 @@ class VersionControl_Hg_Command_Log
      * Adds 'rev' to the stack of command line options
      *
      * Specified the revision to restrict the log operation to
-
+     *
      * Usage:
      * <code>$hg->log('all')->revision(7)->run();</code>
      * or
@@ -257,8 +291,6 @@ class VersionControl_Hg_Command_Log
      * @param mixed $files the list of files as a simple array
      *
      * @return null
-     *
-     * @TODO how to ensure this is the final option??
      */
     public function files(array $files)
     {
