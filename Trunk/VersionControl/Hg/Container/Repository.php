@@ -86,12 +86,6 @@ class VersionControl_Hg_Container_Repository
     protected $path;
 
     /**
-     *
-     * @var string is local, ssh, http??
-     */
-    protected $transport; //aka $is_remote ?
-
-    /**
      * Repository constructor which currently does nothing.
      *    *
      * @param object $hg   is the root object and as a singleton
@@ -107,9 +101,9 @@ class VersionControl_Hg_Container_Repository
 
     /**
      * The singleton method
-     *     *
-     * @param object $hg   is an instance of VersionControl_Hg
-     * @param string $path is the path to the executable to use
+     *
+     * @param object $hg   Instance of VersionControl_Hg
+     * @param string $path The path to the executable to use
      *
      * @return VersionControl_Hg_Repository
      */
@@ -125,18 +119,21 @@ class VersionControl_Hg_Container_Repository
 
     /**
      * FOR UNIT TESTING OF THIS SINGLETON, ONLY!
+     *
+     * @return null
      */
     public static function reset() {
         self::$instance = NULL;
     }
 
     /**
-     * Sets the path of a Mercurial repository after validating it as a Hg repo.
+     * Sets the path of a Mercurial repository after validating it as a Hg
+     * repository
      *
-     * @param string $path is the path to the hg executable
+     * @param string $path The path to the hg executable
      * @see self::$path
      *
-     * @return VersionControl_Hg to enable method chaining
+     * @return VersionControl_Hg
      */
     public function setPath($path = null)
     {
@@ -173,15 +170,16 @@ class VersionControl_Hg_Container_Repository
 
         $this->path = $path;
 
-        return $this; //for chainable methods.
+        /* For fluid API */
+        return $this;
     }
 
     /**
      * Checks if $this is in fact a valid
      *
-     * @param   string $repo is the full repository path.
+     * @param  string $repo The full repository path.
      *
-     * @return  boolean
+     * @return boolean
      */
     protected function isRepository($path)
     {
@@ -197,16 +195,13 @@ class VersionControl_Hg_Container_Repository
 
         $repository = $path . DIRECTORY_SEPARATOR . self::ROOT_NAME;
 
-        /*
-         * both conditions must be satisfied.
-         */
+        /* both conditions must be satisfied. */
         if (is_dir($repository) && (! empty($repository))) {
             $is_repository = true;
         }
 
         return $is_repository;
     }
-
 
     /**
      *
