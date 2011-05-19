@@ -197,7 +197,7 @@ class VersionControl_Hg_Command_Init
      *
      * @return boolean
      */
-    public function directory_exists($path)
+    protected function directory_exists($path)
     {
         $directory_exists = true;
 
@@ -218,7 +218,7 @@ class VersionControl_Hg_Command_Init
      *
      * @return boolean
      */
-    public function directory_is_empty($path)
+    protected function directory_is_empty($path)
     {
         $directory_is_empty = true;
 
