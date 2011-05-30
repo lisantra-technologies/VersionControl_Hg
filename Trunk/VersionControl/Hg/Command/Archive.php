@@ -119,7 +119,7 @@ class VersionControl_Hg_Command_Archive
      *
      * @return void
      */
-    public function __construct($params = null)
+    public function __construct($params = null, VersionControl_Hg $hg)
     {
         /* should always be called so we have a full array of valid options */
         $this->setOptions(array()); //should be renamed as joinPossibleOptions()
@@ -208,10 +208,8 @@ class VersionControl_Hg_Command_Archive
     }
 
     /**
-     * Adds 'rev' to the stack of command line options
+     * Specified the revision to restrict the archive operation to
      *
-     * Specified the revision to restrict the status operation to
-
      * Usage:
      * <code>$hg->archive()->revision(7)->run();</code>
      * or

@@ -68,7 +68,7 @@ class VersionControl_Hg_Command_Version
      * @param   VersionControl_Hg $hg
      * @return  void
      */
-    public function __construct($param = null) {
+    public function __construct($param = null, VersionControl_Hg $hg) {
 
     }
 

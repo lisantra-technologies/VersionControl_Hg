@@ -93,17 +93,33 @@ class VersionControl_Hg_Command_Init
      *
      * @return void
      */
-    public function __construct($params = null)
+    public function __construct($params = null, VersionControl_Hg $hg)
     {
-        if ( (array_key_exists(0, $params)) && (! empty($params[0])) ) {
-            /* This is a psuedo-hack because init has no arugment prefix;
-               our current inmplementation of 'files' doesn't give one = cool!
-             */
-            $this->addOption('files', $params[0]);
+        /* check if a repository has been designated already or not */
+        if ( empty($this->hg->repository->getPath()) ) {
+            /* are the argument(s) correctly formed? */
+            if ( (array_key_exists(0, $params)) && (! empty($params[0])) ) {
+                /* if its an array, check for the 'repository' key */
+                if ( (is_array($params[0])) && (! array_key_exists('repository', $params[0])) ) {
+                    throw new VersionControl_Hg_Command_Exception(
+                        VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                        "The repository must be defined either at
+                         instantiation, as a string path arugment to clone()
+                         or as the 'repository' key in an array of options."
+                    );
 
+                    /* should always be called so we have a full array of valid options */
+                    $this->setOptions($params);
+                } elseif ( is_scalar($params[0])) {
+                    /* if scalar, we have to assume its a path */
+                    /* This is a psuedo-hack because init has no arugment prefix;
+                     * our current inmplementation of 'files' doesn't give one = cool! */
+                    $this->addOption('files', $params[0]);
+                }
+            }
         } else {
             /* should always be called so we have a full array of valid options */
-            $this->setOptions($params); //should be renamed as joinPossibleOptions()
+            $this->setOptions($params);
         }
     }
 

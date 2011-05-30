@@ -121,8 +121,7 @@ class VersionControl_Hg_CommandProxy
             );
         }
 
-        $this->command = new $class($arguments);
-        $this->command->setContainer($this->hg);
+        $this->command = new $class($arguments, $this->hg);
 
         /* for fluent API */
         return $this->command;

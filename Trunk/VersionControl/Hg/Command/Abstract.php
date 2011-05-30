@@ -136,7 +136,7 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @return void
      */
-    abstract function __construct($params);
+    abstract function __construct($params, VersionControl_Hg $hg);
 
     /**
      * Executes the actual mercurial command
@@ -593,28 +593,6 @@ abstract class VersionControl_Hg_Command_Abstract
     }
 
     /**
-     * Sets the base $hg instance on whose behalf command operates
-     *
-     * @param VersionControl_Hg $hg The root object instance
-     *
-     * @return null
-     */
-    public function setContainer(VersionControl_Hg $hg)
-    {
-        $this->hg = $hg;
-    }
-
-    /**
-     * Returns the base $hg instance on whose behalf the command operates
-     *
-     * @return VersionControl_Hg
-     */
-    public function getContainer()
-    {
-        return $this->hg;
-    }
-
-    /**
      * Sets the command string
      *
      * @return void
@@ -651,6 +629,8 @@ abstract class VersionControl_Hg_Command_Abstract
      * @param string $last  The last revision for a command to act on
      *
      * @return  VersionControl_Hg_Command
+     *
+     * @TODO Deprecated: mark for deletion
      *
      * @TODO Handle $last as well!
      * @TODO Consider whether this is a good idea, since between() handles

@@ -119,7 +119,7 @@ class VersionControl_Hg_Command_Status
      *
      * @return void
      */
-    public function __construct($params = null)
+    public function __construct($params = null, VersionControl_Hg $hg)
     {
         /* should always be called so we have a full array of valid options */
         $this->setOptions($params);
