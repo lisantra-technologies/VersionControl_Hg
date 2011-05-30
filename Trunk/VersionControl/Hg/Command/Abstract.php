@@ -359,10 +359,17 @@ abstract class VersionControl_Hg_Command_Abstract
         }
 
         /* Sort options so a files list is the last
-         * This method is the fastest; 300 X better than a uksort() */
+         * array_key_exists() is the fastest; 300 X better than a uksort() */
         if ( array_key_exists('files', $options) ) {
+            /*  */
             $files = $options['files'];
             unset($options['files']);
+
+            /* handle files as an array; useful mostly for 'clone' */
+            if ( is_array($files)) {
+                $files = join(' ', $files);
+            }
+
             /* Null key, since we want just a list without a --files argument.
              * A blank key like [] will give a cli option of --0 */
             $options[null] = $files;
@@ -461,7 +468,14 @@ abstract class VersionControl_Hg_Command_Abstract
      * @param string $name The name of the option we are getting
      */
     public function getOption($name) {
-        return $this->options[$name];
+        $value = null;
+
+        /* with 'files', sometimes it may not exist when called for */
+        if ( isset($this->options[$name]) ) {
+            $value = $this->options[$name];
+        }
+
+        return $value;
     }
 
     /**
