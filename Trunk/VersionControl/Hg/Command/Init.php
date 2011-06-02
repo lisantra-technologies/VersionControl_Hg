@@ -95,8 +95,12 @@ class VersionControl_Hg_Command_Init
      */
     public function __construct($params = null, VersionControl_Hg $hg)
     {
+        $this->hg = $hg;
+
         /* check if a repository has been designated already or not */
-        if ( empty($this->hg->repository->getPath()) ) {
+        $path = $this->hg->repository->getPath();
+
+        if ( empty($path) ) {
             /* are the argument(s) correctly formed? */
             if ( (array_key_exists(0, $params)) && (! empty($params[0])) ) {
                 /* if its an array, check for the 'repository' key */
