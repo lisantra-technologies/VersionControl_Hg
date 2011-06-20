@@ -11,7 +11,7 @@
    <funcprototype>
     <funcdef>
      <replaceable>
-      <link linkend="package.versioncontrol.hg.interfaces.versioncontrol-hg-command-interface-summary">
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-interface-summary">
        <classname>VersionControl_Hg_Command_Interface</classname>
       </link>
      </replaceable>
@@ -44,7 +44,7 @@
       <parameter>$method</parameter>
      </term>
      <listitem>
-      <para>is the command to instantiate</para>
+      <para>The command to instantiate</para>
      </listitem>
     </varlistentry>
    </variablelist>
@@ -55,7 +55,7 @@
       <parameter>$arguments</parameter>
      </term>
      <listitem>
-      <para>for the command</para>
+      <para>Parameters for the command</para>
      </listitem>
     </varlistentry>
    </variablelist>

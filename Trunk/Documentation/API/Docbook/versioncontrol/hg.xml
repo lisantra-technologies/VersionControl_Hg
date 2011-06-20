@@ -19,18 +19,7 @@
  $hg = new VersionControl_Hg('/path/to/repository');]]>
     </programlisting>
    </para>
-   <para>Setting the repository also automatically finds and sets the local  path of the Mercurial binary it will use.</para>
-   <para>
-    Of course, you may explicitly set the executable you wish to use:
-    <programlisting role="php">
-<![CDATA[$hg->setExecutable('/path/to/hg');]]>
-    </programlisting>
-    or
-    <programlisting role="php">
-<![CDATA[$hg->executable = '/path/to/hg';]]>
-    </programlisting>
-   </para>
-   <para>A failed explicit setting will not clear the automatically set executable.</para>
+   <para>Setting the repository also automatically finds and sets the local  path of the Mercurial binary it will use. If multiple installations of  Mercurial are found, this package will employ only the first found on the  system path.</para>
    <para>
     You may also provide a location of a repository after instantiation:
     <programlisting role="php">
@@ -193,43 +182,99 @@
    </para>
   </refsect1>
  </refentry>
- <refentry id="package.versioncontrol.hg.versioncontrol-hg-executable-summary">
+ <refentry id="package.versioncontrol.hg.bundle.versioncontrol-hg-container-bundle-exception-summary">
   <refnamediv>
    <refname>
     Class Summary
-    <classname>VersionControl_Hg_Executable</classname>
+    <classname>VersionControl_Hg_Container_Bundle_Exception</classname>
    </refname>
-   <refpurpose>Provides access to the Hg executable</refpurpose>
+   <refpurpose>Exception for Mercurial repositories</refpurpose>
   </refnamediv>
   <refsect1>
-   <title>Provides access to the Hg executable</title>
-   <para>This is the de-facto parent container of all operations</para>
+   <title>Exception for Mercurial repositories</title>
    <para>PHP version 5</para>
   </refsect1>
   <refsect1>
    <title>
     Class Trees for
-    <classname>VersionControl_Hg_Executable</classname>
+    <classname>VersionControl_Hg_Container_Bundle_Exception</classname>
    </title>
    <para>
     <itemizedlist>
      <listitem>
-      <para>VersionControl_Hg_Executable</para>
+      <para>
+       Exception
+       <itemizedlist>
+        <listitem>
+         <para>VersionControl_Hg_Container_Bundle_Exception</para>
+        </listitem>
+       </itemizedlist>
+      </para>
      </listitem>
     </itemizedlist>
    </para>
+   <para>
+    <classname>VersionControl_Hg_Container_Bundle_Exception</classname>
+    Inherited Methods
+   </para>
+   <para>
+    <table>
+     <title>Inherited from Exception (Internal Class)</title>
+     <tgroup cols="2">
+      <thead>
+       <row>
+        <entry>Method Name</entry>
+        <entry>Summary</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>Constructor constructor __construct ( [$message = ], [$code = ], [$previous = ] )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getCode (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getFile (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getLine (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getMessage (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getPrevious (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getTrace (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getTraceAsString (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>__clone (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>__toString (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
   </refsect1>
  </refentry>
- &package.versioncontrol.hg.versioncontrol-hg-executable.--construct;
-&package.versioncontrol.hg.versioncontrol-hg-executable.getexecutable;
-&package.versioncontrol.hg.versioncontrol-hg-executable.getinstance;
-&package.versioncontrol.hg.versioncontrol-hg-executable.getpath;
-&package.versioncontrol.hg.versioncontrol-hg-executable.getversion;
-&package.versioncontrol.hg.versioncontrol-hg-executable.setexecutable;
-&package.versioncontrol.hg.versioncontrol-hg-executable.setpath;
-&package.versioncontrol.hg.versioncontrol-hg-executable.setversion;
-&package.versioncontrol.hg.versioncontrol-hg-executable.--clone;
-&package.versioncontrol.hg.versioncontrol-hg-executable.--tostring;
+ &package.versioncontrol.hg.bundle.versioncontrol-hg-container-bundle-exception.--construct;
  <refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
   <refnamediv>
    <refname>
@@ -2581,6 +2626,99 @@
  </refentry>
  &package.versioncontrol.hg.command.versioncontrol-hg-command-diff.--construct;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-diff.execute;
+ <refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-exception-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Command_Exception</classname>
+   </refname>
+   <refpurpose>Exception for Hg commands</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>Exception for Hg commands</title>
+   <para>PHP version 5</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Command_Exception</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       Exception
+       <itemizedlist>
+        <listitem>
+         <para>VersionControl_Hg_Command_Exception</para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+   <para>
+    <classname>VersionControl_Hg_Command_Exception</classname>
+    Inherited Methods
+   </para>
+   <para>
+    <table>
+     <title>Inherited from Exception (Internal Class)</title>
+     <tgroup cols="2">
+      <thead>
+       <row>
+        <entry>Method Name</entry>
+        <entry>Summary</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>Constructor constructor __construct ( [$message = ], [$code = ], [$previous = ] )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getCode (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getFile (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getLine (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getMessage (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getPrevious (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getTrace (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>getTraceAsString (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>__clone (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+       <row>
+        <entry>__toString (  )</entry>
+        <entry>&notdocumented;</entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.versioncontrol.hg.command.versioncontrol-hg-command-exception.--construct;
  <refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-export-summary">
   <refnamediv>
    <refname>
@@ -3437,6 +3575,33 @@
 &package.versioncontrol.hg.command.versioncontrol-hg-command-init.directory-exists;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-init.directory-is-empty;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-init.execute;
+ <refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-interface-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>VersionControl_Hg_Command_Interface</classname>
+   </refname>
+   <refpurpose>Interface for Hg commands</refpurpose>
+  </refnamediv>
+  <refsect1>
+   <title>Interface for Hg commands</title>
+   <para>PHP version 5</para>
+  </refsect1>
+  <refsect1>
+   <title>
+    Class Trees for
+    <classname>VersionControl_Hg_Command_Interface</classname>
+   </title>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>VersionControl_Hg_Command_Interface</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsect1>
+ </refentry>
+ &package.versioncontrol.hg.command.versioncontrol-hg-command-interface.execute;
  <refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-log-summary">
   <refnamediv>
    <refname>
@@ -5795,193 +5960,44 @@
 &package.versioncontrol.hg.container.versioncontrol-hg-container-workingcopy.create;
 &package.versioncontrol.hg.container.versioncontrol-hg-container-workingcopy.delete;
 &package.versioncontrol.hg.container.versioncontrol-hg-container-workingcopy.setpath;
- <refentry id="package.versioncontrol.hg.exceptions.versioncontrol-hg-command-exception-summary">
+ <refentry id="package.versioncontrol.hg.executable.versioncontrol-hg-executable-summary">
   <refnamediv>
    <refname>
     Class Summary
-    <classname>VersionControl_Hg_Command_Exception</classname>
+    <classname>VersionControl_Hg_Executable</classname>
    </refname>
-   <refpurpose>Exception for Hg commands</refpurpose>
+   <refpurpose>Provides access to the Hg executable</refpurpose>
   </refnamediv>
   <refsect1>
-   <title>Exception for Hg commands</title>
+   <title>Provides access to the Hg executable</title>
+   <para>This is the de-facto parent container of all operations</para>
    <para>PHP version 5</para>
   </refsect1>
   <refsect1>
    <title>
     Class Trees for
-    <classname>VersionControl_Hg_Command_Exception</classname>
+    <classname>VersionControl_Hg_Executable</classname>
    </title>
    <para>
     <itemizedlist>
      <listitem>
-      <para>
-       Exception
-       <itemizedlist>
-        <listitem>
-         <para>VersionControl_Hg_Command_Exception</para>
-        </listitem>
-       </itemizedlist>
-      </para>
+      <para>VersionControl_Hg_Executable</para>
      </listitem>
     </itemizedlist>
    </para>
-   <para>
-    <classname>VersionControl_Hg_Command_Exception</classname>
-    Inherited Methods
-   </para>
-   <para>
-    <table>
-     <title>Inherited from Exception (Internal Class)</title>
-     <tgroup cols="2">
-      <thead>
-       <row>
-        <entry>Method Name</entry>
-        <entry>Summary</entry>
-       </row>
-      </thead>
-      <tbody>
-       <row>
-        <entry>Constructor constructor __construct ( [$message = ], [$code = ], [$previous = ] )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getCode (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getFile (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getLine (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getMessage (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getPrevious (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getTrace (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getTraceAsString (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>__clone (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>__toString (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-      </tbody>
-     </tgroup>
-    </table>
-   </para>
   </refsect1>
  </refentry>
- &package.versioncontrol.hg.exceptions.versioncontrol-hg-command-exception.--construct;
- <refentry id="package.versioncontrol.hg.exceptions.versioncontrol-hg-container-bundle-exception-summary">
-  <refnamediv>
-   <refname>
-    Class Summary
-    <classname>VersionControl_Hg_Container_Bundle_Exception</classname>
-   </refname>
-   <refpurpose>Exception for Mercurial repositories</refpurpose>
-  </refnamediv>
-  <refsect1>
-   <title>Exception for Mercurial repositories</title>
-   <para>PHP version 5</para>
-  </refsect1>
-  <refsect1>
-   <title>
-    Class Trees for
-    <classname>VersionControl_Hg_Container_Bundle_Exception</classname>
-   </title>
-   <para>
-    <itemizedlist>
-     <listitem>
-      <para>
-       Exception
-       <itemizedlist>
-        <listitem>
-         <para>VersionControl_Hg_Container_Bundle_Exception</para>
-        </listitem>
-       </itemizedlist>
-      </para>
-     </listitem>
-    </itemizedlist>
-   </para>
-   <para>
-    <classname>VersionControl_Hg_Container_Bundle_Exception</classname>
-    Inherited Methods
-   </para>
-   <para>
-    <table>
-     <title>Inherited from Exception (Internal Class)</title>
-     <tgroup cols="2">
-      <thead>
-       <row>
-        <entry>Method Name</entry>
-        <entry>Summary</entry>
-       </row>
-      </thead>
-      <tbody>
-       <row>
-        <entry>Constructor constructor __construct ( [$message = ], [$code = ], [$previous = ] )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getCode (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getFile (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getLine (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getMessage (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getPrevious (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getTrace (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>getTraceAsString (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>__clone (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-       <row>
-        <entry>__toString (  )</entry>
-        <entry>&notdocumented;</entry>
-       </row>
-      </tbody>
-     </tgroup>
-    </table>
-   </para>
-  </refsect1>
- </refentry>
- &package.versioncontrol.hg.exceptions.versioncontrol-hg-container-bundle-exception.--construct;
- <refentry id="package.versioncontrol.hg.exceptions.versioncontrol-hg-executable-exception-summary">
+ &package.versioncontrol.hg.executable.versioncontrol-hg-executable.--construct;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.getexecutable;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.getinstance;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.getpath;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.getversion;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.setexecutable;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.setversion;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.--clone;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.--tostring;
+ <refentry id="package.versioncontrol.hg.executable.versioncontrol-hg-executable-exception-summary">
   <refnamediv>
    <refname>
     Class Summary
@@ -6073,34 +6089,7 @@
    </para>
   </refsect1>
  </refentry>
- &package.versioncontrol.hg.exceptions.versioncontrol-hg-executable-exception.--construct;
- <refentry id="package.versioncontrol.hg.interfaces.versioncontrol-hg-command-interface-summary">
-  <refnamediv>
-   <refname>
-    Class Summary
-    <classname>VersionControl_Hg_Command_Interface</classname>
-   </refname>
-   <refpurpose>Interface for Hg commands</refpurpose>
-  </refnamediv>
-  <refsect1>
-   <title>Interface for Hg commands</title>
-   <para>PHP version 5</para>
-  </refsect1>
-  <refsect1>
-   <title>
-    Class Trees for
-    <classname>VersionControl_Hg_Command_Interface</classname>
-   </title>
-   <para>
-    <itemizedlist>
-     <listitem>
-      <para>VersionControl_Hg_Command_Interface</para>
-     </listitem>
-    </itemizedlist>
-   </para>
-  </refsect1>
- </refentry>
- &package.versioncontrol.hg.interfaces.versioncontrol-hg-command-interface.execute;
+ &package.versioncontrol.hg.executable.versioncontrol-hg-executable-exception.--construct;
  <refentry id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter-summary">
   <refnamediv>
    <refname>

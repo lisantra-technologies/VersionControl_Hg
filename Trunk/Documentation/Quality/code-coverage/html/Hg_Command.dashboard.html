@@ -27,7 +27,7 @@
             <h2>Class Coverage Distribution</h2>
             <canvas id="classCoverageDistribution" width="475" height="200"></canvas>
             <script>
-            var ccd = new RGraph.Bar('classCoverageDistribution', [7,0,0,0,0,0,0,0,0,0,0,0]);
+            var ccd = new RGraph.Bar('classCoverageDistribution', [7,0,0,1,18,0,0,0,0,0,0,0]);
             ccd.Set('chart.background.barcolor1', 'white');
             ccd.Set('chart.background.barcolor2', 'white');
             ccd.Set('chart.colors', ['blue']);
@@ -44,7 +44,7 @@
             <h2>Class Complexity</h2>
             <canvas id="classComplexity" width="475" height="200"></canvas>
             <script>
-            var cc = new RGraph.Scatter('classComplexity', [[0,6,"blue","VersionControl_Hg_Command_Abstract"],[0,10,"blue","VersionControl_Hg_Command_Archive"],[0,1,"blue","VersionControl_Hg_Command_Exception"],[0,13,"blue","VersionControl_Hg_Command_Log"],[0,17,"blue","VersionControl_Hg_Command_Output_Formatter"],[0,16,"blue","VersionControl_Hg_Command_Status"],[0,10,"blue","VersionControl_Hg_Command_Version"]]);
+            var cc = new RGraph.Scatter('classComplexity', [[22.222222222222,6,"blue","VersionControl_Hg_Command_Abstract"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Add"],[0,10,"blue","VersionControl_Hg_Command_Archive"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Backout"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Branch"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Bundle"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Cat"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Clone"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Commit"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Copy"],[0,2,"blue","VersionControl_Hg_Command_Diff"],[0,1,"blue","VersionControl_Hg_Command_Exception"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Export"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Forget"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Import"],[36.842105263158,6,"blue","VersionControl_Hg_Command_Init"],[0,13,"blue","VersionControl_Hg_Command_Log"],[0,17,"blue","VersionControl_Hg_Command_Output_Formatter"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Patch"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Pull"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Push"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Remove"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Revert"],[0,16,"blue","VersionControl_Hg_Command_Status"],[33.333333333333,2,"blue","VersionControl_Hg_Command_Tag"],[0,10,"blue","VersionControl_Hg_Command_Version"]]);
             cc.Set('chart.xmax', 100);
             cc.Set('chart.background.barcolor1', 'white');
             cc.Set('chart.background.barcolor2', 'white');
@@ -62,10 +62,11 @@
             <ul>
               <li><a href="Hg_Command_Output_Formatter.php.html#29">VersionControl_Hg_Command_Output_Formatter</a> (306)</li>
               <li><a href="Hg_Command_Status.php.html#53">VersionControl_Hg_Command_Status</a> (272)</li>
-              <li><a href="Hg_Command_Log.php.html#53">VersionControl_Hg_Command_Log</a> (182)</li>
+              <li><a href="Hg_Command_Log.php.html#89">VersionControl_Hg_Command_Log</a> (182)</li>
               <li><a href="Hg_Command_Version.php.html#44">VersionControl_Hg_Command_Version</a> (110)</li>
-              <li><a href="Hg_Command_Archive.php.html#51">VersionControl_Hg_Command_Archive</a> (110)</li>
-              <li><a href="Hg_Command_Abstract.php.html#43">VersionControl_Hg_Command_Abstract</a> (42)</li>
+              <li><a href="Hg_Command_Archive.php.html#50">VersionControl_Hg_Command_Archive</a> (110)</li>
+              <li><a href="Hg_Command_Abstract.php.html#43">VersionControl_Hg_Command_Abstract</a> (22)</li>
+              <li><a href="Hg_Command_Init.php.html#50">VersionControl_Hg_Command_Init</a> (15)</li>
 
             </ul>
           </td>
@@ -73,16 +74,16 @@
           <td valign="top">
             <h2>Least Tested Methods</h2>
             <ul>
-              <li><a href="Hg_Command_Status.php.html#222">VersionControl_Hg_Command_Status::added</a> (0%)</li>
-              <li><a href="Hg_Command_Status.php.html#242">VersionControl_Hg_Command_Status::removed</a> (0%)</li>
-              <li><a href="Hg_Command_Status.php.html#261">VersionControl_Hg_Command_Status::deleted</a> (0%)</li>
-              <li><a href="Hg_Command_Status.php.html#203">VersionControl_Hg_Command_Status::modified</a> (0%)</li>
-              <li><a href="Hg_Command_Status.php.html#184">VersionControl_Hg_Command_Status::all</a> (0%)</li>
+              <li><a href="Hg_Command_Patch.php.html#108">VersionControl_Hg_Command_Patch::execute</a> (0%)</li>
               <li><a href="Hg_Command_Output_Formatter.php.html#161">VersionControl_Hg_Command_Output_Formatter::isAssoc</a> (0%)</li>
-              <li><a href="Hg_Command_Status.php.html#120">VersionControl_Hg_Command_Status::__construct</a> (0%)</li>
-              <li><a href="Hg_Command_Status.php.html#134">VersionControl_Hg_Command_Status::execute</a> (0%)</li>
-              <li><a href="Hg_Command_Status.php.html#281">VersionControl_Hg_Command_Status::clean</a> (0%)</li>
-              <li><a href="Hg_Command_Status.php.html#300">VersionControl_Hg_Command_Status::unknown</a> (0%)</li>
+              <li><a href="Hg_Command_Output_Formatter.php.html#116">VersionControl_Hg_Command_Output_Formatter::toXML</a> (0%)</li>
+              <li><a href="Hg_Command_Pull.php.html#108">VersionControl_Hg_Command_Pull::execute</a> (0%)</li>
+              <li><a href="Hg_Command_Push.php.html#108">VersionControl_Hg_Command_Push::execute</a> (0%)</li>
+              <li><a href="Hg_Command_Revert.php.html#108">VersionControl_Hg_Command_Revert::execute</a> (0%)</li>
+              <li><a href="Hg_Command_Remove.php.html#108">VersionControl_Hg_Command_Remove::execute</a> (0%)</li>
+              <li><a href="Hg_Command_Output_Formatter.php.html#101">VersionControl_Hg_Command_Output_Formatter::toSerialize</a> (0%)</li>
+              <li><a href="Hg_Command_Output_Formatter.php.html#86">VersionControl_Hg_Command_Output_Formatter::toRaw</a> (0%)</li>
+              <li><a href="Hg_Command_Log.php.html#347">VersionControl_Hg_Command_Log::after</a> (0%)</li>
 
             </ul>
           </td>
@@ -94,7 +95,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.4</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.6</a> and PHPUnit 3.5.13 at Thu May 12 14:25:15 MST 2011.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.4</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.6</a> and PHPUnit 3.5.13 at Thu May 19 12:52:12 MST 2011.</td></tr>
     </table>
 
     <br/>

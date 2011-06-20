@@ -24,9 +24,7 @@
 <p class="short-description">Base class to begin the fluent API</p>
 <p class="description"><p>This package interfaces with the Mercurial command-line binary, which  must be installed on the same system as this package. The author of Mercurial  is on record preferring that all non-python programs interface with the  CLI binary.</p><p>There are no C-bindings, so a PECL extension is unlikely, as is a pure PHP  implementation due to the tremendous workload involved in keeping up with  changes Mercurial.</p><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-inc">require_once&nbsp;</span><span class="src-str">'VersionControl/Hg.php'</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/repository'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol></div></p><p>Setting the repository also automatically finds and sets the local  path of the Mercurial binary it will use.</p><p>Of course, you may explicitly set the executable you wish to use:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">setExecutable</span><span class="src-sym">(</span><span class="src-str">'/path/to/hg'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">executable&nbsp;</span>=&nbsp;<span class="src-str">'/path/to/hg'</span><span class="src-sym">;</span></div></li>
-</ol></div></p><p>A failed explicit setting will not clear the automatically set executable.</p><p>You may also provide a location of a repository after instantiation:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-inc">require_once&nbsp;</span><span class="src-str">'VersionControl/Hg.php'</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Setting the repository also automatically finds and sets the local  path of the Mercurial binary it will use. If multiple installations of  Mercurial are found, this package will employ only the first found on the  system path.</p><p>You may also provide a location of a repository after instantiation:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-inc">require_once&nbsp;</span><span class="src-str">'VersionControl/Hg.php'</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">setRepository</span><span class="src-sym">(</span><span class="src-str">'/path/to/repository'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 </ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">repository&nbsp;</span>=&nbsp;<span class="src-str">'/path/to/repository'</span><span class="src-sym">;</span></div></li>
@@ -38,7 +36,7 @@
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Hg.php.html">/Hg.php</a> (line <span class="field">84</span>)
+			Located in <a class="field" href="_Hg.php.html">/Hg.php</a> (line <span class="field">79</span>)
 		</p>
 		
 				
@@ -105,7 +103,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">106</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">101</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -138,7 +136,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__call</span> (line <span class="line-number">131</span>)
+		<span class="method-title">__call</span> (line <span class="line-number">126</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -173,7 +171,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__get</span> (line <span class="line-number">192</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">187</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -205,7 +203,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__set</span> (line <span class="line-number">228</span>)
+		<span class="method-title">__set</span> (line <span class="line-number">223</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -237,7 +235,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">258</span>)
+		<span class="method-title">__toString</span> (line <span class="line-number">253</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -263,7 +261,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 18 May 2011 23:08:08 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 18 May 2011 23:44:18 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

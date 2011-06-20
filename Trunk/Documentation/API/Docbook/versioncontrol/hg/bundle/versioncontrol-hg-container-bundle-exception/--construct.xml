@@ -1,0 +1,58 @@
+<refentry id="package.versioncontrol.hg.bundle.versioncontrol-hg-container-bundle-exception.--construct">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>VersionControl_Hg_Container_Bundle_Exception::__construct</function>
+  </refname>
+  <refpurpose>
+   Override constructor so we can make exception messages more structured
+   like Zend Framework&apos;s.
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Container/Bundle/Exception.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void      constructor
+     <function>VersionControl_Hg_Container_Bundle_Exception::__construct</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$message</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.bundle.versioncontrol-hg-container-bundle-exception.--construct.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.bundle.versioncontrol-hg-container-bundle-exception.--construct.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$message</parameter>
+     </term>
+     <listitem>
+      <para>is equivalent to the error constants</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.bundle.versioncontrol-hg-container-bundle-exception.--construct.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.bundle.versioncontrol-hg-container-bundle-exception.--construct.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

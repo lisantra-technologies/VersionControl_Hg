@@ -1,0 +1,35 @@
+<refentry id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--clone">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Executable::__clone</function>
+  </refname>
+  <refpurpose>Prevent users to clone the instance</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Executable.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Executable::__clone</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--clone.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--clone.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--clone.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

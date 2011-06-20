@@ -1,0 +1,63 @@
+<refentry id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Executable::setPath</function>
+  </refname>
+  <refpurpose>Sets the path on which the Hg executable exists</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Executable.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Executable::setPath</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$path = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath.desc">
+  &title.desc;
+  <para>For informational purposes only; not used to search a path.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>is the path to the hg executable</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis>
+   self::$path
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

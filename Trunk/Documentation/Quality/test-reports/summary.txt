@@ -1,19 +1,100 @@
 PHPUnit_Framework_Warning
  [ ] Warning
 
+VersionControl_Hg_Command_Init
+ [ ] Execute
+ [ ] testDirectory exists
+ [ ] testDirectory is empty
+
+VersionControl_Hg_Command_Pull
+ [ ] Execute
+
+VersionControl_Hg_Command_Add
+ [ ] Execute
+
+VersionControl_Hg_Command_Backout
+ [ ] Execute
+
+VersionControl_Hg_Command_Branch
+ [ ] Execute
+
+VersionControl_Hg_Command_Bundle
+ [ ] Execute
+
+VersionControl_Hg_Command_Cat
+ [ ] Execute
+
+VersionControl_Hg_Command_Clone
+ [ ] Execute
+
+VersionControl_Hg_Command_Commit
+ [ ] Execute
+
+VersionControl_Hg_Command_Copy
+ [ ] Execute
+
+VersionControl_Hg_Command_Export
+ [ ] Execute
+
+VersionControl_Hg_Command_Forget
+ [ ] Execute
+
+VersionControl_Hg_Command_Import
+ [ ] Execute
+
+VersionControl_Hg_Command_Patch
+ [ ] Execute
+
+VersionControl_Hg_Command_Push
+ [ ] Execute
+
+VersionControl_Hg_Command_Remove
+ [ ] Execute
+
+VersionControl_Hg_Command_Revert
+ [ ] Execute
+
+VersionControl_Hg_Command_Tag
+ [ ] Execute
+
 VersionControl_Hg_Container_Repository
- [ ] Get instance
+ [x] Get instance
  [ ] Accessing constructor explicitly should fail
- [ ] Null path is o k
- [ ] Constructor with null signature
- [ ] Constructor with valid repository
- [ ] Constructor with an invalid repository
- [ ] Constructor with non existant path
+ [x] Set path with argument as an array
+ [x] Constructor with path as an array
+ [x] Null path is o k
+ [x] Constructor with null signature
+ [x] Constructor with valid repository
+ [x] Constructor with an invalid repository
+ [x] Constructor with non existant path
  [ ] Set path must always have an argument
- [ ] Set path
+ [x] Set path
+ [ ] Create
+ [ ] Deleted repository is unlinked
+ [ ] Repository object is reset after deletion
+ [x] Clone should fail
+ [ ] test  toString
+
+PHPUnit_Framework_Warning
+ [ ] Warning
+
+VersionControl_Hg_Container_Repository_Revision
+ [ ] test  toString
+
+PHPUnit_Framework_Warning
+ [ ] Warning
+
+VersionControl_Hg_Container_Bundle
  [ ] Create
  [ ] Delete
- [ ] test  toString
+ [ ] Add revision
+ [ ] Remove revision
+ [ ] Set path
+
+VersionControl_Hg_Container_WorkingCopy
+ [ ] Create
+ [ ] Delete
+ [ ] Set path
 
 VersionControl_Hg_Executable
  [ ] Set path

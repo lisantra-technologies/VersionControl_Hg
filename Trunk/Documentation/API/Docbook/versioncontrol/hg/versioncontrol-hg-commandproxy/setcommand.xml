@@ -14,7 +14,7 @@
      <function>VersionControl_Hg_CommandProxy::setCommand</function>
     </funcdef>
     <paramdef>
-     <link linkend="package.versioncontrol.hg.interfaces.versioncontrol-hg-command-interface-summary">VersionControl_Hg_Command_Interface</link>
+     <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-interface-summary">VersionControl_Hg_Command_Interface</link>
      <parameter>$command</parameter>
     </paramdef>
    </funcprototype>
@@ -31,7 +31,7 @@
     <varlistentry>
      <term>
       <type>
-       <link linkend="package.versioncontrol.hg.interfaces.versioncontrol-hg-command-interface-summary">VersionControl_Hg_Command_Interface</link>
+       <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-interface-summary">VersionControl_Hg_Command_Interface</link>
       </type>
       <parameter>$command</parameter>
      </term>
