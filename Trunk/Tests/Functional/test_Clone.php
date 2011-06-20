@@ -10,20 +10,49 @@ $new_repository = 'H:\Development\_Webroot\Trunk\Tests\Fixtures\Clone_of_Reposit
 $hg = new VersionControl_Hg();
 
 /* Rely on Init.php to do work? */
+
+/*r_rmdir($new_repository);
 $cloned_repository_object_1 =
     $hg->clone($old_repository)->to($new_repository)->run();
 
 var_dump($cloned_repository_object_1);
+*/
+
+//r_rmdir($new_repository);
+$cloned_repository_object_2 =
+    $hg->clone($old_repository)->revision('e5e678260dfe')->to($new_repository)->run();
+
+var_dump($cloned_repository_object_2);
+//@TODO check to ensure its at rev 4
+die;
+
+
+
+
+
+r_rmdir($new_repository);
+$cloned_repository_object_3 =
+    $hg->clone($old_repository)->revision('e5e678260dfe')->to($new_repository)->run();
+
+var_dump($cloned_repository_object_3);
+
+
+function r_rmdir($dir) {
+   if (is_dir($dir)) {
+     $objects = scandir($dir);
+     foreach ($objects as $object) {
+       if ($object != "." && $object != "..") {
+         if (filetype($dir."/".$object) == "dir") r_rmdir($dir."/".$object); else unlink($dir."/".$object);
+       }
+     }
+     reset($objects);
+     rmdir($dir);
+   }
+ }
+
 die('end of test');
 
 
-
-
-$cloned_repository_object_2 =
-    $hg->clone($old_repository)->revision(3)->to($new_repository)->run();
-
-$cloned_repository_object_3 =
-    $hg->clone($old_repository)->revision('cdf5643ade')->to($new_repository)->run();
 
 //default is to create a working copy as well; only('repository') is the same
 //as hg update null and kills the working copy.

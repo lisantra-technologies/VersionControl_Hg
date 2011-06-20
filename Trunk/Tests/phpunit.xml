@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    colors="false"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Unit Tests">
+            <file>Unit/ExecutableTest.php</file>
+            <file>Unit/Container/RepositoryTest.php</file>
+            <file>Unit/Command/InitTest.php</file>
+            <!--<file>Unit/HgTest.php</file>-->
+            <!--<file>Unit/Command/VersionTest.php</file>-->
+        </testsuite>
+        <!--<testsuite name="Functional Tests">
+            <file>Functional/test_Status.php</file>
+            <directory>Functional</directory>
+        </testsuite>-->
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../VersionControl</directory>
+            <!--<exclude></exclude>-->
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="../Documentation/Quality/code-coverage/html/" yui="false" highlight="true" />
+        <log type="testdox-text" target="../Documentation/Quality/test-reports/summary.txt" />
+        <log type="testdox-html" target="../Documentation/Quality/test-reports/testdox.html" />
+        <log type="coverage-clover" target="../Documentation/Quality/code-coverage/coverage.xml "/>
+        <log type="junit" target="../Documentation/Quality/test-reports/junit-log.xml" />
+    </logging>
+</phpunit>

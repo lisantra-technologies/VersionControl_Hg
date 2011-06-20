@@ -25,37 +25,15 @@
          */
         protected function setUp() {}
 
-        public function testConstructorWithNullSignature()
-        {
-            $this->setExpectedException('VersionControl_Hg_Exception');
-            $hg = new VersionControl_Hg();
-        }
 
-        public function testConstructorWithValidRepository()
-        {
-            $hg = new VersionControl_Hg($this->test_repository);
-            $expected = $this->test_repository;
-            $actual = $hg->getRepository()->getPath();
-            $this->assertEquals($expected, $actual);
-        }
-
-        public function testConstructorWithAnInvalidRepository()
-        {
-
-            $this->setExpectedException('VersionControl_Hg_Container_Repository_Exception');
-            $hg = new VersionControl_Hg($this->invalid_repo);
-        }
-
-        public function testConstructorWithNonExistantPath()
-        {
-            $this->setExpectedException('VersionControl_Hg_Container_Repository_Exception');
-            $hg = new VersionControl_Hg($this->nonexistant_path);
-        }
 
         /**
          * Tears down the fixture, for example, closes a network connection.
          * This method is called after a test is executed.
          */
-        public function tearDown() {}
+        public function tearDown() {
+            $this->_object = null;
+            unset($this->_object);
+        }
 
     }

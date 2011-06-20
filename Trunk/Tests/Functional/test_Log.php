@@ -28,43 +28,9 @@ var_dump($hg->log()->files(array('index.php'))->run());
 
 echo "EXCLUDING PHP FILES\r\n";
 var_dump($hg->log()->excluding('**.php')->run());
+/* Displays nothing; excluding takes precedence. Remove excluding() to get only index.php */
+var_dump($hg->log()->files(array('index.php'))->excluding('**.php')->run());
 
-die;
-
-/* without 'all', result is empty EVEN though there are items which should display  */
-var_dump($hg->status()->files(array('index.php'))->run());
-
-/* In this case, we left out 'all' which correctly excludes index.php */
-var_dump($hg->status()->excluding('**.php')->run());
-
-/* this displays nothing! Seems to be by design */
-var_dump($hg->status()->including('**.php')->run());
-
-/* Displays index.php */
-var_dump($hg->status()->all()->including('**.php')->run());
-
-/* Displays index.php */
-var_dump($hg->status('all')->files(array('index.php'))->excluding('**.php')->run());
-
-/* Returns nothing! */
-var_dump($hg->status()->files(array('index.php'))->excluding('**.php')->run());
-
-/*
- * In a case like the following:
- * <code>$hg->status('all')->files(array('index.php'))->excluding('**.php')->run();</code>
- * The apparently conflicting options do not cause an exception. The behavior is that
- * apparently, files, takes complete precedence over excluding. However, all such
- * combinations have not been fully tested yet, so you may not get the results
- * you expect by using options which conceptually conflict with each other.
- */
-
-
-/*
- * Future concepts, but 'asXml' violates my no camel case API design principle
-var_dump($hg->status('all')->asXml()->run('verbose'));
-var_dump($hg->status('all')->toXml()->run('verbose'));
-var_dump($hg->status('all')->xml()->run('verbose'));
-
-'at' could be confused with a time/date
-var_dump($hg->status('all')->at('22')->run('verbose'));
-*/
+echo "INCLUDING PHP FILES\r\n";
+//@TODO Add another PHP file to the repo to test for sure
+var_dump($hg->log()->including('**.php')->run());
