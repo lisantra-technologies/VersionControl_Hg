@@ -227,29 +227,56 @@ class VersionControl_Hg_Container_Repository
      */
     public function create($path)
     {
-        $command = new VersionControl_Hg_Command_Init($path);
+        /* Init assumes it will have an array as an argument since the args
+         * are usually passed into it by call_user_func_array() */
+        $command = new VersionControl_Hg_Command_Init(array($path));
         $repository = $command->run('verbose');
-
+//@TODO It needs $hg to be passed in...
         /* return it so we can chain it */
         return $repository;
     }
 
     /**
-     * Deletes the repository, effectively removing the working copy from SCM.
+     * Deletes the repository, but not the working copy
+     *
+     * On Windows, this will fail if any process has a lock on the repository's
+     * directory; for example, if the repository is open in Windows Explorer.
      *
      * @return boolean
      */
     public function delete()
     {
-        if ( unlink($this->path) ) {
+        //validate first with is_dir(); ? It may have been deleted by another
+        //process, you know.
+
+        //is_writable($this->path)
+        // or is_writable($this->path . DIRECTORY_SEPARATOR . self::ROOT_NAME)
+
+        //chdir to outside the repo to avoid unlink error if the user is
+        //running this inside the dir or something...but when/how would this
+        //actually occur?
+        /*	$old = getcwd(); // Save the current directory
+            chdir($path_to_file);
+            unlink($filename);
+            chdir($old); // Restore the old working directory
+        */
+
+        //This may be necessary sometimes:
+        //chown($TempDirectory."/".$FileName,666);
+        //Insert an Invalid UserId to set to Nobody Owern; 666 is my standard for "Nobody"
+
+        /* Destroy the physical filesystem */
+        if ( unlink($this->path . DIRECTORY_SEPARATOR . self::ROOT_NAME) ) {
+            /* Remove the path from the object */
             self::reset();
 
             return true;
         } else {
-            //or, return false;
-            throw new VersionControl_Hg_Container_ExceptionException(
+            /* Its hard to see how this 'else' code would ever execute */
+            throw new VersionControl_Hg_Container_Repository_Exception(
                 'The repository could not be deleted.'
             );
+            /*@TODO or, return false */
         }
     }
 
