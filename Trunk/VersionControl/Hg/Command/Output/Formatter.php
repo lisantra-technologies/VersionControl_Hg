@@ -47,16 +47,15 @@ class VersionControl_Hg_Command_Output_Formatter
     /**
      * Class constructor.
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Convert array to PHP JSON text format
      *
      * @param array $output is the passed-in, parsed output from the cli
      */
-    public function toJson(array $output) {
+    public function toJson(array $output)
+    {
         //output must be in UTF-8...
         return json_encode($output);
     }
@@ -66,7 +65,8 @@ class VersionControl_Hg_Command_Output_Formatter
      *
      * @param array $output is the passed-in, parsed output from the cli
      */
-    public function toYaml(array $output) {
+    public function toYaml(array $output)
+    {
         if ( ! extension_loaded('yaml') ) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
@@ -78,11 +78,11 @@ class VersionControl_Hg_Command_Output_Formatter
     }
 
     /**
-     * Convert array to PHP serialized text format
+     * Convert array to raw text format
      *
      * @param array $output is the passed-in, parsed output from the cli
      *
-     * @TODO Hmmm, how to reconstruct from the array? or get it before parsing??
+     * @TODO Hmmm, why not get it before parsing??
      */
     public function toRaw(array $output) {
         $raw = "";
@@ -105,17 +105,21 @@ class VersionControl_Hg_Command_Output_Formatter
 
     /**
      * The main function for converting to an XML document.
-     * Pass in a multi dimensional array and this recrusively loops through and builds up an XML document.
+     * Pass in a multi dimensional array and this recrusively loops through
+     * and builds up an XML document.
+     *
+     * I borrowed this XML writing algorithm from somewhere, but now I forget.
      *
      * @param array $data
      * @param string $rootNodeName - what you want the root node to be - defaultsto data.
      * @param SimpleXMLElement $xml - should only be used recursively
+     *
      * @return string XML
      *
      * @TODO This should probably be implemented in each command which can output to XML, since the vocabulary will be different in each case.
      */
-    public static function toXML( $data, $rootNodeName = 'ResultSet', &$xml=null ) {
-
+    public static function toXML( $data, $rootNodeName = 'ResultSet', &$xml=null )
+    {
         // turn off compatibility mode as simple xml throws a wobbly if you don't.
         //if ( ini_get('zend.ze1_compatibility_mode') == 1 ) ini_set ( 'zend.ze1_compatibility_mode', 0 );
         if ( is_null( $xml ) ) $xml = simplexml_load_string( "" );
@@ -159,7 +163,8 @@ class VersionControl_Hg_Command_Output_Formatter
     }
 
     // determine if a variable is an associative array
-    public static function isAssoc( $array ) {
+    public static function isAssoc( $array )
+    {
         return (is_array($array) && 0 !== count(array_diff_key($array, array_keys(array_keys($array)))));
     }
 }
