@@ -22,9 +22,10 @@
  * @package     Hg
  * @subpackage  Output
  * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
+ * @copyright   2011 Lisantra Technologies, LLC
  * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link        http://pear.php.net/package/VersionControl_Hg
+ * @filesource
  */
 class VersionControl_Hg_Command_Output_Formatter
 {
@@ -66,7 +67,7 @@ class VersionControl_Hg_Command_Output_Formatter
      * @param array $output is the passed-in, parsed output from the cli
      */
     public function toYaml(array $output) {
-        if ( extension_loaded('yaml') ) {
+        if ( ! extension_loaded('yaml') ) {
             throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                 "The required PECL Yaml extension is not installed. "
