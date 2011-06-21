@@ -38,7 +38,7 @@ class VersionControl_Hg_CommandProxy
      * @var array
      */
     protected $allowed_commands = array(
-        'version', 'archive', 'status', 'log', 'init', 'clone', 'pull',
+        'version', 'archive', 'status', 'log', 'init', 'clone', 'pull', 'cat'
     );
 
     /**
