@@ -1,16 +1,17 @@
 <?php
 /**
- * Contains the definition of the Version command
+ * Contains the definition of the Version class
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
+ * @filesource
  */
 
 /**
@@ -29,21 +30,45 @@ require_once 'Abstract.php';
 require_once 'Exception.php';
 
 /**
- * Implements the version command
+ * Provides an output formatter
+ */
+require_once 'Output/Formatter.php';
+
+/**
+ * Print the version of the HG executable in use
+ *
+ * Usage:
+ * <code>
+ * $hg = new VersionControl_Hg();
+ * $hg->version()->run();
+ *
+ * $hg->version()->format('raw')->run();
+ * </code>
+ *
+ * You may also echo the property since this command implements _toString():
+ * <code>
+ * $hg = new VersionControl_Hg();
+ * echo $hg->version;
+ * </code>
+ * or
+ * <code>
+ * $hg = new VersionControl_Hg();
+ * echo $hg->executable->version;
+ * </code>
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Command
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2009 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Command
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Command_Version
     extends VersionControl_Hg_Command_Abstract
-    implements VersionControl_Hg_Command_Interface
+        implements VersionControl_Hg_Command_Interface
 {
     /**
      * The name of the mercurial command implemented here
@@ -53,100 +78,119 @@ class VersionControl_Hg_Command_Version
     protected $command = 'version';
 
     /**
-     * There are no required options for this command
-     *
-     * Redefine it to an empty array to prevent parent from passing on any
-     * possible unnecessary required commands.
+     * Required options for this specific command. These may not be required
+     * by Mercurial itself, but are required for the proper functioning of
+     * this package.
      *
      * @var mixed
      */
-    protected $required_options = array();
+    protected $required_options = array(
+        'noninteractive' => null,
+    );
+
+    /**
+     * Permissable options.
+     *
+     * The actual option must be the key, while 'null' is a value here to
+     * accommodate the current implementation of setting options.
+     *
+     * @var mixed
+     */
+    protected $allowed_options = array(
+        'output' => null,
+    );
 
     /**
      * Constructor
      *
-     * @param   VersionControl_Hg $hg
-     * @return  void
+     * @param mixed             $params One or more parameters to modify the command
+     * @param VersionControl_Hg $hg     The base Hg instance
+     *
+     * @return void
      */
-    public function __construct($param = null, VersionControl_Hg $hg) {
+    public function __construct($params = null, VersionControl_Hg $hg)
+    {
+        $this->hg = $hg;
 
+        /* should always be called so we have a full array of valid options */
+        $this->setOptions(array()); //$params
     }
 
     /**
-     * (non-PHPdoc)
-     * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
+     * Execute the command and return the results.
+     *
+     * @param mixed $params The options passed to the Log command
+     *
+     * @return string
      */
-    public function execute(array $options = null)
+    public function execute(array $params = null, VersionControl_Hg $hg)
     {
-        //process options array; everything should be in long format.
-        $modifiers = null;
-        //this $options[0] thingy is because __call makes the arguments into an array
-        if ( is_array($options[0])) {
-            foreach ($options[0] as $option => $argument) {
-                $modifiers .= ' --' . $option . ' ' . $argument;
-            }
-        } elseif ( is_string($options[0]) ) {
-            //we want only a scalar and not an object nor a null
-            $modifiers .= ' --' . $options[0];
+        /* take care of options passed into run() as such:
+         * $hg->cat('/file/')->run('verbose'));
+         * Although, 'verbose|quiet' probably have no effect...?
+         */
+        if ( ! empty($params) ) {
+            $this->setOptions($params);
         }
-        //$command_string = escapeshellcmd();
 
-//var_dump($this->hg, $this->hg->executable);die;
+        /* --noninteractive is required since issuing the command is
+         * unattended by nature of using this package.
+         *
+         * --repository PATH is required since the PWD on which hg is invoked
+         * will not be within the working copy of the repo. */
+        $this->addOptions(
+            array(
+                'noninteractive' => null,
+            )
+        );
 
-        $command_string = '"' . $this->hg->executable . '" ' . $this->command;
-        $command_string .= rtrim($modifiers);
+        /* Despite its being so not variable, we need to set the command string
+         * only after manually setting options and other command-specific data */
+        $this->setCommandString();
 
-        exec($command_string, $output, $command_status);
+        //var_dump($this->command_string);
 
-        //@todo remove the die()...
-        ($command_status === 0) or die("returned an error: $command_string");
+        /* no var assignment, since 2nd param holds output */
+        exec($this->command_string, $this->output, $this->status);
 
-        $ver_string = $output[0];
-
-        /* handle bad input */
-        //@todo replace with a constant and message
-        if ( preg_match('/\(.*\)/', $ver_string, $ver_match) == 0 ) {
+        if ( $this->status !== 0 ) {
             throw new VersionControl_Hg_Command_Exception(
-                'Unrecognized version data'
+                VersionControl_Hg_Command_Exception::COMMANDLINE_ERROR
             );
         }
 
-        $version['raw'] = trim(substr($ver_match[0], 8, strlen($ver_match[0])));
-        //replace the parenthesis because my regex fu is out to lunch.
-        $version['raw'] = str_replace('(' , '', $version['raw']);
-        $version['raw'] = str_replace(')' , '', $version['raw']);
+        /* parse this->output for version string parts */
+        $version = array();
+
+        /* Regex to get the version between parenthesis */
+        preg_match('!\(([^\)]+)\)!', $this->output[0], $version); //'/\((.*?)\)/',
+
+        $version['raw'] = trim(str_replace('version', '', $version[1]));
         //break up string into version components
         //does the version have a date after the version number?
         if ( strstr($version['raw'], '+') ) {
+            /* handle if the text after '+' is a changeset, not a date */
             $ver_parts = explode('+', $version['raw']);
-            //handle if the text after '+' is a changeset, not a date
+
             //@todo replace date_parse() this to remove dependency on Php 5.2.x
             if ( date_parse($ver_parts[1]) ) {
                 $version['date'] = $ver_parts[1];
+            } else {
+                $version['changeset'] = $ver_parts[1];
             }
-            else{
-               $version['changeset'] = $ver_parts[1];
-            }
-        }
-        else {
+        } else {
             $ver_parts[0] = $version['raw'];
         }
-
-        $version['complete'] = $ver_parts[0];
 
         $version_tmp = explode('.', $ver_parts[0]);
 
         $version['major'] = $version_tmp[0];
         $version['minor'] = $version_tmp[1];
+        $version['maintenance'] = $version_tmp[2];
 
-        return $version['raw'];
-    }
+        /* clean up from intermediate data */
+        unset($version[0], $version[1]);
 
-    /**
-     *
-     * @return string
-     */
-    public function __toString() {
-        return ""; //join(" ", $this->output);
+        return $version;
     }
 }

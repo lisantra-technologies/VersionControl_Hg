@@ -97,6 +97,8 @@ class VersionControl_Hg_Executable
      */
     private function __construct($hg, $path)
     {
+        $this->hg = $hg;
+
         /* Attempt to set the executable */
         $this->setExecutable($path);
 
@@ -255,26 +257,23 @@ class VersionControl_Hg_Executable
      */
     protected function setVersion()
     {
-        $this->version = $this->_base->version()->run('quiet');
-
-        //$command = new VersionControl_Hg_CommandProxy($this->_base);
-        //return
-        /*$version = call_user_func_array(
-            array($command, 'version'), array('quiet')
-        );*/
-
-        //$version2 = $command->version()->run('quiet');
-        //var_dump($command, $version, $version2);die;
-        // = $command->version()->run('quiet');
+        $this->version = $this->hg->version()->run();
     }
 
     /**
      * Get the version of Mercurial we are currently using
      *
+     * Because of circular dependcies, we have to call the command here
+     * instead of in the constructor, since $this->hg is not yet populated.
+     *
      * @return string
      */
     public function getVersion()
     {
+        $version = $this->hg->version()->run();
+
+        return $version['raw'];
+
         /*
          * I don't want programmers to have to test for null,
          * especially when this is auto-set in the constructor
@@ -286,7 +285,6 @@ class VersionControl_Hg_Executable
             );
         }
 
-        return $this->version;
     }
 
     /**
@@ -307,6 +305,20 @@ class VersionControl_Hg_Executable
     public function __clone()
     {
         trigger_error('Clone is not allowed.', E_USER_ERROR);
+    }
+
+    /**
+     * Get an unaccessible class property
+     *
+     * @param string $value The class property trying to be gotten
+     *
+     * @return string
+     */
+    public function __get($value)
+    {
+        $method = 'get' . ucfirst($value);
+
+        return $this->$method();
     }
 
 }
