@@ -115,7 +115,8 @@ class VersionControl_Hg_Command_Archive
     /**
      * Constructor
      *
-     * @param mixed $params are the data values passed to the command
+     * @param mixed             $params Data values passed to the command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return void
      */
@@ -266,10 +267,14 @@ class VersionControl_Hg_Command_Archive
     }
 
     /**
-     * (non-PHPdoc)
-     * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
+     * Execute the command and return the results.
+     *
+     * @param mixed             $params Options passed to the Log command
+     * @param VersionControl_Hg $hg     Instance of the base object
+     *
+     * @return string
      */
-    public function execute(array $params = null)
+    public function execute(array $params = null, VersionControl_Hg $hg)
     {
         /* take care of options passed in as such:
          * $hg->archive(array('revision' => 'tip', 'to' => realpath('../')));

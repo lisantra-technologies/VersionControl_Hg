@@ -231,7 +231,8 @@ class VersionControl_Hg_Container_Repository
          * are usually passed into it by call_user_func_array() */
         $command = new VersionControl_Hg_Command_Init(array($path));
         $repository = $command->run('verbose');
-//@TODO It needs $hg to be passed in...
+
+        //@TODO It needs $hg to be passed in...
         /* return it so we can chain it */
         return $repository;
     }
@@ -263,7 +264,8 @@ class VersionControl_Hg_Container_Repository
 
         //This may be necessary sometimes:
         //chown($TempDirectory."/".$FileName,666);
-        //Insert an Invalid UserId to set to Nobody Owern; 666 is my standard for "Nobody"
+        //Insert an Invalid UserId to set to Nobody Owner;
+        //666 is my standard for "Nobody"
 
         /* Destroy the physical filesystem */
         if ( unlink($this->path . DIRECTORY_SEPARATOR . self::ROOT_NAME) ) {

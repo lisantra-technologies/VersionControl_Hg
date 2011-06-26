@@ -115,7 +115,8 @@ class VersionControl_Hg_Command_Status
     /**
      * Constructor
      *
-     * @param array $params is one or more parameters to modify the command
+     * @param mixed             $params One or more parameters for the command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return void
      */
@@ -126,15 +127,18 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
+     * Execute the command and return the results.
+     *
      * Running this with no arguments (eg. $hg->status()->run(); ) will only
      * show what Hg would show: only changes and not all files. Specify
      * status('all') or add all() to the method chain to get all files.
      *
-     * @param mixed $params The options passed to the Log command
+     * @param mixed             $params Options passed to the Log command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return string
      */
-    public function execute(array $params = null)
+    public function execute(array $params = null, VersionControl_Hg $hg)
     {
         /* take care of options passed in as such:
          * $hg->status(array('revision' => 3, 'all' => null));

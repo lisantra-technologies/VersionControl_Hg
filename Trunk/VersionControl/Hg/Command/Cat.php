@@ -31,6 +31,11 @@ require_once 'Abstract.php';
 require_once 'Exception.php';
 
 /**
+ * Provides an output formatter
+ */
+require_once 'Output/Formatter.php';
+
+/**
  * Print the contents of a file from a specific revision
  *
  * Usage:
@@ -114,18 +119,19 @@ class VersionControl_Hg_Command_Cat
         'save' => null,
         'to' => null,
         'revision' => null,
+        'rev' => null,
         'output' => null,
     );
 
     /**
      * Constructor
      *
-     * @param VersionControl_Hg $hg     The base Hg instance
      * @param mixed             $params One or more parameters to modify the command
+     * @param VersionControl_Hg $hg     The base Hg instance
      *
      * @return void
      */
-    public function __construct(VersionControl_Hg $hg, $params = null)
+    public function __construct($params = null, VersionControl_Hg $hg)
     {
         $this->hg = $hg;
 
@@ -134,13 +140,14 @@ class VersionControl_Hg_Command_Cat
 
         /* We handle the actual param handling here, since we only expect
          * 1 or more file names. */
-        if ( is_array($params) ) {
-            $this->addOption('files', join(' ', $params));
-        } elseif ( is_scalar($params) ) {
-            $this->addOption('files', $params);
-        } elseif ( is_null($params) ) {
+        if ( is_array($params[0]) ) {
+            $this->addOption('files', join(' ', $params[0]));
+        } elseif ( is_scalar($params[0]) ) {
+            $this->addOption('files', $params[0]);
+        } elseif ( is_null($params[0]) ) {
             //throw an exception
-        }
+        } /* Note: $params is always an array with key [0] since we use
+           * call_user_func_array() */
     }
 
     /**
@@ -188,13 +195,7 @@ class VersionControl_Hg_Command_Cat
             );
         }
 
-        /*return $this->parseOutput(
-            $this->output,
-            array('rev', 'branch', 'files', 'datetime', 'author', 'description'),
-            '##'
-        );*/
-
-        return $this->output;
+        return VersionControl_Hg_Command_Output_Formatter::toRaw($this->output);
     }
 
     /**

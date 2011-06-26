@@ -59,7 +59,7 @@ class VersionControl_Hg_Command_Clone
     extends VersionControl_Hg_Command_Abstract
         implements VersionControl_Hg_Command_Interface
 {
-   /**
+    /**
      * The name of the mercurial command implemented here
      *
      * @var string
@@ -106,9 +106,8 @@ class VersionControl_Hg_Command_Clone
     /**
      * Constructor
      *
-     * This may be empty if
-     *
-     * @param mixed $params is one or more parameters to modify the command
+     * @param mixed             $params One or more parameters to the command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return void
      */
@@ -123,7 +122,9 @@ class VersionControl_Hg_Command_Clone
             /* are the argument(s) correctly formed? */
             if ( (array_key_exists(0, $params)) && (! empty($params[0])) ) {
                 /* if its an array, check for the 'repository' key */
-                if ( (is_array($params[0])) && (! array_key_exists('repository', $params[0])) ) {
+                if ( (is_array($params[0]))
+                    && (! array_key_exists('repository', $params[0]))
+                ) {
                     throw new VersionControl_Hg_Command_Exception(
                         VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                         "The repository must be defined either at
@@ -131,12 +132,14 @@ class VersionControl_Hg_Command_Clone
                          or as the 'repository' key in an array of options."
                     );
 
-                    /* should always be called so we have a full array of valid options */
+                    /* should always be called so we have a full array of
+                     * valid options */
                     $this->setOptions($params);
                 } elseif ( is_scalar($params[0])) {
                     /* if scalar, we have to assume its a path */
                     /* This is a psuedo-hack because init has no arugment prefix;
-                     * our current inmplementation of 'files' doesn't give one = cool! */
+                     * our current inmplementation of 'files' doesn't give
+                     * one = cool! */
                     $this->repository($params[0]);
                 }
             }
@@ -149,11 +152,12 @@ class VersionControl_Hg_Command_Clone
     /**
      * Execute the command and return the results.
      *
-     * @param mixed $params The options passed to the Log command
+     * @param mixed             $params Options passed to the Log command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return string
      */
-    public function execute(array $params = null)
+    public function execute(array $params = null, VersionControl_Hg $hg)
     {
         /* Validate */
         $files = $this->getOption('files');
@@ -168,7 +172,8 @@ class VersionControl_Hg_Command_Clone
             //refuse bad fs names
             //$except = array('\\', '/', ':', '*', '?', '"', '<', '>', '|');
 
-            //Please note that when specifying the recursive option the function returns false anyway if the directory already exists.
+            //Please note that when specifying the recursive option the
+            // function returns false anyway if the directory already exists.
             //Octal permissions are ignored on Windows
             if (! mkdir($cloned_path, 0755, true) ) {
                 throw new VersionControl_Hg_Command_Exception(
@@ -232,8 +237,11 @@ class VersionControl_Hg_Command_Clone
 
     /**
      * Tells Mercurial to use the pull functionality to copy metadata.
+     *
+     * @return VersionControl_Hg_Command_Abstract
      */
-    public function pull() {
+    public function pull()
+    {
         $this->addOption('pull', null);
 
         /* For the fluent API */
@@ -242,8 +250,11 @@ class VersionControl_Hg_Command_Clone
 
     /**
      * Tells Mercurial to not create a working copy.
+     *
+     * @return VersionControl_Hg_Command_Abstract
      */
-    public function sparse() {
+    public function sparse()
+    {
         $this->addOption('noupdate', null);
 
         /* For the fluent API */
@@ -252,12 +263,17 @@ class VersionControl_Hg_Command_Clone
 
     /**
      * Tells Mercurial to not create a working copy.
+     *
+     * @param string $path Destination of the clone operation
+     *
+     * @return VersionControl_Hg_Command_Abstract
      */
-    public function to($cloned_path) {
+    public function to($path)
+    {
         $files = $this->getOption('files');
 
         /* the repository to clone MUST be the first files item */
-        $files[1] = $cloned_path;
+        $files[1] = $path;
         $this->addOption('files', $files);
 
         /* For the fluent API */
@@ -266,8 +282,13 @@ class VersionControl_Hg_Command_Clone
 
     /**
      * Tells Mercurial to not create a working copy.
+     *
+     * @param string $path Destination of the clone operation
+     *
+     * @return VersionControl_Hg_Command_Abstract
      */
-    public function repository($path) {
+    public function repository($path)
+    {
         $files = $this->getOption('files');
 
         /* the repository to clone MUST be the first files item */
@@ -281,7 +302,7 @@ class VersionControl_Hg_Command_Clone
     /**
      * Confirm that the path exists
      *
-     * @param string $cloned_path The path the repository should be created at
+     * @param string $path The path the repository should be created at
      *
      * @return boolean
      */
@@ -302,7 +323,7 @@ class VersionControl_Hg_Command_Clone
     /**
      * Confirm that the path exists
      *
-     * @param string $cloned_path The path the repository should be created at
+     * @param string $path The path the repository should be created at
      *
      * @return boolean
      */

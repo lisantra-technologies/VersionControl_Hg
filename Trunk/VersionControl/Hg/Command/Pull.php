@@ -92,7 +92,7 @@ class VersionControl_Hg_Command_Pull
     extends VersionControl_Hg_Command_Abstract
         implements VersionControl_Hg_Command_Interface
 {
-   /**
+    /**
      * The name of the mercurial command implemented here
      *
      * @var string
@@ -135,7 +135,8 @@ class VersionControl_Hg_Command_Pull
     /**
      * Constructor
      *
-     * @param mixed $params is one or more parameters to modify the command
+     * @param mixed             $params One or more parameters for the command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return void
      */
@@ -164,7 +165,8 @@ class VersionControl_Hg_Command_Pull
                     $this->revision($params[0]);
                 }
             } elseif ( is_array($params[0]) ) {
-                /* should always be called so we have a full array of valid options */
+                /* should always be called so we have a full array of valid
+                 * options */
                 $this->setOptions($params);
             }
         }
@@ -173,11 +175,12 @@ class VersionControl_Hg_Command_Pull
     /**
      * Execute the command and return the results.
      *
-     * @param mixed $params The options passed to the Log command
+     * @param mixed             $params Options passed to the Log command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return string
      */
-    public function execute(array $params = null)
+    public function execute(array $params = null, VersionControl_Hg $hg)
     {
         /* take care of options passed into run() as such:
          * $hg->clone('/path/')->run('verbose'));
@@ -201,7 +204,7 @@ class VersionControl_Hg_Command_Pull
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
-//var_dump($this->command_string);die;
+
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
@@ -261,13 +264,14 @@ class VersionControl_Hg_Command_Pull
     }
 
     /**
-     *
+     * Pull only code labled by the bookmark
      *
      * @param string $name The name of the bookmark
      *
      * @return VersionControl_Hg_Command_Abstract
      */
-    public function bookmark($name) {
+    public function bookmark($name)
+    {
         /* Some basic validation */
         if ( empty($name) ) {
             throw new VersionControl_Hg_Command_Exception(
@@ -283,13 +287,14 @@ class VersionControl_Hg_Command_Pull
     }
 
     /**
-     *
+     * Pull revisions only in this branch
      *
      * @param string $name The name of the branch
      *
      * @return VersionControl_Hg_Command_Abstract
      */
-    public function branch($name = 'default') {
+    public function branch($name = 'default')
+    {
         /* no validation needed since the 'default' branch always exists */
         $this->addOption('branch', $name);
 
@@ -298,13 +303,14 @@ class VersionControl_Hg_Command_Pull
     }
 
     /**
-     *
+     * Designate where to pull from
      *
      * @param string $source The repository url from which to pull
      *
      * @return VersionControl_Hg_Command_Abstract
      */
-    public function from($source) {
+    public function from($source)
+    {
         /* Some basic validation */
         if ( empty($source) ) {
             throw new VersionControl_Hg_Command_Exception(
@@ -319,40 +325,47 @@ class VersionControl_Hg_Command_Pull
     }
 
     /**
-     *
+     * Set a username for a remote repository
      *
      * @param string $username The username to use for authentication
      *
      * @return VersionControl_Hg_Command_Abstract
+     * @todo Implement this!
      */
-    public function username($username) {
+    public function username($username)
+    {
 
         /* For the fluent API */
         return $this;
     }
 
     /**
-     *
+     * Set a password for a remote repository
      *
      * @param string $password The password to use for authentication
      *
      * @return VersionControl_Hg_Command_Abstract
+     * @todo Implement this!
      */
-    public function password($password) {
+    public function password($password)
+    {
 
         /* For the fluent API */
         return $this;
     }
 
     /**
-     *
+     * Perform an update after a pull
      *
      * @param string $what What should be updated? Default is always 'Working
      *                     Copy' anyways.
      *
      * @return VersionControl_Hg_Command_Abstract
+     *
+     * @todo Implement this!
      */
-    public function update($what = 'working copy') {
+    public function update($what = 'working copy')
+    {
 
 
         /* For the fluent API */
@@ -360,11 +373,14 @@ class VersionControl_Hg_Command_Pull
     }
 
     /**
-     *
+     * Force a pull no matter what
      *
      * @return VersionControl_Hg_Command_Abstract
+     *
+     * @todo Implement this!
      */
-    public function force() {
+    public function force()
+    {
         $this->addOption('force', null);
 
         /* For the fluent API */

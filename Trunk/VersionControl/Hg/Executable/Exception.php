@@ -1,16 +1,16 @@
 <?php
 /**
- * Exception for Hg executables
+ * Contains definition of Exception class for Hg executables
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Executable
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Executable
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 
 /**
@@ -18,13 +18,13 @@
  *
  * PHP version 5
  *
- * @category    VersionControl
- * @package     Hg
- * @subpackage  Executable
- * @author      Michael Gatto <mgatto@lisantra.com>
- * @copyright   2011 Lisantra Technologies, LLC
- * @license     http://www.opensource.org/licenses/mit-license.html  MIT License
- * @link        http://pear.php.net/package/VersionControl_Hg
+ * @category   VersionControl
+ * @package    Hg
+ * @subpackage Executable
+ * @author     Michael Gatto <mgatto@lisantra.com>
+ * @copyright  2011 Lisantra Technologies, LLC
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link       http://pear.php.net/package/VersionControl_Hg
  */
 class VersionControl_Hg_Executable_Exception extends Exception
 {
@@ -55,7 +55,7 @@ class VersionControl_Hg_Executable_Exception extends Exception
      *
      * @var array
      */
-    protected $_messages = array(
+    protected $messages = array(
         'notFound' => 'Mercurial could not be found on this system',
         'yetUnset' => 'The Mercurial executable has not yet been set',
         'noVersion' => 'No Hg version has yet been set!',
@@ -67,8 +67,9 @@ class VersionControl_Hg_Executable_Exception extends Exception
      *
      * @param string $message is equivalent to the error constants
      */
-    public function __construct($message) {
-        parent::__construct($this->_messages[$message]);
+    public function __construct($message)
+    {
+        parent::__construct($this->messages[$message]);
     }
 
 }

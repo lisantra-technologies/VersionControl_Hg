@@ -89,7 +89,8 @@ class VersionControl_Hg_Command_Init
     /**
      * Constructor
      *
-     * @param mixed $params are the data values passed to the command
+     * @param mixed             $params Data passed to the command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return void
      */
@@ -102,9 +103,13 @@ class VersionControl_Hg_Command_Init
 
         if ( empty($path) ) {
             /* are the argument(s) correctly formed? */
-            if ( (array_key_exists(0, $params)) && (! empty($params[0])) ) {
+            if ( (array_key_exists(0, $params))
+                && (! empty($params[0]))
+            ) {
                 /* if its an array, check for the 'repository' key */
-                if ( (is_array($params[0])) && (! array_key_exists('repository', $params[0])) ) {
+                if ( (is_array($params[0]))
+                    && (! array_key_exists('repository', $params[0]))
+                ) {
                     throw new VersionControl_Hg_Command_Exception(
                         VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                         "The repository must be defined either at
@@ -112,12 +117,14 @@ class VersionControl_Hg_Command_Init
                          or as the 'repository' key in an array of options."
                     );
 
-                    /* should always be called so we have a full array of valid options */
+                    /* should always be called so we have a full array of
+                     * valid options */
                     $this->setOptions($params);
                 } elseif ( is_scalar($params[0])) {
                     /* if scalar, we have to assume its a path */
                     /* This is a psuedo-hack because init has no arugment prefix;
-                     * our current inmplementation of 'files' doesn't give one = cool! */
+                     * our current inmplementation of 'files' doesn't give
+                     * one = cool! */
                     $this->addOption('files', $params[0]);
                 }
             }
@@ -128,13 +135,14 @@ class VersionControl_Hg_Command_Init
     }
 
     /**
+     * Execute the command and return the results.
      *
-     * params are passed from run()
+     * @param mixed             $params Options passed to the Log command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
-     * (non-PHPdoc)
-     * @see VersionControl/Hg/Command/VersionControl_Hg_Command_Interface#execute($params)
+     * @return string
      */
-    public function execute(array $params = null)
+    public function execute(array $params = null, VersionControl_Hg $hg)
     {
         /* Validate */
         $path = $this->getOption('files');
@@ -147,7 +155,8 @@ class VersionControl_Hg_Command_Init
             //refuse bad fs names
             //$except = array('\\', '/', ':', '*', '?', '"', '<', '>', '|');
 
-            //Please note that when specifying the recursive option the function returns false anyway if the directory already exists.
+            //Please note that when specifying the recursive option the
+            // function returns false anyway if the directory already exists.
             //Octal permissions are ignored on Windows
             if (! mkdir($path, 0755, true) ) {
                 throw new VersionControl_Hg_Command_Exception(

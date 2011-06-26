@@ -119,7 +119,8 @@ class VersionControl_Hg_Command_Version
     /**
      * Execute the command and return the results.
      *
-     * @param mixed $params The options passed to the Log command
+     * @param mixed             $params Options passed to the Log command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return string
      */

@@ -132,7 +132,8 @@ abstract class VersionControl_Hg_Command_Abstract
      * Class constructors must be redefined in each Command parent class,
      * since it must have its dependencies for $hg injected.
      *
-     * @param mixed $params The options and arguments passed to the command
+     * @param mixed             $params Options passed to the command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return void
      */
@@ -165,20 +166,19 @@ abstract class VersionControl_Hg_Command_Abstract
            has no parameters */
         switch ($method) {
             case 'run': //the special method ending the fluent chain
-                /* run the command class' execute method */
-                return $this->execute($arguments);
-                //interface demands all command classes define this method
-                /*alternative:
-                 return call_user_func_array(array($command, 'execute'), $options);
+                /* run the command class' execute method
+                 * interface demands all command classes define this method
                  */
+                return $this->execute($arguments);
+
                 break;
             default:
                 /* must be the command or one of its fluent api functions */
                 if ( method_exists($this, $method) ) {
-                /* is it a method of the currently instantiated command? */
+                    /* is it a method of the currently instantiated command? */
                     return call_user_func_array(array($this, $method), $arguments);
                 } else {
-                /* an optional method is not defined in the command class */
+                    /* an optional method is not defined in the command class */
                     throw new VersionControl_Hg_Command_Exception(
                         "This method '{$method}' does not exist in this class"
                     );
@@ -466,8 +466,11 @@ abstract class VersionControl_Hg_Command_Abstract
      * Get a named options from the current list of options
      *
      * @param string $name The name of the option we are getting
+     *
+     * @return string
      */
-    public function getOption($name) {
+    public function getOption($name)
+    {
         $value = null;
 
         /* with 'files', sometimes it may not exist when called for */

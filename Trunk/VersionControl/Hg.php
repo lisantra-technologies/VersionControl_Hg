@@ -70,6 +70,7 @@ require_once 'Hg/CommandProxy.php';
  * valid repository will raise an exception.
  *
  * PHP version 5
+ *
  * @category  VersionControl
  * @package   Hg
  * @author    Michael Gatto <mgatto@lisantra.com>

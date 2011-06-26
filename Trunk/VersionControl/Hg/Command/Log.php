@@ -11,6 +11,7 @@
  * @copyright  2011 Lisantra Technologies, LLC
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link       http://pear.php.net/package/VersionControl_Hg
+ * @filesource
  */
 
 /**
@@ -62,19 +63,20 @@ require_once 'Exception.php';
  * $hg->log()->excluding('**.php')->run();
  * </code>
  *
- * This displays nothing; excluding takes precedence. Remove excluding() to get only index.php:
+ * This displays nothing; excluding takes precedence. Remove excluding() to
+ * get only index.php:
  * <code>
  * $hg->log()->files(array('index.php'))->excluding('**.php')->run();
  * </code>
  *
- * Include specific files, which might not show up otherwise. Using this with files can lead to unexpected results:
+ * Include specific files, which might not show up otherwise. Using this with
+ * files can lead to unexpected results:
  * <code>
  * $hg->log()->including('**.php')->run();
  * </code>
  *
  * Patching and diffing options are not available in this class as they might
  * be when using the command line Mercurial client.
- * @see VersionControl_Hg_Command_Diff
  *
  * PHP version 5
  *
@@ -85,6 +87,7 @@ require_once 'Exception.php';
  * @copyright  2011 Lisantra Technologies, LLC
  * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link       http://pear.php.net/package/VersionControl_Hg
+ * @example    test_Log.php Some examples to use
  */
 class VersionControl_Hg_Command_Log
     extends VersionControl_Hg_Command_Abstract
@@ -144,7 +147,8 @@ class VersionControl_Hg_Command_Log
     /**
      * Constructor
      *
-     * @param mixed $params One or more parameters to modify the command
+     * @param mixed             $params One or more parameters for the command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return void
      */
@@ -157,13 +161,14 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Execute the command and return the results
+     * Execute the command and return the results.
      *
-     * @param mixed $params The options passed to the Log command
+     * @param mixed             $params Options passed to the Log command
+     * @param VersionControl_Hg $hg     Instance of the base object
      *
      * @return string
      */
-    public function execute(array $params = null)
+    public function execute(array $params = null, VersionControl_Hg $hg)
     {
         /* take care of options passed in as such:
          * $hg->status(array('revision' => 3, 'all' => null));
@@ -289,7 +294,9 @@ class VersionControl_Hg_Command_Log
     public function files(array $files)
     {
         $this->addOption('files', join(' ', $files));
-        return $this; //for the fluent API
+
+        /* for the fluent API */
+        return $this;
     }
 
     /**
@@ -313,7 +320,7 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Restricts the log to changesets only commited on $date
+     * Restricts the log to changesets only commited before $date
      *
      * Usage:
      * <code>
@@ -334,7 +341,7 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Restricts the log to changesets only commited on $date
+     * Restricts the log to changesets only commited after $date
      *
      * Usage:
      * <code>
@@ -355,7 +362,7 @@ class VersionControl_Hg_Command_Log
     }
 
     /**
-     * Restricts log output to changesets between $from and $to
+     * Restricts log output to changesets between dates $from and $to
      *
      * Usage:
      * <code>$hg->log()->between('Dec 27, 2010', '2010-12-31')->run();</code>
