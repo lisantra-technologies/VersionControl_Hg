@@ -10,6 +10,7 @@
  * @copyright 2011 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://pear.php.net/package/VersionControl_Hg
+ * @filesource
  */
 
 /**
@@ -75,6 +76,7 @@ require_once 'Hg/CommandProxy.php';
  * @copyright 2011 Lisantra Technologies, LLC
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://pear.php.net/package/VersionControl_Hg
+ * @tutorial  Instantiating.html
  */
 class VersionControl_Hg
 {
@@ -105,7 +107,11 @@ class VersionControl_Hg
         $this->setRepository($repository);
 
         /* This is second, since why look for an executable if the passed
-         * repository path is no good? */
+         * repository path is no good?
+         *
+         * Its triggers a magic __set directed towards
+         * VersionControl/Hg/Executable.php
+         */
         $this->setExecutable();
     }
 
