@@ -3,7 +3,7 @@
   <refname>
    <function>VersionControl_Hg_Command_Log::before</function>
   </refname>
-  <refpurpose>Restricts the log to changesets only commited on $date</refpurpose>
+  <refpurpose>Restricts the log to changesets only commited before $date</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>

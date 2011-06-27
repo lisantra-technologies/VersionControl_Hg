@@ -27,16 +27,24 @@
                 <li><a href="../../Hg/Command/VersionControl_Hg_Command_Interface.html">VersionControl_Hg_Command_Interface</a></li>            </ul>
         </p>
         		<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Implements the version command</p>
-<p class="description"><p>PHP version 5</p></p>
+<p class="short-description">Print the version of the HG executable in use</p>
+<p class="description"><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">version</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">version</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformat">format</a><span class="src-sym">(</span><span class="src-str">'raw'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>You may also echo the property since this command implements _toString():  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">version</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;echo&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">executable</span><span class="src-sym">-&gt;</span><span class="src-id">version</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>PHP version 5</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
-				<li><span class="field">copyright:</span> 2009 Lisantra Technologies, LLC</li>
+				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
 				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Hg---Command---Version.php.html">/Hg/Command/Version.php</a> (line <span class="field">44</span>)
+			Located in <a class="field" href="_Hg---Command---Version.php.html">/Hg/Command/Version.php</a> (line <span class="field">69</span>)
 		</p>
 		
 				
@@ -61,7 +69,11 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																<div class="var-title">
+																																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$allowed_options" title="details" class="var-name">$allowed_options</a>
+				</div>
+																<div class="var-title">
 					<span class="var-type">string</span>
 					<a href="#$command" title="details" class="var-name">$command</a>
 				</div>
@@ -85,21 +97,16 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																												
+																				
 												<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											([<span class="var-type"></span>&nbsp;<span class="var-name">$param</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
-									</div>
-																<div class="method-definition">
-											<span class="method-result">void</span>
-										<a href="#execute" title="details" class="method-name">execute</a>
-											([<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">null</span>])
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
-										<a href="#__toString" title="details" class="method-name">__toString</a>
-										()
+										<a href="#execute" title="details" class="method-name">execute</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 									</div>
 								</div>
 		</div>
@@ -118,14 +125,37 @@
 							
 					</div>
 		<div class="info-box-body">
-			<a name="var$command" id="$command"><!-- --></A>
+			<a name="var$allowed_options" id="$allowed_options"><!-- --></A>
 <div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$allowed_options</span>
+			 = <span class="var-default">array(<br />        'output' =&gt; null,<br />    )</span>			(line <span class="line-number">99</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Permissable options.</p>
+<p class="description"><p>The actual option must be the key, while 'null' is a value here to  accommodate the current implementation of setting options.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$command" id="$command"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$command</span>
-			 = <span class="var-default"> 'version'</span>			(line <span class="line-number">53</span>)
+			 = <span class="var-default"> 'version'</span>			(line <span class="line-number">78</span>)
 		</span>
 	</div>
 
@@ -141,19 +171,18 @@
 
 </div>
 <a name="var$required_options" id="$required_options"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$required_options</span>
-			 = <span class="var-default">array()</span>			(line <span class="line-number">63</span>)
+			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />    )</span>			(line <span class="line-number">87</span>)
 		</span>
 	</div>
 
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">There are no required options for this command</p>
-<p class="description"><p>Redefine it to an empty array to prevent parent from passing on any  possible unnecessary required commands.</p></p>
+<p class="short-description">Required options for this specific command. These may not be required  by Mercurial itself, but are required for the proper functioning of  this package.</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> protected</li>
 			</ul>
@@ -218,10 +247,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">71</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">111</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -235,16 +264,16 @@
 		<span class="method-name">
 			__construct
 		</span>
-					([<span class="var-type"></span>&nbsp;<span class="var-name">$param</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
-				<span class="var-name">$hg</span>			</li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$params</span><span class="var-description">: One or more parameters to modify the command</span>			</li>
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$param</span>			</li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: The base Hg instance</span>			</li>
 				</ul>
 		
 			<hr class="separator" />
@@ -256,48 +285,14 @@
 			
 	</div>
 <a name="methodexecute" id="execute"><!-- --></a>
-<div class="evenrow">
-	
-	<div class="method-header">
-		<span class="method-title">execute</span> (line <span class="line-number">79</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">(non-PHPdoc)</p>
-	<ul class="tags">
-				<li><span class="field">see:</span> execute($params)</li>
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result">void</span>
-		<span class="method-name">
-			execute
-		</span>
-					([<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">null</span>])
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type">array</span>
-				<span class="var-name">$options</span>			</li>
-				</ul>
-		
-				<hr class="separator" />
-		<div class="notes">Implementation of:</div>
-			<dl>
-			<dt><a href="../../Hg/Command/VersionControl_Hg_Command_Interface.html#methodexecute">VersionControl_Hg_Command_Interface::execute()</a></dt>
-					</dl>
-			
-	</div>
-<a name="method__toString" id="__toString"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">149</span>)
+		<span class="method-title">execute</span> (line <span class="line-number">127</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Execute the command and return the results.</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -305,12 +300,26 @@
 	<div class="method-signature">
 		<span class="method-result">string</span>
 		<span class="method-name">
-			__toString
+			execute
 		</span>
-				()
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$params</span><span class="var-description">: Options passed to the Log command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: Instance of the base object</span>			</li>
+				</ul>
 		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../../Hg/Command/VersionControl_Hg_Command_Interface.html#methodexecute">VersionControl_Hg_Command_Interface::execute()</a></dt>
+						<dd>Main method encapsulating the logic to run the command</dd>
+					</dl>
 			
 	</div>
 							<h4>Inherited Methods</h4>
@@ -326,13 +335,11 @@
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformat">VersionControl_Hg_Command_Abstract::format()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformatOptions">VersionControl_Hg_Command_Abstract::formatOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetCommandString">VersionControl_Hg_Command_Abstract::getCommandString()</a></span><br>
-													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetContainer">VersionControl_Hg_Command_Abstract::getContainer()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOption">VersionControl_Hg_Command_Abstract::getOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOptions">VersionControl_Hg_Command_Abstract::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodincluding">VersionControl_Hg_Command_Abstract::including()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodparseOutput">VersionControl_Hg_Command_Abstract::parseOutput()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetCommandString">VersionControl_Hg_Command_Abstract::setCommandString()</a></span><br>
-													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetContainer">VersionControl_Hg_Command_Abstract::setContainer()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetOptions">VersionControl_Hg_Command_Abstract::setOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodunsetOption">VersionControl_Hg_Command_Abstract::unsetOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#method__call">VersionControl_Hg_Command_Abstract::__call()</a></span><br>
@@ -343,7 +350,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 18 May 2011 23:44:25 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 27 Jun 2011 14:23:02 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

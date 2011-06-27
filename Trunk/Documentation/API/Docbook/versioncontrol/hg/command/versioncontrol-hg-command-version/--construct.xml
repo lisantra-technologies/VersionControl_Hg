@@ -15,12 +15,13 @@
      <function>VersionControl_Hg_Command_Version::__construct</function>
     </funcdef>
     <paramdef>
+     mixed
      <parameter>
-      <optional>$param = &null;</optional>
+      <optional>$params = &null;</optional>
      </parameter>
     </paramdef>
     <paramdef>
-     VersionControl_Hg
+     <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
      <parameter>$hg</parameter>
     </paramdef>
    </funcprototype>
@@ -36,22 +37,24 @@
    <variablelist>
     <varlistentry>
      <term>
-      <type />
-      <parameter>$param</parameter>
+      &type.mixed;
+      <parameter>$params</parameter>
      </term>
      <listitem>
-      <para />
+      <para>One or more parameters to modify the command</para>
      </listitem>
     </varlistentry>
    </variablelist>
    <variablelist>
     <varlistentry>
      <term>
-      <type>VersionControl_Hg</type>
+      <type>
+       <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+      </type>
       <parameter>$hg</parameter>
      </term>
      <listitem>
-      <para />
+      <para>The base Hg instance</para>
      </listitem>
     </varlistentry>
    </variablelist>

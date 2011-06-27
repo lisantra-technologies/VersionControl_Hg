@@ -390,7 +390,7 @@
         <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-import-summary">VersionControl_Hg_Command_Import</link>
         </entry>
-        <entry>Bundle changeset(s) to a file</entry>
+        <entry>Import a set of patches into a repository</entry>
        </row>
        <row>
         <entry>
@@ -414,7 +414,7 @@
         <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-pull-summary">VersionControl_Hg_Command_Pull</link>
         </entry>
-        <entry>Bundle changeset(s) to a file</entry>
+        <entry>Pull changesets from a remote repository</entry>
        </row>
        <row>
         <entry>
@@ -450,7 +450,7 @@
         <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-version-summary">VersionControl_Hg_Command_Version</link>
         </entry>
-        <entry>Implements the version command</entry>
+        <entry>Print the version of the HG executable in use</entry>
        </row>
       </tbody>
      </tgroup>
@@ -466,13 +466,11 @@
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.format;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.formatoptions;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcommandstring;
-&package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoptions;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.including;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcommandstring;
-&package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.unsetoption;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.--call;
@@ -610,14 +608,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -655,14 +645,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -822,14 +804,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -867,14 +841,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -1040,14 +1006,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -1085,14 +1043,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -1254,14 +1204,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -1299,14 +1241,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -1468,14 +1402,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -1513,14 +1439,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -1568,10 +1486,39 @@
     Usage:
     <programlisting role="php">
 <![CDATA[ $hg = new VersionControl_Hg('/path/to/repo');
- $hg->bundle('10:22')->run();]]>
+ $hg->cat('/path/to/a/file')->run();]]>
     </programlisting>
    </para>
-   <para>Should return a list of files added.</para>
+   <para>
+    You may also specify multiple files:
+    <programlisting role="php">
+<![CDATA[ $hg = new VersionControl_Hg('/path/to/repo');
+ $hg->cat(array('file1', 'file2'))->run();]]>
+    </programlisting>
+   </para>
+   <para>
+    Additionaly, you may cat the contents of a file at a specific revision:
+    <programlisting role="php">
+<![CDATA[ $hg = new VersionControl_Hg('/path/to/repo');
+ $contents = $hg->cat('file2')->revision(6)->run();
+ file_put_contents('file2', $content);]]>
+    </programlisting>
+    Not specifying a revision causes Mercurial to cat the latest version of the  file.
+   </para>
+   <para>
+    As a convenience for the latter operation, a programmer may use the save()  method:
+    <programlisting role="php">
+<![CDATA[ $hg = new VersionControl_Hg('/path/to/repo');
+ $hg->cat('file2')->revision(6)->save('new_file_name')->to('/path')->run();]]>
+    </programlisting>
+   </para>
+   <para>
+    or, spell out the options in an array:
+    <programlisting role="php">
+<![CDATA[ $hg->cat('file2')->save(array('name' => 'new_file_name', 'to' => '/path'))->run();]]>
+    </programlisting>
+   </para>
+   <para>Note: if you really need multiple files, consider using the Archive command.</para>
    <para>PHP version 5</para>
   </refsect1>
   <refsect1>
@@ -1682,14 +1629,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -1730,14 +1669,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions">
           <function>VersionControl_Hg_Command_Abstract::setOptions</function>
          </link>
@@ -1768,6 +1699,9 @@
  </refentry>
  &package.versioncontrol.hg.command.versioncontrol-hg-command-cat.--construct;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-cat.execute;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-cat.revision;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-cat.to;
  <refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-clone-summary">
   <refnamediv>
    <refname>
@@ -1785,7 +1719,8 @@
  $hg->clone('http://url/to/repo')->to('/path/to/clone')->run();]]>
     </programlisting>
    </para>
-   <para>Should return a list of files added.</para>
+   <para>NOTES  Should return the object representing the cloned repository as  type: VersionControl_Hg_Container_Repository.</para>
+   <para>Should check if new location for cloned repo exists or not, and/or is  empty same as Init.php does.</para>
    <para>PHP version 5</para>
   </refsect1>
   <refsect1>
@@ -1896,14 +1831,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -1944,14 +1871,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions">
           <function>VersionControl_Hg_Command_Abstract::setOptions</function>
          </link>
@@ -1981,7 +1900,14 @@
   </refsect1>
  </refentry>
  &package.versioncontrol.hg.command.versioncontrol-hg-command-clone.--construct;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-clone.directory-exists;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-clone.directory-is-empty;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-clone.execute;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-clone.pull;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-clone.repository;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-clone.revision;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-clone.sparse;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-clone.to;
  <refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-commit-summary">
   <refnamediv>
    <refname>
@@ -2110,14 +2036,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -2155,14 +2073,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -2324,14 +2234,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -2369,14 +2271,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -2425,7 +2319,8 @@
     <programlisting role="php">
 <![CDATA[ $hg = new VersionControl_Hg('/path/to/repo');
  $hg->diff('git'|'gnu')->files(array('index.php', 'default.html'))
-   ->between('tip'|'2011-04-11'|'working-copy|')->revision(22)|->date('2011-03-01');]]>
+   ->between('tip'|'2011-04-11'|'working-copy|')
+   ->revision(22)|->date('2011-03-01');]]>
     </programlisting>
    </para>
    <para>&lt;/code&gt;</para>
@@ -2540,14 +2435,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -2585,14 +2472,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -2847,14 +2726,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -2892,14 +2763,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -3061,14 +2924,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -3109,14 +2964,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions">
           <function>VersionControl_Hg_Command_Abstract::setOptions</function>
          </link>
@@ -3153,18 +3000,35 @@
     Class Summary
     <classname>VersionControl_Hg_Command_Import</classname>
    </refname>
-   <refpurpose>Bundle changeset(s) to a file</refpurpose>
+   <refpurpose>Import a set of patches into a repository</refpurpose>
   </refnamediv>
   <refsect1>
-   <title>Bundle changeset(s) to a file</title>
+   <title>Import a set of patches into a repository</title>
+   <para>message() --message  comitter() --user  dated() --date  only(&apos;working_copy&apos;)  --no-commit     --base  strip()   --strip            --exact            --similarity  show(&apos;rejects&apos;) or have the command return an array of rejects if any</para>
    <para>
     Usage:
     <programlisting role="php">
 <![CDATA[ $hg = new VersionControl_Hg('/path/to/repo');
- $hg->bundle('10:22')->run();]]>
+ $hg->import('/path/to/patch')->run();
+
+ $hg->import(array('path' => '/path/to/patch'))->run();]]>
     </programlisting>
    </para>
-   <para>Should return a list of files added.</para>
+   <para>
+    or, form a url:
+    <programlisting role="php">
+<![CDATA[ $hg->import('http://example.edu/path/to/patch')->run();]]>
+    </programlisting>
+   </para>
+   <para>
+    or, a string:
+    <programlisting role="php">
+<![CDATA[ $patch_content = fopen();
+ $hg->import(array('content' => $patch_content))->run();]]>
+    </programlisting>
+    However, Mercurial will do this for you when you pass the path to a  patch.
+   </para>
+   <para>or even heredoc and nowdoc:</para>
    <para>PHP version 5</para>
   </refsect1>
   <refsect1>
@@ -3275,14 +3139,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -3320,14 +3176,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -3487,14 +3335,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -3532,14 +3372,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -3649,18 +3481,19 @@
     </programlisting>
    </para>
    <para>
-    This displays nothing; excluding takes precedence. Remove excluding() to get only index.php:
+    This displays nothing; excluding takes precedence. Remove excluding() to  get only index.php:
     <programlisting role="php">
 <![CDATA[ $hg->log()->files(array('index.php'))->excluding('**.php')->run();]]>
     </programlisting>
    </para>
    <para>
-    Include specific files, which might not show up otherwise. Using this with files can lead to unexpected results:
+    Include specific files, which might not show up otherwise. Using this with  files can lead to unexpected results:
     <programlisting role="php">
 <![CDATA[ $hg->log()->including('**.php')->run();]]>
     </programlisting>
    </para>
    <para>Patching and diffing options are not available in this class as they might  be when using the command line Mercurial client.</para>
+   <para>PHP version 5</para>
   </refsect1>
   <refsect1>
    <title>
@@ -3770,14 +3603,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -3815,14 +3640,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -3992,14 +3809,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -4040,14 +3849,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions">
           <function>VersionControl_Hg_Command_Abstract::setOptions</function>
          </link>
@@ -4084,18 +3885,76 @@
     Class Summary
     <classname>VersionControl_Hg_Command_Pull</classname>
    </refname>
-   <refpurpose>Bundle changeset(s) to a file</refpurpose>
+   <refpurpose>Pull changesets from a remote repository</refpurpose>
   </refnamediv>
   <refsect1>
-   <title>Bundle changeset(s) to a file</title>
+   <title>Pull changesets from a remote repository</title>
+   <para>Usage:</para>
    <para>
-    Usage:
+    Basic usage, assuming .hgrc has a default pull url:
     <programlisting role="php">
 <![CDATA[ $hg = new VersionControl_Hg('/path/to/repo');
- $hg->bundle('10:22')->run();]]>
+ $array_of_pulled_changesets = $hg->pull()->run('verbose');]]>
     </programlisting>
    </para>
-   <para>Should return a list of files added.</para>
+   <para>
+    With credentials:
+    <programlisting role="php">
+<![CDATA[ $hg->pull()->from('/remote/repo')->username('A')->password('B')->run();]]>
+    </programlisting>
+    or
+    <programlisting role="php">
+<![CDATA[ $hg->pull()->from()->using(array('username' => 'A', 'password' => 'B'))->run();]]>
+    </programlisting>
+   </para>
+   <para>
+    Explcititly pull &apos;all&apos; changesets (Default):
+    <programlisting role="php">
+<![CDATA[$hg->pull('all')->from('/remote/repo')->run();]]>
+    </programlisting>
+    or
+    <programlisting role="php">
+<![CDATA[$hg->pull()->all()->from('/remote/repo')->run();]]>
+    </programlisting>
+   </para>
+   <para>
+    Pull a specific revision:
+    <programlisting role="php">
+<![CDATA[$hg->pull(23)->from('/remote/repo')->run();]]>
+    </programlisting>
+    or
+    <programlisting role="php">
+<![CDATA[$hg->pull()->revision(23)->from('/remote/repo')->run();]]>
+    </programlisting>
+    or, a multiple revisions:
+   </para>
+   <para>or, a range of contiguous revisions:</para>
+   <para>
+    Update the working copy after a pull:
+    <programlisting role="php">
+<![CDATA[$hg->pull()->from('/remote/repo')->update('working copy')->run();]]>
+    </programlisting>
+    Also, you may use &apos;fetch&apos; to pull and update at the same time.
+   </para>
+   <para>
+    Pull a specific branch:
+    <programlisting role="php">
+<![CDATA[$hg->pull()->branch('mine')->from('/remote/repo')->run();]]>
+    </programlisting>
+   </para>
+   <para>
+    Pull a specific bookmark:
+    <programlisting role="php">
+<![CDATA[$hg->pull()->bookmark('earlier')->from('/remote/repo')->run();]]>
+    </programlisting>
+   </para>
+   <para>
+    Force a pull:
+    <programlisting role="php">
+<![CDATA[$hg->pull()->force()->from('/remote/repo')->run();]]>
+    </programlisting>
+   </para>
+   <para>Results: Should return a list of changes pulled. See cognate: incoming().</para>
    <para>PHP version 5</para>
   </refsect1>
   <refsect1>
@@ -4206,14 +4065,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -4254,14 +4105,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions">
           <function>VersionControl_Hg_Command_Abstract::setOptions</function>
          </link>
@@ -4291,7 +4134,16 @@
   </refsect1>
  </refentry>
  &package.versioncontrol.hg.command.versioncontrol-hg-command-pull.--construct;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.all;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.bookmark;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.branch;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-pull.execute;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.force;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.from;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.password;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.revision;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.update;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-pull.username;
  <refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-push-summary">
   <refnamediv>
    <refname>
@@ -4420,14 +4272,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -4465,14 +4309,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -4634,14 +4470,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -4679,14 +4507,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -4848,14 +4668,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -4893,14 +4705,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -5055,14 +4859,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -5100,14 +4896,6 @@
          </link>
         </entry>
         <entry>Sets the command string</entry>
-       </row>
-       <row>
-        <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
        </row>
        <row>
         <entry>
@@ -5280,14 +5068,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -5328,14 +5108,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions">
           <function>VersionControl_Hg_Command_Abstract::setOptions</function>
          </link>
@@ -5372,10 +5144,31 @@
     Class Summary
     <classname>VersionControl_Hg_Command_Version</classname>
    </refname>
-   <refpurpose>Implements the version command</refpurpose>
+   <refpurpose>Print the version of the HG executable in use</refpurpose>
   </refnamediv>
   <refsect1>
-   <title>Implements the version command</title>
+   <title>Print the version of the HG executable in use</title>
+   <para>
+    Usage:
+    <programlisting role="php">
+<![CDATA[ $hg = new VersionControl_Hg();
+ $hg->version()->run();
+
+ $hg->version()->format('raw')->run();]]>
+    </programlisting>
+   </para>
+   <para>
+    You may also echo the property since this command implements _toString():
+    <programlisting role="php">
+<![CDATA[ $hg = new VersionControl_Hg();
+ echo $hg->version;]]>
+    </programlisting>
+    or
+    <programlisting role="php">
+<![CDATA[ $hg = new VersionControl_Hg();
+ echo $hg->executable->version;]]>
+    </programlisting>
+   </para>
    <para>PHP version 5</para>
   </refsect1>
   <refsect1>
@@ -5486,14 +5279,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getcontainer">
-          <function>VersionControl_Hg_Command_Abstract::getContainer</function>
-         </link>
-        </entry>
-        <entry>Returns the base $hg instance on whose behalf the command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption">
           <function>VersionControl_Hg_Command_Abstract::getOption</function>
          </link>
@@ -5534,14 +5319,6 @@
        </row>
        <row>
         <entry>
-         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcontainer">
-          <function>VersionControl_Hg_Command_Abstract::setContainer</function>
-         </link>
-        </entry>
-        <entry>Sets the base $hg instance on whose behalf command operates</entry>
-       </row>
-       <row>
-        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions">
           <function>VersionControl_Hg_Command_Abstract::setOptions</function>
          </link>
@@ -5572,7 +5349,6 @@
  </refentry>
  &package.versioncontrol.hg.command.versioncontrol-hg-command-version.--construct;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-version.execute;
-&package.versioncontrol.hg.command.versioncontrol-hg-command-version.--tostring;
  <refentry id="package.versioncontrol.hg.container.versioncontrol-hg-container-abstract-summary">
   <refnamediv>
    <refname>
@@ -5996,6 +5772,7 @@
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.setversion;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.--clone;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.--get;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.--tostring;
  <refentry id="package.versioncontrol.hg.executable.versioncontrol-hg-executable-exception-summary">
   <refnamediv>
@@ -6117,11 +5894,9 @@
   </refsect1>
  </refentry>
  &package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.--construct;
-&package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.isassoc;
 &package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.tojson;
 &package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw;
 &package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toserialize;
-&package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toxml;
 &package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toyaml;
  <refentry id="package.versioncontrol.hg.repository.versioncontrol-hg-container-repository-branch-summary">
   <refnamediv>

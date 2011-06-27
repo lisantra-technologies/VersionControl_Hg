@@ -1,0 +1,58 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-clone.to">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Clone::to</function>
+  </refname>
+  <refpurpose>Tells Mercurial to not create a working copy.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Clone.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Clone::to</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$path</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-clone.to.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-clone.to.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>Destination of the clone operation</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-clone.to.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-clone.to.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

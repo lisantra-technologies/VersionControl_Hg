@@ -95,7 +95,7 @@
 												<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -126,7 +126,7 @@
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$allowed_options</span>
-			 = <span class="var-default">array(<br /><br />    )</span>			(line <span class="line-number">84</span>)
+			 = <span class="var-default">array(<br /><br />    )</span>			(line <span class="line-number">84</span>)
 		</span>
 	</div>
 
@@ -149,7 +149,7 @@
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$command</span>
-			 = <span class="var-default"> 'log'</span>			(line <span class="line-number">62</span>)
+			 = <span class="var-default"> 'backout'</span>			(line <span class="line-number">62</span>)
 		</span>
 	</div>
 
@@ -171,7 +171,7 @@
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$required_options</span>
-			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />        'repository' =&gt; null,<br />    )</span>			(line <span class="line-number">71</span>)
+			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />        'repository' =&gt; null,<br />    )</span>			(line <span class="line-number">71</span>)
 		</span>
 	</div>
 
@@ -244,7 +244,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">95</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">96</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -258,13 +258,16 @@
 		<span class="method-name">
 			__construct
 		</span>
-					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">mixed</span>
-				<span class="var-name">$params</span><span class="var-description">: is one or more parameters to modify the command</span>			</li>
+				<span class="var-name">$params</span><span class="var-description">: Options passed to the Log command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: Instance of the base object</span>			</li>
 				</ul>
 		
 			<hr class="separator" />
@@ -279,7 +282,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">execute</span> (line <span class="line-number">108</span>)
+		<span class="method-title">execute</span> (line <span class="line-number">109</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -306,6 +309,7 @@
 		<div class="notes">Implementation of:</div>
 			<dl>
 			<dt><a href="../../Hg/Command/VersionControl_Hg_Command_Interface.html#methodexecute">VersionControl_Hg_Command_Interface::execute()</a></dt>
+						<dd>Main method encapsulating the logic to run the command</dd>
 					</dl>
 			
 	</div>
@@ -322,13 +326,11 @@
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformat">VersionControl_Hg_Command_Abstract::format()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformatOptions">VersionControl_Hg_Command_Abstract::formatOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetCommandString">VersionControl_Hg_Command_Abstract::getCommandString()</a></span><br>
-													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetContainer">VersionControl_Hg_Command_Abstract::getContainer()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOption">VersionControl_Hg_Command_Abstract::getOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOptions">VersionControl_Hg_Command_Abstract::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodincluding">VersionControl_Hg_Command_Abstract::including()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodparseOutput">VersionControl_Hg_Command_Abstract::parseOutput()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetCommandString">VersionControl_Hg_Command_Abstract::setCommandString()</a></span><br>
-													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetContainer">VersionControl_Hg_Command_Abstract::setContainer()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetOptions">VersionControl_Hg_Command_Abstract::setOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodunsetOption">VersionControl_Hg_Command_Abstract::unsetOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#method__call">VersionControl_Hg_Command_Abstract::__call()</a></span><br>
@@ -339,7 +341,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 18 May 2011 23:44:09 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 27 Jun 2011 14:22:37 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

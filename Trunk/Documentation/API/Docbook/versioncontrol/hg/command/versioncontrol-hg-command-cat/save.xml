@@ -1,0 +1,63 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Cat::save</function>
+  </refname>
+  <refpurpose>
+   set the --output options to designate a file name and directory to  where
+   the catted file will be saved
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Cat.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Cat::save</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$name = &apos;%s&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>The name of the file name</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

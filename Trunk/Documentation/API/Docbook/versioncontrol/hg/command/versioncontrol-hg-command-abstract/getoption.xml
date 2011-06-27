@@ -10,7 +10,7 @@
    <funcsynopsisinfo>require_once &apos;/Hg/Command/Abstract.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     string
      <function>VersionControl_Hg_Command_Abstract::getOption</function>
     </funcdef>
     <paramdef>

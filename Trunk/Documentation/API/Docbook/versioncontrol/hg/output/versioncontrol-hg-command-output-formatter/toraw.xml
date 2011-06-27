@@ -3,14 +3,14 @@
   <refname>
    <function>VersionControl_Hg_Command_Output_Formatter::toRaw</function>
   </refname>
-  <refpurpose>Convert array to PHP serialized text format</refpurpose>
+  <refpurpose>Convert array to raw text format</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg/Command/Output/Formatter.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     string
      <function>VersionControl_Hg_Command_Output_Formatter::toRaw</function>
     </funcdef>
     <paramdef>
@@ -37,13 +37,6 @@
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
- </refsect1>
- <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw.note">
-  &title.note;
-  <para>
-   <emphasis>note</emphasis>
-   Hmmm, how to reconstruct from the array? or get it before parsing??
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.output.versioncontrol-hg-command-output-formatter.toraw.throws">

@@ -3,7 +3,7 @@
   <refname>
    <function>VersionControl_Hg_Command_Archive::revision</function>
   </refname>
-  <refpurpose>Adds &apos;rev&apos; to the stack of command line options</refpurpose>
+  <refpurpose>Specified the revision to restrict the archive operation to</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
@@ -25,7 +25,7 @@
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.revision.desc">
   &title.desc;
   <para>
-   Specified the revision to restrict the status operation to  Usage:
+   Usage:
    <programlisting role="php">
 <![CDATA[$hg->archive()->revision(7)->run();]]>
    </programlisting>

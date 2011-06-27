@@ -1,0 +1,65 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.revision">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Cat::revision</function>
+  </refname>
+  <refpurpose>Specified the revision to restrict the cat operation to</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Cat.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>VersionControl_Hg_Command_Cat::revision</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$revision = &apos;tip&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.revision.desc">
+  &title.desc;
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->cat('file_name')->revision(7)->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->cat(array('revision' => 7 ))->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.revision.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$revision</parameter>
+     </term>
+     <listitem>
+      <para>is the optional revision to cat</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.revision.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.revision.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

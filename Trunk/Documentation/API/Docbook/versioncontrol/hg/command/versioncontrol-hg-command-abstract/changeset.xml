@@ -63,6 +63,10 @@
   </para>
   <para>
    <emphasis>note</emphasis>
+   Deprecated: mark for deletion
+  </para>
+  <para>
+   <emphasis>note</emphasis>
    Handle $last as well!
   </para>
  </refsect1>

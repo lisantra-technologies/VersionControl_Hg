@@ -25,7 +25,7 @@
 <p class="description"><p>PHP version 5</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
-				<li><span class="field">copyright:</span> 2911 Lisantra Technologies, LLC</li>
+				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
 				<li><span class="field">link:</span> <a href="http://pear.php.net/package/VersionControl_Hg">http://pear.php.net/package/VersionControl_Hg</a></li>
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
@@ -53,9 +53,9 @@
 			<div class="method-summary">
 												
 												<div class="method-definition">
-											<span class="method-result">void</span>
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
 										<a href="#execute" title="details" class="method-name">execute</a>
-											([<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">null</span>])
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 									</div>
 								</div>
 		</div>
@@ -77,26 +77,30 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">execute</span> (line <span class="line-number">31</span>)
+		<span class="method-title">execute</span> (line <span class="line-number">39</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Main method encapsulating the logic to run the command</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">void</span>
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
 		<span class="method-name">
 			execute
 		</span>
-					([<span class="var-type"></span>&nbsp;<span class="var-name">$options</span> = <span class="var-default">null</span>])
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
-				<span class="var-type">array</span>
-				<span class="var-name">$options</span>			</li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$params</span><span class="var-description">: Options passed to the Log command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: Instance of the base object</span>			</li>
 				</ul>
 		
 			
@@ -107,7 +111,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 18 May 2011 23:44:19 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 27 Jun 2011 14:22:52 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

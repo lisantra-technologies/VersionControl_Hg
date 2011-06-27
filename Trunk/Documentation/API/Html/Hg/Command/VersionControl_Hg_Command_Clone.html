@@ -29,8 +29,8 @@
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Clone a repository to a destination</p>
 <p class="description"><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/repo'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">clone</span><span class="src-sym">(</span><span class="src-str">'http://url/to/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">to</span><span class="src-sym">(</span><span class="src-str">'/path/to/clone'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol></div></p><p>Should return a list of files added.</p><p>PHP version 5</p></p>
+<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">clone</span><span class="src-sym">(</span><span class="src-str">'http://url/to/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Clone.html#methodto">to</a><span class="src-sym">(</span><span class="src-str">'/path/to/clone'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>NOTES  Should return the object representing the cloned repository as  type: VersionControl_Hg_Container_Repository.</p><p>Should check if new location for cloned repo exists or not, and/or is  empty same as Init.php does.</p><p>PHP version 5</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
 				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
@@ -38,7 +38,7 @@
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Hg---Command---Clone.php.html">/Hg/Command/Clone.php</a> (line <span class="field">53</span>)
+			Located in <a class="field" href="_Hg---Command---Clone.php.html">/Hg/Command/Clone.php</a> (line <span class="field">58</span>)
 		</p>
 		
 				
@@ -63,9 +63,13 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																								<div class="var-title">
+																																																<div class="var-title">
 					<span class="var-type">mixed</span>
 					<a href="#$allowed_options" title="details" class="var-name">$allowed_options</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$cloned_path" title="details" class="var-name">$cloned_path</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">string</span>
@@ -91,16 +95,51 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																				
+																																																																												
 												<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#directory_exists" title="details" class="method-name">directory_exists</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#directory_is_empty" title="details" class="method-name">directory_is_empty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#execute" title="details" class="method-name">execute</a>
-											([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#pull" title="details" class="method-name">pull</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#repository" title="details" class="method-name">repository</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#revision" title="details" class="method-name">revision</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$revision</span> = <span class="var-default">'tip'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#sparse" title="details" class="method-name">sparse</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#to" title="details" class="method-name">to</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
 									</div>
 								</div>
 		</div>
@@ -126,7 +165,7 @@
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$allowed_options</span>
-			 = <span class="var-default">array(<br /><br />    )</span>			(line <span class="line-number">84</span>)
+			 = <span class="var-default">array(<br />        /* --pull is used for safety since HG automatically uses hardlinks for<br />         repo data, although on some fs's, its not safe (eg. AFS) */<br />        'pull' =&gt; null,<br />        'sparse' =&gt; null,<br />        'rev' =&gt; null,<br />        'branch' =&gt; null,<br />    )</span>			(line <span class="line-number">90</span>)
 		</span>
 	</div>
 
@@ -142,14 +181,36 @@
 		
 
 </div>
-<a name="var$command" id="$command"><!-- --></A>
+<a name="var$cloned_path" id="$cloned_path"><!-- --></A>
 <div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
+			<span class="var-name">$cloned_path</span>
+						(line <span class="line-number">104</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The path in which Mercurial will create the new repository</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$command" id="$command"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
 			<span class="var-name">$command</span>
-			 = <span class="var-default"> 'log'</span>			(line <span class="line-number">62</span>)
+			 = <span class="var-default"> 'clone'</span>			(line <span class="line-number">67</span>)
 		</span>
 	</div>
 
@@ -165,13 +226,13 @@
 
 </div>
 <a name="var$required_options" id="$required_options"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$required_options</span>
-			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />        'repository' =&gt; null,<br />    )</span>			(line <span class="line-number">71</span>)
+			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />        //'repository' =&gt; null,<br />        'files' =&gt; null,<br />    )</span>			(line <span class="line-number">76</span>)
 		</span>
 	</div>
 
@@ -241,10 +302,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">95</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">114</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -258,13 +319,16 @@
 		<span class="method-name">
 			__construct
 		</span>
-					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">mixed</span>
-				<span class="var-name">$params</span><span class="var-description">: is one or more parameters to modify the command</span>			</li>
+				<span class="var-name">$params</span><span class="var-description">: One or more parameters to the command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: Instance of the base object</span>			</li>
 				</ul>
 		
 			<hr class="separator" />
@@ -275,11 +339,69 @@
 					</dl>
 			
 	</div>
-<a name="methodexecute" id="execute"><!-- --></a>
+<a name="methoddirectory_exists" id="directory_exists"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">directory_exists</span> (line <span class="line-number">309</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Confirm that the path exists</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			directory_exists
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: The path the repository should be created at</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddirectory_is_empty" id="directory_is_empty"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">execute</span> (line <span class="line-number">108</span>)
+		<span class="method-title">directory_is_empty</span> (line <span class="line-number">330</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Confirm that the path exists</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			directory_is_empty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: The path the repository should be created at</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexecute" id="execute"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">execute</span> (line <span class="line-number">160</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -293,20 +415,163 @@
 		<span class="method-name">
 			execute
 		</span>
-					([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">mixed</span>
-				<span class="var-name">$params</span><span class="var-description">: The options passed to the Log command</span>			</li>
+				<span class="var-name">$params</span><span class="var-description">: Options passed to the Log command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: Instance of the base object</span>			</li>
 				</ul>
 		
 				<hr class="separator" />
 		<div class="notes">Implementation of:</div>
 			<dl>
 			<dt><a href="../../Hg/Command/VersionControl_Hg_Command_Interface.html#methodexecute">VersionControl_Hg_Command_Interface::execute()</a></dt>
+						<dd>Main method encapsulating the logic to run the command</dd>
 					</dl>
+			
+	</div>
+<a name="methodpull" id="pull"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">pull</span> (line <span class="line-number">243</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tells Mercurial to use the pull functionality to copy metadata.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			pull
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodrepository" id="repository"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">repository</span> (line <span class="line-number">290</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tells Mercurial to not create a working copy.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			repository
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: Destination of the clone operation</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrevision" id="revision"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">revision</span> (line <span class="line-number">359</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Specifies the revision to restrict the clone operation to</p>
+<p class="description"><p>Usage:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">clone</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Clone.html#methodrevision">revision</a><span class="src-sym">(</span><span class="src-num">7</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">clone</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Clone.html#methodrevision">revision</a><span class="src-sym">(</span><span class="src-str">'cde1256adc443a3'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">clone</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'revision'&nbsp;</span>=&gt;&nbsp;<span class="src-num">7&nbsp;</span><span class="src-sym">))</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Clone.html#methodto">to</a><span class="src-sym">(</span>'/path/to)-&gt;run();</div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			revision
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$revision</span> = <span class="var-default">'tip'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$revision</span><span class="var-description">: is the optional revision to archive</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsparse" id="sparse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sparse</span> (line <span class="line-number">256</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tells Mercurial to not create a working copy.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			sparse
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodto" id="to"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">to</span> (line <span class="line-number">271</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tells Mercurial to not create a working copy.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			to
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span><span class="var-description">: Destination of the clone operation</span>			</li>
+				</ul>
+		
 			
 	</div>
 							<h4>Inherited Methods</h4>
@@ -322,13 +587,11 @@
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformat">VersionControl_Hg_Command_Abstract::format()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformatOptions">VersionControl_Hg_Command_Abstract::formatOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetCommandString">VersionControl_Hg_Command_Abstract::getCommandString()</a></span><br>
-													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetContainer">VersionControl_Hg_Command_Abstract::getContainer()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOption">VersionControl_Hg_Command_Abstract::getOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOptions">VersionControl_Hg_Command_Abstract::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodincluding">VersionControl_Hg_Command_Abstract::including()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodparseOutput">VersionControl_Hg_Command_Abstract::parseOutput()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetCommandString">VersionControl_Hg_Command_Abstract::setCommandString()</a></span><br>
-													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetContainer">VersionControl_Hg_Command_Abstract::setContainer()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetOptions">VersionControl_Hg_Command_Abstract::setOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodunsetOption">VersionControl_Hg_Command_Abstract::unsetOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#method__call">VersionControl_Hg_Command_Abstract::__call()</a></span><br>
@@ -339,7 +602,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 18 May 2011 23:44:11 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 27 Jun 2011 14:22:41 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

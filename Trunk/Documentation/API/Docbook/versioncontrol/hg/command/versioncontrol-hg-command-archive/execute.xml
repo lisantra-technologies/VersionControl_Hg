@@ -3,20 +3,24 @@
   <refname>
    <function>VersionControl_Hg_Command_Archive::execute</function>
   </refname>
-  <refpurpose>(non-PHPdoc)</refpurpose>
+  <refpurpose>Execute the command and return the results.</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
    <funcsynopsisinfo>require_once &apos;/Hg/Command/Archive.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     string
      <function>VersionControl_Hg_Command_Archive::execute</function>
     </funcdef>
     <paramdef>
      <parameter>
       <optional>$params = &null;</optional>
      </parameter>
+    </paramdef>
+    <paramdef>
+     <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+     <parameter>$hg</parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>
@@ -35,17 +39,23 @@
       <parameter>$params</parameter>
      </term>
      <listitem>
-      <para />
+      <para>Options passed to the Log command</para>
      </listitem>
     </varlistentry>
    </variablelist>
-  </para>
- </refsect1>
- <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.execute.see">
-  &title.see;
-  <para>
-   <emphasis>see</emphasis>
-   execute($params)
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>
+       <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+      </type>
+      <parameter>$hg</parameter>
+     </term>
+     <listitem>
+      <para>Instance of the base object</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
   </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-archive.execute.throws">

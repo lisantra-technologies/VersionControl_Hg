@@ -1,0 +1,49 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.all">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Pull::all</function>
+  </refname>
+  <refpurpose>Ensures all changesets are pulled.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Pull.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-pull-summary">
+       <classname>VersionControl_Hg_Command_Pull</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Pull::all</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.all.desc">
+  &title.desc;
+  <para>This is just DSL syntactic sugar. Mercurial&apos;s default is to pull all  changesets and does not even have an option to specifiy &apos;all&apos;. It just  sounds good in a DSL since we also have the revision() modifier.</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->pull()->all()->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->pull('all')->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.all.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.all.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

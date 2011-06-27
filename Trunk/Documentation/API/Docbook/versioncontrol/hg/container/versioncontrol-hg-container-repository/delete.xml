@@ -3,7 +3,7 @@
   <refname>
    <function>VersionControl_Hg_Container_Repository::delete</function>
   </refname>
-  <refpurpose>Deletes the repository, effectively removing the working copy from SCM.</refpurpose>
+  <refpurpose>Deletes the repository, but not the working copy</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
@@ -19,8 +19,8 @@
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.delete.desc">
   &title.desc;
-  &notdocumented;
-</refsect1>
+  <para>On Windows, this will fail if any process has a lock on the repository&apos;s  directory; for example, if the repository is open in Windows Explorer.</para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.container.versioncontrol-hg-container-repository.delete.throws">
   &title.throws;
   <para>

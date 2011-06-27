@@ -1,0 +1,58 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.bookmark">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Pull::bookmark</function>
+  </refname>
+  <refpurpose>Pull only code labled by the bookmark</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Pull.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Pull::bookmark</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$name</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.bookmark.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.bookmark.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>The name of the bookmark</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.bookmark.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.bookmark.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

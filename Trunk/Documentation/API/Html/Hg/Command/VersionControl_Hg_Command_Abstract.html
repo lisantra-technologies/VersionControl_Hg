@@ -83,7 +83,7 @@
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../Hg/Command/VersionControl_Hg_Command_Bundle.html">VersionControl_Hg_Command_Bundle</a></td>
+					<td style="padding-right: 2em"></td>
 					<td>
 											Bundle changeset(s) to a file
 										</td>
@@ -133,7 +133,7 @@
 								<tr>
 					<td style="padding-right: 2em"><a href="../../Hg/Command/VersionControl_Hg_Command_Import.html">VersionControl_Hg_Command_Import</a></td>
 					<td>
-											Bundle changeset(s) to a file
+											Import a set of patches into a repository
 										</td>
 				</tr>
 								<tr>
@@ -157,7 +157,7 @@
 								<tr>
 					<td style="padding-right: 2em"><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html">VersionControl_Hg_Command_Pull</a></td>
 					<td>
-											Bundle changeset(s) to a file
+											Pull changesets from a remote repository
 										</td>
 				</tr>
 								<tr>
@@ -193,7 +193,7 @@
 								<tr>
 					<td style="padding-right: 2em"><a href="../../Hg/Command/VersionControl_Hg_Command_Version.html">VersionControl_Hg_Command_Version</a></td>
 					<td>
-											Implements the version command
+											Print the version of the HG executable in use
 										</td>
 				</tr>
 							</table>
@@ -271,11 +271,11 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																				
+																																																																																																																																				
 												<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span>)
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span>, <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">boolean</span>
@@ -313,12 +313,7 @@
 										()
 									</div>
 																<div class="method-definition">
-											<span class="method-result"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
-										<a href="#getContainer" title="details" class="method-name">getContainer</a>
-										()
-									</div>
-																<div class="method-definition">
-											<span class="method-result">void</span>
+											<span class="method-result">string</span>
 										<a href="#getOption" title="details" class="method-name">getOption</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
 									</div>
@@ -341,11 +336,6 @@
 											<span class="method-result">void</span>
 										<a href="#setCommandString" title="details" class="method-name">setCommandString</a>
 										()
-									</div>
-																<div class="method-definition">
-											<span class="method-result">null</span>
-										<a href="#setContainer" title="details" class="method-name">setContainer</a>
-											(<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
@@ -647,7 +637,7 @@
 							</li>
 					<li>
 				<a href="../../Hg/Command/VersionControl_Hg_Command_Version.html#var$required_options">VersionControl_Hg_Command_Version::$required_options</a>
-								: There are no required options for this command
+								: Required options for this specific command. These may not be required  by Mercurial itself, but are required for the proper functioning of  this package.
 							</li>
 				</ul>
 		
@@ -719,7 +709,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">139</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">140</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -733,13 +723,16 @@
 		<span class="method-name">
 			__construct
 		</span>
-					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span>)
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span>, <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">mixed</span>
-				<span class="var-name">$params</span><span class="var-description">: The options and arguments passed to the command</span>			</li>
+				<span class="var-name">$params</span><span class="var-description">: Options passed to the command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: Instance of the base object</span>			</li>
 				</ul>
 		
 			
@@ -844,7 +837,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">addOption</span> (line <span class="line-number">395</span>)
+		<span class="method-title">addOption</span> (line <span class="line-number">402</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -877,7 +870,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">addOptions</span> (line <span class="line-number">431</span>)
+		<span class="method-title">addOptions</span> (line <span class="line-number">438</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -906,15 +899,16 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">changeset</span> (line <span class="line-number">659</span>)
+		<span class="method-title">changeset</span> (line <span class="line-number">656</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Specify which revisions to operate upon in the repository</p>
 <p class="description"><p>Revisions are considered inclusive: r1 to r3 includes data  from r1,r2,r3.</p></p>
 	<ul class="tags">
-				<li><span class="field">TODO:</span> Consider whether this is a good idea, since between() handles  this for some commands...</li>
+				<li><span class="field">TODO:</span> Deprecated: mark for deletion</li>
 				<li><span class="field">TODO:</span> Handle $last as well!</li>
+				<li><span class="field">TODO:</span> Consider whether this is a good idea, since between() handles  this for some commands...</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -1032,7 +1026,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getCommandString</span> (line <span class="line-number">639</span>)
+		<span class="method-title">getCommandString</span> (line <span class="line-number">634</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1052,35 +1046,11 @@
 		
 			
 	</div>
-<a name="methodgetContainer" id="getContainer"><!-- --></a>
+<a name="methodgetOption" id="getOption"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getContainer</span> (line <span class="line-number">612</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Returns the base $hg instance on whose behalf the command operates</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
-		<span class="method-name">
-			getContainer
-		</span>
-				()
-			</div>
-	
-		
-			
-	</div>
-<a name="methodgetOption" id="getOption"><!-- --></a>
-<div class="oddrow">
-	
-	<div class="method-header">
-		<span class="method-title">getOption</span> (line <span class="line-number">463</span>)
+		<span class="method-title">getOption</span> (line <span class="line-number">472</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1090,7 +1060,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">void</span>
+		<span class="method-result">string</span>
 		<span class="method-name">
 			getOption
 		</span>
@@ -1106,10 +1076,10 @@
 			
 	</div>
 <a name="methodgetOptions" id="getOptions"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getOptions</span> (line <span class="line-number">452</span>)
+		<span class="method-title">getOptions</span> (line <span class="line-number">459</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1130,7 +1100,7 @@
 			
 	</div>
 <a name="methodincluding" id="including"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">including</span> (line <span class="line-number">228</span>)
@@ -1161,10 +1131,10 @@
 			
 	</div>
 <a name="methodparseOutput" id="parseOutput"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">parseOutput</span> (line <span class="line-number">499</span>)
+		<span class="method-title">parseOutput</span> (line <span class="line-number">516</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1196,10 +1166,10 @@
 			
 	</div>
 <a name="methodsetCommandString" id="setCommandString"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setCommandString</span> (line <span class="line-number">626</span>)
+		<span class="method-title">setCommandString</span> (line <span class="line-number">621</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1218,35 +1188,6 @@
 				()
 			</div>
 	
-		
-			
-	</div>
-<a name="methodsetContainer" id="setContainer"><!-- --></a>
-<div class="evenrow">
-	
-	<div class="method-header">
-		<span class="method-title">setContainer</span> (line <span class="line-number">602</span>)
-	</div> 
-	
-	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Sets the base $hg instance on whose behalf command operates</p>
-	<ul class="tags">
-				<li><span class="field">access:</span> public</li>
-			</ul>
-	
-	<div class="method-signature">
-		<span class="method-result">null</span>
-		<span class="method-name">
-			setContainer
-		</span>
-					(<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
-			</div>
-	
-			<ul class="parameters">
-					<li>
-				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
-				<span class="var-name">$hg</span><span class="var-description">: The root object instance</span>			</li>
-				</ul>
 		
 			
 	</div>
@@ -1284,7 +1225,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">unsetOption</span> (line <span class="line-number">474</span>)
+		<span class="method-title">unsetOption</span> (line <span class="line-number">491</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1314,7 +1255,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__call</span> (line <span class="line-number">162</span>)
+		<span class="method-title">__call</span> (line <span class="line-number">163</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1351,7 +1292,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 18 May 2011 23:44:05 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 27 Jun 2011 14:22:33 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

@@ -3,11 +3,7 @@
   <refname>
    <function>VersionControl_Hg_Command_Status::execute</function>
   </refname>
-  <refpurpose>
-   Running this with no arguments (eg. $hg-&gt;status()-&gt;run(); ) will only
-   show what Hg would show: only changes and not all files. Specify
-   status(&apos;all&apos;) or add all() to the method chain to get all files.
-</refpurpose>
+  <refpurpose>Execute the command and return the results.</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>
@@ -22,13 +18,17 @@
       <optional>$params = &null;</optional>
      </parameter>
     </paramdef>
+    <paramdef>
+     <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+     <parameter>$hg</parameter>
+    </paramdef>
    </funcprototype>
   </funcsynopsis>
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.execute.desc">
   &title.desc;
-  &notdocumented;
-</refsect1>
+  <para>Running this with no arguments (eg. $hg-&gt;status()-&gt;run(); ) will only  show what Hg would show: only changes and not all files. Specify  status(&apos;all&apos;) or add all() to the method chain to get all files.</para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-status.execute.param">
   &title.param;
   <para>
@@ -39,7 +39,20 @@
       <parameter>$params</parameter>
      </term>
      <listitem>
-      <para>The options passed to the Log command</para>
+      <para>Options passed to the Log command</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>
+       <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+      </type>
+      <parameter>$hg</parameter>
+     </term>
+     <listitem>
+      <para>Instance of the base object</para>
      </listitem>
     </varlistentry>
    </variablelist>

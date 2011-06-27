@@ -3,7 +3,7 @@
   <refname>
    <function>VersionControl_Hg_Command_Log::between</function>
   </refname>
-  <refpurpose>Restricts log output to changesets between $from and $to</refpurpose>
+  <refpurpose>Restricts log output to changesets between dates $from and $to</refpurpose>
  </refnamediv>
  <refsynopsisdiv>
   <funcsynopsis>

@@ -1,0 +1,54 @@
+<refentry id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--get">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Executable::__get</function>
+  </refname>
+  <refpurpose>Get an unaccessible class property</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Executable.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>VersionControl_Hg_Executable::__get</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$value</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--get.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--get.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$value</parameter>
+     </term>
+     <listitem>
+      <para>The class property trying to be gotten</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--get.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.--get.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

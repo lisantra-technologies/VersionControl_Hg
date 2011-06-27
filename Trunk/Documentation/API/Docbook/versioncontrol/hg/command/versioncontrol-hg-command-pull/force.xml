@@ -1,0 +1,46 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.force">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Pull::force</function>
+  </refname>
+  <refpurpose>Force a pull no matter what</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Pull.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Pull::force</function>
+    </funcdef>
+    <paramdef />
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.force.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.force.todo">
+  &title.todo;
+  <para>
+   <emphasis>todo</emphasis>
+   Implement this!
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.force.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.force.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

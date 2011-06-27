@@ -19,8 +19,8 @@
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.getversion.desc">
   &title.desc;
-  &notdocumented;
-</refsect1>
+  <para>Because of circular dependcies, we have to call the command here  instead of in the constructor, since $this-&gt;hg is not yet populated.</para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.getversion.throws">
   &title.throws;
   <para>

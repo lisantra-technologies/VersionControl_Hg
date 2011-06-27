@@ -27,10 +27,20 @@
                 <li><a href="../../Hg/Command/VersionControl_Hg_Command_Interface.html">VersionControl_Hg_Command_Interface</a></li>            </ul>
         </p>
         		<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Bundle changeset(s) to a file</p>
-<p class="description"><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/repo'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">bundle</span><span class="src-sym">(</span><span class="src-str">'10:22'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-</ol></div></p><p>Should return a list of files added.</p><p>PHP version 5</p></p>
+<p class="short-description">Pull changesets from a remote repository</p>
+<p class="description"><p>Usage:</p><p>Basic usage, assuming .hgrc has a default pull url:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/repo'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$array_of_pulled_changesets&nbsp;</span>=&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-str">'verbose'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>With credentials:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodusername">username</a><span class="src-sym">(</span><span class="src-str">'A'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodpassword">password</a><span class="src-sym">(</span><span class="src-str">'B'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">using</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'username'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'A'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'password'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'B'</span><span class="src-sym">))</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Explcititly pull 'all' changesets (Default):  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-str">'all'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodall">all</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Pull a specific revision:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-num">23</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodrevision">revision</a><span class="src-sym">(</span><span class="src-num">23</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or, a multiple revisions:</p><p>or, a range of contiguous revisions:</p><p>Update the working copy after a pull:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodupdate">update</a><span class="src-sym">(</span><span class="src-str">'working&nbsp;copy'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  Also, you may use 'fetch' to pull and update at the same time.</p><p>Pull a specific branch:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodbranch">branch</a><span class="src-sym">(</span><span class="src-str">'mine'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Pull a specific bookmark:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodbookmark">bookmark</a><span class="src-sym">(</span><span class="src-str">'earlier'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Force a pull:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodforce">force</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodfrom">from</a><span class="src-sym">(</span><span class="src-str">'/remote/repo'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p><p>Results: Should return a list of changes pulled. See cognate: incoming().</p><p>PHP version 5</p></p>
 	<ul class="tags">
 				<li><span class="field">author:</span> Michael Gatto &lt;<a href="mailto:mgatto@lisantra.com">mgatto@lisantra.com</a>&gt;</li>
 				<li><span class="field">copyright:</span> 2011 Lisantra Technologies, LLC</li>
@@ -38,7 +48,7 @@
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Hg---Command---Pull.php.html">/Hg/Command/Pull.php</a> (line <span class="field">53</span>)
+			Located in <a class="field" href="_Hg---Command---Pull.php.html">/Hg/Command/Pull.php</a> (line <span class="field">91</span>)
 		</p>
 		
 				
@@ -91,16 +101,61 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																				
+																																																																																												
 												<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
-											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html">VersionControl_Hg_Command_Pull</a></span>
+										<a href="#all" title="details" class="method-name">all</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#bookmark" title="details" class="method-name">bookmark</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#branch" title="details" class="method-name">branch</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'default'</span>])
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#execute" title="details" class="method-name">execute</a>
-											([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#force" title="details" class="method-name">force</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#from" title="details" class="method-name">from</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$source</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#password" title="details" class="method-name">password</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#revision" title="details" class="method-name">revision</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$revision</span> = <span class="var-default">'tip'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#update" title="details" class="method-name">update</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$what</span> = <span class="var-default">'working copy'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+										<a href="#username" title="details" class="method-name">username</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>)
 									</div>
 								</div>
 		</div>
@@ -120,13 +175,13 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$allowed_options" id="$allowed_options"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$allowed_options</span>
-			 = <span class="var-default">array(<br /><br />    )</span>			(line <span class="line-number">84</span>)
+			 = <span class="var-default">array(<br />        'bookmark' =&gt; null,<br />        'branch' =&gt; null,<br />        'revision' =&gt; null,<br />        'from' =&gt; null,<br />        'username' =&gt; null,<br />        'password' =&gt; null,<br />        'all' =&gt; null,<br />        'update' =&gt; null,<br />        'force' =&gt; null,<br />    )</span>			(line <span class="line-number">123</span>)
 		</span>
 	</div>
 
@@ -143,13 +198,13 @@
 
 </div>
 <a name="var$command" id="$command"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$command</span>
-			 = <span class="var-default"> 'log'</span>			(line <span class="line-number">62</span>)
+			 = <span class="var-default"> 'pull'</span>			(line <span class="line-number">100</span>)
 		</span>
 	</div>
 
@@ -165,13 +220,13 @@
 
 </div>
 <a name="var$required_options" id="$required_options"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$required_options</span>
-			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />        'repository' =&gt; null,<br />    )</span>			(line <span class="line-number">71</span>)
+			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />        'repository' =&gt; null,<br />        'files' =&gt; null,<br />    )</span>			(line <span class="line-number">109</span>)
 		</span>
 	</div>
 
@@ -241,10 +296,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">95</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">143</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -258,13 +313,16 @@
 		<span class="method-name">
 			__construct
 		</span>
-					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">mixed</span>
-				<span class="var-name">$params</span><span class="var-description">: is one or more parameters to modify the command</span>			</li>
+				<span class="var-name">$params</span><span class="var-description">: One or more parameters for the command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: Instance of the base object</span>			</li>
 				</ul>
 		
 			<hr class="separator" />
@@ -275,11 +333,96 @@
 					</dl>
 			
 	</div>
+<a name="methodall" id="all"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">all</span> (line <span class="line-number">260</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Ensures all changesets are pulled.</p>
+<p class="description"><p>This is just DSL syntactic sugar. Mercurial's default is to pull all  changesets and does not even have an option to specifiy 'all'. It just  sounds good in a DSL since we also have the revision() modifier.</p><p>Usage:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodall">all</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-str">'all'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html">VersionControl_Hg_Command_Pull</a></span>
+		<span class="method-name">
+			all
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodbookmark" id="bookmark"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">bookmark</span> (line <span class="line-number">273</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Pull only code labled by the bookmark</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			bookmark
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The name of the bookmark</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodbranch" id="branch"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">branch</span> (line <span class="line-number">296</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Pull revisions only in this branch</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			branch
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'default'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: The name of the branch</span>			</li>
+				</ul>
+		
+			
+	</div>
 <a name="methodexecute" id="execute"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">execute</span> (line <span class="line-number">108</span>)
+		<span class="method-title">execute</span> (line <span class="line-number">183</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -293,20 +436,200 @@
 		<span class="method-name">
 			execute
 		</span>
-					([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span>)
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">mixed</span>
-				<span class="var-name">$params</span><span class="var-description">: The options passed to the Log command</span>			</li>
+				<span class="var-name">$params</span><span class="var-description">: Options passed to the Log command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span><span class="var-description">: Instance of the base object</span>			</li>
 				</ul>
 		
 				<hr class="separator" />
 		<div class="notes">Implementation of:</div>
 			<dl>
 			<dt><a href="../../Hg/Command/VersionControl_Hg_Command_Interface.html#methodexecute">VersionControl_Hg_Command_Interface::execute()</a></dt>
+						<dd>Main method encapsulating the logic to run the command</dd>
 					</dl>
+			
+	</div>
+<a name="methodforce" id="force"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">force</span> (line <span class="line-number">382</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Force a pull no matter what</p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> Implement this!</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			force
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodfrom" id="from"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">from</span> (line <span class="line-number">312</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Designate where to pull from</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			from
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$source</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$source</span><span class="var-description">: The repository url from which to pull</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodpassword" id="password"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">password</span> (line <span class="line-number">350</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a password for a remote repository</p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> Implement this!</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			password
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$password</span><span class="var-description">: The password to use for authentication</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrevision" id="revision"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">revision</span> (line <span class="line-number">238</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Specified the revision to restrict the log operation to</p>
+<p class="description"><p>Usage:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">pull</span><span class="src-sym">(</span><span class="src-str">'all'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodrevision">revision</a><span class="src-sym">(</span><span class="src-num">7</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><a href="http://www.php.net/log">log</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'revision'&nbsp;</span>=&gt;&nbsp;<span class="src-num">7&nbsp;</span><span class="src-sym">))</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Pull.html#methodall">all</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			revision
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$revision</span> = <span class="var-default">'tip'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$revision</span><span class="var-description">: The revision for which to show the log for</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdate" id="update"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">update</span> (line <span class="line-number">367</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Perform an update after a pull</p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> Implement this!</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			update
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$what</span> = <span class="var-default">'working copy'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$what</span><span class="var-description">: What should be updated? Default is always 'Working                      Copy' anyways.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodusername" id="username"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">username</span> (line <span class="line-number">335</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a username for a remote repository</p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> Implement this!</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html">VersionControl_Hg_Command_Abstract</a></span>
+		<span class="method-name">
+			username
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$username</span><span class="var-description">: The username to use for authentication</span>			</li>
+				</ul>
+		
 			
 	</div>
 							<h4>Inherited Methods</h4>
@@ -322,13 +645,11 @@
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformat">VersionControl_Hg_Command_Abstract::format()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodformatOptions">VersionControl_Hg_Command_Abstract::formatOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetCommandString">VersionControl_Hg_Command_Abstract::getCommandString()</a></span><br>
-													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetContainer">VersionControl_Hg_Command_Abstract::getContainer()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOption">VersionControl_Hg_Command_Abstract::getOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOptions">VersionControl_Hg_Command_Abstract::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodincluding">VersionControl_Hg_Command_Abstract::including()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodparseOutput">VersionControl_Hg_Command_Abstract::parseOutput()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetCommandString">VersionControl_Hg_Command_Abstract::setCommandString()</a></span><br>
-													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetContainer">VersionControl_Hg_Command_Abstract::setContainer()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetOptions">VersionControl_Hg_Command_Abstract::setOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodunsetOption">VersionControl_Hg_Command_Abstract::unsetOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#method__call">VersionControl_Hg_Command_Abstract::__call()</a></span><br>
@@ -339,7 +660,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 18 May 2011 23:44:21 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 27 Jun 2011 14:22:56 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

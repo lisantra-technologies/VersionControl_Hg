@@ -1,0 +1,63 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.to">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Cat::to</function>
+  </refname>
+  <refpurpose>
+   Modifies the --output option to set the directory path to which the  catted
+   file will be saved
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Cat.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Cat::to</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$directory = &apos;.&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.to.desc">
+  &title.desc;
+  <para>Defaults to the current directory, specified by --cwd and usually is  the same as the repository path.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.to.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$directory</parameter>
+     </term>
+     <listitem>
+      <para>is directory to which archives are saved</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.to.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   VersionControl_Hg_Repository_Command_Exception
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.to.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

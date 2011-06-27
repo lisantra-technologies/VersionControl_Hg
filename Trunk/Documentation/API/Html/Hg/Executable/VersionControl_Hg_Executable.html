@@ -129,7 +129,7 @@
 										<a href="#getInstance" title="details" class="method-name">getInstance</a>
 											([<span class="var-type">object</span>&nbsp;<span class="var-name">$hg</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span> = <span class="var-default">null</span>])
 									</div>
-																																																																
+																																																																								
 												<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -169,6 +169,11 @@
 											<span class="method-result">null</span>
 										<a href="#__clone" title="details" class="method-name">__clone</a>
 										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">string</span>
@@ -326,7 +331,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static method getInstance</span> (line <span class="line-number">119</span>)
+		<span class="method-title">static method getInstance</span> (line <span class="line-number">121</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -393,7 +398,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getExecutable</span> (line <span class="line-number">233</span>)
+		<span class="method-title">getExecutable</span> (line <span class="line-number">235</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -418,7 +423,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getPath</span> (line <span class="line-number">156</span>)
+		<span class="method-title">getPath</span> (line <span class="line-number">158</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -443,11 +448,12 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">getVersion</span> (line <span class="line-number">276</span>)
+		<span class="method-title">getVersion</span> (line <span class="line-number">271</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Get the version of Mercurial we are currently using</p>
+<p class="description"><p>Because of circular dependcies, we have to call the command here  instead of in the constructor, since $this-&gt;hg is not yet populated.</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -467,7 +473,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setExecutable</span> (line <span class="line-number">177</span>)
+		<span class="method-title">setExecutable</span> (line <span class="line-number">179</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -499,7 +505,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">setPath</span> (line <span class="line-number">138</span>)
+		<span class="method-title">setPath</span> (line <span class="line-number">140</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -530,7 +536,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">setVersion</span> (line <span class="line-number">256</span>)
+		<span class="method-title">setVersion</span> (line <span class="line-number">258</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -556,7 +562,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__clone</span> (line <span class="line-number">307</span>)
+		<span class="method-title">__clone</span> (line <span class="line-number">305</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -576,11 +582,40 @@
 		
 			
 	</div>
-<a name="method__toString" id="__toString"><!-- --></a>
+<a name="method__get" id="__get"><!-- --></a>
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">__toString</span> (line <span class="line-number">297</span>)
+		<span class="method-title">__get</span> (line <span class="line-number">317</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get an unaccessible class property</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: The class property trying to be gotten</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">295</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -619,7 +654,7 @@
 					</div>
 		<div class="info-box-body">
 			<a name="constCUSTOMEXECUTABLE" id="CUSTOMEXECUTABLE"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -636,7 +671,7 @@
 	
 </div>
 <a name="constDEFAULTEXECUTABLE" id="DEFAULTEXECUTABLE"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -657,7 +692,7 @@
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 18 May 2011 23:44:15 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Mon, 27 Jun 2011 14:22:47 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

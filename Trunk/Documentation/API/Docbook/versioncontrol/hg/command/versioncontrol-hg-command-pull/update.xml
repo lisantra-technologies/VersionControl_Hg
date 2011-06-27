@@ -1,0 +1,70 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.update">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Pull::update</function>
+  </refname>
+  <refpurpose>Perform an update after a pull</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Pull.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract-summary">
+       <classname>VersionControl_Hg_Command_Abstract</classname>
+      </link>
+     </replaceable>
+     <function>VersionControl_Hg_Command_Pull::update</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>
+      <optional>$what = &apos;working copy&apos;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.update.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.update.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$what</parameter>
+     </term>
+     <listitem>
+      <para>
+       What should be updated? Default is always &apos;Working
+       Copy&apos; anyways.
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.update.todo">
+  &title.todo;
+  <para>
+   <emphasis>todo</emphasis>
+   Implement this!
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.update.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-pull.update.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

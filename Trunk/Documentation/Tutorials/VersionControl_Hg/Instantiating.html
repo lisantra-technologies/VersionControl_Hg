@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="pandoc" />
+        <title></title>
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <style type="text/css">
+            table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode, table.sourceCode pre {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                vertical-align: baseline;
+                border: none;
+            }
+
+            td.lineNumbers {
+                border-right: 1px solid #AAAAAA;
+                text-align: right;
+                color: #AAAAAA;
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            td.sourceCode {
+                padding-left: 5px;
+            }
+
+            code.sourceCode span.kw {
+                color: #007020;
+                font-weight: bold;
+            }
+
+            code.sourceCode span.dt {
+                color: #902000;
+            }
+
+            code.sourceCode span.dv {
+                color: #40a070;
+            }
+
+            code.sourceCode span.bn {
+                color: #40a070;
+            }
+
+            code.sourceCode span.fl {
+                color: #40a070;
+            }
+
+            code.sourceCode span.ch {
+                color: #4070a0;
+            }
+
+            code.sourceCode span.st {
+                color: #4070a0;
+            }
+
+            code.sourceCode span.co {
+                color: #60a0b0;
+                font-style: italic;
+            }
+
+            code.sourceCode span.ot {
+                color: #007020;
+            }
+
+            code.sourceCode span.al {
+                color: red;
+                font-weight: bold;
+            }
+
+            code.sourceCode span.fu {
+                color: #06287e;
+            }
+
+            code.sourceCode span.re {
+            }
+
+            code.sourceCode span.er {
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="tutorial-instantiating-versioncontrol_hg">Tutorial: Instantiating VersionControl_Hg</h1>
+        <p>
+            The basis of all operations is instantiating the base class:
+        </p>
+        <table class="sourceCode">
+            <tr>
+                <td class="nums" title="Click to toggle line numbers" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }">
+                    <pre
+      >1<br
+     />2</pre>
+                </td>
+                <td class="sourceCode">
+                    <pre class="sourceCode"
+      ><code class="sourceCode php"
+    >require_once 'VersionControl/Hg.php';<br
+       />$hg = new VersionControl_Hg('/path/to/repository');</code
+    ></pre>
+                </td>
+            </tr>
+        </table>
+        <p>
+            The path to a repository is currently only tested with local repositories. It may &quot;just work&quot; with a url, however. I have not yet decided on the security and privacy implications for providing access to remote repositories, even public ones. Also, I have not yet formulated a way to handle automated, server-side access to repositories over SSH or various authentication methods provided by other software such as Bitbucket or mercurial-server.
+        </p>
+        <p>
+            Setting the repository also automatically finds and sets the local path of the Mercurial binary it will use. If multiple installations of Mercurial are found, this package will employ only the first one found on the system path.
+        </p>
+        <p>
+            Not setting a repository path while instantiating is fine. For commands such as
+            <code>
+                hg init
+            </code>
+            or
+            <code>
+                hg clone
+            </code>, a blank argument simply makes the most sense. If you do supply a path and then attempt to init or clone a repository over it, the underlying Mercurial command-line client will return an error, resulting in a PHP exception. This is because the CLI will not allow a user to clone over or init over an existing repository.
+        </p>
+        <p>
+            In this case, the to() method will supply the path (which must be an empty directory) to which to create or clone a repository:
+        </p>
+        <table class="sourceCode">
+            <tr>
+                <td class="nums" title="Click to toggle line numbers" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }">
+                    <pre
+      >1<br
+     />2<br
+     />3</pre>
+                </td>
+                <td class="sourceCode">
+                    <pre class="sourceCode"
+      ><code class="sourceCode php"
+    >require_once 'VersionControl/Hg.php';<br
+       />$hg = new VersionControl_Hg();<br
+       />$hg-&gt;clone('/path/to/repo')-&gt;to('/path/to/future/repo')-&gt;run();</code
+    ></pre>
+                </td>
+            </tr>
+        </table>
+        <p>
+            You may also provide a location of a repository after instantiation:
+        </p>
+        <table class="sourceCode">
+            <tr>
+                <td class="nums" title="Click to toggle line numbers" onclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }">
+                    <pre
+      >1<br
+     />2<br
+     />3</pre>
+                </td>
+                <td class="sourceCode">
+                    <pre class="sourceCode"
+      ><code class="sourceCode php"
+    >require_once 'VersionControl/Hg.php';<br
+       />$hg = new VersionControl_Hg();<br
+       />$hg-&gt;setRepository('/path/to/repository');</code
+    ></pre>
+                </td>
+            </tr>
+        </table>
+        <p>
+            or <pre class="sourceCode"><code class="sourceCode php"
+    >$hg-&gt;repository = '/path/to/repository';</code
+    ></pre>
+        </p>
+        <p>
+            Calling all commands other than 'version' without having already set a valid repository will raise an exception.
+        </p>
+        <p>
+            Do note that you can only set the path once since Repository is a singleton; All subsequent attempts will <em>silently</em>
+            fail after the path has already been set.
+        </p>
+    </body>
+</html>

@@ -10,7 +10,7 @@
    <funcsynopsisinfo>require_once &apos;/Hg/Command/Output/Formatter.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     string
      <function>VersionControl_Hg_Command_Output_Formatter::toJson</function>
     </funcdef>
     <paramdef>
@@ -33,7 +33,7 @@
       <parameter>$output</parameter>
      </term>
      <listitem>
-      <para>is the passed-in, parsed output from the cli</para>
+      <para>The passed-in, parsed output from the cli</para>
      </listitem>
     </varlistentry>
    </variablelist>

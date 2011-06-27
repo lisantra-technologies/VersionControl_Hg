@@ -10,7 +10,7 @@
    <funcsynopsisinfo>require_once &apos;/Hg/Command/Output/Formatter.php&apos;;</funcsynopsisinfo>
    <funcprototype>
     <funcdef>
-     void
+     string
      <function>VersionControl_Hg_Command_Output_Formatter::toSerialize</function>
     </funcdef>
     <paramdef>
