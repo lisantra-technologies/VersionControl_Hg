@@ -142,7 +142,9 @@ class VersionControl_Hg_Command_Pull
      */
     public function __construct($params = null, VersionControl_Hg $hg)
     {
+        /* Make $hg available to option methods */
         $this->hg = $hg;
+
         /* a repository must have been set already */
         $repository = $this->hg->repository->getPath();
         if ( empty($repository) ) {

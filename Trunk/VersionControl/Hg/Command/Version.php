@@ -110,6 +110,7 @@ class VersionControl_Hg_Command_Version
      */
     public function __construct($params = null, VersionControl_Hg $hg)
     {
+        /* Make $hg available to option methods */
         $this->hg = $hg;
 
         /* should always be called so we have a full array of valid options */

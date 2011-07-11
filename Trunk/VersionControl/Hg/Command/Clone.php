@@ -113,6 +113,7 @@ class VersionControl_Hg_Command_Clone
      */
     public function __construct($params = null, VersionControl_Hg $hg)
     {
+        /* Make $hg available to option methods */
         $this->hg = $hg;
 
         /* check if a repository has been designated already or not */
