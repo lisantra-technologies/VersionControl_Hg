@@ -151,7 +151,7 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * `run()` is used to trigger execution. But, it is a virtual function:
      * i.e. it will always be intercepted by __call in
-     * VersionControl_Hg_Repository_Command.
+     * VersionControl_Hg_Repository_CommandProxy.
      *
      * @param string $method    The function called in the fluent API after the
      *                          base command Class is called/instantiated.
