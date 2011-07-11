@@ -47,7 +47,11 @@ require_once 'Output/Formatter.php';
  * You may also specify multiple files:
  * <code>
  * $hg = new VersionControl_Hg('/path/to/repo');
- * $hg->cat(array('file1', 'file2'))->run();
+ * $hg->cat()->files(array('file1', 'file2'))->run();
+ * </code>
+ * or use a pattern:
+ * <code>
+ * $hg->cat()->files(array('glob'=> '**.php'))->run();
  * </code>
  *
  * Additionaly, you may cat the contents of a file at a specific revision:
@@ -138,18 +142,15 @@ class VersionControl_Hg_Command_Cat
         $this->hg = $hg;
 
         /* should always be called so we have a full array of valid options */
-        $this->setOptions(array()); //$params
+        $this->setOptions(array());
 
-        /* We handle the actual param handling here, since we only expect
-         * 1 or more file names. */
-        if ( is_array($params[0]) ) {
-            $this->addOption('files', join(' ', $params[0]));
-        } elseif ( is_scalar($params[0]) ) {
+        /* $params is always an array with key [0] since we use
+         * call_user_func_array() */
+        if ( is_scalar($params[0]) ) {
             $this->addOption('files', $params[0]);
         } elseif ( is_null($params[0]) ) {
-            //throw an exception
-        } /* Note: $params is always an array with key [0] since we use
-           * call_user_func_array() */
+            //throw an exception (?)
+        }
     }
 
     /**
@@ -226,9 +227,9 @@ class VersionControl_Hg_Command_Cat
      * the command line.
      *
      * Usage:
-     * <code>$hg->log()->files(array('index.php'))->run();</code>
+     * <code>$hg->cat()->files(array('index.php'))->run();</code>
      * or
-     * <code>$hg->log(array('files' => array('index.php')))->run();</code>
+     * <code>$hg->cat(array('files' => array('index.php')))->run();</code>
      *
      * @param mixed $files the list of files as a simple array
      *
