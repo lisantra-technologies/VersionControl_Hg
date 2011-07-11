@@ -145,11 +145,10 @@ class VersionControl_Hg_Command_Cat
         $this->setOptions(array());
 
         /* $params is always an array with key [0] since we use
-         * call_user_func_array() */
-        if ( is_scalar($params[0]) ) {
+         * call_user_func_array(). However, if cat() has no arguments,
+         * it is an empty array. */
+        if ( (! empty($params)) && (isset($params[0])) ) {
             $this->addOption('files', $params[0]);
-        } elseif ( is_null($params[0]) ) {
-            //throw an exception (?)
         }
     }
 
