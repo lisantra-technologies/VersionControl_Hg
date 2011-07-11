@@ -165,10 +165,10 @@ abstract class VersionControl_Hg_Command_Abstract
         /* $arguments is an array which may be empty if $hg->command() [->run()]
            has no parameters */
         switch ($method) {
-            case 'run': //the special method ending the fluent chain
+            /* the special method ending the fluent chain */
+            case 'run':
                 /* run the command class' execute method
-                 * interface demands all command classes define this method
-                 */
+                 * interface demands all command classes define this method */
                 return $this->execute($arguments);
 
                 break;
@@ -192,9 +192,17 @@ abstract class VersionControl_Hg_Command_Abstract
      * This option is available for commands which operate on both working
      * copies and repositories, thus its abstraction.
      *
-     * Mercurial expects the pattern to start with 'glob: ' or 're: '.
+     * Mercurial expects the pattern to start with 'glob: ' or 're: '. Glob
+     * syntax is the default. Fileset patterns can be passed in raw:
+     * <code>
+     * $hg->log()->excluding('set:dir1 or dir 2')->run();
+     * </code>
+     * They may also be expressed as an array:
+     * <code>
+     * $hg->log()->excluding(array('set' => 'dir1 or dir 2'))->run();
+     * </code>
      *
-     * @param string $filter The pattern of filenames to exlude
+     * @param string|mixed $filter The pattern of filenames to exlude
      *
      * @return VersionControl_Hg_Command
      *
@@ -202,9 +210,10 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     public function excluding($filter)
     {
+        $filter = $this->parseFilter($filter);
+
         $this->addOption(
             'exclude', "{$filter}"
-            // $this->hg->repository . DIRECTORY_SEPARATOR . $filter
         );
 
         /* let me be chainable! */
@@ -227,12 +236,10 @@ abstract class VersionControl_Hg_Command_Abstract
      */
     public function including($filter)
     {
-        //@todo escapeshellarg()
-        /* Must have full path to repository;
-         * @TODO is the root only needed? Is this recursive */
+        $filter = $this->parseFilter($filter);
+
         $this->addOption(
             'include', "{$filter}"
-            //$this->hg->repository . DIRECTORY_SEPARATOR . $filter
         );
 
         /* let me be chainable! */
@@ -637,6 +644,67 @@ abstract class VersionControl_Hg_Command_Abstract
     }
 
     /**
+     * Parse a filter string to validate its scheme
+     *
+     * @param string $filter
+     *
+     * @return string
+     */
+    public function parseFilter($filter) {
+        if ( is_array($filter) ) {
+            /** HANDLE ARRAY-BASED ARRAY('SCHEME' => 'PATTERN') ARGUMENTS */
+            /* ensure its a 1-element array only; use loose comparison for
+             * 'safety' (?) */
+            if ( 1 != count($filter) ) {
+                throw new VersionControl_Hg_Command_Exception(
+                    VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
+                    'Filters expressed in array format can only be 1 element
+                     long; multiple schemes or patterns are not supported.'
+                );
+            }
+
+            $scheme = key($filter);
+            $pattern = $filter[$scheme];
+        } else {
+            /** HANDLE STRING-BASED SCHEME:PATTERN ARGUMENTS */
+            /* get the pattern scheme, if any */
+            $has_scheme = strpos($filter, ':');
+
+            /* use empty because strpos may return 0 as well as the expected
+             * 'false' */
+            if ( ! empty($has_scheme) ) {
+                $filter_parts = explode(':', $filter);
+
+                $scheme = $filter_parts[0];
+                $pattern = $filter_parts[1];
+            } else {
+                $scheme = '';
+                $pattern = $filter;
+            }
+        }
+
+        /* is this scheme supported by this version? */
+        if (
+            (! empty($scheme) ) AND
+            (! $this->hg->getExecutable()->hasCapability($scheme) ))
+        {
+            throw new VersionControl_Hg_Executable_Exception(
+                VersionControl_Hg_Executable_Exception::ERROR_VERSION_NOT_SUPPORTED
+            );
+        }
+
+        /* Ensure separator is returned correctly */
+        if ( ! empty($scheme) ) {
+            $scheme .= ':';
+        }
+
+        //Do this using --cwd instead
+        //$pattern = $this->hg->repository . DIRECTORY_SEPARATOR . $pattern;
+
+        return $scheme . $pattern;
+    }
+
+    /**
      * Specify which revisions to operate upon in the repository
      *
      * Revisions are considered inclusive: r1 to r3 includes data
@@ -647,7 +715,7 @@ abstract class VersionControl_Hg_Command_Abstract
      *
      * @return  VersionControl_Hg_Command
      *
-     * @TODO Deprecated: mark for deletion
+     * @TODO Deprecated: mark for deletion; USE REVSETS instead
      *
      * @TODO Handle $last as well!
      * @TODO Consider whether this is a good idea, since between() handles
