@@ -97,6 +97,8 @@ class VersionControl_Hg_Executable
      * @var mixed
      */
     protected $capabilities = array(
+        //All pre-1.0 features are merged into 1.0
+        '1.0' => array('glob', 're',), //released 2008-03-24
         //1.2 released 2009-03-04
         /* '...:files' is an internal VersionControl_Hg option name used for
          *  specifying multiple files */
