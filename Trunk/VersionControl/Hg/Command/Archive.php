@@ -274,7 +274,7 @@ class VersionControl_Hg_Command_Archive
      *
      * @return string
      */
-    public function execute(array $params = null, VersionControl_Hg $hg)
+    public function execute(array $params = null, VersionControl_Hg $hg = null)
     {
         /* take care of options passed in as such:
          * $hg->archive(array('revision' => 'tip', 'to' => realpath('../')));

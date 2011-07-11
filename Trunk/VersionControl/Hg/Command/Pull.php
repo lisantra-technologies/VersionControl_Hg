@@ -180,7 +180,7 @@ class VersionControl_Hg_Command_Pull
      *
      * @return string
      */
-    public function execute(array $params = null, VersionControl_Hg $hg)
+    public function execute(array $params = null, VersionControl_Hg $hg = null)
     {
         /* take care of options passed into run() as such:
          * $hg->clone('/path/')->run('verbose'));

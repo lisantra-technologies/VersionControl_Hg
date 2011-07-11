@@ -157,7 +157,7 @@ class VersionControl_Hg_Command_Clone
      *
      * @return string
      */
-    public function execute(array $params = null, VersionControl_Hg $hg)
+    public function execute(array $params = null, VersionControl_Hg $hg = null)
     {
         /* Validate */
         $files = $this->getOption('files');

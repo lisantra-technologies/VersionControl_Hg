@@ -142,7 +142,7 @@ class VersionControl_Hg_Command_Init
      *
      * @return string
      */
-    public function execute(array $params = null, VersionControl_Hg $hg)
+    public function execute(array $params = null, VersionControl_Hg $hg = null)
     {
         /* Validate */
         $path = $this->getOption('files');

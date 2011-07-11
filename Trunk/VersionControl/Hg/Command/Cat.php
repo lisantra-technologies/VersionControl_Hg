@@ -157,7 +157,7 @@ class VersionControl_Hg_Command_Cat
      *
      * @return string
      */
-    public function execute(array $params = null)
+    public function execute(array $params = null, VersionControl_Hg $hg = null)
     {
         /* take care of options passed into run() as such:
          * $hg->cat('/file/')->run('verbose'));

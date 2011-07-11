@@ -138,7 +138,7 @@ class VersionControl_Hg_Command_Status
      *
      * @return string
      */
-    public function execute(array $params = null, VersionControl_Hg $hg)
+    public function execute(array $params = null, VersionControl_Hg $hg = null)
     {
         /* take care of options passed in as such:
          * $hg->status(array('revision' => 3, 'all' => null));
