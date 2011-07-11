@@ -294,6 +294,7 @@ class VersionControl_Hg_Command_Archive
             array(
                 'noninteractive' => null,
                 'repository' => $this->hg->getRepository()->getPath(),
+                'cwd' => $this->hg->getRepository()->getPath(),
             )
         );
 
