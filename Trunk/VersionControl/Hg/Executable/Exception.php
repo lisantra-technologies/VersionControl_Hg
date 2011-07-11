@@ -51,6 +51,18 @@ class VersionControl_Hg_Executable_Exception extends Exception
     const ERROR_NO_VERSION = 'noVersion';
 
     /**
+     * Error constant for when a feature or option is not supported by the
+     * version of Mercurial in use.
+     */
+    const ERROR_VERSION_NOT_SUPPORTED = 'versionNotsupported';
+
+    /**
+     * Error constant for when a passed capability is not found in the catalog
+     * of capabilities per version.
+     */
+    const ERROR_CAPABILITY_UNKNOWN = 'capabilityUnknown';
+
+    /**
      * Error messages for humans
      *
      * @var array
@@ -59,6 +71,10 @@ class VersionControl_Hg_Executable_Exception extends Exception
         'notFound' => 'Mercurial could not be found on this system',
         'yetUnset' => 'The Mercurial executable has not yet been set',
         'noVersion' => 'No Hg version has yet been set!',
+        'versionNotsupported' => 'The version string does not match supported
+                                  versions of Mercurial',
+        'capabilityUnknown' => 'The capability requested is not in our catalog
+                                of supported capabilities.'
     );
 
     /**

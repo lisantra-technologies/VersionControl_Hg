@@ -14,6 +14,11 @@
  */
 
 /**
+ * Provides Exceptions for the Executable
+ */
+require_once 'Executable/Exception.php';
+
+/**
  * Provides access to the Hg executable
  *
  * This is the de-facto parent container of all operations
@@ -84,6 +89,43 @@ class VersionControl_Hg_Executable
     protected $version;
 
     /**
+     * Capabilities per Mercurial version
+     *
+     * Format is 'command:option' or 'feature:subfeature' to show when it was
+     * added to Mercurial
+     *
+     * @var mixed
+     */
+    protected $capabilities = array(
+        //1.2 released 2009-03-04
+        /* '...:files' is an internal VersionControl_Hg option name used for
+         *  specifying multiple files */
+        '1.2' => array('commit:close-branch','convert:perforce', 'diff:change'),
+        '1.3' => array(
+            'subrepos','merge:preview','update:check', 'branches:closed',
+            'heads:closed'
+        ),
+        '1.4' => array('summary','diff:stat', 'diff:reverse', 'clone:updaterev'),
+        '1.5' => array(
+            'import:files','log:xml','rebase:detach','subrepos:svn',
+            'clone:branch', 'bundle:branch', 'incoming:branch',
+            'outgoing:branch', 'pull:branch', 'push:branch'
+        ),
+        '1.6' => array('log:branch'),
+        '1.7' => array(
+            'strip:keep','strip:files','strip:revsets','add:subrepos',
+            'diff:subrepos', 'incoming:subrepos', 'outgoing:subrepos',
+            'status:subrepos','revsets'
+        ),
+        '1.8' => array('listfile','subrepos:git', 'bookmark'),
+            //bookmark was an 3rd-party extension prior to 1.8
+        '1.9' => array(
+            'filesets', 'manifest:all', 'diff:change:revsets',
+            'import:bypass', 'paths:quiet'
+        ),
+    );
+
+    /**
      * Constructor
      *
      * Finds and sets the system's existing Mercurial executable binary which
@@ -107,7 +149,8 @@ class VersionControl_Hg_Executable
 
         /* disabled, since calling a command before setting the executable has
          * finished seems to tear a hole in the unniverse... */
-        //$this->setVersion();
+        //$version = $this->getVersion();
+        //$this->setVersion($version);
     }
 
     /**
@@ -255,9 +298,9 @@ class VersionControl_Hg_Executable
      * @return array
      * @see $version
      */
-    protected function setVersion()
+    protected function setVersion($version)
     {
-        $this->version = $this->hg->version()->run();
+        $this->version = $version;
     }
 
     /**
@@ -284,7 +327,120 @@ class VersionControl_Hg_Executable
                 VersionControl_Hg_Executable_Exception::ERROR_NO_VERSION
             );
         }
+    }
 
+    /**
+     * Return Mercurial's capabilities and supported commands and options
+     * for this version.
+     *
+     * The version may be passed in, but the default is to use the current
+     * executable's version.
+     *
+     * @param string|float $version
+     *
+     * @return mixed
+     */
+    public function getCapabilities($version = null) {
+        /* Use the executable's version property by default */
+        if ( null === $version) {
+            $version = (string) $this->getVersion();
+        }
+
+        /* Version string must be only major and minor. This stript
+         * anything after the last period. We're assuming that
+         * the only string passed is a 3-part version string: 1.8.4;
+         * What if its a wrong assumption?? */
+        $version = substr($version, 0, strrpos($version, '.'));
+
+        /* Ensure the passed-in version string is supported */
+        if (! array_key_exists($version, $this->capabilities) ) {
+            throw new VersionControl_Hg_Executable_Exception(
+                VersionControl_Hg_Executable_Exception::ERROR_VERSION_NOT_SUPPORTED
+            );
+        }
+
+        /** Break up options from features and subfeatures from features */
+        /* initialize an empty array to avoid PHP Notices */
+        $capabilities = array();
+
+        $raw_capabilities = $this->capabilities[$version];
+
+        //@TODO handle triples, too: ex. subrepo:git:remote
+
+        foreach ( $raw_capabilities as $capability ) {
+            $capability_group = explode(':', $capability);
+
+            /* handle single capabilities without options or sub-features */
+            if ( empty($capability_group[1])) {
+                array_push($capabilities, $capability_group[0]);
+            } else {
+                $capabilities[$capability_group[0]] = array($capability_group[1]);
+            }
+        }
+
+        return $capabilities;
+    }
+
+    /**
+     * Determines if the required capability is present in the user's
+     * Mercurial executable version
+     *
+     * @param string $capability
+     *
+     * @return boolean
+     */
+    public function hasCapability($capability) {
+        /* default $has_capability to true so as not to give false positives;
+         * the worst that can happen now is that HG cli issues an error */
+        $has_capability = true;
+
+        /* Version string must be only major and minor. This stript
+         * anything after the last period. We're assuming that
+         * the only string passed is a 3-part version string: 1.8.4;
+         * What if its a wrong assumption?? */
+        $raw_version = $this->getVersion();
+        $our_version = substr($raw_version, 0, strrpos($raw_version, '.'));
+
+        //@TODO find way to ditch this var
+        $index = null;
+
+        /* find the first version to support the $capability; if not found,
+         * then assume its a capability */
+        $array_iterator = new RecursiveArrayIterator($this->capabilities);
+        $iterator = new RecursiveIteratorIterator($array_iterator);
+
+        while($iterator->valid()) {
+            if (
+                  (
+                        (isset($index) AND ($iterator->key() == $index) )
+                        OR
+                        ( ! isset($index) )
+                  )
+                  AND
+                  ($iterator->current() == $capability))
+            {
+                $capability_version = $array_iterator->key();
+            }
+
+            $iterator->next();
+        }
+
+        /* This occurs when the capability is not found. We will issue an
+         * exception, because capability checking should be explicit per command
+         * or option rather than automatic. If it were automatic, we would need
+         * to make it return true by default, since not exhaustively cataloging
+         * options and features would result in numerous false negatives! */
+        if ( ! isset($capability_version) ) {
+            throw new VersionControl_Hg_Executable_Exception(
+                VersionControl_Hg_Executable_Exception::ERROR_CAPABILITY_UNKNOWN
+            );
+        }
+
+        if ( (float) $capability_version > (float) $our_version ) {
+            $has_capability = false;
+        }
+var_dump($capability_version, $our_version);
+        return $has_capability;
     }
 
     /**
