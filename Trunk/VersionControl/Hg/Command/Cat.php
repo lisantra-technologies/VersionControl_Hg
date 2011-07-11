@@ -121,6 +121,7 @@ class VersionControl_Hg_Command_Cat
         'revision' => null,
         'rev' => null,
         'output' => null,
+        'files' => null,
     );
 
     /**
@@ -185,8 +186,6 @@ class VersionControl_Hg_Command_Cat
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
 
-        //var_dump($this->command_string);
-
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
@@ -215,6 +214,40 @@ class VersionControl_Hg_Command_Cat
     {
         $this->addOption('rev', $revision);
 
+        /* for the fluent API */
+        return $this;
+    }
+
+    /**
+     * List status information for only the files specified.
+     *
+     * VersionControl_Hg_Command_Abstract::formatOptions will automatically
+     * make this the last option since a files list must be the last item on
+     * the command line.
+     *
+     * Usage:
+     * <code>$hg->log()->files(array('index.php'))->run();</code>
+     * or
+     * <code>$hg->log(array('files' => array('index.php')))->run();</code>
+     *
+     * @param mixed $files the list of files as a simple array
+     *
+     * @return null
+     */
+    public function files(array $files)
+    {
+        /* is it a pattern or a simple array of files?
+         * the scheme must be the very first key.
+         * Must cast to string since numerical zero seems to always be in an
+         * array?! (string '0' is not!) */
+        if ( in_array((string) key($files), array('glob','re','set','path','listfile')) ) {
+            /* Yup, its a scheme:pattern */
+            $filter = $this->parseFilter($files);
+        } else {
+            $filter = join(' ', $files);
+        }
+
+        $this->addOption('files', $filter);
         /* for the fluent API */
         return $this;
     }
