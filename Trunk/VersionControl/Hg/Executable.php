@@ -401,24 +401,15 @@ class VersionControl_Hg_Executable
         $raw_version = $this->getVersion();
         $our_version = substr($raw_version, 0, strrpos($raw_version, '.'));
 
-        //@TODO find way to ditch this var
-        $index = null;
-
         /* find the first version to support the $capability; if not found,
-         * then assume its a capability */
+         * then assume its a capability. Adapted from code in the php.net
+         * manual by giulio.provasi@gmail.com on 30-Apr-2010 09:06,
+         * http://php.net/manual/en/function.array-search.php */
         $array_iterator = new RecursiveArrayIterator($this->capabilities);
         $iterator = new RecursiveIteratorIterator($array_iterator);
 
         while($iterator->valid()) {
-            if (
-                  (
-                        (isset($index) AND ($iterator->key() == $index) )
-                        OR
-                        ( ! isset($index) )
-                  )
-                  AND
-                  ($iterator->current() == $capability))
-            {
+            if ( $iterator->current() == $capability ) {
                 $capability_version = $array_iterator->key();
             }
 
@@ -439,7 +430,7 @@ class VersionControl_Hg_Executable
         if ( (float) $capability_version > (float) $our_version ) {
             $has_capability = false;
         }
-var_dump($capability_version, $our_version);
+
         return $has_capability;
     }
 
