@@ -271,7 +271,7 @@ class VersionControl_Hg_Command_Cat
         if ( is_array($name) ) {
             /* check options separately so we can use them together or
              * on each's own */
-            if ( array_key_exists('to', $name) ) {
+            if ( array_key_exists('name', $name) ) {
                 $this->addOption('output', $name['name']);
             }
 
