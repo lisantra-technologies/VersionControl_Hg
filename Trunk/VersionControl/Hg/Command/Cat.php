@@ -256,25 +256,28 @@ class VersionControl_Hg_Command_Cat
      * set the --output options to designate a file name and directory to
      * where the catted file will be saved
      *
+     * You can rename a single cat'ed file with:
+     * <code>
+     * $hg->cat('file.txt')->save(array('name' => 'new_file.csv'))->run();
+     * </code>
+     *
      * @param string $name The name of the file name
      *
      * @return VersionControl_Hg_Command_Abstract
      */
     public function save($name = '%s')
     {
-        //@TODO allow array of new filenames to match multiple files
-        // provided to cat()
-
-        //We allow this syntax, too: save(array('name' => '', 'to' => ''))
+        /* Enable this syntax, too: save(array('name' => '', 'to' => '')) */
         if ( is_array($name) ) {
-            //check that both 'name' and 'to' keys are set
-            if ( count(array_keys($name, array('to', 'name'))) != 2 ) {
-                //throw an exception, BUT, what if we allow programmer to pass
-                // save(array('name' => 'file'))->to('/path/')? should we just
-                // disallow that?
+            /* check options separately so we can use them together or
+             * on each's own */
+            if ( array_key_exists('to', $name) ) {
+                $this->addOption('output', $name['name']);
             }
 
-            $this->addOptions($params);
+            if ( array_key_exists('to', $name) ) {
+                $this->to($name['to']);
+            }
         } elseif ( is_scalar($name) ) {
             $this->addOption('output', $name);
         }
