@@ -15,7 +15,6 @@
 
 /**
  * Provides the base exception
- * @TODO Consider removing since we don't appear to actually use it (?)
  */
 require_once 'Hg/Exception.php';
 
