@@ -58,8 +58,6 @@ class VersionControl_Hg_Container_Repository
      * The name of all Mercurial repository roots.
      *
      * Leading backslash is needed since path may not have a trailing slash.
-     *
-     * @const string
      */
     const ROOT_NAME = '.hg';
 
