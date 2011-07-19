@@ -89,10 +89,15 @@
             <dirroles key="examples">doc</dirroles>
             <dirroles key="docs">doc</dirroles>
 
-            <changelog version="0.3.0" api_version="0.3.0">
-                - Made it work again
+            <changelog version="0.3.0" api_version="0.3.0" date="2011-01-01">
+                * Made it work again
             </changelog>
+            <changelog version="0.4.0" api_version="0.4.0" date="2011-06-01">
 
+            </changelog>
+            <changelog version="0.5.0" api_version="0.5.0" date="2011-08-01">
+
+            </changelog>
         </d51pearpkg2>
 
         <!--<pearpkg2 name="VersionControl_Hg"
@@ -146,6 +151,13 @@
     <!-- runs unit tests on code in dev area, not the Releases folder (change?) -->
     <target name="test" description="" depends="">
         <exec command="phpunit --configuration ..\phpunit.xml ." dir="Tests/Unit" passthru="true" />
+        <!-- for phpundercontrol:
+        -log-xml ${basedir}/build/logs/phpunit.xml
+                             -log-pmd ${basedir}/build/logs/phpunit.pmd.xml
+                             -log-metrics ${basedir}/build/logs/phpunit.metrics.xml
+                             -coverage-xml ${basedir}/build/logs/phpunit.coverage.xml
+                             -coverage-html ${basedir}/build/coverage ${testdir}  -->
+
         <!-- noframes  -->
         <phpunitreport infile="${docsdir}/Quality/test-reports/junit-log.xml"
             format="frames"
@@ -241,7 +253,9 @@
 
         <echo message="Making Html edition" />
         <exec command="phpdoc --title VersionControl_Hg --parseprivate on -d H:\Development\_Webroot\Trunk\VersionControl -t H:\Development\_Webroot\Trunk\Documentation\API\Html -o HTML:frames:default --examplesdir H:\Development\_Webroot\Trunk\Tests\Functional --readmeinstallchangelog" escape="false" />
-
+        <!-- for cruisecontrol -ct type -ue on -t ${basedir}/build/api
+                             -tb C:\Languages\Php\data\phpUnderControl\data\phpdoc
+                             -o HTML:Phpuc:phpuc -d . -->
         <echo message="Making Docbook edition" />
         <exec command="phpdoc --title VersionControl_Hg --parseprivate on -d H:\Development\_Webroot\Trunk\VersionControl -t H:\Development\_Webroot\Trunk\Documentation\API\Docbook -o XML:DocBook/peardoc2:default --examplesdir H:\Development\_Webroot\Trunk\Tests\Functional --readmeinstallchangelog" escape="false" />
     </target>
