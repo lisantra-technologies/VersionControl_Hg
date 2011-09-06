@@ -166,7 +166,7 @@ class VersionControl_Hg_Command_Status
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
-
+//var_dump($this->command_string);die;
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
@@ -364,7 +364,18 @@ class VersionControl_Hg_Command_Status
      */
     public function files(array $files)
     {
-        $this->addOption('files', join(' ', $files));
+        /* is it a pattern or a simple array of files?
+         * the scheme must be the very first key.
+         * Must cast to string since numerical zero seems to always be in an
+         * array?! (string '0' is not!) */
+        if ( in_array((string) key($files), array('glob','re','set','path','listfile')) ) {
+            /* Yup, its a scheme:pattern */
+            $filter = $this->parseFilter($files);
+        } else {
+            $filter = join(' ', $files);
+        }
+
+        $this->addOption('files', $filter);
 
         /* For the fluent API */
         return $this;
