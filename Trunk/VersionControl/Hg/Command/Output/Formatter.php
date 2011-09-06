@@ -103,6 +103,26 @@ class VersionControl_Hg_Command_Output_Formatter
     }
 
     /**
+     * Convert array to raw text format
+     *
+     * Alias for toRaw() above.
+     *
+     * @param array $output is the passed-in, parsed output from the cli
+     *
+     * @return string
+     */
+    public static function toText(array $output)
+    {
+        $text = "";
+
+        foreach ( $output as $line ) {
+            $text .= $line . PHP_EOL;
+        }
+
+        return $text;
+    }
+
+    /**
      * Convert array to PHP serialized text format
      *
      * @param array $output is the passed-in, parsed output from the cli
