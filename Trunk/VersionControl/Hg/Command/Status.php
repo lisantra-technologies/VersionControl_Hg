@@ -160,13 +160,14 @@ class VersionControl_Hg_Command_Status
                 'noninteractive' => null,
                 'repository' => $this->hg->getRepository()->getPath(),
                 'cwd' => $this->hg->getRepository()->getPath(),
+                /* by default we want to exclude any git or svn cruft */
+                'exclude' => '.git**', //adding  '.svn**' makes it fail, but why??
             )
         );
-
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
-//var_dump($this->command_string);die;
+
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
