@@ -134,17 +134,22 @@ class VersionControl_Hg_Command_Archive
          * semantic and "fluidic", that I can't give them up. Thus: */
         if ( array_key_exists(0, $params) ) {
             /* sometimes $params is not an array! */
-            foreach ( $params[0] as $key => $value ) {
-                switch ($key) {
-                    case 'revision':
-                    case 'to':
-                    case 'with':
-                    case 'prefix':
-                        $this->$key($value);
-                        break;
-                    default:
-                    /* default is to just ignore unkown ones */
-                        break;
+            if ( is_scalar($params[0]) ) {
+                /* we assume its a revision, like 'tip' or 7, etc */
+                $this->revision($params[0]);
+            } else {
+                foreach ( $params[0] as $key => $value ) {
+                    switch ($key) {
+                        case 'revision':
+                        case 'to':
+                        case 'with':
+                        case 'prefix':
+                            $this->$key($value);
+                            break;
+                        default:
+                        /* default is to just ignore unkown ones */
+                            break;
+                    }
                 }
             }
         }
