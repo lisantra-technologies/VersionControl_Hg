@@ -383,20 +383,20 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Adds 'copied' to the stack of command line options
+     * Adds 'ignored' to the stack of command line options
      *
-     * Returns only files copied within the working copy
+     * Returns only files ignored within the working copy
      *
      * Usage:
-     * <code>$hg->status()->copied()->run();</code>
+     * <code>$hg->status()->ignored()->run();</code>
      * or
-     * <code>$hg->status('copied')->run();</code>
+     * <code>$hg->status('ignored')->run();</code>
      *
      * @return VersionControl_Hg_Command_Status
      */
-    public function copied()
+    public function ignored()
     {
-        $this->addOption('copied');
+        $this->addOption('ignored');
 
         /* For the fluent API */
         return $this;
