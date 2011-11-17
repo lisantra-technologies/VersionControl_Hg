@@ -418,14 +418,27 @@ class VersionControl_Hg_Command_Status
      */
     public function revision($revision = 'tip')
     {
-        //@TODO Technically, the following shouldn't occur since 'tip' is default
-        if ( empty($revision)) {
-            throw new VersionControl_Hg_Command_Exception(
-                VersionControl_Hg_Command_Exception::BAD_ARGUMENT
-            );
-        }
-
         $this->addOption('rev', $revision);
+
+        /* For the fluent API */
+        return $this;
+    }
+
+    /**
+     * Restricts status output to changesets between two revisions $from and $to
+     *
+     * Usage:
+     * <code>$hg->status()->between(3, 17)->run();</code>
+     *
+     * @param string $from Show status entries from this revision forward through $to
+     * @param string $to   Show status entries only before this revision
+     *
+     * @return VersionControl_Hg_Command_Log
+     */
+    public function between($from = 0, $to = 'tip')
+    {
+        $this->addOption('rev', $from);
+        $this->addOption('rev', $to);
 
         /* For the fluent API */
         return $this;
