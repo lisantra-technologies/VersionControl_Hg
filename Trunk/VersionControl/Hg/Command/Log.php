@@ -297,8 +297,18 @@ class VersionControl_Hg_Command_Log
      */
     public function files(array $files)
     {
-        $this->addOption('files', join(' ', $files));
+        /* is it a pattern or a simple array of files?
+         * the scheme must be the very first key.
+         * Must cast to string since numerical zero seems to always be in an
+         * array?! (string '0' is not!) */
+        if ( in_array((string) key($files), array('glob','re','set','path','listfile')) ) {
+            /* Yup, its a scheme:pattern */
+            $filter = $this->parseFilter($files);
+        } else {
+            $filter = join(' ', $files);
+        }
 
+        $this->addOption('files', $filter);
         /* for the fluent API */
         return $this;
     }

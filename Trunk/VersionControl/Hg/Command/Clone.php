@@ -38,13 +38,6 @@ require_once 'Exception.php';
  * $hg->clone('http://url/to/repo')->to('/path/to/clone')->run();
  * </code>
  *
- * NOTES
- * Should return the object representing the cloned repository as
- * type: VersionControl_Hg_Container_Repository.
- *
- * Should check if new location for cloned repo exists or not, and/or is
- * empty same as Init.php does.
- *
  * PHP version 5
  *
  * @category   VersionControl
@@ -75,7 +68,6 @@ class VersionControl_Hg_Command_Clone
      */
     protected $required_options = array(
         'noninteractive' => null,
-        //'repository' => null,
         'files' => null,
     );
 
@@ -92,7 +84,7 @@ class VersionControl_Hg_Command_Clone
          repo data, although on some fs's, its not safe (eg. AFS) */
         'pull' => null,
         'sparse' => null,
-        'rev' => null,
+        'updaterev' => null,
         'branch' => null,
     );
 
@@ -113,6 +105,7 @@ class VersionControl_Hg_Command_Clone
      */
     public function __construct($params = null, VersionControl_Hg $hg)
     {
+var_dump($params);
         /* Make $hg available to option methods */
         $this->hg = $hg;
 
@@ -123,9 +116,7 @@ class VersionControl_Hg_Command_Clone
             /* are the argument(s) correctly formed? */
             if ( (array_key_exists(0, $params)) && (! empty($params[0])) ) {
                 /* if its an array, check for the 'repository' key */
-                if ( (is_array($params[0]))
-                    && (! array_key_exists('repository', $params[0]))
-                ) {
+                if ( (is_array($params[0])) && (! array_key_exists('repository', $params[0]))) {
                     throw new VersionControl_Hg_Command_Exception(
                         VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                         "The repository must be defined either at
@@ -136,14 +127,19 @@ class VersionControl_Hg_Command_Clone
                     /* should always be called so we have a full array of
                      * valid options */
                     $this->setOptions($params);
-                } elseif ( is_scalar($params[0])) {
-                    /* if scalar, we have to assume its a path */
-                    /* This is a psuedo-hack because init has no arugment prefix;
+
+                } elseif ( is_scalar($params[0]) ) {
+                    /* if scalar, we have to assume its a path.
+                     * This is a psuedo-hack because clone has no arugment prefix;
                      * our current inmplementation of 'files' doesn't give
                      * one = cool! */
+                    /* $params works instead of $params[0] because $params is
+                     * an array and now $files wants an array! */
+                    //$this->addOption('files', $params);
                     $this->repository($params[0]);
                 }
             }
+
         } else {
             /* should always be called so we have a full array of valid options */
             $this->setOptions($params);
@@ -166,8 +162,8 @@ class VersionControl_Hg_Command_Clone
         $cloned_path = $files[1];
 
         if (! $this->directory_exists($cloned_path) ) {
-            /* kill any umasks. */
             //@TODO remove since it causes problems on multithreaded servers
+            /* kill any umasks. */
             //umask(0);
 
             //refuse bad fs names
@@ -221,7 +217,8 @@ class VersionControl_Hg_Command_Clone
         /* Despite its being so not variable, we need to set the command string
          * only after manually setting options and other command-specific data */
         $this->setCommandString();
-
+var_dump($this->getCommandString());
+die;
         /* no var assignment, since 2nd param holds output */
         exec($this->command_string, $this->output, $this->status);
 
@@ -263,7 +260,7 @@ class VersionControl_Hg_Command_Clone
     }
 
     /**
-     * Tells Mercurial to not create a working copy.
+     * Sets the destination to which the old repository will be cloned.
      *
      * @param string $path Destination of the clone operation
      *
@@ -282,7 +279,12 @@ class VersionControl_Hg_Command_Clone
     }
 
     /**
-     * Tells Mercurial to not create a working copy.
+     * Specifies the repository for when $hg is initiated without an existing repository
+     *
+     * Allows calls such as:
+     * <code>
+     * $hg->clone()->repository('http://url/to/repo')->to('/path/to/clone')->run();
+     * </code>
      *
      * @param string $path Destination of the clone operation
      *
@@ -291,10 +293,59 @@ class VersionControl_Hg_Command_Clone
     public function repository($path)
     {
         $files = $this->getOption('files');
-
+//var_dump($path, $files);
+//die;
         /* the repository to clone MUST be the first files item */
+        /* what if they called to() first or specified 'to'=> before 'repository' => ? */
+        if ( is_array($files) && array_key_exists('0', $files) ) {
+            /* reassign before its overwritten below... */
+            $file[1] = $files[0];
+        }
+
         $files[0] = $path;
         $this->addOption('files', $files);
+
+        /* For the fluent API */
+        return $this;
+    }
+
+    /**
+     * Specifies the revision or tag clone from the repository
+     *
+     * Usage:
+     * <code>$hg->clone()->revision(7)->run();</code>
+     * or
+     * <code>$hg->clone()->revision('cde1256adc443a3')->run();</code>
+     * or
+     * <code>$hg->clone(array('revision' => 7 ))->to('/path/to)->run();</code>
+     *
+     * @param string $revision is the optional revision to archive
+     *
+     * @return void
+     */
+    public function revision($revision = 'tip')
+    {
+        $this->addOption('updaterev', $revision);
+
+        /* for the fluent API */
+        return $this;
+    }
+
+    /**
+     * Specifies the branch to restrict the clone operation to
+     *
+     * Usage:
+     * <code>$hg->clone()->branch('')->to('/path/to)->run();</code>
+     * or
+     * <code>$hg->clone(array('repository' => '', 'branch' => ''))->to('/path/to')->run();</code>
+     *
+     * @param string $branch is the branch to clone, and only that branch
+     *
+     * @return VersionControl_Hg_Command_Abstract
+     */
+    public function branch($branch= 'default')
+    {
+        $this->addOption('branch', $branch);
 
         /* For the fluent API */
         return $this;
@@ -341,35 +392,6 @@ class VersionControl_Hg_Command_Clone
 
         /* for the fluent API */
         return $directory_is_empty;
-    }
-
-    /**
-     * Specifies the revision to restrict the clone operation to
-      *
-     * Usage:
-     * <code>$hg->clone()->revision(7)->run();</code>
-     * or
-     * <code>$hg->clone()->revision('cde1256adc443a3')->run();</code>
-     * or
-     * <code>$hg->clone(array('revision' => 7 ))->to('/path/to)->run();</code>
-     *
-     * @param string $revision is the optional revision to archive
-     *
-     * @return void
-     */
-    public function revision($revision = 'tip')
-    {
-        /* Technically, this shouldn't occur since 'tip' is default */
-        if ( empty($revision)) {
-            throw new VersionControl_Hg_Command_Exception(
-                VersionControl_Hg_Command_Exception::BAD_ARGUMENT
-            );
-        }
-
-        $this->addOption('rev', $revision);
-
-        /* for the fluent API */
-        return $this;
     }
 
 }
