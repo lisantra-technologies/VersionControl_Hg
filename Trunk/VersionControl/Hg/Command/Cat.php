@@ -125,7 +125,6 @@ class VersionControl_Hg_Command_Cat
         'revision' => null,
         'rev' => null,
         'output' => null,
-        'files' => null,
     );
 
     /**
@@ -248,6 +247,7 @@ class VersionControl_Hg_Command_Cat
         }
 
         $this->addOption('files', $filter);
+
         /* for the fluent API */
         return $this;
     }
