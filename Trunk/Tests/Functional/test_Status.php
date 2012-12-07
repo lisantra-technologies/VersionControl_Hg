@@ -10,7 +10,7 @@ ini_set('safe_mode', 1);
 include_once '../VersionControl/Hg.php';
 $hg = new VersionControl_Hg('H:\Development\_Webroot\Trunk\Tests\Fixtures\Test_Repository');
 
-//var_dump($hg->status()->all()->run('verbose'));
+var_dump($hg->status()->run());
 
 //var_dump($hg->status(array('removed', 'deleted'))->run('verbose'));
 //var_dump($hg->status()->removed()->deleted()->run('verbose'));

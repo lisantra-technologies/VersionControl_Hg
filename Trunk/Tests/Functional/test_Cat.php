@@ -1,43 +1,30 @@
 <?php
 
 include_once '../VersionControl/Hg.php';
-
 $hg = new VersionControl_Hg('H:\Development\_Webroot\Trunk\Tests\Fixtures\Test_Repository');
 
-//var_dump($hg->cat('index.php')->run());
+//Most basic of tests:
+echo "Dumping index.php \r\n";
+var_dump($hg->cat('index.php')->run());
 
+//now, dump at a specific revision
+/* @TODO This returned a curious error "Array: no such file in rev d7d081382001" */
+echo "Dumping index.php at revision 1 \r\n";
+var_dump($hg->cat('index.php')->revision(5)->run());
 
+echo "cat two versions of the same file\r\n";
+var_dump($hg->cat('index.php')->revision(4)->revision(0)->run());
+
+//Now, dump with multiple files:
+echo "Dumping two different files: index.php and then layout.html @ tip \r\n";
+var_dump($hg->cat()->files(array('index.php', 'layout.html'))->run());
+
+//Save the catted file
+echo "Saving data.xml to Fixtures \r\n";
 var_dump($hg->cat('data.xml')->save()->to(realpath('H:\Development\_Webroot\Trunk\Tests\Fixtures'))->run());
-die;
 
-$hg->cat(array('index.php', 'layout.html'))->save()->to(realpath('H:\Development\_Webroot\Trunk\Tests\Fixtures'))->run();
+echo "Save multiple files with their original names \r\n";
+$hg->cat()->files(array('index.php', 'layout.html'))->save()->to(realpath('H:\Development\_Webroot\Trunk\Tests\Fixtures'))->run();
 
-$hg = new VersionControl_Hg('/path/to/repo');
-$hg->cat('/path/to/a/file')->run();
-
-
-//You may also specify multiple files:
-
-$hg = new VersionControl_Hg('/path/to/repo');
-$hg->cat(array('file1', 'file2'))->run();
-
-
-//Additionaly, you may cat the contents of a file at a specific revision:
-
-$hg = new VersionControl_Hg('/path/to/repo');
-$contents = $hg->cat('file2')->revision(6)->run();
-file_put_contents('file2', $content);
-
-//Not specifying a revision causes Mercurial to cat the latest version of the
-//file.
-
-//As a convenience for the latter operation, a programmer may use the save()
-//method:
-
-$hg = new VersionControl_Hg('/path/to/repo');
-$hg->cat('file2')->revision(6)->save('new_file_name')->to('/path')->run();
-
-
-//or, spell out the options in an array:
-
-$hg->cat('file2')->save(array('name' => 'new_file_name', 'to' => '/path'))->run();
+echo "Using long options in save() \r\n";
+$hg->cat('layout.html')->save(array('name' => 'index.phtml', 'to' => realpath('H:\Development\_Webroot\Trunk\Tests\Fixtures')))->run();
