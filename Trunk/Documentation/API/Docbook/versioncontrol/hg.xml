@@ -469,6 +469,7 @@
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoption;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.getoptions;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.including;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setcommandstring;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.setoptions;
@@ -629,6 +630,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -825,6 +834,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -1030,6 +1047,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -1225,6 +1250,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -1426,6 +1459,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -1493,7 +1534,11 @@
     You may also specify multiple files:
     <programlisting role="php">
 <![CDATA[ $hg = new VersionControl_Hg('/path/to/repo');
- $hg->cat(array('file1', 'file2'))->run();]]>
+ $hg->cat()->files(array('file1', 'file2'))->run();]]>
+    </programlisting>
+    or use a pattern:
+    <programlisting role="php">
+<![CDATA[ $hg->cat()->files(array('glob'=> '**.php'))->run();]]>
     </programlisting>
    </para>
    <para>
@@ -1653,6 +1698,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -1699,6 +1752,7 @@
  </refentry>
  &package.versioncontrol.hg.command.versioncontrol-hg-command-cat.--construct;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-cat.execute;
+&package.versioncontrol.hg.command.versioncontrol-hg-command-cat.files;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-cat.revision;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save;
 &package.versioncontrol.hg.command.versioncontrol-hg-command-cat.to;
@@ -1852,6 +1906,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -2060,6 +2122,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -2255,6 +2325,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -2456,6 +2534,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -2750,6 +2836,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -2945,6 +3039,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -3163,6 +3265,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -3356,6 +3466,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -3627,6 +3745,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -3830,6 +3956,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -4089,6 +4223,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -4296,6 +4438,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -4491,6 +4641,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -4692,6 +4850,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -4880,6 +5046,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -5092,6 +5266,14 @@
        </row>
        <row>
         <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
+       </row>
+       <row>
+        <entry>
          <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parseoutput">
           <function>VersionControl_Hg_Command_Abstract::parseOutput</function>
          </link>
@@ -5300,6 +5482,14 @@
          </link>
         </entry>
         <entry>Include files and / or directories from consideration</entry>
+       </row>
+       <row>
+        <entry>
+         <link linkend="package.versioncontrol.hg.command.versioncontrol-hg-command-abstract.parsefilter">
+          <function>VersionControl_Hg_Command_Abstract::parseFilter</function>
+         </link>
+        </entry>
+        <entry>Parse a filter string to validate its scheme</entry>
        </row>
        <row>
         <entry>
@@ -5764,10 +5954,12 @@
   </refsect1>
  </refentry>
  &package.versioncontrol.hg.executable.versioncontrol-hg-executable.--construct;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.getcapabilities;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.getexecutable;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.getinstance;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.getpath;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.getversion;
+&package.versioncontrol.hg.executable.versioncontrol-hg-executable.hascapability;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.setexecutable;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.setpath;
 &package.versioncontrol.hg.executable.versioncontrol-hg-executable.setversion;

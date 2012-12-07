@@ -1,690 +1,100 @@
 File,Line,Column,Type,Message,Source,Severity
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",91,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",117,1,error,"The comments for parameters $method (1) and $arguments (2) do not align",PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",136,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",137,17,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",138,95,warning,"Line exceeds 85 characters; contains 94 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",139,19,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",141,19,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",142,88,warning,"Line exceeds 85 characters; contains 87 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",145,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",146,17,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",143,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",144,17,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
 "H:\Development\_Webroot\Trunk\VersionControl\Hg.php",148,19,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
 "H:\Development\_Webroot\Trunk\VersionControl\Hg.php",150,19,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",151,88,warning,"Line exceeds 85 characters; contains 87 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",155,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",158,1,warning,"Line exceeds 85 characters; contains 94 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",181,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",182,34,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",186,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",196,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",201,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",210,1,error,"Extra newline(s) found before function comment short description",PEAR.Commenting.FunctionComment.SpacingBeforeShort,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",212,1,error,"Missing comment for param \"$name\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",212,1,error,"There must be exactly one blank line before the tags in function comment",PEAR.Commenting.FunctionComment.SpacingBeforeTags,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",213,1,error,"The comments for parameters $name (1) and $value (2) do not align",PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",213,1,error,"Missing comment for param \"$value\" at position 2",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",214,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",215,42,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",219,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",222,91,warning,"Line exceeds 85 characters; contains 90 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",224,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",229,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",7,1,error,"@category tag comment indented incorrectly; expected 2 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",8,1,error,"@package tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",9,1,error,"@author tag comment indented incorrectly; expected 4 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",10,1,error,"@copyright tag comment indented incorrectly; expected 1 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",11,1,error,"@license tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",12,1,warning,"Invalid version \"Hg: $Revision: de3cf362e5e3 $\" in file comment; consider \"CVS: <cvs_id>\" or \"SVN: <svn_id>\" instead",PEAR.Commenting.FileComment.InvalidVersion,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",12,1,error,"@version tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",13,1,error,"@link tag comment indented incorrectly; expected 6 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",28,1,error,"@category tag comment indented incorrectly; expected 2 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",29,1,error,"@package tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",30,1,error,"@author tag comment indented incorrectly; expected 4 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",31,1,error,"@copyright tag comment indented incorrectly; expected 1 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",32,1,error,"@license tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",33,1,warning,"Invalid version \"Hg: $Revision: de3cf362e5e3 $\" in doc comment; consider \"Release: <package_version>\" instead",PEAR.Commenting.ClassComment.InvalidVersion,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",33,1,error,"@version tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",34,1,error,"@link tag comment indented incorrectly; expected 6 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",52,15,error,"Protected member variable \"_command\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",59,15,error,"Protected member variable \"_hg\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",64,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",64,1,error,"Missing comment for param \"$hg\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",66,56,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",73,1,error,"Doc comment for var VersionControl_Hg_Command_Interface does not match actual variable name $command at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",73,1,error,"Missing comment for param \"VersionControl_Hg_Command_Interface\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",74,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",75,78,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",84,34,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",91,1,error,"Doc comment for var string does not match actual variable name $method at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",91,1,error,"Missing comment for param \"string\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",92,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",92,1,error,"The variable names for parameters string (1) and array (2) do not align",PEAR.Commenting.FunctionComment.ParameterNamesNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",92,1,error,"The comments for parameters string (1) and array (2) do not align",PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",92,1,error,"Doc comment for var array does not match actual variable name $arguments at position 2",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",92,1,error,"Missing comment for param \"array\" at position 2",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",96,56,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php",107,9,error,"File is being conditionally included; use \"include_once\" instead",PEAR.Files.IncludingFile.UseIncludeOnce,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",13,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 1",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",35,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",36,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",38,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",39,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",40,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",41,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 1",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",131,5,error,"Doc comment for \"$params\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",153,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",153,1,error,"Missing comment for param \"$method\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",154,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",154,1,error,"The variable names for parameters $method (1) and $args (2) do not align",PEAR.Commenting.FunctionComment.ParameterNamesNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",154,1,error,"The comments for parameters $method (1) and $args (2) do not align",PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",154,1,error,"Doc comment for var $args does not match actual variable name $arguments at position 2",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",154,1,error,"Missing comment for param \"$args\" at position 2",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",159,49,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",163,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",167,17,warning,"Line exceeds 85 characters; contains 89 characters",Generic.Files.LineLength.TooLong,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",156,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",157,17,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",159,19,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",161,19,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",168,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",198,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",208,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",213,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",234,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",241,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg.php",246,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
 "H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",169,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",171,17,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",174,19,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",193,1,error,"Parameters must appear immediately after the comment",PEAR.Commenting.FunctionComment.SpacingBeforeParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",193,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",193,1,error,"Doc comment for var string does not match actual variable name $filter at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",193,1,error,"Missing comment for param \"string\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",200,36,warning,"Line exceeds 85 characters; contains 91 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",217,1,error,"Parameters must appear immediately after the comment",PEAR.Commenting.FunctionComment.SpacingBeforeParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",217,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",217,1,error,"Doc comment for var string does not match actual variable name $filter at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",217,1,error,"Missing comment for param \"string\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",227,36,warning,"Line exceeds 85 characters; contains 90 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",234,12,error,"You must use \"/**\" style comments for a function comment",PEAR.Commenting.FunctionComment.WrongStyle,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",234,44,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",243,92,warning,"Line exceeds 85 characters; contains 91 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",244,89,warning,"Line exceeds 85 characters; contains 88 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",248,93,warning,"Line exceeds 85 characters; contains 92 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",303,13,error,"Expected \"} elseif (...) {\n\"; found \"}\n            elseif (...) {\n\"",PEAR.ControlStructures.ControlSignature,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",322,87,warning,"Line exceeds 85 characters; contains 86 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",327,1,error,"Multi-line function call not indented correctly; expected 16 spaces but found 20",PEAR.Functions.FunctionCallSignature.Indent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",369,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",369,1,error,"Doc comment for var is does not match actual variable name $name at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",370,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",370,1,error,"The variable names for parameters is (1) and is (2) do not align",PEAR.Commenting.FunctionComment.ParameterNamesNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",370,1,error,"Doc comment for var is does not match actual variable name $value at position 2",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",375,50,error,"TRUE, FALSE and NULL must be lowercase; expected \"null\" but found \"NULL\"",Generic.PHP.LowerCaseConstant.Found,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",393,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",393,1,error,"Missing comment for param \"$options\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",426,1,error,"Missing comment for param \"$option\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",434,9,error,"Expected \"if (...) {\n\"; found \"if(...) {\n\"",PEAR.ControlStructures.ControlSignature,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",450,1,error,"Parameters must appear immediately after the comment",PEAR.Commenting.FunctionComment.SpacingBeforeParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",450,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",451,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",451,1,error,"Doc comment for \"$delimiter\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",467,17,warning,"Line exceeds 85 characters; contains 110 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",500,97,warning,"Line exceeds 85 characters; contains 96 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",502,21,error,"Line indented incorrectly; expected at least 24 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",508,13,error,"Line indented incorrectly; expected at least 16 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",529,1,error,"Doc comment for var VersionControl_Hg does not match actual variable name $hg at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",529,1,error,"Missing comment for param \"VersionControl_Hg\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",530,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",549,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",554,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",557,31,error,"Multi-line assignments must have the equal sign on the second line",PEAR.Formatting.MultiLineAssignment.EqualSignLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",580,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",580,1,error,"Doc comment for var [ UNKNOWN ] does not match actual variable name $first at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",580,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",580,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",581,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",581,1,error,"The variable names for parameters UNKNOWN (1) and [ UNKNOWN ] (2) do not align",PEAR.Commenting.FunctionComment.ParameterNamesNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",581,1,error,"Doc comment for var [ UNKNOWN ] does not match actual variable name $last at position 2",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",581,1,error,"Missing parameter name at position 2",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",581,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 2",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",8,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",9,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",10,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",11,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",12,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",13,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",14,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",15,1,error,"@see tag comment indented incorrectly; expected 8 spaces but found 9",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",43,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",44,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",45,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",46,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",47,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",48,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",49,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",119,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",119,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",119,1,error,"Missing comment for param \"$params\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",132,9,error,"Line indented incorrectly; expected at least 12 spaces, found 8",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",135,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",136,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",137,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",138,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",175,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",177,17,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",180,19,error,"Line indented incorrectly; expected 12 spaces, found 16",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",268,91,warning,"Line exceeds 85 characters; contains 90 characters",Generic.Files.LineLength.TooLong,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",269,89,warning,"Line exceeds 85 characters; contains 88 characters",Generic.Files.LineLength.TooLong,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",649,1,error,"Missing comment for param \"$filter\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",653,42,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",687,9,error,"Expected \"if (...) {\n\"; found \"if (...)\n        {\n\"",PEAR.ControlStructures.ControlSignature,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",688,1,error,"Each line in a multi-line IF statement must begin with a boolean operator",PEAR.ControlStructures.MultiLineCondition.StartWithBoolean,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",689,1,error,"Closing parenthesis of a multi-line IF statement must be on a new line",PEAR.ControlStructures.MultiLineCondition.CloseBracketNewLine,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php",689,69,error,"There must be a single space between the closing parenthesis and the opening brace of a multi-line IF statement; found newline",PEAR.ControlStructures.MultiLineCondition.NewlineBeforeOpenBrace,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php",102,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php",114,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",123,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",139,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",140,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
 "H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",141,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",154,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",154,1,error,"Missing comment for param \"$directory\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",173,92,warning,"Line exceeds 85 characters; contains 91 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",188,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",216,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",216,1,error,"Missing comment for param \"$revision\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",220,49,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",241,1,warning,"Line exceeds 85 characters; contains 87 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",242,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",242,1,error,"Missing comment for param \"$prefix\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",246,37,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",259,5,error,"Doc comment for \"$params\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",261,1,warning,"Line exceeds 85 characters; contains 90 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",261,1,error,"There must be exactly one blank line before the tags in function comment",PEAR.Commenting.FunctionComment.SpacingBeforeTags,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",262,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",276,16,error,"Opening parenthesis of a multi-line function call must be the last content on the line",PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",279,10,error,"Closing parenthesis of a multi-line function call must be on a line by itself",PEAR.Functions.FunctionCallSignature.CloseBracketLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",281,9,warning,"Line exceeds 85 characters; contains 97 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",306,1,error,"Line indented incorrectly; expected at least 8 spaces, found 0",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",8,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",9,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",10,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",11,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",12,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",13,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",14,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",22,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",23,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",24,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",25,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",26,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",27,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",28,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",52,15,error,"Protected member variable \"_messages\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",53,175,warning,"Line exceeds 85 characters; contains 174 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",62,1,error,"Doc comment for \"$custom_message\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php",64,67,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",8,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",9,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",10,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",11,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",12,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",13,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",14,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",22,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",23,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",24,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",25,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",26,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",27,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",28,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php",32,12,error,"Missing function doc comment",PEAR.Commenting.FunctionComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",13,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",38,1,warning,"Line exceeds 85 characters; contains 144 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",42,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",43,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",44,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",45,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",46,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",47,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",48,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",108,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",108,1,error,"Doc comment for var $param does not match actual variable name $params at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",119,5,error,"Doc comment for \"$params\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",123,1,warning,"Line exceeds 85 characters; contains 90 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",123,1,error,"There must be exactly one blank line before the tags in function comment",PEAR.Commenting.FunctionComment.SpacingBeforeTags,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",124,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",139,16,error,"Opening parenthesis of a multi-line function call must be the last content on the line",PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",142,10,error,"Closing parenthesis of a multi-line function call must be on a line by itself",PEAR.Functions.FunctionCallSignature.CloseBracketLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",147,1,error,"Line indented incorrectly; expected at least 8 spaces, found 0",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",150,1,error,"Line indented incorrectly; expected at least 8 spaces, found 0",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",173,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",173,1,error,"Missing comment for param \"$revision\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",177,49,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",202,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",202,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",202,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",202,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",221,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",221,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",221,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",221,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",224,30,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",241,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",257,1,error,"Missing comment for param \"$date\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",258,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",259,31,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",260,87,warning,"Line exceeds 85 characters; contains 86 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",270,1,error,"Missing comment for param \"$date\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",271,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",272,35,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",273,88,warning,"Line exceeds 85 characters; contains 87 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",283,1,error,"Missing comment for param \"$date\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",284,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",285,34,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",286,88,warning,"Line exceeds 85 characters; contains 87 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",296,1,error,"Missing comment for param \"$from\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",297,1,error,"The comments for parameters $from (1) and $to (2) do not align",PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",297,1,error,"Missing comment for param \"$to\" at position 2",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",298,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",299,41,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",303,134,warning,"Line exceeds 85 characters; contains 133 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",13,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",21,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",22,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",23,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",24,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",25,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",26,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",27,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",57,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",58,43,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",67,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",68,43,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",85,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",86,42,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",90,12,error,"Line indented incorrectly; expected at least 12 spaces, found 11",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",100,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",101,48,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",107,1,warning,"Line exceeds 85 characters; contains 106 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",109,1,error,"Missing comment for param \"$data\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",110,1,warning,"Line exceeds 85 characters; contains 89 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",110,1,error,"The variable names for parameters $data (1) and $rootNodeName (2) do not align",PEAR.Commenting.FunctionComment.ParameterNamesNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",110,1,error,"The comments for parameters $data (1) and $rootNodeName (2) do not align",PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",111,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",111,1,error,"The variable names for parameters $rootNodeName (2) and $xml (3) do not align",PEAR.Commenting.FunctionComment.ParameterNamesNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",111,1,error,"The comments for parameters $rootNodeName (2) and $xml (3) do not align",PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",111,1,error,"Doc comment for var $xml does not match actual variable name &$xml at position 3",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",114,1,warning,"Line exceeds 85 characters; contains 142 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",116,84,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",119,9,warning,"Line exceeds 85 characters; contains 106 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",120,9,warning,"Inline control structures are discouraged",Generic.ControlStructures.InlineControlStructure.Discouraged,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",120,14,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",120,28,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",120,39,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",120,65,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",123,9,error,"Expected \"foreach (...) {\n\"; found \"foreach(...) {\n\"",PEAR.ControlStructures.ControlSignature,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",126,18,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",126,35,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",135,18,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",135,35,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",136,31,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",136,48,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",136,70,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",136,85,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",136,94,warning,"Line exceeds 85 characters; contains 93 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",139,17,warning,"Inline control structures are discouraged",Generic.ControlStructures.InlineControlStructure.Discouraged,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",140,23,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",140,50,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",144,26,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",144,47,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",145,23,error,"Space after opening parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",145,46,error,"Space before closing parenthesis of function call prohibited",PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",152,5,error,"Line indented incorrectly; expected at least 8 spaces, found 4",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",161,19,error,"You must use \"/**\" style comments for a function comment",PEAR.Commenting.FunctionComment.WrongStyle,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",161,46,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php",162,106,warning,"Line exceeds 85 characters; contains 105 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",13,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",45,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",46,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",47,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",48,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",49,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",50,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",51,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",91,28,warning,"Line exceeds 85 characters; contains 88 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",117,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",117,1,error,"Doc comment for var $param does not match actual variable name $params at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",126,5,error,"Doc comment for \"$params\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",132,1,warning,"Line exceeds 85 characters; contains 90 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",132,1,error,"There must be exactly one blank line before the tags in function comment",PEAR.Commenting.FunctionComment.SpacingBeforeTags,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",133,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",148,16,error,"Opening parenthesis of a multi-line function call must be the last content on the line",PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",151,10,error,"Closing parenthesis of a multi-line function call must be on a line by itself",PEAR.Functions.FunctionCallSignature.CloseBracketLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",184,12,error,"You must use \"/**\" style comments for a function comment",PEAR.Commenting.FunctionComment.WrongStyle,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",200,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",200,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",200,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",200,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",219,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",219,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",219,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",219,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",239,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",239,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",239,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",239,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",258,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",258,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",258,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",258,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",278,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",278,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",278,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",278,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",297,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",297,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",297,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",297,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",316,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",316,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",316,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",316,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",337,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",358,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",358,1,error,"Superfluous doc comment at position 1",PEAR.Commenting.FunctionComment.ExtraParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",358,1,error,"Missing parameter name at position 1",PEAR.Commenting.FunctionComment.MissingParamName,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",358,1,error,"Missing comment for param \"[ UNKNOWN ]\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",361,30,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",375,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",375,1,error,"Missing comment for param \"$revision\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",379,49,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",13,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",36,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",37,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",38,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",39,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",40,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",41,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",42,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",68,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",68,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",68,1,error,"Doc comment for var $hg does not match actual variable name $param at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",68,1,error,"Missing comment for param \"$hg\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",71,48,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",75,5,error,"Doc comment for \"$options\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",77,1,warning,"Line exceeds 85 characters; contains 90 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",77,1,error,"There must be exactly one blank line before the tags in function comment",PEAR.Commenting.FunctionComment.SpacingBeforeTags,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",78,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",94,1,error,"Line indented incorrectly; expected at least 8 spaces, found 0",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",116,27,error,"Space found before comma in function call",Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",117,27,error,"Space found before comma in function call",Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",127,13,error,"Expected \"} else {\n\"; found \"}\n            else{\n\"",PEAR.ControlStructures.ControlSignature,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",128,16,error,"Line indented incorrectly; expected at least 16 spaces, found 15",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",131,9,error,"Expected \"} else {\n\"; found \"}\n        else {\n\"",PEAR.ControlStructures.ControlSignature,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",146,1,error,"Extra newline(s) found before function comment short description",PEAR.Commenting.FunctionComment.SpacingBeforeShort,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",147,1,error,"There must be exactly one blank line before the tags in function comment",PEAR.Commenting.FunctionComment.SpacingBeforeTags,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",149,34,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",13,1,error,"@version tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",14,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",23,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",24,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",25,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",26,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",27,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",28,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",29,1,warning,"Invalid version \"SVN:\" in doc comment; consider \"Release: <package_version>\" instead",PEAR.Commenting.ClassComment.InvalidVersion,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",29,1,error,"@version tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",30,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",34,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",34,2,error,"Line indented incorrectly; expected at least 4 spaces, found 1",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",34,9,error,"Missing function doc comment",PEAR.Commenting.FunctionComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",34,9,error,"Line indented incorrectly; expected 4 spaces, found 1",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",34,32,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php",36,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",13,1,warning,"Invalid version \"Hg: $Revision$\" in file comment; consider \"CVS: <cvs_id>\" or \"SVN: <svn_id>\" instead",PEAR.Commenting.FileComment.InvalidVersion,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",13,1,error,"@version tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",14,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",22,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",23,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",24,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",25,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",26,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",27,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",28,1,error,"@version tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",29,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",49,15,error,"Protected member variable \"_messages\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle\Exception.php",62,43,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",13,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",21,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",22,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",23,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",24,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",25,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",26,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",27,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",31,12,error,"Missing function doc comment",PEAR.Commenting.FunctionComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php",32,12,error,"Missing function doc comment",PEAR.Commenting.FunctionComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",13,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 1",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",40,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",41,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",42,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",43,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",44,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",45,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",46,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",48,94,warning,"Line exceeds 85 characters; contains 93 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",79,15,error,"Protected member variable \"_path\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",87,5,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",87,5,error,"Doc comment for \"$path\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",92,46,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",99,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",99,1,error,"Doc comment for var $path does not match actual variable name $hg at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",99,1,error,"Missing comment for param \"$path\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",99,1,error,"Doc comment for \"$path\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",114,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",115,36,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",116,28,error,"TRUE, FALSE and NULL must be lowercase; expected \"null\" but found \"NULL\"",Generic.PHP.LowerCaseConstant.Found,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",122,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",122,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",182,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",182,1,error,"Expected 1 space before variable type",PEAR.Commenting.FunctionComment.SpacingBeforeParamType,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",182,1,error,"Doc comment for var $repo does not match actual variable name $path at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",210,5,error,"Doc comment for \"$path\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",211,1,error,"Extra newline(s) found before function comment short description",PEAR.Commenting.FunctionComment.SpacingBeforeShort,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",213,1,error,"@return tag is empty in function comment",PEAR.Commenting.FunctionComment.EmptyReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",213,1,error,"There must be exactly one blank line before the tags in function comment",PEAR.Commenting.FunctionComment.SpacingBeforeTags,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",217,9,warning,"Line exceeds 85 characters; contains 100 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",241,110,warning,"Line exceeds 85 characters; contains 109 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",253,34,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php",264,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Branch.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Branch.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Branch.php",3,1,error,"Missing class doc comment",PEAR.Commenting.ClassComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php",3,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php",3,2,error,"Missing class doc comment",PEAR.Commenting.ClassComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php",3,2,error,"Line indented incorrectly; expected 0 spaces, found 1",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php",4,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php",4,2,error,"Expected 0 spaces before opening brace; 1 found",PEAR.Classes.ClassDeclaration.SpaceBeforeBrace,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Changset.php",6,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",13,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",21,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",22,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",23,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",24,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",25,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",26,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",27,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",52,15,error,"Protected member variable \"_messages\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Exception.php",68,43,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Interface.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Interface.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Interface.php",3,1,error,"Missing interface doc comment",PEAR.Commenting.ClassComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php",3,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php",3,2,error,"Missing class doc comment",PEAR.Commenting.ClassComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php",3,2,error,"Line indented incorrectly; expected 0 spaces, found 1",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php",4,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php",4,2,error,"Expected 0 spaces before opening brace; 1 found",PEAR.Classes.ClassDeclaration.SpaceBeforeBrace,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php",6,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php",2,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php",3,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php",3,2,error,"Missing class doc comment",PEAR.Commenting.ClassComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php",3,2,error,"Line indented incorrectly; expected 0 spaces, found 1",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php",4,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php",4,2,error,"Expected 0 spaces before opening brace; 1 found",PEAR.Classes.ClassDeclaration.SpaceBeforeBrace,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php",6,1,error,"Spaces must be used to indent lines; tabs are not allowed",Generic.WhiteSpace.DisallowTabIndent.TabsUsed,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php",1,1,error,"Missing file doc comment",PEAR.Commenting.FileComment.Missing,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",7,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",8,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",9,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",10,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",11,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",12,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",13,1,warning,"Invalid version \"Hg: $Revision$\" in file comment; consider \"CVS: <cvs_id>\" or \"SVN: <svn_id>\" instead",PEAR.Commenting.FileComment.InvalidVersion,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",13,1,error,"@version tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",14,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",22,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",23,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",24,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",25,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",26,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",27,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",28,1,error,"@version tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",29,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",49,15,error,"Protected member variable \"_messages\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php",62,43,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",1,1,error,"End of line character is invalid; expected \"\n\" but found \"\r\n\"",Generic.Files.LineEndings.InvalidEOLChar,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",7,1,error,"@category tag comment indented incorrectly; expected 2 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",8,1,error,"@package tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",9,1,error,"@author tag comment indented incorrectly; expected 4 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",10,1,error,"@copyright tag comment indented incorrectly; expected 1 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",11,1,error,"@license tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",12,1,error,"@link tag comment indented incorrectly; expected 6 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",22,1,error,"@category tag comment indented incorrectly; expected 2 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",23,1,error,"@package tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",24,1,error,"@author tag comment indented incorrectly; expected 4 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",25,1,error,"@copyright tag comment indented incorrectly; expected 1 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",26,1,error,"@license tag comment indented incorrectly; expected 3 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",27,1,error,"@link tag comment indented incorrectly; expected 6 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",58,15,error,"Protected member variable \"_path\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",72,15,error,"Protected member variable \"_executable\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",79,15,error,"Protected member variable \"_version\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",87,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",87,1,error,"Doc comment for var $path does not match actual variable name $hg at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",87,1,error,"Doc comment for \"$path\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",90,46,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",105,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",105,1,error,"Doc comment for var $path does not match actual variable name $hg at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",105,1,error,"Missing comment for param \"$path\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",105,1,error,"Doc comment for \"$path\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",122,1,error,"Last parameter comment requires a blank newline after it",PEAR.Commenting.FunctionComment.SpacingAfterParams,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",122,1,error,"Doc comment for var string does not match actual variable name $path at position 1",PEAR.Commenting.FunctionComment.ParamNameNoMatch,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",122,1,error,"Missing comment for param \"string\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",126,46,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",143,31,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",147,5,error,"Doc comment for \"$path\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",161,49,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",167,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",170,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",180,17,warning,"Line exceeds 85 characters; contains 87 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",245,9,warning,"Line exceeds 85 characters; contains 86 characters",Generic.Files.LineLength.TooLong,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",248,1,error,"Line indented incorrectly; expected at least 8 spaces, found 0",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",275,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",276,34,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",282,1,error,"Missing @return tag in function comment",PEAR.Commenting.FunctionComment.MissingReturn,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",8,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",9,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",10,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",11,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",12,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",13,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",14,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.FileComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",22,1,error,"@category tag comment indented incorrectly; expected 3 spaces but found 4",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",23,1,error,"@package tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",24,1,error,"@subpackage tag comment indented incorrectly; expected 1 spaces but found 2",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",25,1,error,"@author tag comment indented incorrectly; expected 5 spaces but found 6",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",26,1,error,"@copyright tag comment indented incorrectly; expected 2 spaces but found 3",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",27,1,error,"@license tag comment indented incorrectly; expected 4 spaces but found 5",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",28,1,error,"@link tag comment indented incorrectly; expected 7 spaces but found 8",PEAR.Commenting.ClassComment.TagIndent,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",59,15,error,"Protected member variable \"_messages\" must not be prefixed with an underscore",PEAR.NamingConventions.ValidVariableName.PublicUnderscore,5
-"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php",71,43,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",142,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php",145,21,error,"Line indented incorrectly; expected 16 spaces, found 20",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Bundle.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Bundle.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php",138,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php",157,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php",242,92,warning,"Line exceeds 85 characters; contains 91 characters",Generic.Files.LineLength.TooLong,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php",114,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php",310,15,error,"Protected method name \"VersionControl_Hg_Command_Clone::directory_exists\" is not in camel caps format",PEAR.NamingConventions.ValidFunctionName.ScopeNotCamelCaps,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php",331,15,error,"Protected method name \"VersionControl_Hg_Command_Clone::directory_is_empty\" is not in camel caps format",PEAR.NamingConventions.ValidFunctionName.ScopeNotCamelCaps,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Diff.php",100,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Diff.php",112,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Identify.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Identify.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php",34,1,error,"There must be exactly one blank line between descriptions in class comments",PEAR.Commenting.ClassComment.SpacingAfterShort,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php",123,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php",135,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Init.php",97,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Init.php",230,15,error,"Protected method name \"VersionControl_Hg_Command_Init::directory_exists\" is not in camel caps format",PEAR.NamingConventions.ValidFunctionName.ScopeNotCamelCaps,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Init.php",251,15,error,"Protected method name \"VersionControl_Hg_Command_Init::directory_is_empty\" is not in camel caps format",PEAR.NamingConventions.ValidFunctionName.ScopeNotCamelCaps,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",155,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php",304,92,warning,"Line exceeds 85 characters; contains 91 characters",Generic.Files.LineLength.TooLong,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Manifest.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Manifest.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Patch.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Patch.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php",143,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Rename.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Rename.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",123,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",169,1,error,"Line indented incorrectly; expected at least 8 spaces, found 0",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php",371,92,warning,"Line exceeds 85 characters; contains 91 characters",Generic.Files.LineLength.TooLong,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Unbundle.php",96,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Unbundle.php",108,1,error,"Doc comment for \"$hg\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php",111,67,error,"Arguments with default values must be at the end of the argument list",PEAR.Functions.ValidDefaultValue.NotAtEnd,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Revision.php",117,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Revision.php",120,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Revision.php",123,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",231,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",234,13,error,"Line indented incorrectly; expected 8 spaces, found 12",PEAR.WhiteSpace.ScopeIndent.Incorrect,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",293,5,error,"Doc comment for \"$version\" missing",PEAR.Commenting.FunctionComment.MissingParamTag,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",341,1,error,"Missing comment for param \"$version\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",345,54,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",390,1,error,"Missing comment for param \"$capability\" at position 1",PEAR.Commenting.FunctionComment.MissingParamComment,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",394,48,error,"Opening brace should be on a new line",PEAR.Functions.FunctionDeclaration.BraceOnSameLine,5
+"H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php",413,9,error,"Expected \"while (...) {\n\"; found \"while(...) {\n\"",PEAR.ControlStructures.ControlSignature,5

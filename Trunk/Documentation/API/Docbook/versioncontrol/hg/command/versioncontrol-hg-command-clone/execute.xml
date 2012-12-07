@@ -20,7 +20,9 @@
     </paramdef>
     <paramdef>
      <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
-     <parameter>$hg</parameter>
+     <parameter>
+      <optional>$hg = &null;</optional>
+     </parameter>
     </paramdef>
    </funcprototype>
   </funcsynopsis>

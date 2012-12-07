@@ -13,13 +13,31 @@
      array
      <function>VersionControl_Hg_Executable::setVersion</function>
     </funcdef>
-    <paramdef />
+    <paramdef>
+     <parameter>$version</parameter>
+    </paramdef>
    </funcprototype>
   </funcsynopsis>
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setversion.desc">
   &title.desc;
   <para>Implements the version command of the command-line client.  Possible values are:  (version 1.1), (version 1.1+20081220), (version 1.1+e54ac289bed), (unknown)</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setversion.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$version</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
  </refsect1>
  <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.setversion.see">
   &title.see;

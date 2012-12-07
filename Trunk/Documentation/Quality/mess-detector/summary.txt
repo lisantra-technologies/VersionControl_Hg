@@ -1,10 +1,150 @@
 
-H:\Development\_Webroot\Trunk\VersionControl\Hg.php:232	Avoid unused local variables such as '$method'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg.php:249	Avoid unused local variables such as '$method'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php:56	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php:63	Avoid variables with short names like $hg
 H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:43	This class has too many methods, consider refactoring it.
-H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:297	Avoid unused local variables such as '$value'.
-H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:585	Avoid unused parameters such as '$last'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:43	The class VersionControl_Hg_Command_Abstract has an overall complexity of 58 which is very high. The configured complexity threshold is 50.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:43	The class VersionControl_Hg_Command_Abstract has 27 children. Consider to rebalance this class hierarchy.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:71	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:140	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:321	Avoid unused local variables such as '$value'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:345	Avoid excessively long variable names like $missing_required_options
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:523	The method parseOutput() has a Cyclomatic Complexity of 12.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:579	Avoid unused local variables such as '$offset'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php:724	Avoid unused parameters such as '$last'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php:102	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php:118	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php:118	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Add.php:118	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php:123	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php:163	Avoid using short method names like VersionControl_Hg_Command_Archive::to()
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php:280	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php:280	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Bundle.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Bundle.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Bundle.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Bundle.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php:138	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php:161	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php:161	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php:301	Avoid using short method names like VersionControl_Hg_Command_Cat::to()
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php:114	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php:161	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php:161	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php:272	Avoid using short method names like VersionControl_Hg_Command_Clone::to()
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Diff.php:100	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Diff.php:116	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Diff.php:116	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Diff.php:116	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Export.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Identify.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Identify.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Identify.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Identify.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php:123	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php:139	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php:139	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Import.php:139	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Init.php:97	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Init.php:146	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Init.php:146	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php:40	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php:155	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php:174	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php:174	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php:326	Avoid using short method names like VersionControl_Hg_Command_Log::on()
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Log.php:389	Avoid variables with short names like $to
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Manifest.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Manifest.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Manifest.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Manifest.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Patch.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Patch.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Patch.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Patch.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php:91	This class has too many methods, consider refactoring it.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php:143	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php:185	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php:185	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php:337	Avoid unused parameters such as '$username'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php:352	Avoid unused parameters such as '$password'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php:369	Avoid unused parameters such as '$what'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Push.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Rename.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Rename.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Rename.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Rename.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php:112	Avoid variables with short names like $hg
 H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php:53	This class has too many methods, consider refactoring it.
-H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:71	Avoid unused parameters such as '$param'.
-H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:92	Avoid unused parameters such as '$hg'.
-H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:215	Avoid unused parameters such as '$path'.
-H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php:90	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php:123	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php:144	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php:144	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Status.php:169	The method execute() contains an exit expression.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Unbundle.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Unbundle.php:112	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Unbundle.php:112	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Unbundle.php:112	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:111	Avoid unused parameters such as '$params'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:111	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:128	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Command\Version.php:128	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php:83	Avoid excessively long variable names like $valid_compression_types
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php:96	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php:96	Avoid unused parameters such as '$path'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php:108	Avoid unused parameters such as '$path'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php:136	Avoid unused parameters such as '$revision'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php:148	Avoid unused parameters such as '$revision'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php:161	Avoid unused parameters such as '$revisions'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:71	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:96	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php:110	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Revision.php:114	Avoid variables with short names like $id
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Revision.php:124	Avoid unused local variables such as '$message'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Revision.php:124	Avoid unused local variables such as '$code'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\Repository\Revision.php:124	Avoid unused local variables such as '$previous'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php:73	Avoid unused parameters such as '$hg'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php:73	Avoid unused parameters such as '$path'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php:73	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php:90	Avoid unused parameters such as '$path'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php:118	Avoid unused parameters such as '$path'.
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php:54	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php:142	Avoid variables with short names like $hg
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php:166	Avoid variables with short names like $hg

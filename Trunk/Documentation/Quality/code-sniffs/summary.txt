@@ -2,46 +2,39 @@ PHP CODE SNIFFER REPORT SUMMARY
 --------------------------------------------------------------------------------
 FILE                                                            ERRORS  WARNINGS
 --------------------------------------------------------------------------------
-H:\Development\_Webroot\Trunk\VersionControl\Hg.php             26      5
-...velopment\_Webroot\Trunk\VersionControl\Hg\CommandProxy.php  33      2
-...pment\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php  69      9
+H:\Development\_Webroot\Trunk\VersionControl\Hg.php             15      0
+...pment\_Webroot\Trunk\VersionControl\Hg\Command\Abstract.php  10      2
 ...evelopment\_Webroot\Trunk\VersionControl\Hg\Command\Add.php  2       0
-...opment\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php  40      4
+...opment\_Webroot\Trunk\VersionControl\Hg\Command\Archive.php  6       0
 ...opment\_Webroot\Trunk\VersionControl\Hg\Command\Backout.php  2       0
 ...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Branch.php  2       0
-...evelopment\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php  2       0
-...elopment\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php  2       0
+...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Bundle.php  2       0
+...evelopment\_Webroot\Trunk\VersionControl\Hg\Command\Cat.php  2       1
+...elopment\_Webroot\Trunk\VersionControl\Hg\Command\Clone.php  3       0
 ...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Commit.php  2       0
 ...velopment\_Webroot\Trunk\VersionControl\Hg\Command\Copy.php  2       0
-...ment\_Webroot\Trunk\VersionControl\Hg\Command\Exception.php  17      1
+...velopment\_Webroot\Trunk\VersionControl\Hg\Command\Diff.php  2       0
 ...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Export.php  2       0
 ...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Forget.php  2       0
-...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Import.php  2       0
-...ment\_Webroot\Trunk\VersionControl\Hg\Command\Interface.php  15      0
-...evelopment\_Webroot\Trunk\VersionControl\Hg\Command\Log.php  51      6
-...ebroot\Trunk\VersionControl\Hg\Command\Output\Formatter.php  54      8
-...velopment\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php  2       0
+...pment\_Webroot\Trunk\VersionControl\Hg\Command\Identify.php  2       0
+...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Import.php  3       0
+...velopment\_Webroot\Trunk\VersionControl\Hg\Command\Init.php  3       0
+...evelopment\_Webroot\Trunk\VersionControl\Hg\Command\Log.php  1       1
+...pment\_Webroot\Trunk\VersionControl\Hg\Command\Manifest.php  2       0
+...elopment\_Webroot\Trunk\VersionControl\Hg\Command\Patch.php  2       0
+...velopment\_Webroot\Trunk\VersionControl\Hg\Command\Pull.php  1       0
 ...velopment\_Webroot\Trunk\VersionControl\Hg\Command\Push.php  2       0
 ...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Remove.php  2       0
+...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Rename.php  2       0
 ...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Revert.php  2       0
-...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Status.php  60      2
+...lopment\_Webroot\Trunk\VersionControl\Hg\Command\Status.php  2       1
 ...evelopment\_Webroot\Trunk\VersionControl\Hg\Command\Tag.php  2       0
-...opment\_Webroot\Trunk\VersionControl\Hg\Command\Version.php  32      1
-...ent\_Webroot\Trunk\VersionControl\Hg\Container\Abstract.php  23      1
-...pment\_Webroot\Trunk\VersionControl\Hg\Container\Bundle.php  2       0
-...root\Trunk\VersionControl\Hg\Container\Bundle\Exception.php  18      1
-...nt\_Webroot\Trunk\VersionControl\Hg\Container\Interface.php  17      0
-...t\_Webroot\Trunk\VersionControl\Hg\Container\Repository.php  37      3
-...oot\Trunk\VersionControl\Hg\Container\Repository\Branch.php  3       0
-...t\Trunk\VersionControl\Hg\Container\Repository\Changset.php  8       0
-...\Trunk\VersionControl\Hg\Container\Repository\Exception.php  16      0
-...\Trunk\VersionControl\Hg\Container\Repository\Interface.php  3       0
-...ebroot\Trunk\VersionControl\Hg\Container\Repository\Tag.php  8       0
-...ebroot\Trunk\VersionControl\Hg\Container\Repository\Tip.php  8       0
-...\_Webroot\Trunk\VersionControl\Hg\Container\WorkingCopy.php  2       0
-...Trunk\VersionControl\Hg\Container\WorkingCopy\Exception.php  18      1
-H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php  37      2
-...t\_Webroot\Trunk\VersionControl\Hg\Executable\Exception.php  16      0
+...pment\_Webroot\Trunk\VersionControl\Hg\Command\Unbundle.php  2       0
+...opment\_Webroot\Trunk\VersionControl\Hg\Command\Version.php  1       0
+...t\Trunk\VersionControl\Hg\Container\Repository\Revision.php  3       0
+H:\Development\_Webroot\Trunk\VersionControl\Hg\Executable.php  8       0
 --------------------------------------------------------------------------------
-A TOTAL OF 643 ERROR(S) AND 46 WARNING(S) WERE FOUND IN 40 FILE(S)
+A TOTAL OF 94 ERROR(S) AND 5 WARNING(S) WERE FOUND IN 31 FILE(S)
 --------------------------------------------------------------------------------
+
+Time: 19 seconds, Memory: 26.75Mb

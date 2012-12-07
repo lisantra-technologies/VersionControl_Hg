@@ -31,7 +31,8 @@
 <p class="description"><p>Usage:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/repo'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">cat</span><span class="src-sym">(</span><span class="src-str">'/path/to/a/file'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 </ol></div></p><p>You may also specify multiple files:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/repo'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">cat</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'file1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'file2'</span><span class="src-sym">))</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">cat</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Cat.html#methodfiles">files</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'file1'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'file2'</span><span class="src-sym">))</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or use a pattern:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">cat</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Cat.html#methodfiles">files</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'glob'</span>=&gt;&nbsp;<span class="src-str">'**.php'</span><span class="src-sym">))</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 </ol></div></p><p>Additionaly, you may cat the contents of a file at a specific revision:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span><span class="src-sym">(</span><span class="src-str">'/path/to/repo'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-var">$contents&nbsp;</span>=&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">cat</span><span class="src-sym">(</span><span class="src-str">'file2'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Cat.html#methodrevision">revision</a><span class="src-sym">(</span><span class="src-num">6</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<a href="http://www.php.net/file_put_contents">file_put_contents</a><span class="src-sym">(</span><span class="src-str">'file2'</span><span class="src-sym">,&nbsp;</span><span class="src-var">$content</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
@@ -46,7 +47,7 @@
 				<li><span class="field">license:</span> <a href="http://www.opensource.org/licenses/mit-license.html">MIT License</a></li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_Hg---Command---Cat.php.html">/Hg/Command/Cat.php</a> (line <span class="field">86</span>)
+			Located in <a class="field" href="_Hg---Command---Cat.php.html">/Hg/Command/Cat.php</a> (line <span class="field">90</span>)
 		</p>
 		
 				
@@ -99,7 +100,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																												
+																																																				
 												<div class="method-definition">
 											<span class="method-result">void</span>
 										<a href="#__construct" title="details" class="method-name">__construct</a>
@@ -108,7 +109,12 @@
 																<div class="method-definition">
 											<span class="method-result">string</span>
 										<a href="#execute" title="details" class="method-name">execute</a>
-											([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], [<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">null</span>
+										<a href="#files" title="details" class="method-name">files</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$files</span>)
 									</div>
 																<div class="method-definition">
 											<span class="method-result">void</span>
@@ -143,13 +149,13 @@
 					</div>
 		<div class="info-box-body">
 			<a name="var$allowed_options" id="$allowed_options"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$allowed_options</span>
-			 = <span class="var-default">array(<br />        'save' =&gt; null,<br />        'to' =&gt; null,<br />        'revision' =&gt; null,<br />        'rev' =&gt; null,<br />        'output' =&gt; null,<br />    )</span>			(line <span class="line-number">118</span>)
+			 = <span class="var-default">array(<br />        'save' =&gt; null,<br />        'to' =&gt; null,<br />        'revision' =&gt; null,<br />        'rev' =&gt; null,<br />        'output' =&gt; null,<br />    )</span>			(line <span class="line-number">122</span>)
 		</span>
 	</div>
 
@@ -166,13 +172,13 @@
 
 </div>
 <a name="var$command" id="$command"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">string</span>
 			<span class="var-name">$command</span>
-			 = <span class="var-default"> 'cat'</span>			(line <span class="line-number">95</span>)
+			 = <span class="var-default"> 'cat'</span>			(line <span class="line-number">99</span>)
 		</span>
 	</div>
 
@@ -188,13 +194,13 @@
 
 </div>
 <a name="var$required_options" id="$required_options"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
 			<span class="var-type">mixed</span>
 			<span class="var-name">$required_options</span>
-			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />        'repository' =&gt; null,<br />        'files' =&gt; null,<br />    )</span>			(line <span class="line-number">104</span>)
+			 = <span class="var-default">array(<br />        'noninteractive' =&gt; null,<br />        'repository' =&gt; null,<br />        'files' =&gt; null,<br />    )</span>			(line <span class="line-number">108</span>)
 		</span>
 	</div>
 
@@ -264,10 +270,10 @@
 			<A NAME='method_detail'></A>
 
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">134</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">138</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -302,10 +308,10 @@
 			
 	</div>
 <a name="methodexecute" id="execute"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">execute</span> (line <span class="line-number">160</span>)
+		<span class="method-title">execute</span> (line <span class="line-number">161</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -319,13 +325,16 @@
 		<span class="method-name">
 			execute
 		</span>
-					([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>])
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">null</span>], [<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>&nbsp;<span class="var-name">$hg</span> = <span class="var-default">null</span>])
 			</div>
 	
 			<ul class="parameters">
 					<li>
 				<span class="var-type">mixed</span>
 				<span class="var-name">$params</span><span class="var-description">: The options passed to the Log command</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Hg/VersionControl_Hg.html">VersionControl_Hg</a></span>
+				<span class="var-name">$hg</span>			</li>
 				</ul>
 		
 				<hr class="separator" />
@@ -336,11 +345,43 @@
 					</dl>
 			
 	</div>
+<a name="methodfiles" id="files"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">files</span> (line <span class="line-number">236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">List status information for only the files specified.</p>
+<p class="description"><p>VersionControl_Hg_Command_Abstract::formatOptions will automatically  make this the last option since a files list must be the last item on  the command line.</p><p>Usage:  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">cat</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Cat.html#methodfiles">files</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'index.php'</span><span class="src-sym">))</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div>  or  <div class="src-code"><ol><li><div class="src-line"><span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">cat</span><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'files'&nbsp;</span>=&gt;&nbsp;<span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'index.php'</span><span class="src-sym">)))</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">null</span>
+		<span class="method-name">
+			files
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$files</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$files</span><span class="var-description">: the list of files as a simple array</span>			</li>
+				</ul>
+		
+			
+	</div>
 <a name="methodrevision" id="revision"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">revision</span> (line <span class="line-number">213</span>)
+		<span class="method-title">revision</span> (line <span class="line-number">212</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -372,11 +413,13 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">save</span> (line <span class="line-number">229</span>)
+		<span class="method-title">save</span> (line <span class="line-number">268</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">set the --output options to designate a file name and directory to  where the catted file will be saved</p>
+<p class="description"><p>You can rename a single cat'ed file with:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-var">$hg</span><span class="src-sym">-&gt;</span><span class="src-id">cat</span><span class="src-sym">(</span><span class="src-str">'file.txt'</span><span class="src-sym">)</span><span class="src-sym">-&gt;</span><a href="../../Hg/Command/VersionControl_Hg_Command_Cat.html#methodsave">save</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'name'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'new_file.csv'</span><span class="src-sym">))</span><span class="src-sym">-&gt;</span><span class="src-id">run</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
@@ -401,7 +444,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">to</span> (line <span class="line-number">264</span>)
+		<span class="method-title">to</span> (line <span class="line-number">301</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -444,6 +487,7 @@
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOption">VersionControl_Hg_Command_Abstract::getOption()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodgetOptions">VersionControl_Hg_Command_Abstract::getOptions()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodincluding">VersionControl_Hg_Command_Abstract::including()</a></span><br>
+													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodparseFilter">VersionControl_Hg_Command_Abstract::parseFilter()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodparseOutput">VersionControl_Hg_Command_Abstract::parseOutput()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetCommandString">VersionControl_Hg_Command_Abstract::setCommandString()</a></span><br>
 													<span class="method-name"><a href="../../Hg/Command/VersionControl_Hg_Command_Abstract.html#methodsetOptions">VersionControl_Hg_Command_Abstract::setOptions()</a></span><br>
@@ -456,7 +500,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Mon, 27 Jun 2011 14:22:40 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Tue, 19 Jul 2011 14:21:11 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

@@ -31,8 +31,13 @@
  </refsynopsisdiv>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save.desc">
   &title.desc;
-  &notdocumented;
-</refsect1>
+  <para>
+   You can rename a single cat&apos;ed file with:
+   <programlisting role="php">
+<![CDATA[ $hg->cat('file.txt')->save(array('name' => 'new_file.csv'))->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
  <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.save.param">
   &title.param;
   <para>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<refentry
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0"
+    xml:id="package.versioncontrol.versioncontrol-hg.architecture">
+    <refnamediv>
+        <refname>Architecture Outline</refname>
+        <refpurpose>How this package is organized</refpurpose>
+    </refnamediv>
+
+    <refsect1>
+        <title>Structure</title>
+        <programlisting role="dir"><![CDATA[
+VersionControl
++--Hg.php
++--Hg
+|  +  CommandProxy.php
+|  +--Container
+|  |  +--Repository
+|  |  |  +  Branch.php
+|  |  |  +  Tag.php
+|  |  |  +  Exception.php
+|  |  |  +  Revision.php
+|  |  |  \  Diff.php
+|  |  +  Abstract.php
+|  |  +  Interface.php
+|  |  +  Bundle.php
+|  |  +--Bundle
+|  |  |  \  Exception.php
+|  |  +  Repository.php
+|  |  +  WorkingCopy.php
+|  |  \--WorkingCopy
+|  |     +  Exception.php
+|  |     +  File.php
+|  |     \  Directory.php
+|  +--Command
+|  |  +  Revert.php
+|  |  +  Exception.php
+|  |  +  Backout.php
+|  |  +  Pull.php
+|  |  +  Interface.php
+|  |  +  Abstract.php
+|  |  +  Push.php
+|  |  +--Output
+|  |  |  \  Formatter.php
+|  |  +  Branch.php
+|  |  +  Tag.php
+|  |  +  Status.php
+|  |  +  Patch.php
+|  |  +  Bundle.php
+|  |  +  Init.php
+|  |  +  Archive.php
+|  |  +  Version.php
+|  |  +  Add.php
+|  |  +  Copy.php
+|  |  +  Cat.php
+|  |  +  Export.php
+|  |  +  Import.php
+|  |  +  Log.php
+|  |  +  Commit.php
+|  |  +  Forget.php
+|  |  +  Remove.php
+|  |  +  Clone.php
+|  |  \  Diff.php
+|  +  Exception.php
+|  +  Executable.php
+|  \--Executable
+|     \  Exception.php
+]]></programlisting>
+    </refsect1>
+
+    <refsect1>
+        <title>Execution Flow</title>
+
+        <refsect2>
+            <title>Base Class: Hg</title>
+            <para>
+                Hg.php contains the base object which populates two child objects:
+                <orderedlist>
+                    <listitem>
+                        <simpara>Executable</simpara>
+                    </listitem>
+                    <listitem>
+                        <simpara>Repository</simpara>
+                    </listitem>
+                </orderedlist>
+            </para>
+            <para>
+                This base class container is passed to classes which implement Mercurial commands
+                to make available their properties. These are primarily the path to the HG
+                executable and the path to the Repository we will operate on.
+            </para>
+        </refsect2>
+
+        <refsect2>
+            <title>Command Proxy</title>
+            <para>
+                CommanProxy.php implements the Proxy pattern to invoke the classes which implement
+                Mercurial commands. These are all located in the Command sub-directory.
+            </para>
+        </refsect2>
+
+        <refsect2>
+            <title>Output Formatters: Arrays, JSON and More</title>
+            <para>
+                The Output sub-directory contains classes which can parse the raw CLI output
+                and reformat it into PHP Arrays, JSON, plain text and perhaps XML if there
+                is an agreed-upon standard for expressing VCS data in an XML language.
+            </para>
+        </refsect2>
+
+        <refsect2>
+            <title>Containers: Repository Entities</title>
+            <para>
+                Containers are objects which store files and version data. A Repository is
+                equivalent to the '.hg' directory. A Bundle is a compressed file containing a
+                series of revisions in Mercurial's internal format. These can be passed around
+                much like patches. Only certain commands may act on a bundle: export, import,
+                log and several others. A 'Patches' container may be implemented in the future.
+            </para>
+        </refsect2>
+    </refsect1>
+
+    <refsect1>
+        <title>Design Patterns</title>
+        <para>
+            I decided a factory is not appropriate because the commands implement different
+            options as methods and thus will not have the same interface as should be the
+            case for factories according to Gamma, et al
+            (source: http://brian.deshong.net/talks/2009/atlphp/factory_method_pattern/factory_method_pattern.pdf).
+        </para>
+        <para>
+            I struggled with an appropriate interface, first putting the command first and
+            the repository as an independent object. However, I decided to use Hg.php as the
+            root of all; implement modifiers and options as methods. For example, instead
+            of $repo->status('modified')->excluding('**.bak') I decided to move excluding
+            from Command.php to Repository.php
+        </para>
+        <para>
+            I also coded first with the names of the objects without Hg_Command_Status for
+            example, which is the preferred PEAR way.
+        </para>
+    </refsect1>
+</refentry>

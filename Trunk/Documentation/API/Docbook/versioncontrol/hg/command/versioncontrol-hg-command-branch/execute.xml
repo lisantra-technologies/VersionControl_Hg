@@ -18,6 +18,12 @@
       <optional>$params = &null;</optional>
      </parameter>
     </paramdef>
+    <paramdef>
+     <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+     <parameter>
+      <optional>$hg = &null;</optional>
+     </parameter>
+    </paramdef>
    </funcprototype>
   </funcsynopsis>
  </refsynopsisdiv>
@@ -36,6 +42,19 @@
      </term>
      <listitem>
       <para>The options passed to the Log command</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>
+       <link linkend="package.versioncontrol.hg.versioncontrol-hg-summary">VersionControl_Hg</link>
+      </type>
+      <parameter>$hg</parameter>
+     </term>
+     <listitem>
+      <para />
      </listitem>
     </varlistentry>
    </variablelist>

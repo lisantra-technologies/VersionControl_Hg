@@ -1033,6 +1033,13 @@
 							<div class="index-item-description">Create a bundle of revisions</div>
 					</dd>
 			<dt class="field">
+						<span class="var-title">$capabilities</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Hg/Executable/VersionControl_Hg_Executable.html#var$capabilities">VersionControl_Hg_Executable::$capabilities</a> in Executable.php</div>
+							<div class="index-item-description">Capabilities per Mercurial version</div>
+					</dd>
+			<dt class="field">
 						CUSTOMEXECUTABLE
 					</dt>
 		<dd class="index-item-body">
@@ -1364,6 +1371,13 @@
 							<div class="index-item-description">The Mercurial binary being used</div>
 					</dd>
 			<dt class="field">
+						ERROR_CAPABILITY_UNKNOWN
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Hg/Executable/VersionControl_Hg_Executable_Exception.html#constERROR_CAPABILITY_UNKNOWN">VersionControl_Hg_Executable_Exception::ERROR_CAPABILITY_UNKNOWN</a> in Exception.php</div>
+							<div class="index-item-description">Error constant for when a passed capability is not found in the catalog  of capabilities per version.</div>
+					</dd>
+			<dt class="field">
 						ERROR_HG_NOT_FOUND
 					</dt>
 		<dd class="index-item-body">
@@ -1383,6 +1397,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Hg/Executable/VersionControl_Hg_Executable_Exception.html#constERROR_NO_VERSION">VersionControl_Hg_Executable_Exception::ERROR_NO_VERSION</a> in Exception.php</div>
 							<div class="index-item-description">Error constant for when the Mercurial executable's version cannot be  determined.</div>
+					</dd>
+			<dt class="field">
+						ERROR_VERSION_NOT_SUPPORTED
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Hg/Executable/VersionControl_Hg_Executable_Exception.html#constERROR_VERSION_NOT_SUPPORTED">VersionControl_Hg_Executable_Exception::ERROR_VERSION_NOT_SUPPORTED</a> in Exception.php</div>
+							<div class="index-item-description">Error constant for when a feature or option is not supported by the  version of Mercurial in use.</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">Exception.php</span>
@@ -1420,8 +1441,8 @@
 						<span class="method-title">files</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Hg/Command/VersionControl_Hg_Command_Status.html#methodfiles">VersionControl_Hg_Command_Status::files()</a> in Status.php</div>
-							<div class="index-item-description">Adds a list of files to the stack of command line options</div>
+			<div class="index-item-details"><a href="Hg/Command/VersionControl_Hg_Command_Cat.html#methodfiles">VersionControl_Hg_Command_Cat::files()</a> in Cat.php</div>
+							<div class="index-item-description">List status information for only the files specified.</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">files</span>
@@ -1429,6 +1450,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Hg/Command/VersionControl_Hg_Command_Log.html#methodfiles">VersionControl_Hg_Command_Log::files()</a> in Log.php</div>
 							<div class="index-item-description">List status information for only the files specified.</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">files</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Hg/Command/VersionControl_Hg_Command_Status.html#methodfiles">VersionControl_Hg_Command_Status::files()</a> in Status.php</div>
+							<div class="index-item-description">Adds a list of files to the stack of command line options</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">force</span>
@@ -1555,6 +1583,13 @@
 							<div class="index-item-description">Returns the path of a Mercurial repository as set by the user.</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">getCapabilities</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Hg/Executable/VersionControl_Hg_Executable.html#methodgetCapabilities">VersionControl_Hg_Executable::getCapabilities()</a> in Executable.php</div>
+							<div class="index-item-description">Return Mercurial's capabilities and supported commands and options  for this version.</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">getExecutable</span>
 					</dt>
 		<dd class="index-item-body">
@@ -1630,6 +1665,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Hg/Executable/VersionControl_Hg_Executable.html#var$hg">VersionControl_Hg_Executable::$hg</a> in Executable.php</div>
 							<div class="index-item-description">Base class in this package which provides access to the repository and  command objects</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">hasCapability</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Hg/Executable/VersionControl_Hg_Executable.html#methodhasCapability">VersionControl_Hg_Executable::hasCapability()</a> in Executable.php</div>
+							<div class="index-item-description">Determines if the required capability is present in the user's  Mercurial executable version</div>
 					</dd>
 		</dl>
 	<a name="i"></a>
@@ -1927,6 +1969,13 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Hg/Command/_Hg---Command---Push.php.html">Push.php</a> in Push.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">parseFilter</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Hg/Command/VersionControl_Hg_Command_Abstract.html#methodparseFilter">VersionControl_Hg_Command_Abstract::parseFilter()</a> in Abstract.php</div>
+							<div class="index-item-description">Parse a filter string to validate its scheme</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">parseOutput</span>

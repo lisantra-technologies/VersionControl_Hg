@@ -62,6 +62,11 @@
 			<div class="const-summary">
 								<div class="const-title">
 					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#ERROR_CAPABILITY_UNKNOWN" title="details" class="const-name">ERROR_CAPABILITY_UNKNOWN</a> = 					<span class="var-type"> 'capabilityUnknown'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
 					<a href="#ERROR_HG_NOT_FOUND" title="details" class="const-name">ERROR_HG_NOT_FOUND</a> = 					<span class="var-type"> 'notFound'</span>
 
 				</div>
@@ -73,6 +78,11 @@
 								<div class="const-title">
 					<img src="../../media/images/Constant.png" alt=" " />
 					<a href="#ERROR_NO_VERSION" title="details" class="const-name">ERROR_NO_VERSION</a> = 					<span class="var-type"> 'noVersion'</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#ERROR_VERSION_NOT_SUPPORTED" title="details" class="const-name">ERROR_VERSION_NOT_SUPPORTED</a> = 					<span class="var-type"> 'versionNotsupported'</span>
 
 				</div>
 							</div>
@@ -147,7 +157,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$messages</span>
-			 = <span class="var-default">array(<br />        'notFound' =&gt; 'Mercurial could not be found on this system',<br />        'yetUnset' =&gt; 'The Mercurial executable has not yet been set',<br />        'noVersion' =&gt; 'No Hg version has yet been set!',<br />    )</span>			(line <span class="line-number">58</span>)
+			 = <span class="var-default">array(<br />        'notFound' =&gt; 'Mercurial could not be found on this system',<br />        'yetUnset' =&gt; 'The Mercurial executable has not yet been set',<br />        'noVersion' =&gt; 'No Hg version has yet been set!',<br />        'versionNotsupported' =&gt; 'The version string does not match supported<br />                                  versions of Mercurial',<br />        'capabilityUnknown' =&gt; 'The capability requested is not in our catalog<br />                                of supported capabilities.'<br />    )</span>			(line <span class="line-number">70</span>)
 		</span>
 	</div>
 
@@ -210,7 +220,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor __construct</span> (line <span class="line-number">70</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">86</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -274,8 +284,25 @@
 							
 					</div>
 		<div class="info-box-body">
-			<a name="constERROR_HG_NOT_FOUND" id="ERROR_HG_NOT_FOUND"><!-- --></A>
+			<a name="constERROR_CAPABILITY_UNKNOWN" id="ERROR_CAPABILITY_UNKNOWN"><!-- --></A>
 <div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ERROR_CAPABILITY_UNKNOWN</span>
+			 = <span class="const-default"> 'capabilityUnknown'</span>
+			(line <span class="line-number">63</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Error constant for when a passed capability is not found in the catalog  of capabilities per version.</p>
+	
+	
+</div>
+<a name="constERROR_HG_NOT_FOUND" id="ERROR_HG_NOT_FOUND"><!-- --></A>
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -292,7 +319,7 @@
 	
 </div>
 <a name="constERROR_HG_YET_UNSET" id="ERROR_HG_YET_UNSET"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -310,7 +337,7 @@
 	
 </div>
 <a name="constERROR_NO_VERSION" id="ERROR_NO_VERSION"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="const-header">
 		<img src="../../media/images/Variable.png" />
@@ -327,12 +354,29 @@
 	
 	
 </div>
+<a name="constERROR_VERSION_NOT_SUPPORTED" id="ERROR_VERSION_NOT_SUPPORTED"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ERROR_VERSION_NOT_SUPPORTED</span>
+			 = <span class="const-default"> 'versionNotsupported'</span>
+			(line <span class="line-number">57</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Error constant for when a feature or option is not supported by the  version of Mercurial in use.</p>
+	
+	
+</div>
 						
 		</div>
 	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Mon, 27 Jun 2011 14:22:45 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Tue, 19 Jul 2011 14:21:16 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
