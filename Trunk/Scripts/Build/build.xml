@@ -7,8 +7,9 @@
     <property name="sourcedir" value="/" override="true" />
     <property name="codedir" value="VersionControl" />
     <property name="unittestsdir" value="/Tests/Unit" />
+    <property name="cruisecontroldir" value="C:\Program Files\Cruisecontrol\projects\VersionControl_Hg" />
 
-    <input propertyname="version">Which version tag are we deploying?</input>
+    <!-- <input propertyname="version">Which version tag are we deploying?</input> -->
 
     <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
 
@@ -99,46 +100,23 @@
 
             </changelog>
         </d51pearpkg2>
-
-        <!--<pearpkg2 name="VersionControl_Hg"
-            dir="${rootdir}/Releases/PEAR/VersionControl_Hg"
-            destFile="${rootdir}/Releases/PEAR/VersionControl_Hg/package.xml">
-
-            <fileset dir="${rootdir}/Releases/PEAR/VersionControl_Hg">
-                <include name="**" />
-            </fileset>
-
-            <option name="notes">Initial release for Proposal</option>
-
-            <option name="description">A Php5 interface to Mercurial repositories</option>
-            <option name="channel" value="pear.php.net" />
-            <option name="summary">VersionControl_Hg provides a fluid interface with natural semantics to allow Php programmers to interact with Mercurial repositories. An excellent use case is in checking out projects as part of a build process.</option>
-            <option name="version" value="0.3.0" />
-            <option name="state" value="beta" />
-            <option name="license" value="MIT" />
-
-            <option name="baseinstalldir" value="VersionControl" />
-            <option name="apiversion" value="0.3.0" />
-            <option name="apistability" value="beta" />
-            <option name="releaseversion" value="0.3.0" />
-            <option name="releasestability" value="beta" />
-            <option name="phpdep" value="5.2.0" />
-            <option name="pearinstallerdep" value="1.7.0" />
-            <option name="packagetype" value="php" />
-            <mapping name="maintainers">
-                <element>
-                    <element key="handle" value="mgatto" />
-                    <element key="name" value="Michael Gatto" />
-                    <element key="email" value="mgatto@lisantra.com" />
-                    <element key="role" value="lead" />
-                </element>
-            </mapping>
-        </pearpkg2>-->
     </target>
 
     <!--  -->
     <target name="tar" depends="create-package-xml" description="">
         <exec command="pear package" dir="${rootdir}/Releases/PEAR/VersionControl_Hg/" passthru="true" />
+    </target>
+
+    <!-- Checksums for tgz. packages -->
+    <target name="build_checksums">
+        <echo msg="Creating MD5 and SHA1 checksums..." />
+        <exec escape="false" command="echo -----------------md5sums----------------- >> ${rootdir}/Releases/PEAR/VersionControl_Hg/VersionControl_Hg-${version}.tgz.md5" />
+        <exec escape="false" command="md5sum ${rootdir}/Releases/PEAR/VersionControl_Hg/*.tgz >> ${rootdir}/Releases/PEAR/VersionControl_Hg/VersionControl_Hg-${version}.tgz.md5" />
+
+        <exec escape="false" command="echo -----------------sha1sums----------------- >> ${rootdir}/Releases/PEAR/VersionControl_Hg/VersionControl_Hg-${version}.tgz.md5" />
+        <exec escape="false" command="sha1sum ${rootdir}/Releases/PEAR/VersionControl_Hg/*.tgz >> ${rootdir}/Releases/PEAR/VersionControl_Hg/VersionControl_Hg-${version}.tgz.md5" />
+
+        <!--not sure why this is here: <exec escape="false" command="cat ${checksumpath}.tmp | sed 's!${rootdir}/Releases/PEAR/VersionControl_Hg/!!g' > ${checksumpath}.txt" />-->
     </target>
 
     <target name="post" depends="tar" description="">
@@ -150,33 +128,25 @@
 
     <!-- runs unit tests on code in dev area, not the Releases folder (change?) -->
     <target name="test" description="" depends="">
-        <exec command="phpunit --configuration ..\phpunit.xml ." dir="Tests/Unit" passthru="true" />
-        <!-- for phpundercontrol:
-        -log-xml ${basedir}/build/logs/phpunit.xml
-                             -log-pmd ${basedir}/build/logs/phpunit.pmd.xml
-                             -log-metrics ${basedir}/build/logs/phpunit.metrics.xml
-                             -coverage-xml ${basedir}/build/logs/phpunit.coverage.xml
-                             -coverage-html ${basedir}/build/coverage ${testdir}  -->
+        <exec command="phpunit
+            --log-xml ${cruisecontroldir}\build\logs\phpunit.xml
+            --log-pmd ${cruisecontroldir}\build\logs\phpunit.pmd.xml
+            --log-metrics ${cruisecontroldir}\build\logs\phpunit.metrics.xml
+            --coverage-xml ${cruisecontroldir}\build\logs\phpunit.coverage.xml
+            --coverage-html ${cruisecontroldir}\build\coverage
+            --configuration ..\phpunit.xml ."
+            dir="Tests/Unit" passthru="true" />
 
         <!-- noframes  -->
-        <phpunitreport infile="${docsdir}/Quality/test-reports/junit-log.xml"
+        <phpunitreport infile="${docsdir}\Quality\test-reports\junit-log.xml"
             format="frames"
-            todir="${docsdir}/Quality/test-reports/html/"
-            styledir="C:\Languages\Php\data\phing\etc"
-            />
-        <!--<phpunit haltonfailure="true" haltonerror="true">
-          <formatter todir="${docsdir}/test-reports/" type="xml" />
-          <batchtest>
-            <fileset dir="Tests/Unit">
-              <include name="**/*Test*.php" />
-            </fileset>
-          </batchtest>
-        </phpunit>-->
+            todir="${docsdir}\Quality\test-reports\html"
+            styledir="C:\Languages\Php\data\phing\etc" />
     </target>
 
     <!-- Hmmm, very very spurious results; it seems not to handle magic functions well at all -->
     <target name="dead-code">
-        <exec dir="${codedir}" command="phpdcd --recursive   --log ${builddir}/logs --source ${basedir}/${codedir} --output ${basedir}/${docsdir}/Code/" passthru="true"/>
+        <exec dir="${codedir}" command="phpdcd --recursive --suffixes php >> ${docsdir}\Quality\dead-code\summary.txt" passthru="true"/>
     </target>
 
     <!-- run code-sniffs -->
@@ -185,9 +155,9 @@
             <fileset dir="${codedir}">
                 <include name="**/*.php" />
             </fileset>
-            <formatter type="summary" outfile="${docsdir}/code-sniffs/summary.txt" />
-            <formatter type="csv" outfile="${docsdir}/code-sniffs/checkstyle.csv" />
-            <formatter type="checkstyle" outfile="${docsdir}/code-sniffs/checkstyle.xml"/>
+            <formatter type="summary" outfile="${docsdir}/Quality/code-sniffs/summary.txt" />
+            <formatter type="csv" outfile="${docsdir}/Quality/code-sniffs/checkstyle.csv" />
+            <formatter type="checkstyle" outfile="${cruisecontroldir}/build/logs/checkstyle.xml"/>
         </phpcodesniffer>
     </target>
 
@@ -197,20 +167,20 @@
             <fileset dir="${codedir}" id="files-to-cpd">
                 <include name="**/*.php" />
             </fileset>
-            <formatter type="default" outfile="${docsdir}/copy-paste/summary.txt" />
-            <formatter type="pmd" outfile="${docsdir}/copy-paste/pmd-cpd.xml" />
+            <formatter type="default" outfile="${docsdir}/Quality/copy-paste/summary.txt" />
+            <formatter type="pmd" outfile="${cruisecontroldir}/build/logs/pmd-cpd.xml" />
         </phpcpd>
     </target>
 
     <!-- Generate pmd.xml -->
     <target name="mess-detector">
-        <phpmd>
+        <phpmd rulesets="codesize,unusedcode,design,naming">
             <fileset dir="${codedir}">
                 <include name="**/*.php" />
             </fileset>
             <formatter type="html" outfile="${docsdir}/Quality/mess-detector/messes.html"/>
             <formatter type="text" outfile="${docsdir}/Quality/mess-detector/summary.txt"/>
-            <formatter type="xml" outfile="${docsdir}/Quality/mess-detector/pmd.xml"/>
+            <formatter type="xml" outfile="${cruisecontroldir}/build/logs/pmd.xml"/>
         </phpmd>
     </target>
 
@@ -223,11 +193,22 @@
                 <include name="**/*.php" />
             </fileset>
         </phploc>
+
+        <phploc reportType="xml" reportName="loc"
+            reportDirectory="${cruisecontroldir}/build/logs/" countTests="false" >
+            <fileset dir="${codedir}">
+                <include name="**/*.php" />
+            </fileset>
+        </phploc>
     </target>
 
     <!-- Generate browsable code -->
-    <target name="code-browser">
-        <exec command="phpcb --log ${docsdir}/phpcb.log --source ${basedir}/${codedir} --output ${basedir}/${docsdir}/Code/" passthru="true" />
+    <target name="code-browser" depends="">
+        <echo message="Generating browsable code locally" />
+        <exec command="phpcb --source ${basedir}\${codedir} --output ${basedir}\${docsdir}\Code" passthru="true" />
+
+        <echo message="Generating browsable code for PhpUnderControl" />
+        <exec command="phpcb --log ${cruisecontroldir}\build\logs\ --source ${basedir}\${codedir} --output ${cruisecontroldir}\build\php-code-browser" />
     </target>
 
     <!-- pdepend -->
@@ -236,12 +217,16 @@
             <fileset dir="${codedir}">
                 <include name="**/*.php" />
             </fileset>
-            <logger type="summary-xml" outfile="${docsdir}/Quality/metrics/summary.xml"/>
-            <logger type="phpunit-xml" outfile="${docsdir}/Quality/metrics/pdepend.xml"/>
-            <analyzer type="coderank-mode" value="method"/>
+            <!-- ${docsdir}/Quality/metrics/summary.xml -->
+            <logger type="summary-xml" outfile="${cruisecontroldir}/build/logs/pdepend.xml"/>
+            <!--<logger type="phpunit-xml" outfile="${docsdir}/Quality/metrics/pdepend.xml"/>-->
+            <logger type="overview-pyramid" outfile="${cruisecontroldir}/build/charts/overview-pyramid.svg"/>
+            <logger type="jdepend-chart" outfile="${cruisecontroldir}/build/charts/jdepend.svg"/>
+            <analyzer type="coderank-mode" value="inheritance,property,method"/>
         </phpdepend>
     </target>
 
+    <!-- API Documentation -->
     <target name="docs">
         <echo msg="Cleaning docs dir" />
         <delete dir="${docsdir}/Api" includeemptydirs="true" verbose="false" failonerror="false" />
@@ -253,11 +238,24 @@
 
         <echo message="Making Html edition" />
         <exec command="phpdoc --title VersionControl_Hg --parseprivate on -d H:\Development\_Webroot\Trunk\VersionControl -t H:\Development\_Webroot\Trunk\Documentation\API\Html -o HTML:frames:default --examplesdir H:\Development\_Webroot\Trunk\Tests\Functional --readmeinstallchangelog" escape="false" />
-        <!-- for cruisecontrol -ct type -ue on -t ${basedir}/build/api
-                             -tb C:\Languages\Php\data\phpUnderControl\data\phpdoc
-                             -o HTML:Phpuc:phpuc -d . -->
+
+        <echo message="Making PHPUnderControl edition" />
+        <!--  -ct type -->
+        <exec command="phpdoc --parseprivate on -ue on -t ${cruisecontroldir}\build\api -tb C:\Languages\Php\data\phpUnderControl\data\phpdoc -o HTML:Phpuc:phpuc --title VersionControl_Hg -d H:\Development\_Webroot\Trunk\VersionControl --examplesdir H:\Development\_Webroot\Trunk\Tests\Functional --readmeinstallchangelog" escape="false" />
+
         <echo message="Making Docbook edition" />
         <exec command="phpdoc --title VersionControl_Hg --parseprivate on -d H:\Development\_Webroot\Trunk\VersionControl -t H:\Development\_Webroot\Trunk\Documentation\API\Docbook -o XML:DocBook/peardoc2:default --examplesdir H:\Development\_Webroot\Trunk\Tests\Functional --readmeinstallchangelog" escape="false" />
+    </target>
+
+    <!-- Tutorials -->
+    <target name="tutorials">
+        <echo message="Cleaning out generated HTML Docs" />
+        <delete dir="${docsdir}/Docbook/html" />
+
+        <mkdir dir="${docsdir}/Docbook/html" />
+
+        <echo message="Making HTML tutorials" />
+        <exec command="phd -x -P PEAR -f xhtml -r -o ${docsdir}/Docbook/html -d ${docsdir}/Docbook/src/versioncontrol-hg.xml" escape="false" />
     </target>
 
 </project>
