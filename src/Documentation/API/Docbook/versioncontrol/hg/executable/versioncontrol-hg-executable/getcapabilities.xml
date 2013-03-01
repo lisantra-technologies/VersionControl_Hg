@@ -1,0 +1,59 @@
+<refentry id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.getcapabilities">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Executable::getCapabilities</function>
+  </refname>
+  <refpurpose>
+   Return Mercurial&apos;s capabilities and supported commands and options
+   for this version.
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Executable.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>VersionControl_Hg_Executable::getCapabilities</function>
+    </funcdef>
+    <paramdef>
+     string|float
+     <parameter>
+      <optional>$version = &null;</optional>
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.getcapabilities.desc">
+  &title.desc;
+  <para>The version may be passed in, but the default is to use the current  executable&apos;s version.</para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.getcapabilities.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>string|float</type>
+      <parameter>$version</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.getcapabilities.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.getcapabilities.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

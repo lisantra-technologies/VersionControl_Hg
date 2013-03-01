@@ -8,3 +8,5 @@ syntax: regexp
 ^\.buildpath$
 syntax: regexp
 ^\.project$
+syntax: regexp
+\.sqlite$

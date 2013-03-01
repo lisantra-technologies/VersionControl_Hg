@@ -1,0 +1,63 @@
+<refentry id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.files">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Command_Cat::files</function>
+  </refname>
+  <refpurpose>List status information for only the files specified.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Command/Cat.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>&null;</replaceable>
+     <function>VersionControl_Hg_Command_Cat::files</function>
+    </funcdef>
+    <paramdef>
+     <parameter>$files</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.files.desc">
+  &title.desc;
+  <para>VersionControl_Hg_Command_Abstract::formatOptions will automatically  make this the last option since a files list must be the last item on  the command line.</para>
+  <para>
+   Usage:
+   <programlisting role="php">
+<![CDATA[$hg->cat()->files(array('index.php'))->run();]]>
+   </programlisting>
+   or
+   <programlisting role="php">
+<![CDATA[$hg->cat(array('files' => array('index.php')))->run();]]>
+   </programlisting>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.files.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type />
+      <parameter>$files</parameter>
+     </term>
+     <listitem>
+      <para>the list of files as a simple array</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.files.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.command.versioncontrol-hg-command-cat.files.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>
