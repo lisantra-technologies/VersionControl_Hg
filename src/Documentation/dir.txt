@@ -1,0 +1,57 @@
+
+H:\Development\_Webroot\Trunk\VersionControl
++  Hg.php
++--Hg
+|  +  CommandProxy.php
+|  +--Container
+|  |  +--Repository
+|  |  |  +  Branch.php
+|  |  |  +  Tag.php
+|  |  |  +  Exception.php
+|  |  |  +  Revision.php
+|  |  |  \  Diff.php
+|  |  +  Abstract.php
+|  |  +  Interface.php
+|  |  +  Bundle.php
+|  |  +--Bundle
+|  |  |  \  Exception.php
+|  |  +  Repository.php
+|  |  +  WorkingCopy.php
+|  |  \--WorkingCopy
+|  |     +  Exception.php
+|  |     +  File.php
+|  |     \  Directory.php
+|  +--Command
+|  |  +  Revert.php
+|  |  +  Exception.php
+|  |  +  Backout.php
+|  |  +  Pull.php
+|  |  +  Interface.php
+|  |  +  Abstract.php
+|  |  +  Push.php
+|  |  +--Output
+|  |  |  \  Formatter.php
+|  |  +  Branch.php
+|  |  +  Tag.php
+|  |  +  Status.php
+|  |  +  Patch.php
+|  |  +  Bundle.php
+|  |  +  Init.php
+|  |  +  Archive.php
+|  |  +  Version.php
+|  |  +  Add.php
+|  |  +  Copy.php
+|  |  +  Cat.php
+|  |  +  Export.php
+|  |  +  Import.php
+|  |  +  Log.php
+|  |  +  Commit.php
+|  |  +  Forget.php
+|  |  +  Remove.php
+|  |  +  Clone.php
+|  |  \  Diff.php
+|  +  Exception.php
+|  +  Executable.php
+|  \--Executable
+|     \  Exception.php
+\  dir.txt

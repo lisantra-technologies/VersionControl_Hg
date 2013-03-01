@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>Instantiating a Repository</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="generator" content="PhD" />
+
+  <link rel="start" href="index.html" title="PEAR Manual" />
+  <link rel="up" href="package.versioncontrol.versioncontrol-hg.commands.html" title="Commands" />
+  <link rel="prev" href="package.versioncontrol.versioncontrol-hg.commands.html" title="Commands" />
+  <link rel="next" href="package.versioncontrol.versioncontrol-hg.commands.status.html" title="Status Command" />
+ </head>
+ <body>
+<div class="navheader">
+ <table width="100%" summary="Navigation header">
+  <tr><th colspan="3" style="text-align: center">Instantiating a Repository</th></tr>
+  <tr>
+   <td width="40%" align="left"><a href="package.versioncontrol.versioncontrol-hg.commands.html" title="Commands">Prev</a></td>
+   <td width="20%"></td>
+   <td width="40%" align="right"><a href="package.versioncontrol.versioncontrol-hg.commands.status.html" title="Status Command">Next</a></td>
+  </tr>
+ </table>
+ <hr/>
+</div>
+<div id="body">
+<div class="refentry" id="package.versioncontrol.versioncontrol-hg.instantiating">
+    
+        <h1 class="refname">
+            Instantiating a Repository
+        </h1>
+        <div class="refnamediv">
+            Instantiating a Repository
+         &ndash; 
+            How to begin working with VersionControl_Hg by instantiating an
+            instance.
+        </div>
+
+    
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.instantiating-unknown">
+        <h2 class="title">Basic Operation</h2>
+        <p class="para">
+            The basis of all operations is instantiating the base class:
+        </p>
+        <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl_Hg</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/repository'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        <p class="para">
+            Setting the repository also automatically finds and sets the local
+            path of the Mercurial binary it will use. If multiple installations
+            of Mercurial are found, this package will employ only the first one
+            found on the system path.
+        </p>
+    </div>
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.instantiating-unknown">
+        <h2 class="title">Empty Path Argument</h2>
+
+        <p class="para">
+            Not setting a repository path while instantiating is fine.
+            For commands such as <strong class="command">hg init</strong> or <strong class="command">hg clone</strong>, a blank argument simply makes the most sense.
+            In this case, the to() method will supply the path (which must be an
+            empty directory) to which to create or clone a repository:
+        </p>
+        <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl_Hg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">clone</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/repo'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/future/repo'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        <p class="para">
+            If you do supply a path and then attempt to init or clone a repository over it, the underlying Mercurial command-line client will return an error, resulting in a PHP exception.
+            This is because the CLI will not allow a user to clone over or init over an existing repository.
+        </p>
+        <p class="para">
+            Calling all commands other than &#039;version&#039;, &#039;clone&#039;, &#039;create&#039;/&#039;init&#039; without having already set
+            a valid repository will raise an exception.
+        </p>
+    </div>
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.instantiating-unknown">
+        <h2 class="title">Remote Repositories</h2>
+        <p class="para">
+            The path to a repository is currently only tested with local
+            repositories. It may &quot;just work&quot; with a url, however. I
+            have not yet decided on the security and privacy implications for
+            providing access to remote repositories, even public ones. Also, I
+            have not yet formulated a way to handle automated, server-side
+            access to repositories over SSH or various authentication methods
+            provided by other software such as Bitbucket or mercurial-server.
+        </p>
+    </div>
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.instantiating-unknown">
+        <h2 class="title">Resetting the Repository Path after Instantiation</h2>
+
+        <p class="para">
+            You may also provide a location of a repository after instantiation.
+        </p>
+        <div class="example">
+            <p><b>Instantiating without specifying a repository:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl_Hg</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setRepository</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/repository'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+        <p class="para">
+            or
+            </p><div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">repository&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/path/to/repository'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div><p>
+        </p>
+        <p class="para">
+            Do note that you can only set the path once since Repository is a
+            singleton; All subsequent attempts will
+            <i class="emphasis">
+                silently
+            </i>
+            fail after the path has already been
+            set.
+        </p>
+    </div>
+
+ </div>
+</div>
+<div class="navfooter">
+ <hr />
+ <table width="100%" summary="Navigation footer">
+  <tr>
+   <td width="40%" align="left"><a accesskey="p" href="package.versioncontrol.versioncontrol-hg.commands.html">Prev</a></td>
+   <td width="20%" align="center"><a accesskey="h" href="package.versioncontrol.versioncontrol-hg.commands.html">Commands</a></td>
+   <td width="40%" align="right"><a accesskey="n" href="package.versioncontrol.versioncontrol-hg.commands.status.html">Next</a></td>
+  </tr>
+  <tr>
+   <td width="40%" align="left" valign="top">Commands</td>
+   <td width="20%" align="center"><a accesskey="h" href="index.html">PEAR Manual</a></td>
+   <td width="40%" align="right" valign="top">Status Command</td>
+  </tr>
+ </table>
+</div>
+</body></html>

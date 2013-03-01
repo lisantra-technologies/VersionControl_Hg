@@ -1,0 +1,57 @@
+<refentry id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.hascapability">
+ <refnamediv>
+  <refname>
+   <function>VersionControl_Hg_Executable::hasCapability</function>
+  </refname>
+  <refpurpose>
+   Determines if the required capability is present in the user&apos;s
+   Mercurial executable version
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Hg/Executable.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>VersionControl_Hg_Executable::hasCapability</function>
+    </funcdef>
+    <paramdef>
+     string
+     <parameter>$capability</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.hascapability.desc">
+  &title.desc;
+  &notdocumented;
+</refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.hascapability.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$capability</parameter>
+     </term>
+     <listitem>
+      <para />
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.hascapability.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsect1>
+ <refsect1 id="package.versioncontrol.hg.executable.versioncontrol-hg-executable.hascapability.note">
+  &title.note;
+  &note.notstatic;
+</refsect1>
+</refentry>

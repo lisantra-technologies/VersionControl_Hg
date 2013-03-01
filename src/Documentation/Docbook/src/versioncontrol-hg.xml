@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="package.versioncontrol.versioncontrol-hg"
+    version="5.0">
+    <info>
+        <title>VersionControl_Hg</title>
+        <abstract>
+            <para>
+                <classname>VersionControl_Hg</classname> is a fluent interface to the Mercurial Version Control System.
+            </para>
+        </abstract>
+    </info>
+    <chapter xml:id="package.versioncontrol.versioncontrol-hg.summary">
+        <title>Introduction</title>
+        <para>
+            A fluent interface is a compact way of achieving programmatic goals.
+            All chained commands are terminated with <function>run</function>.
+        </para>
+        <example xml:id="package.text.text-diff.intro.renderers.inline">
+            <title>Getting the log of the most recent commit:</title>
+            <programlisting role="php"><![CDATA[
+require_once 'VersionControl/Hg.php';
+$hg = new VersionControl/Hg('/path/to/repo');
+
+$hg->log()->revision('tip')->run('verbose');
+            ]]></programlisting>
+        </example>
+
+        <para>
+            You may use a traditional, multiline style instead of the fluent interface.
+            However, I have not designed VersionControl_Hg to work this way; Thus, your mileage may vary.
+        </para>
+        <example xml:id="package.text.text-diff.intro.renderers.long_form">
+            <title>Long form of the above example:</title>
+            <programlisting role="php"><![CDATA[
+require_once 'VersionControl/Hg.php';
+$hg = new VersionControl/Hg('/path/to/repo');
+$log = $hg->log();
+$revision = $log->revision('tip');
+$result = $revision->run('verbose');
+            ]]></programlisting>
+        </example>
+
+        <simplesect xml:id="package.versioncontrol.versioncontrol-hg.uses">
+            <title>Possible Use Cases</title>
+
+            <para>
+                For use within a build system:
+
+                * to archive a repository
+                * to produce a change log from a repository
+            </para>
+        </simplesect>
+        <simplesect xml:id="package.versioncontrol.versioncontrol-hg.requirements">
+            <title>System Requirements</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link xlink:href="http://www.php.net">PHP</link> 5.2.0 or newer.</para>
+                    </listitem>
+                    <listitem>
+                        <para><link xlink:href="http://pear.php.net">PEAR</link> 1.7.4 or newer.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+        <simplesect xml:id="package.versioncontrol.versioncontrol-hg.dependencies">
+            <title>Dependencies</title>
+            <itemizedlist>
+                <listitem><simpara>Mercurial</simpara></listitem>
+            </itemizedlist>
+            <para>VersionControl_Hg has no other PEAR packages as dependencies.</para>
+        </simplesect>
+        <simplesect xml:id="package.versioncontrol.versioncontrol-hg.install">
+            <title>Installation</title>
+            <para> Install simply with <command>pear install VersionControl_Hg</command>. It has no other
+                PEAR packages as dependencies, therefore, <option>--alldeps</option> has no effect on the
+                install. </para>
+        </simplesect>
+        <simplesect xml:id="package.versioncontrol.versioncontrol-hg.exceptions">
+            <title>Handling Exceptions</title>
+            <para />
+        </simplesect>
+    </chapter>
+    <!--<xi:include href="versioncontrol-hg/return_data_formats.xml"/>-->
+
+    <chapter>
+        <xi:include href="architecture.xml" />
+    </chapter>
+
+    <chapter>
+        <xi:include href="quick_start.xml"/>
+    </chapter>
+
+    <chapter xml:id="package.versioncontrol.versioncontrol-hg.commands">
+        <title>Commands</title>
+        <xi:include href="versioncontrol-hg/instantiating.xml"/>
+        <xi:include href="versioncontrol-hg/commands/status.xml"/>
+        <xi:include href="versioncontrol-hg/commands/cat.xml"/>
+        <xi:include href="versioncontrol-hg/commands/archive.xml"/>
+    </chapter>
+
+    <appendix xml:id="package.versioncontrol.versioncontrol-hg.question">
+        <title>FAQ</title>
+        <para/>
+    </appendix>
+
+    <appendix xml:id="package.versioncontrol.versioncontrol-hg.decisions">
+        <title>Design Decisions</title>
+
+        <refsect1>
+            <title>Architecture Design Goals</title>
+
+            <para>
+                No mixed case, since its hard to type capitals quickly (interrupts my flow)
+            </para>
+            <para>
+                No method in the API should have more than argument (arrays are OK a a convenience).
+            </para>
+        </refsect1>
+
+        <refsect1>
+            <title>Exceptions</title>
+
+            <para>
+                All Exception inherit directly from PHP's base Exception class.
+            </para>
+            <para>
+                At first, I created a heirarchy of exceptions. For example,
+                VersionControl_Hg_Command_Exception extended VersionControl_Hg_Exception.
+                However, this started to get funky once I started using error constants defined
+                in the exception classes and then further wanted to (re)implement dynamic
+                messages (because overridden __construct methods should call parent::__construct)
+                which I felt really ought to be Exception itself and not VersionControl_Hg_Exception.
+                Plus, I started to get some errors, and wanted to be sure my no-value-added
+                nesting wasn't complicating the situation (it probably was complicating it, even
+                if it did not cause the errors).
+            </para>
+        </refsect1>
+    </appendix>
+
+    <appendix xml:id="package.versioncontrol.versioncontrol-hg.contributing">
+        <title>Contributing and Hacking</title>
+        <para />
+    </appendix>
+</book>

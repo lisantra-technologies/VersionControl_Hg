@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<refentry
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0"
+    xml:id="package.versioncontrol.versioncontrol-hg.commands.clone">
+    <refnamediv>
+        <refname>
+            Clone Command
+        </refname>
+        <refpurpose>
+            Clone a repository to a destination
+        </refpurpose>
+    </refnamediv>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.clone.quick">
+        <title>Basic Use</title>
+        <para>The path for the repository to clone may be either a local filesystem path or a url over a network.</para>
+        <example>
+            <title>Clone a repository to a new location:</title>
+            <programlisting role="php"><![CDATA[
+require_once 'VersionControl/Hg.php';
+$hg = new VersionControl_Hg('/home/me/my_repository');
+$new_repository_object = $hg->clone('http://url/from/repo')->to('/path/to/clone')->run();
+        ]]></programlisting>
+        </example>
+        <para>
+            The url or path argument for <function>clone</function> is not always required.
+            An argument to <function>clone</function> will override a default repository
+            specified when <classname>VersionControl_Hg</classname> was initiated.
+
+            If <package>VersionControl_Hg</package> was initiated with a path or url
+            to a valid repository, it will use that repository only if <function>clone</function>
+            is called with no argument.
+        </para>
+        <para>
+            If <package>VersionControl_Hg</package> was not initiated with a path or url,
+            then the repository must be specified as an argument to <function>clone</function>.
+
+            Not doing so will result in a fatal exception.
+        </para>
+
+        <refsect2>
+            <title>Interpreting its Output</title>
+            <para>
+                The <command>clone</command> command returns an instance of <classname>VersionControl_Hg_Container_Repository</classname>.
+
+            </para>
+        </refsect2>
+    </refsect1>
+
+    <refsect1>
+        <title>Specifying a Revision</title>
+        <para>You may clone a repository at a specific revision:</para>
+        <programlisting role="php"><![CDATA[
+$cloned_repository_object = $hg->clone('http://url/from/repo')->revision('e5e678260dfe')->to('/path/to/clone')->run();;
+        ]]></programlisting>
+        <caution>
+            <para>
+                Not specifying a revision causes Mercurial to clone the
+                repository at its most recent revision (tip).
+            </para>
+        </caution>
+    </refsect1>
+
+    <refsect1>
+        <title>Cloning a Branch</title>
+        <para>
+
+        </para>
+        <programlisting role="php"><![CDATA[
+$cloned_branch = $hg->clone('http://url/from/repo')->branch('my_branch_name')->to(/path/to/clone')->run();
+]]></programlisting>
+        <example>
+            <title>Using a Mercurial-style glob to select multiple files:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('glob'=> '**.php'))->run();
+            ]]></programlisting>
+        </example>
+
+        <example>
+            <title>Using a regular expression to select multiple files:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('re'=> 'test_*'))->run();
+            ]]></programlisting>
+        </example>
+
+        <example>
+            <title>Using the Mercurial fileset syntax to select multiple files:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('set'=> "copied() and size('>1M')"))->run();
+            ]]></programlisting>
+            <para>
+                <package>VersionControl_Hg</package> will check if your
+                hg binary supports filesets, since filesets are available
+                only in Mercurial 1.9 and later.
+            </para>
+        </example>
+
+        <example>
+            <title>Using the Mercurial listfile to select multiple files:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('listfile'=> '/path/to/listfile'))->run();
+            ]]></programlisting>
+            <para>A listfile is a plain text list of file paths, with each file on a newline.</para>
+        </example>
+
+        <warning>
+            <para>
+                Calling <function>file</function> multiple times will
+                not output multiple files. Doing this will overwrite
+                the option and output only the file specified in the
+                last call of <function>file</function>.
+            </para>
+        </warning>
+    </refsect1>
+
+    <refsect1>
+        <title>Making a sparse Clone</title>
+        <para>
+            Mercurial can save the output of a file to either its original
+            name (for single or multiple files), or a user-supplied name
+            (only for a single file).
+        </para>
+        <para>
+            The path to save the file must be a fully qualified path on
+            the filesystem.
+        </para>
+        <programlisting role="php"><![CDATA[
+$hg->cat('file2')->save()->to('/path/to/save/at')->run();
+]]></programlisting>
+
+        <example>
+            <title>Renaming a saved file:</title>
+            <programlisting role="php"><![CDATA[
+$hg->cat('file2')->save('new_file_name')->to('/path/to/save/at')->run();
+            ]]></programlisting>
+        </example>
+        <tip>
+            <para>Note: if you really need multiple files, consider using the Archive command.</para>
+        </tip>
+    </refsect1>
+
+    <refsect1>
+        <title>Alternate Syntax</title>
+        <para>
+            The alternative to calling methods for specifying options is to
+            pass an associative array of options to <function>archive</function>.
+            You may mix and match in any combination options as function
+            calls or array elements.
+        </para>
+        <example>
+            <title>All options as an array:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat(array(
+    'revision' => 6,
+    'files' => array('file1','file2')),
+    'to' => '/path/to save/outputted/files/with/original_names'
+)->run();
+]]></programlisting>
+            <!--<para>(Re-naming of an outputted file is not supported for multiple files.)</para>-->
+            <para>or,</para>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat(array(
+    'files' => array('file1'),
+    'to' => '/path/to save/outputted/file/with/new_name'
+)->revision(6)->run();
+            ]]></programlisting>
+        </example>
+    </refsect1>
+</refentry>

@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>Status Command</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="generator" content="PhD" />
+
+  <link rel="start" href="index.html" title="PEAR Manual" />
+  <link rel="up" href="package.versioncontrol.versioncontrol-hg.commands.html" title="Commands" />
+  <link rel="prev" href="package.versioncontrol.versioncontrol-hg.instantiating.html" title="Instantiating a Repository" />
+  <link rel="next" href="package.versioncontrol.versioncontrol-hg.commands.cat.html" title="Cat Command" />
+ </head>
+ <body>
+<div class="navheader">
+ <table width="100%" summary="Navigation header">
+  <tr><th colspan="3" style="text-align: center">Status Command</th></tr>
+  <tr>
+   <td width="40%" align="left"><a href="package.versioncontrol.versioncontrol-hg.instantiating.html" title="Instantiating a Repository">Prev</a></td>
+   <td width="20%"></td>
+   <td width="40%" align="right"><a href="package.versioncontrol.versioncontrol-hg.commands.cat.html" title="Cat Command">Next</a></td>
+  </tr>
+ </table>
+ <hr/>
+</div>
+<div id="body">
+<div class="refentry" id="package.versioncontrol.versioncontrol-hg.commands.status">
+    
+        <h1 class="refname">Status Command</h1>
+        <div class="refnamediv">Status Command &ndash; How to get the status of a working copy</div>
+
+    
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">Basic Operation</h2>
+
+        <p class="para">
+            Running this with no arguments will only show what Hg would show: only changes and not all files.
+            </p><div class="example">
+                <p><b>Output from basic use:</b></p>
+                <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl_Hg</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/me/my_repository'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                <p class="simpara">will return:</p>
+                <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">array(</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;[</span><span style="color: #0000BB">0</span><span style="color: #007700">]=&gt;<br />&nbsp;&nbsp;array(</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;[</span><span style="color: #DD0000">"status"</span><span style="color: #007700">]=&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">(</span><span style="color: #0000BB">11</span><span style="color: #007700">)&nbsp;</span><span style="color: #DD0000">"not&nbsp;tracked"<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">[</span><span style="color: #DD0000">"file"</span><span style="color: #007700">]=&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">)&nbsp;</span><span style="color: #DD0000">"2010-12-27"<br />&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">]=&gt;<br />&nbsp;&nbsp;array(</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;[</span><span style="color: #DD0000">"status"</span><span style="color: #007700">]=&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">(</span><span style="color: #0000BB">11</span><span style="color: #007700">)&nbsp;</span><span style="color: #DD0000">"not&nbsp;tracked"<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">[</span><span style="color: #DD0000">"file"</span><span style="color: #007700">]=&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">string</span><span style="color: #007700">(</span><span style="color: #0000BB">7</span><span style="color: #007700">)&nbsp;</span><span style="color: #DD0000">"New.doc"<br />&nbsp;&nbsp;</span><span style="color: #007700">}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            </div><p>
+            Remember, <strong class="function">run()</strong> can have the argument: &#039;verbose&#039;
+            to output extra status data for each file.
+            </p><div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #DD0000">'verbose'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div><p>
+        </p>
+        <p class="para">
+            An additional feature of VersionControl_Hg is that by default, the <strong class="command">status</strong> command ignores any files associated with git and subversion, which a stock Mercurial install will not do.
+            This might be useful for when a user uses hgsubversion or hg-git.
+        </p>
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+            <h3 class="title">Interpreting its Output</h3>
+
+            <div class="refsect3 unknown" id="refsect3-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+                <h4 class="title">Default: Array</h4>
+                <p class="para">
+                    </p><div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"file"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"index.php"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"status"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"clean"<br /></span><span style="color: #007700">)<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div><p>
+                </p>
+            </div>
+
+
+            <div class="refsect3 unknown" id="refsect3-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+                <h4 class="title">Plain Text Codes</h4>
+
+                <p class="para">
+                    You may get plain text output by using the <strong class="function">format()</strong> method
+                    chained to <strong class="function">status()</strong>.
+                    </p><div class="example">
+                        <p><b>Plain text output:</b></p>
+                        <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(</span><span style="color: #DD0000">'all'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'raw'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                    </div><p>
+                </p>
+
+                <table class="table">
+                    Mercurial -&gt; VersionControl_Hg Status Codes
+                    <thead valign="middle">
+                        <tr valign="middle">
+                            <th valign="middle">Mercurial</th>
+
+                            <th valign="middle">VersionControl_Hg</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr valign="middle">
+                            <td valign="middle">M</td>
+
+                            <td valign="middle">modified</td>
+
+                        </tr>
+
+                        <tr valign="middle">
+                            <td valign="middle">A</td>
+
+                            <td valign="middle">added</td>
+
+                        </tr>
+
+                        <tr valign="middle">
+                            <td valign="middle">R</td>
+
+                            <td valign="middle">removed</td>
+
+                        </tr>
+
+                        <tr valign="middle">
+                            <td valign="middle">C</td>
+
+                            <td valign="middle">clean</td>
+
+                        </tr>
+
+                        <tr valign="middle">
+                            <td valign="middle">!</td>
+
+                            <td valign="middle">missing</td>
+
+                        </tr>
+
+                        <tr valign="middle">
+                            <td valign="middle">?</td>
+
+                            <td valign="middle">not tracked / unversioned</td>
+
+                        </tr>
+
+                        <tr valign="middle">
+                            <td valign="middle">I</td>
+
+                            <td valign="middle">ignored</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Finding Status of All Files in the Repository
+        </h2>
+        <p class="para">
+            Output the status of all files in the repository with the
+            <strong class="function">all()</strong> method chained to the command.
+        </p>
+        <div class="example">
+            <p><b>Status of all files in the repository:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">all</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="simpara">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(</span><span style="color: #DD0000">'all'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+            <h3 class="title">Excluding Files</h3>
+            <p class="para">
+                You may exclude types of files with the <strong class="function">excluding()</strong>
+                method chained to <strong class="function">status()</strong>. It is specified
+                as a glob: &#039;**.{$FILE_EXTENSION}&#039;
+            </p>
+
+            <div class="example">
+                <p><b>Exclude all Php files:</b></p>
+                <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">all</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">excluding</span><span style="color: #007700">(</span><span style="color: #DD0000">'**.php'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Finding Status of only Certain Files in the Repository
+        </h2>
+        <p class="para">
+            You may specify an array of filenames using <strong class="function">files()</strong>
+            chained to <strong class="function">status()</strong>, which will exclude all
+            files other than the ones specified.
+        </p>
+
+        <blockquote class="note">
+            <p class="para">Paths are relative to the repository root.</p>
+        </blockquote>
+
+
+        <div class="example">
+            <p><b>Output the staus of only <tt class="filename">index.php</tt>:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'index.php'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Finding Files Added to the Repository
+        </h2>
+        <p class="para">
+            Using <strong class="function">added()</strong> will output all files added,
+            but not yet committed to the repository.
+        </p>
+        <div class="example">
+            <p><b>Show added files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">added</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="simpara">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(</span><span style="color: #DD0000">'added'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Finding Files Deleted from the Repository
+        </h2>
+        <p class="para">
+            Use <strong class="function">deleted()</strong> to find all files deleted from
+            the repository, but not yet committed. You may use this with <strong class="function">revision()</strong>
+            or <strong class="function">between()</strong> as well.
+        </p>
+        <div class="example">
+            <p><b>Show deleted files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">deleted</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="simpara">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(</span><span style="color: #DD0000">'deleted'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Finding Status of Files for a Specific Revision
+        </h2>
+        <p class="para">
+            The argument is typically an integer, however it still works if
+            the argument is a valid number as a string: &#039;4&#039; will work, but
+            &#039;4things&#039; may yield unpredictable results depending on how PHP casts it.
+        </p>
+        <div class="example">
+            <p><b>Show the status what changed in revision 4:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">revision</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="simpara">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'revision'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4&nbsp;</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Finding Which Files Changed, were Added or Deleted Between Two Revisions
+        </h2>
+        <p class="para">
+            <strong class="function">between()</strong> takes two integer arguments: the first is the revision
+            from which it starts and the second is the revision at which the status
+            ends. The second argument may take the keyword, &#039;tip&#039;.
+        </p>
+        <div class="example">
+            <p><b>All files which were modified, added or deleted between revisions 3 and five:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">between</span><span style="color: #007700">(</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Finding Copied Files
+        </h2>
+        <p class="para">
+
+        </p>
+        <div class="example">
+            <p><b>Show copied files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">copied</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="simpara">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(</span><span style="color: #DD0000">'copied'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Find Unmodified / Clean Files
+        </h2>
+        <p class="para">
+
+        </p>
+        <div class="example">
+            <p><b>Show unmodified files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">clean</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="simpara">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(</span><span style="color: #DD0000">'clean'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Find Modified Files
+        </h2>
+        <p class="para">
+
+        </p>
+        <div class="example">
+            <p><b>Show modified files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">modified</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="simpara">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(</span><span style="color: #DD0000">'modified'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.status-unknown">
+        <h2 class="title">
+            Find Unversioned Files
+        </h2>
+        <p class="para">
+
+        </p>
+        <div class="example">
+            <p><b>Show unversioned files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">unknown</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="simpara">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$status&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">status</span><span style="color: #007700">(</span><span style="color: #DD0000">'unknown'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div class="navfooter">
+ <hr />
+ <table width="100%" summary="Navigation footer">
+  <tr>
+   <td width="40%" align="left"><a accesskey="p" href="package.versioncontrol.versioncontrol-hg.instantiating.html">Prev</a></td>
+   <td width="20%" align="center"><a accesskey="h" href="package.versioncontrol.versioncontrol-hg.commands.html">Commands</a></td>
+   <td width="40%" align="right"><a accesskey="n" href="package.versioncontrol.versioncontrol-hg.commands.cat.html">Next</a></td>
+  </tr>
+  <tr>
+   <td width="40%" align="left" valign="top">Instantiating a Repository</td>
+   <td width="20%" align="center"><a accesskey="h" href="index.html">PEAR Manual</a></td>
+   <td width="40%" align="right" valign="top">Cat Command</td>
+  </tr>
+ </table>
+</div>
+</body></html>

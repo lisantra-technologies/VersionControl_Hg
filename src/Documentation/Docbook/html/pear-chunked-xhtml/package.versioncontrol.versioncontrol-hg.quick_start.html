@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>Quick Start</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="generator" content="PhD" />
+
+  <link rel="start" href="index.html" title="PEAR Manual" />
+  <link rel="up" href="package.versioncontrol.versioncontrol-hg.html" title="VersionControl_Hg" />
+  <link rel="prev" href="package.versioncontrol.versioncontrol-hg.architecture.html" title="Architecture Outline" />
+  <link rel="next" href="package.versioncontrol.versioncontrol-hg.commands.html" title="Commands" />
+ </head>
+ <body>
+<div class="navheader">
+ <table width="100%" summary="Navigation header">
+  <tr><th colspan="3" style="text-align: center">Quick Start</th></tr>
+  <tr>
+   <td width="40%" align="left"><a href="package.versioncontrol.versioncontrol-hg.architecture.html" title="Architecture Outline">Prev</a></td>
+   <td width="20%"></td>
+   <td width="40%" align="right"><a href="package.versioncontrol.versioncontrol-hg.commands.html" title="Commands">Next</a></td>
+  </tr>
+ </table>
+ <hr/>
+</div>
+<div id="body">
+<div class="refentry" id="package.versioncontrol.versioncontrol-hg.quick_start">
+    
+        <h1 class="refname">Quick Start</h1>
+        <div class="refnamediv">Quick Start &ndash; Assumes a programmer is working on a repository already created by Mercurial.</div>
+
+    
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+        <h2 class="title">Handling the Data Returned by Commands</h2>
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+            <h3 class="title">Formatting Provider</h3>
+            <p class="para">Output formatting is provided by VersionControl/Hg/Command/Output/Formatter.php</p>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+            <h3 class="title">Format: PHP Array</h3>
+            <p class="para">
+                The default return format is as an array of data.
+                Each item in the array correpsond to the lines of Mercurial&#039;s output.
+                Each item is itself an array.
+                The key is most often a numerical index corresponding to the output&#039;s line number.
+                each key in the sub-array is a column name while the value is the data returned by mercurial.
+            </p>
+            <p class="para">This is the default; No argument to to the final <strong class="function">run()</strong> method is needed to get data returned as arrays.</p>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+            <h3 class="title">Format: Raw Text</h3>
+            <p class="para">Raw text is gotten by passing <i><tt class="parameter">raw</tt></i> to the final <strong class="function">run()</strong> method.</p>
+            <p class="para">This text is assembled from the array returned by default. The lines are delimited by <strong class="constant">PHP_EOL</strong> and are thus platform independent.
+                For example, if you run this code on Windows, your lines will be delmimited with <code class="code">/r/n</code>.</p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">log</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #DD0000">'raw'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="para">or</p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">log</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #DD0000">'text'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+            <h3 class="title">Format: JSON</h3>
+            <p class="para">JSON output is a string representation of the default array output.</p>
+            <p class="para">JSON formatted output is gotten by passing <i><tt class="parameter">json</tt></i> to the final <strong class="function">run()</strong> method.</p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">log</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #DD0000">'json'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+            <h3 class="title">Format: YAML</h3>
+            <p class="para">YAML output is a string representation of the default array output.</p>
+            <p class="para">YAML formatted output is gotten by passing <i><tt class="parameter">yaml</tt></i> to the final <strong class="function">run()</strong> method.</p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">log</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #DD0000">'yaml'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+            <h3 class="title">Format: PHP Serialized</h3>
+            <p class="para">This format is what appears when PHP serializes a variable.</p>
+            <p class="para">Serialize formatted output is gotten by passing <i><tt class="parameter">serialize</tt></i> to the final <strong class="function">run()</strong> method.</p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">log</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #DD0000">'serialize'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+            <h3 class="title">Format: XML</h3>
+            <p class="para">XML output is not yet supported.</p>
+            <p class="para">
+                Part of the problem is that aside from <strong class="command">hg log</strong>, there really is no agreed upon XML vocabulary for version control.
+                I see a promising opportunity for the enterprising programmer if I don&#039;t get to it first.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+        <h2 class="title">Handling a Repository</h2>
+        <p class="para">A local repository:</p>
+        <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl_Hg</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/repository'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+
+        <p class="para">bundle</p>
+        <p class="para">push</p>
+        <p class="para">pull</p>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+        <h2 class="title">Handling History</h2>
+        <p class="para">Use the <strong class="command">log</strong> command.</p>
+        <p class="para">diff</p>
+        <p class="para">forget</p>
+        <p class="para">branch</p>
+        <p class="para">tag</p>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+        <h2 class="title">Handling a Commit</h2>
+        <p class="para">commit</p>
+        <p class="para">revert</p>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+        <h2 class="title">Handling a File</h2>
+        <p class="para">Use the <strong class="command">cat</strong> command.</p>
+        <p class="para">copy</p>
+        <p class="para">remove</p>
+        <p class="para">archive</p>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.quick_start-unknown">
+        <h2 class="title">Handling a Patch</h2>
+        <p class="para">import</p>
+        <p class="para">export</p>
+    </div>
+
+</div>
+</div>
+<div class="navfooter">
+ <hr />
+ <table width="100%" summary="Navigation footer">
+  <tr>
+   <td width="40%" align="left"><a accesskey="p" href="package.versioncontrol.versioncontrol-hg.architecture.html">Prev</a></td>
+   <td width="20%" align="center"><a accesskey="h" href="package.versioncontrol.versioncontrol-hg.html">VersionControl_Hg</a></td>
+   <td width="40%" align="right"><a accesskey="n" href="package.versioncontrol.versioncontrol-hg.commands.html">Next</a></td>
+  </tr>
+  <tr>
+   <td width="40%" align="left" valign="top">Architecture Outline</td>
+   <td width="20%" align="center"><a accesskey="h" href="index.html">PEAR Manual</a></td>
+   <td width="40%" align="right" valign="top">Commands</td>
+  </tr>
+ </table>
+</div>
+</body></html>

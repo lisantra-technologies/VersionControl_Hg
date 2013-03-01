@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>Archive Command</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="generator" content="PhD" />
+
+  <link rel="start" href="index.html" title="PEAR Manual" />
+  <link rel="up" href="package.versioncontrol.versioncontrol-hg.commands.html" title="Commands" />
+  <link rel="prev" href="package.versioncontrol.versioncontrol-hg.commands.cat.html" title="Cat Command" />
+  <link rel="next" href="package.versioncontrol.versioncontrol-hg.question.html" title="FAQ" />
+ </head>
+ <body>
+<div class="navheader">
+ <table width="100%" summary="Navigation header">
+  <tr><th colspan="3" style="text-align: center">Archive Command</th></tr>
+  <tr>
+   <td width="40%" align="left"><a href="package.versioncontrol.versioncontrol-hg.commands.cat.html" title="Cat Command">Prev</a></td>
+   <td width="20%"></td>
+   <td width="40%" align="right"><a href="package.versioncontrol.versioncontrol-hg.question.html" title="FAQ">Next</a></td>
+  </tr>
+ </table>
+ <hr/>
+</div>
+<div id="body">
+<div class="refentry" id="package.versioncontrol.versioncontrol-hg.commands.archive">
+    
+        <h1 class="refname">Archive Command</h1>
+        <div class="refnamediv">Archive Command &ndash; Export an unversioned copy of a repository to a compressed archive or filesystem.</div>
+
+    
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+        <h2 class="title">Basic Operation</h2>
+
+        <p class="para">
+            <strong class="command">archive</strong> exports files from a repository to a
+            (optionally compressed) archive file or a directory.
+        </p>
+        <p class="para">
+            The archive will be named like so: {$REPOSITORY_NAME}-r{$REVISION}.zip|tar|tgz|tbz2
+        </p>
+
+        <div class="example">
+            <p><b>Archive the repository at the latest revision (tip) to a tar archive compressed with gzip:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl_Hg</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/me/my_repository'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself/releases/'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">with</span><span style="color: #007700">(</span><span style="color: #DD0000">'gzip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+            <h3 class="title">Summary of Capabilities</h3>
+            <p class="para">
+                <strong class="command">archive</strong> allows you to:
+                <ul class="itemizedlist">
+                    <li class="listitem">
+                        <p class="para">specify the type of archive to create using <strong class="function">with()</strong>,</p>
+                    </li>
+                    <li class="listitem">
+                        <p class="para">save the archive to a specific destination using <strong class="function">to()</strong>,</p>
+                    </li>
+                    <li class="listitem">
+                        <p class="para">specify a revision for the archive&#039;s contents using <strong class="function">revision()</strong>,</p>
+                    </li>
+                    <li class="listitem">
+                        <p class="para">set the archive&#039;s root directory using <strong class="function">prefix()</strong>.</p>
+                    </li>
+                </ul>
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+        <h2 class="title">Specify the Type of Archive</h2>
+
+        <p class="para">
+            You may specify the type of archive you want to create with
+            <strong class="function">with()</strong>. Valid formats for the archive are:
+            &#039;files&#039; (directory on the filesystem), &#039;tar&#039;, &#039;gzip&#039;, &#039;bzip2&#039;, &#039;zip&#039; and &#039;uzip&#039;.
+            LZMA or LZIP are not yet supported by Mercurial.
+        </p>
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+            <h3 class="title">Directory</h3>
+            <p class="para">
+                The default is to save the file(s) on the filesystem.
+                This is triggered by specifying not calling <strong class="function">with()</strong>
+                or calling it with &#039;files&#039; as its only argument.
+                </p><div class="example">
+                    <p><b>Archiving files to a directory:</b></p>
+                    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself/'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                    <p class="para">or,</p>
+                    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself/'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">with</span><span style="color: #007700">(</span><span style="color: #DD0000">'files'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                </div><p>
+            </p>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+            <h3 class="title">Tar Archive</h3>
+            <p class="para">
+                This will produce an zipped archive with the file extension .tar.
+                </p><div class="example">
+                    <p><b>Archiving files to a tar file:</b></p>
+                    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself/'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">with</span><span style="color: #007700">(</span><span style="color: #DD0000">'tar'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                </div><p>
+            </p>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+            <h3 class="title">Gzipped Tar Archive</h3>
+            <p class="para">
+                This will produce an zipped archive with the file extension .tgz.
+                </p><div class="example">
+                    <p><b>Archiving files to a gzipped tar file:</b></p>
+                    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself/'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">with</span><span style="color: #007700">(</span><span style="color: #DD0000">'gzip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                </div><p>
+            </p>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+            <h3 class="title">Bzipped Tar Archive</h3>
+            <p class="para">
+                This will produce an zipped archive with the file extension .tbz2.
+                </p><div class="example">
+                    <p><b>Archiving files to a bzipped tar file:</b></p>
+                    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself/'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">with</span><span style="color: #007700">(</span><span style="color: #DD0000">'bzip2'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                </div><p>
+            </p>
+        </div>
+
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+            <h3 class="title">Zip Archive</h3>
+            <p class="para">
+                This will produce an zipped archive with the file extension .zip.
+                </p><div class="example">
+                    <p><b>Archiving files to a zipped tar file:</b></p>
+                    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself/'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">with</span><span style="color: #007700">(</span><span style="color: #DD0000">'zip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                </div><p>
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+        <h2 class="title">Save the Archive to a Specific Location</h2>
+        <p class="para">
+            You may specify the directory you wish the archive to be saved to.
+            </p><div class="example">
+                <p><b>Save the archive as a directory under /home/myself :</b></p>
+                <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself/'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            </div><p>
+        </p>
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+        <h2 class="title">Specifying a Revision for the Archive&#039;s Contents</h2>
+        <p class="para">You may archive one or more files at a specific revision:</p>
+        <div class="example">
+            <p><b>Archive the repository as it was in revision 4:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="para">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">revision</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="para">or, </p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'revision'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+        <blockquote class="caution">
+            <p class="para">
+                Not specifying a revision causes Mercurial to archive the latest
+                revision of the repository or specified files (tip).
+            </p>
+        </blockquote>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+        <h2 class="title">Setting the Archive&#039;s Root Directory</h2>
+        <p class="para">
+            You may specify an extra root directory under which to place the exported
+            repository.
+            </p><div class="example">
+                <p><b>Archive the repository to the new directory, /home/myself/My Project :</b></p>
+                <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">prefix</span><span style="color: #007700">(</span><span style="color: #DD0000">'My&nbsp;Project'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+                <p class="para">or, </p>
+                <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'prefix'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'My&nbsp;Project'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/myself'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            </div><p>
+        </p>
+
+        <blockquote class="note">
+            <p class="para">
+                If you do not set this option, Mercurial will default
+                to using no root directory.
+            </p>
+        </blockquote>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.archive-unknown">
+        <h2 class="title">Specifying All Options in an Array</h2>
+        <p class="para">
+            The alternative, non-fluid way of calling methods for specifying options is to
+            pass an associative array of options to <strong class="function">cat()</strong>.
+            You may mix and match in any combination options as function
+            calls or array elements.
+        </p>
+        <div class="example">
+            <p><b>Alternate syntax with an array of options:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'revision'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'with'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bzip2'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'to'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'/home/myself'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'prefix'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'My&nbsp;Project'</span><span style="color: #007700">,<br />)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="para">or,</p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">archive</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'with'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bzip2'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'to'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'/home/myself'<br /></span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">revision</span><span style="color: #007700">(</span><span style="color: #0000BB">6</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div class="navfooter">
+ <hr />
+ <table width="100%" summary="Navigation footer">
+  <tr>
+   <td width="40%" align="left"><a accesskey="p" href="package.versioncontrol.versioncontrol-hg.commands.cat.html">Prev</a></td>
+   <td width="20%" align="center"><a accesskey="h" href="package.versioncontrol.versioncontrol-hg.commands.html">Commands</a></td>
+   <td width="40%" align="right"><a accesskey="n" href="package.versioncontrol.versioncontrol-hg.question.html">Next</a></td>
+  </tr>
+  <tr>
+   <td width="40%" align="left" valign="top">Cat Command</td>
+   <td width="20%" align="center"><a accesskey="h" href="index.html">PEAR Manual</a></td>
+   <td width="40%" align="right" valign="top">FAQ</td>
+  </tr>
+ </table>
+</div>
+</body></html>

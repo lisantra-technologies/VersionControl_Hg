@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="vchgbuild" default="main" basedir="../../"
+    description="Release and PEAR packaging build process for VersionControl_Hg">
+
+    <property name="docsdir" value="Documentation" />
+    <property name="sourcedir" value="/" override="true" />
+    <property name="codedir" value="VersionControl" />
+    <property name="unittestsdir" value="/Tests/Unit" />
+
+    <target name="main" description="Default target" depends="" />
+
+
+    <target name="pear-package" depends="package-xml">
+        <copy file="${build.base.dir}/package.xml" todir="${build.base.dir}/${pkgname}" />
+        <exec command="pear package" dir="${build.base.dir}/${pkgname}" />
+        <property name="tarfile" value="${build.base.dir}/${pkgname}/${pkgname}.tgz" />
+        <delete file="${build.base.dir}/${pkgname}.tgz" />
+        <move file="${tarfile}" todir="${build.base.dir}" />
+    </target>
+
+    <target name="package-xml" depends="deploy">
+        <pearpkg2 name="VersionControl_Hg" dir="../../Releases/PEAR/VersionControl_Hg"
+            destFile="../../Releases/PEAR/VersionControl_Hg/package.xml">
+            <fileset>
+                <include name="**" />
+            </fileset>
+
+            <option name="notes">Initial release for Proposal</option>
+
+            <!-- Set the simple options -->
+            <option name="description">A Php5 interface to Mercurial repositories</option>
+            <option name="channel" value="pear.php.net" />
+            <option name="summary">VersionControl_Hg provides a fluid interface with natural semantics to allow Php programmers to interact with Mercurial repositories. An excellent use case is in checking out projects as part of a build process.</option>
+            <option name="version" value="0.3.0" />
+            <option name="state" value="beta" />
+            <option name="license" value="MIT" />
+
+            <option name="baseinstalldir" value="VersionControl" />
+            <option name="apiversion" value="0.3.0" />
+            <option name="apistability" value="beta" />
+            <option name="releaseversion" value="0.3.0" />
+            <option name="releasestability" value="beta" />
+            <option name="phpdep" value="5.2.0" />
+            <option name="pearinstallerdep" value="1.7.0" />
+            <option name="packagetype" value="php" />
+            <mapping name="maintainers">
+                <element>
+                    <element key="handle" value="mgatto" />
+                    <element key="name" value="Michael Gatto" />
+                    <element key="email" value="mgatto@lisantra.com" />
+                    <element key="role" value="lead" />
+                </element>
+            </mapping>
+        </pearpkg2>
+    </target>
+
+    <target name="deploy-to-release" depends="pear-structure">
+        <copy todir="../../Releases/PEAR/VersionControl_Hg/VersionControl/">
+            <fileset dir="VersionControl">
+                <include name="**/*.php" />
+            </fileset>
+        </copy>
+        <copy todir="../../Releases/PEAR/VersionControl_Hg/docs">
+            <fileset dir="Documentation/API/Docbook">
+                <include name="**/*.xml" />
+            </fileset>
+        </copy>
+        <copy todir="../../Releases/PEAR/VersionControl_Hg/docs/examples">
+            <fileset dir="Tests/Functional">
+                <include name="**/*.php" />
+            </fileset>
+        </copy>
+        <copy todir="../../Releases/PEAR/VersionControl_Hg/tests">
+            <fileset dir="Tests/Unit">
+                <include name="**/*.php" />
+            </fileset>
+        </copy>
+        <!-- <copy file="package.xml" tofile="../../Releases/PEAR/VersionControl_Hg/package.xml" />-->
+    </target>
+
+    <target name="pearstructure">
+        <delete dir="../../Releases/PEAR/VersionControl_Hg" includeemptydirs="true" verbose="false" />
+        <mkdir dir="../../Releases/PEAR/VersionControl_Hg" />
+        <mkdir dir="../../Releases/PEAR/VersionControl_Hg/tests" />
+        <mkdir dir="../../Releases/PEAR/VersionControl_Hg/docs" />
+        <mkdir dir="../../Releases/PEAR/VersionControl_Hg/examples" />
+        <mkdir dir="../../Releases/PEAR/VersionControl_Hg/scripts" />
+        <mkdir dir="../../Releases/PEAR/VersionControl_Hg/misc" />
+        <mkdir dir="../../Releases/PEAR/VersionControl_Hg/VersionControl/" />
+    </target>
+
+    <!-- build API docs in docbook -->
+    <target name="apidocs" description="Making API documentation" depends="initdocs">
+
+        <echo message="Making Docbook..." />
+        <!--<exec command="" dir="${codedir}" />-->
+
+    </target>
+
+
+
+
+    <!-- build benchmarks -->
+
+
+    <!-- transform manual with TypeFreindly -->
+
+
+
+      <!-- Generate API documentation with DocBlox -->
+  <!--<target name="docblox">
+    <exec executable="docblox">
+      <arg line="parse
+-d ${source}
+-t ${basedir}/build/api" />
+    </exec>
+    <exec executable="docblox">
+      <arg line="transform
+-s ${basedir}/build/api/structure.xml
+-t ${basedir}/build/api" />
+    </exec>
+  </target>-->
+
+    <!-- run code coverage -->
+    <target name="coverage" description="" depends="">
+        <exec
+            command="phpunit --coverage-clover H:\Development\_Webroot\Trunk\Documentation\Testing\coverage.xml"
+            dir="${unittestsdir}" escape="false" />
+    </target>
+
+    <!-- commit new docs to Hg? -->
+</project>

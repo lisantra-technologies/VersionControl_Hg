@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<refentry
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0"
+    xml:id="package.versioncontrol.versioncontrol-hg.commands.status">
+    <refnamediv>
+        <refname>Status Command</refname>
+        <refpurpose>How to get the status of a working copy</refpurpose>
+    </refnamediv>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.status.intro">
+        <title>Basic Operation</title>
+
+        <para>
+            Running this with no arguments will only show what Hg would show: only changes and not all files.
+            <example>
+                <title>Output from basic use:</title>
+                <programlisting role="php"><![CDATA[
+require_once 'VersionControl/Hg.php';
+$hg = new VersionControl_Hg('/home/me/my_repository');
+$status = $hg->status()->run();
+]]></programlisting>
+                <simpara>will return:</simpara>
+                <programlisting role="php"><![CDATA[
+array(2) {
+  [0]=>
+  array(2) {
+    ["status"]=>
+    string(11) "not tracked"
+    ["file"]=>
+    string(10) "2010-12-27"
+  }
+  [1]=>
+  array(2) {
+    ["status"]=>
+    string(11) "not tracked"
+    ["file"]=>
+    string(7) "New.doc"
+  }
+}
+]]></programlisting>
+            </example>
+            Remember, <function>run</function> can have the argument: 'verbose'
+            to output extra status data for each file.
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->run('verbose');
+]]></programlisting>
+        </para>
+        <para>
+            An additional feature of VersionControl_Hg is that by default, the <command>status</command> command ignores any files associated with git and subversion, which a stock Mercurial install will not do.
+            This might be useful for when a user uses hgsubversion or hg-git.
+        </para>
+
+        <refsect2>
+            <title>Interpreting its Output</title>
+
+            <refsect3>
+                <title>Default: Array</title>
+                <para>
+                    <programlisting role="php"><![CDATA[
+array(
+    "file" => "index.php",
+    "status" => "clean"
+)
+]]></programlisting>
+                </para>
+            </refsect3>
+
+            <refsect3>
+                <title>Plain Text Codes</title>
+
+                <para>
+                    You may get plain text output by using the <function>format</function> method
+                    chained to <function>status</function>.
+                    <example>
+                        <title>Plain text output:</title>
+                        <programlisting role="php"><![CDATA[
+$status = $hg->status('all')->format('raw')->run();
+]]></programlisting>
+                    </example>
+                </para>
+
+                <table>
+                    <caption>Mercurial -> VersionControl_Hg Status Codes</caption>
+                    <thead>
+                        <tr>
+                            <th>Mercurial</th>
+                            <th>VersionControl_Hg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>M</td>
+                            <td>modified</td>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>added</td>
+                        </tr>
+                        <tr>
+                            <td>R</td>
+                            <td>removed</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>clean</td>
+                        </tr>
+                        <tr>
+                            <td>!</td>
+                            <td>missing</td>
+                        </tr>
+                        <tr>
+                            <td>?</td>
+                            <td>not tracked / unversioned</td>
+                        </tr>
+                        <tr>
+                            <td>I</td>
+                            <td>ignored</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </refsect3>
+        </refsect2>
+
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Finding Status of All Files in the Repository
+        </title>
+        <para>
+            Output the status of all files in the repository with the
+            <function>all</function> method chained to the command.
+        </para>
+        <example>
+            <title>Status of all files in the repository:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->all()->run();
+]]></programlisting>
+            <simpara>or, </simpara>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status('all')->run();
+]]></programlisting>
+        </example>
+
+        <refsect2>
+            <title>Excluding Files</title>
+            <para>
+                You may exclude types of files with the <function>excluding</function>
+                method chained to <function>status</function>. It is specified
+                as a glob: '**.{$FILE_EXTENSION}'
+            </para>
+
+            <example>
+                <title>Exclude all Php files:</title>
+                <programlisting role="php"><![CDATA[
+$status = $hg->status()->all()->excluding('**.php')->run();
+]]></programlisting>
+            </example>
+        </refsect2>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Finding Status of only Certain Files in the Repository
+        </title>
+        <para>
+            You may specify an array of filenames using <function>files</function>
+            chained to <function>status</function>, which will exclude all
+            files other than the ones specified.
+        </para>
+
+        <note>
+            <para>Paths are relative to the repository root.</para>
+        </note>
+
+        <example>
+            <title>Output the staus of only <filename>index.php</filename>:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->files(array('index.php'))->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Finding Files Added to the Repository
+        </title>
+        <para>
+            Using <function>added</function> will output all files added,
+            but not yet committed to the repository.
+        </para>
+        <example>
+            <title>Show added files:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->added()->run();
+]]></programlisting>
+            <simpara>or, </simpara>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status('added')->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Finding Files Deleted from the Repository
+        </title>
+        <para>
+            Use <function>deleted</function> to find all files deleted from
+            the repository, but not yet committed. You may use this with <function>revision</function>
+            or <function>between</function> as well.
+        </para>
+        <example>
+            <title>Show deleted files:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->deleted()->run();
+]]></programlisting>
+            <simpara>or, </simpara>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status('deleted')->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Finding Status of Files for a Specific Revision
+        </title>
+        <para>
+            The argument is typically an integer, however it still works if
+            the argument is a valid number as a string: '4' will work, but
+            '4things' may yield unpredictable results depending on how PHP casts it.
+        </para>
+        <example>
+            <title>Show the status what changed in revision 4:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->revision(4)->run();
+]]></programlisting>
+            <simpara>or, </simpara>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status(array('revision' => 4 ))->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Finding Which Files Changed, were Added or Deleted Between Two Revisions
+        </title>
+        <para>
+            <function>between</function> takes two integer arguments: the first is the revision
+            from which it starts and the second is the revision at which the status
+            ends. The second argument may take the keyword, 'tip'.
+        </para>
+        <example>
+            <title>All files which were modified, added or deleted between revisions 3 and five:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->between(3, 5)->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Finding Ignored Files
+        </title>
+        <para>
+
+        </para>
+        <example>
+            <title>Show ignored files:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->ignored()->run();
+]]></programlisting>
+            <simpara>or, </simpara>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status('ignored')->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Find Unmodified / Clean Files
+        </title>
+        <para>
+
+        </para>
+        <example>
+            <title>Show unmodified files:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->clean()->run();
+]]></programlisting>
+            <simpara>or, </simpara>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status('clean')->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Find Modified Files
+        </title>
+        <para>
+
+        </para>
+        <example>
+            <title>Show modified files:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->modified()->run();
+]]></programlisting>
+            <simpara>or, </simpara>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status('modified')->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+
+    <refsect1>
+        <title>
+            Find Unversioned Files
+        </title>
+        <para>
+
+        </para>
+        <example>
+            <title>Show unversioned files:</title>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status()->unknown()->run();
+]]></programlisting>
+            <simpara>or, </simpara>
+            <programlisting role="php"><![CDATA[
+$status = $hg->status('unknown')->run();
+]]></programlisting>
+        </example>
+    </refsect1>
+</refentry>

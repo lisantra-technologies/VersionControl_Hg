@@ -1,0 +1,21 @@
+{
+    "name": "lisantra-technologies/version-control-hg",
+    "description": "PHP client for the Mercurial version control system",
+    "keywords": ["Mercurial", "Version Control", "VCS"],
+    "homepage": "https://github.com/lisantra-technologies/VersionControl_Hg",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Gatto",
+            "email": "mgatto@lisantra.com",
+            "homepage": "http://flavors.me/lisantra"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "autoload": {
+        "psr-0": {"VersionControl_Hg": "src/"}
+    }
+}

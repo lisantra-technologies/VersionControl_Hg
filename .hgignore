@@ -1,0 +1,10 @@
+syntax: regexp
+^VersionControl/Hg/Repository/Command/Status\.php$
+syntax: regexp
+^composer\.phar$
+syntax: regexp
+^\.settings$
+syntax: regexp
+^\.buildpath$
+syntax: regexp
+^\.project$

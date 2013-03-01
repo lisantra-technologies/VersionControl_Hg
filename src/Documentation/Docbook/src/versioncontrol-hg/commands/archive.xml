@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<refentry
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0"
+    xml:id="package.versioncontrol.versioncontrol-hg.commands.archive">
+    <refnamediv>
+        <refname>Archive Command</refname>
+        <refpurpose>Export an unversioned copy of a repository to a compressed archive or filesystem.</refpurpose>
+    </refnamediv>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.archive.intro">
+        <title>Basic Operation</title>
+
+        <para>
+            <command>archive</command> exports files from a repository to a
+            (optionally compressed) archive file or a directory.
+        </para>
+        <para>
+            The archive will be named like so: {$REPOSITORY_NAME}-r{$REVISION}.zip|tar|tgz|tbz2
+        </para>
+
+        <example>
+            <title>Archive the repository at the latest revision (tip) to a tar archive compressed with gzip:</title>
+            <programlisting role="php"><![CDATA[
+require_once 'VersionControl/Hg.php';
+$hg = new VersionControl_Hg('/home/me/my_repository');
+$hg->archive('tip')->to('/home/myself/releases/')->with('gzip')->run();
+        ]]></programlisting>
+        </example>
+
+        <refsect2>
+            <title>Summary of Capabilities</title>
+            <para>
+                <command>archive</command> allows you to:
+                <itemizedlist>
+                    <listitem>
+                        <para>specify the type of archive to create using <function>with</function>,</para>
+                    </listitem>
+                    <listitem>
+                        <para>save the archive to a specific destination using <function>to</function>,</para>
+                    </listitem>
+                    <listitem>
+                        <para>specify a revision for the archive's contents using <function>revision</function>,</para>
+                    </listitem>
+                    <listitem>
+                        <para>set the archive's root directory using <function>prefix</function>.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </refsect2>
+    </refsect1>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.archive.types">
+        <title>Specify the Type of Archive</title>
+
+        <para>
+            You may specify the type of archive you want to create with
+            <function>with</function>. Valid formats for the archive are:
+            'files' (directory on the filesystem), 'tar', 'gzip', 'bzip2', 'zip' and 'uzip'.
+            LZMA or LZIP are not yet supported by Mercurial.
+        </para>
+
+        <refsect2>
+            <title>Directory</title>
+            <para>
+                The default is to save the file(s) on the filesystem.
+                This is triggered by specifying not calling <function>with</function>
+                or calling it with 'files' as its only argument.
+                <example>
+                    <title>Archiving files to a directory:</title>
+                    <programlisting role="php"><![CDATA[
+$hg->archive('tip')->to('/home/myself/')->run();
+]]></programlisting>
+                    <para>or,</para>
+                    <programlisting role="php"><![CDATA[
+$hg->archive('tip')->to('/home/myself/')->with('files')->run();
+            ]]></programlisting>
+                </example>
+            </para>
+        </refsect2>
+
+        <refsect2>
+            <title>Tar Archive</title>
+            <para>
+                This will produce an zipped archive with the file extension .tar.
+                <example>
+                    <title>Archiving files to a tar file:</title>
+                    <programlisting role="php"><![CDATA[
+$hg->archive('tip')->to('/home/myself/')->with('tar')->run();
+            ]]></programlisting>
+                </example>
+            </para>
+        </refsect2>
+
+        <refsect2>
+            <title>Gzipped Tar Archive</title>
+            <para>
+                This will produce an zipped archive with the file extension .tgz.
+                <example>
+                    <title>Archiving files to a gzipped tar file:</title>
+                    <programlisting role="php"><![CDATA[
+$hg->archive('tip')->to('/home/myself/')->with('gzip')->run();
+            ]]></programlisting>
+                </example>
+            </para>
+        </refsect2>
+
+        <refsect2>
+            <title>Bzipped Tar Archive</title>
+            <para>
+                This will produce an zipped archive with the file extension .tbz2.
+                <example>
+                    <title>Archiving files to a bzipped tar file:</title>
+                    <programlisting role="php"><![CDATA[
+$hg->archive('tip')->to('/home/myself/')->with('bzip2')->run();
+            ]]></programlisting>
+                </example>
+            </para>
+        </refsect2>
+
+        <refsect2>
+            <title>Zip Archive</title>
+            <para>
+                This will produce an zipped archive with the file extension .zip.
+                <example>
+                    <title>Archiving files to a zipped tar file:</title>
+                    <programlisting role="php"><![CDATA[
+$hg->archive('tip')->to('/home/myself/')->with('zip')->run();
+            ]]></programlisting>
+                </example>
+            </para>
+        </refsect2>
+    </refsect1>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.archive.to">
+        <title>Save the Archive to a Specific Location</title>
+        <para>
+            You may specify the directory you wish the archive to be saved to.
+            <example>
+                <title>Save the archive as a directory under /home/myself :</title>
+                <programlisting role="php"><![CDATA[
+$hg->archive('tip')->to('/home/myself/')->run();
+            ]]></programlisting>
+            </example>
+        </para>
+    </refsect1>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.archive.revision">
+        <title>Specifying a Revision for the Archive's Contents</title>
+        <para>You may archive one or more files at a specific revision:</para>
+        <example>
+            <title>Archive the repository as it was in revision 4:</title>
+            <programlisting role="php"><![CDATA[
+$hg->archive(4)->run();
+         ]]></programlisting>
+            <para>or, </para>
+            <programlisting role="php"><![CDATA[
+$hg->archive()->revision(4)->run();
+         ]]></programlisting>
+            <para>or, </para>
+            <programlisting role="php"><![CDATA[
+$hg->archive(array('revision' => 4))->run();
+         ]]></programlisting>
+        </example>
+        <caution>
+            <para>
+                Not specifying a revision causes Mercurial to archive the latest
+                revision of the repository or specified files (tip).
+            </para>
+        </caution>
+    </refsect1>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.archive.prefix">
+        <title>Setting the Archive's Root Directory</title>
+        <para>
+            You may specify an extra root directory under which to place the exported
+            repository.
+            <example>
+                <title>Archive the repository to the new directory, /home/myself/My Project :</title>
+                <programlisting role="php"><![CDATA[
+$hg->archive()->prefix('My Project')->to('/home/myself')->run();
+             ]]></programlisting>
+                <para>or, </para>
+                <programlisting role="php"><![CDATA[
+$hg->archive(array('prefix' => 'My Project'))->to('/home/myself')->run();
+             ]]></programlisting>
+            </example>
+        </para>
+
+        <note>
+            <para>
+                If you do not set this option, Mercurial will default
+                to using no root directory.
+            </para>
+        </note>
+    </refsect1>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.archive.array">
+        <title>Specifying All Options in an Array</title>
+        <para>
+            The alternative, non-fluid way of calling methods for specifying options is to
+            pass an associative array of options to <function>cat</function>.
+            You may mix and match in any combination options as function
+            calls or array elements.
+        </para>
+        <example>
+            <title>Alternate syntax with an array of options:</title>
+            <programlisting role="php"><![CDATA[
+$hg->archive(array(
+    'revision' => 4,
+    'with' => 'bzip2',
+    'to' => '/home/myself',
+    'prefix' => 'My Project',
+)->run();
+         ]]></programlisting>
+            <para>or,</para>
+            <programlisting role="php"><![CDATA[
+$hg->archive(array(
+    'with' => 'bzip2',
+    'to' => '/home/myself'
+)->revision(6)->run();
+            ]]></programlisting>
+        </example>
+    </refsect1>
+</refentry>

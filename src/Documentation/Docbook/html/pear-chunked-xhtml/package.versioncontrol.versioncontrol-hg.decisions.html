@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>Design Decisions</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="generator" content="PhD" />
+
+  <link rel="start" href="index.html" title="PEAR Manual" />
+  <link rel="up" href="package.versioncontrol.versioncontrol-hg.html" title="VersionControl_Hg" />
+  <link rel="prev" href="package.versioncontrol.versioncontrol-hg.question.html" title="FAQ" />
+  <link rel="next" href="package.versioncontrol.versioncontrol-hg.contributing.html" title="Contributing and Hacking" />
+ </head>
+ <body>
+<div class="navheader">
+ <table width="100%" summary="Navigation header">
+  <tr><th colspan="3" style="text-align: center">Design Decisions</th></tr>
+  <tr>
+   <td width="40%" align="left"><a href="package.versioncontrol.versioncontrol-hg.question.html" title="FAQ">Prev</a></td>
+   <td width="20%"></td>
+   <td width="40%" align="right"><a href="package.versioncontrol.versioncontrol-hg.contributing.html" title="Contributing and Hacking">Next</a></td>
+  </tr>
+ </table>
+ <hr/>
+</div>
+<div id="body">
+<div class="appendix" id="package.versioncontrol.versioncontrol-hg.decisions">
+        <h1>Design Decisions</h1>
+
+
+        <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.decisions-unknown">
+            <h2 class="title">Architecture Design Goals</h2>
+
+            <p class="para">
+                No mixed case, since its hard to type capitals quickly (interrupts my flow)
+            </p>
+            <p class="para">
+                No method in the API should have more than argument (arrays are OK a a convenience).
+            </p>
+        </div>
+
+
+        <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.decisions-unknown">
+            <h2 class="title">Exceptions</h2>
+
+            <p class="para">
+                All Exception inherit directly from PHP&#039;s base Exception class.
+            </p>
+            <p class="para">
+                At first, I created a heirarchy of exceptions. For example,
+                VersionControl_Hg_Command_Exception extended VersionControl_Hg_Exception.
+                However, this started to get funky once I started using error constants defined
+                in the exception classes and then further wanted to (re)implement dynamic
+                messages (because overridden __construct methods should call parent::__construct)
+                which I felt really ought to be Exception itself and not VersionControl_Hg_Exception.
+                Plus, I started to get some errors, and wanted to be sure my no-value-added
+                nesting wasn&#039;t complicating the situation (it probably was complicating it, even
+                if it did not cause the errors).
+            </p>
+        </div>
+
+    </div>
+</div>
+<div class="navfooter">
+ <hr />
+ <table width="100%" summary="Navigation footer">
+  <tr>
+   <td width="40%" align="left"><a accesskey="p" href="package.versioncontrol.versioncontrol-hg.question.html">Prev</a></td>
+   <td width="20%" align="center"><a accesskey="h" href="package.versioncontrol.versioncontrol-hg.html">VersionControl_Hg</a></td>
+   <td width="40%" align="right"><a accesskey="n" href="package.versioncontrol.versioncontrol-hg.contributing.html">Next</a></td>
+  </tr>
+  <tr>
+   <td width="40%" align="left" valign="top">FAQ</td>
+   <td width="20%" align="center"><a accesskey="h" href="index.html">PEAR Manual</a></td>
+   <td width="40%" align="right" valign="top">Contributing and Hacking</td>
+  </tr>
+ </table>
+</div>
+</body></html>

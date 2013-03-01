@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>Introduction</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="generator" content="PhD" />
+
+  <link rel="start" href="index.html" title="PEAR Manual" />
+  <link rel="up" href="package.versioncontrol.versioncontrol-hg.html" title="VersionControl_Hg" />
+  <link rel="prev" href="package.versioncontrol.versioncontrol-hg.html" title="VersionControl_Hg" />
+  <link rel="next" href="package.versioncontrol.versioncontrol-hg.architecture.html" title="Architecture Outline" />
+ </head>
+ <body>
+<div class="navheader">
+ <table width="100%" summary="Navigation header">
+  <tr><th colspan="3" style="text-align: center">Introduction</th></tr>
+  <tr>
+   <td width="40%" align="left"><a href="package.versioncontrol.versioncontrol-hg.html" title="VersionControl_Hg">Prev</a></td>
+   <td width="20%"></td>
+   <td width="40%" align="right"><a href="package.versioncontrol.versioncontrol-hg.architecture.html" title="Architecture Outline">Next</a></td>
+  </tr>
+ </table>
+ <hr/>
+</div>
+<div id="body">
+<div class="chapter" id="package.versioncontrol.versioncontrol-hg.summary">
+        <h1>Introduction</h1>
+
+        <p class="para">
+            A fluent interface is a compact way of achieving programmatic goals.
+            All chained commands are terminated with <strong class="function">run()</strong>.
+        </p>
+        <div class="example">
+            <p><b>Getting the log of the most recent commit:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl</span><span style="color: #007700">/</span><span style="color: #0000BB">Hg</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/repo'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">log</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">revision</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #DD0000">'verbose'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <p class="para">
+            You may use a traditional, multiline style instead of the fluent interface.
+            However, I have not designed VersionControl_Hg to work this way; Thus, your mileage may vary.
+        </p>
+        <div class="example">
+            <p><b>Long form of the above example:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl</span><span style="color: #007700">/</span><span style="color: #0000BB">Hg</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/repo'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$log&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">log</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$revision&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$log</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">revision</span><span style="color: #007700">(</span><span style="color: #DD0000">'tip'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$revision</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">(</span><span style="color: #DD0000">'verbose'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="simplesect">
+            <h3 class="title">Possible Use Cases</h3>
+
+            <p class="para">
+                For use within a build system:
+
+                * to archive a repository
+                * to produce a change log from a repository
+            </p>
+        </div>
+        <div class="simplesect">
+            <h3 class="title">System Requirements</h3>
+            <p class="para">
+                <ul class="itemizedlist">
+                    <li class="listitem">
+                        <p class="para"><a href="http://www.php.net" class="link external">PHP</a> 5.2.0 or newer.</p>
+                    </li>
+                    <li class="listitem">
+                        <p class="para"><a href="http://pear.php.net" class="link external">PEAR</a> 1.7.4 or newer.</p>
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <div class="simplesect">
+            <h3 class="title">Dependencies</h3>
+            <ul class="itemizedlist">
+                <li class="listitem"><p class="simpara">Mercurial</p></li>
+            </ul>
+            <p class="para">VersionControl_Hg has no other PEAR packages as dependencies.</p>
+        </div>
+        <div class="simplesect">
+            <h3 class="title">Installation</h3>
+            <p class="para"> Install simply with <strong class="command">pear install VersionControl_Hg</strong>. It has no other
+                PEAR packages as dependencies, therefore, <strong class="option unknown">--alldeps</strong>
+ has no effect on the
+                install. </p>
+        </div>
+        <div class="simplesect">
+            <h3 class="title">Handling Exceptions</h3>
+            
+        </div>
+    </div>
+</div>
+<div class="navfooter">
+ <hr />
+ <table width="100%" summary="Navigation footer">
+  <tr>
+   <td width="40%" align="left"><a accesskey="p" href="package.versioncontrol.versioncontrol-hg.html">Prev</a></td>
+   <td width="20%" align="center"><a accesskey="h" href="package.versioncontrol.versioncontrol-hg.html">VersionControl_Hg</a></td>
+   <td width="40%" align="right"><a accesskey="n" href="package.versioncontrol.versioncontrol-hg.architecture.html">Next</a></td>
+  </tr>
+  <tr>
+   <td width="40%" align="left" valign="top">VersionControl_Hg</td>
+   <td width="20%" align="center"><a accesskey="h" href="index.html">PEAR Manual</a></td>
+   <td width="40%" align="right" valign="top">Architecture Outline</td>
+  </tr>
+ </table>
+</div>
+</body></html>

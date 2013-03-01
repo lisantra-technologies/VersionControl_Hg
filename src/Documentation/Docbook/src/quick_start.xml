@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<refentry
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0"
+    xml:id="package.versioncontrol.versioncontrol-hg.quick_start">
+    <refnamediv>
+        <refname>Quick Start</refname>
+        <refpurpose>Assumes a programmer is working on a repository already created by Mercurial.</refpurpose>
+    </refnamediv>
+
+    <refsect1>
+        <title>Handling the Data Returned by Commands</title>
+        <refsect2>
+            <title>Formatting Provider</title>
+            <para>Output formatting is provided by VersionControl/Hg/Command/Output/Formatter.php</para>
+        </refsect2>
+
+        <refsect2 xml:id="package.versioncontrol.versioncontrol-hg.data-format.return-types">
+            <title>Format: PHP Array</title>
+            <para>
+                The default return format is as an array of data.
+                Each item in the array correpsond to the lines of Mercurial's output.
+                Each item is itself an array.
+                The key is most often a numerical index corresponding to the output's line number.
+                each key in the sub-array is a column name while the value is the data returned by mercurial.
+            </para>
+            <para>This is the default; No argument to to the final <function>run</function> method is needed to get data returned as arrays.</para>
+        </refsect2>
+
+        <refsect2>
+            <title>Format: Raw Text</title>
+            <para>Raw text is gotten by passing <parameter>raw</parameter> to the final <function>run</function> method.</para>
+            <para>This text is assembled from the array returned by default. The lines are delimited by <constant>PHP_EOL</constant> and are thus platform independent.
+                For example, if you run this code on Windows, your lines will be delmimited with <code>/r/n</code>.</para>
+            <programlisting role="php"><![CDATA[
+$hg->log()->run('raw');
+]]></programlisting>
+            <para>or</para>
+            <programlisting role="php"><![CDATA[
+$hg->log()->run('text');
+        ]]></programlisting>
+        </refsect2>
+
+        <refsect2>
+            <title>Format: JSON</title>
+            <para>JSON output is a string representation of the default array output.</para>
+            <para>JSON formatted output is gotten by passing <parameter>json</parameter> to the final <function>run</function> method.</para>
+            <programlisting role="php"><![CDATA[
+$hg->log()->run('json');
+        ]]></programlisting>
+        </refsect2>
+
+        <refsect2>
+            <title>Format: YAML</title>
+            <para>YAML output is a string representation of the default array output.</para>
+            <para>YAML formatted output is gotten by passing <parameter>yaml</parameter> to the final <function>run</function> method.</para>
+            <programlisting role="php"><![CDATA[
+$hg->log()->run('yaml');
+        ]]></programlisting>
+        </refsect2>
+
+        <refsect2>
+            <title>Format: PHP Serialized</title>
+            <para>This format is what appears when PHP serializes a variable.</para>
+            <para>Serialize formatted output is gotten by passing <parameter>serialize</parameter> to the final <function>run</function> method.</para>
+            <programlisting role="php"><![CDATA[
+$hg->log()->run('serialize');
+        ]]></programlisting>
+        </refsect2>
+
+        <refsect2>
+            <title>Format: XML</title>
+            <para>XML output is not yet supported.</para>
+            <para>
+                Part of the problem is that aside from <command>hg log</command>, there really is no agreed upon XML vocabulary for version control.
+                I see a promising opportunity for the enterprising programmer if I don't get to it first.
+            </para>
+        </refsect2>
+    </refsect1>
+
+    <refsect1>
+        <title>Handling a Repository</title>
+        <para>A local repository:</para>
+        <programlisting role="php"><![CDATA[
+require_once 'VersionControl/Hg.php';
+$hg = new VersionControl_Hg('/path/to/repository');
+]]></programlisting>
+
+        <para>bundle</para>
+        <para>push</para>
+        <para>pull</para>
+    </refsect1>
+
+    <refsect1>
+        <title>Handling History</title>
+        <para>Use the <command>log</command> command.</para>
+        <para>diff</para>
+        <para>forget</para>
+        <para>branch</para>
+        <para>tag</para>
+    </refsect1>
+
+    <refsect1>
+        <title>Handling a Commit</title>
+        <para>commit</para>
+        <para>revert</para>
+    </refsect1>
+
+    <refsect1>
+        <title>Handling a File</title>
+        <para>Use the <command>cat</command> command.</para>
+        <para>copy</para>
+        <para>remove</para>
+        <para>archive</para>
+    </refsect1>
+
+    <refsect1>
+        <title>Handling a Patch</title>
+        <para>import</para>
+        <para>export</para>
+    </refsect1>
+</refentry>

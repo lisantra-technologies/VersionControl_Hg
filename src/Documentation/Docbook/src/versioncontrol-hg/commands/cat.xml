@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbook.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<refentry
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0"
+    xml:id="package.versioncontrol.versioncontrol-hg.commands.cat">
+    <refnamediv>
+        <refname>
+            Cat Command
+        </refname>
+        <refpurpose>
+            Dump the text contents of a file form the working copy under version control.
+        </refpurpose>
+    </refnamediv>
+
+    <refsect1 xml:id="package.versioncontrol.versioncontrol-hg.commands.cat.quick">
+        <title>Basic Use</title>
+        <para>The path to the file is always relative to the repository.</para>
+        <example>
+            <title>Output the text contents of a single file for the latest revision (tip):</title>
+            <programlisting role="php"><![CDATA[
+require_once 'VersionControl/Hg.php';
+$hg = new VersionControl_Hg('/home/me/my_repository');
+$contents = $hg->cat('index.php')->run();
+        ]]></programlisting>
+        </example>
+
+        <refsect2>
+            <title>Interpreting its Output</title>
+            <para>
+                The <command>cat</command> command outputs the contents of a file as raw text.
+                The text contents are exactm libe-by-line matches for the content as it is stored in the repository.
+                Multiple files are outputted one beneath the other, with no delimiters.
+                Mercurial itself does not delimit the output of multiple files, and as such, VersionControl_Hg has not yet tackled that problem of determining where an arbituary text file begins and ends in the output stream.
+            </para>
+        </refsect2>
+    </refsect1>
+
+    <refsect1>
+        <title>Specifying a Revision</title>
+        <para>You may cat the contents of a file at a specific revision:</para>
+        <programlisting role="php"><![CDATA[
+$contents = $hg->cat('file2')->revision(6)->run();
+        ]]></programlisting>
+        <caution>
+            <para>
+                Not specifying a revision causes Mercurial to cat the latest
+                version of the file (tip).
+            </para>
+        </caution>
+    </refsect1>
+
+    <refsect1>
+        <title>Outputting Multiple Files</title>
+        <para>
+            Mercurial can output the contents of multiple files at once.
+            The output has no delimiters, so the outputted content will
+            be in a single stream.
+        </para>
+        <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('file1', 'file2'))->run();
+]]></programlisting>
+        <example>
+            <title>Using a Mercurial-style glob to select multiple files:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('glob'=> '**.php'))->run();
+            ]]></programlisting>
+        </example>
+
+        <example>
+            <title>Using a regular expression to select multiple files:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('re'=> 'test_*'))->run();
+            ]]></programlisting>
+        </example>
+
+        <example>
+            <title>Using the Mercurial fileset syntax to select multiple files:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('set'=> "copied() and size('>1M')"))->run();
+            ]]></programlisting>
+            <para>
+                <package>VersionControl_Hg</package> will check if your
+                hg binary supports filesets, since filesets are available
+                only in Mercurial 1.9 and later.
+            </para>
+        </example>
+
+        <example>
+            <title>Using the Mercurial listfile to select multiple files:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat()->files(array('listfile'=> '/path/to/listfile'))->run();
+            ]]></programlisting>
+            <para>A listfile is a plain text list of file paths, with each file on a newline.</para>
+        </example>
+
+        <warning>
+            <para>
+                Calling <function>file</function> multiple times will
+                not output multiple files. Doing this will overwrite
+                the option and output only the file specified in the
+                last call of <function>file</function>.
+            </para>
+        </warning>
+    </refsect1>
+
+    <refsect1>
+        <title>Saving Outputted Files</title>
+        <para>
+            Mercurial can save the output of a file to either its original
+            name (for single or multiple files), or a user-supplied name
+            (only for a single file).
+        </para>
+        <para>
+            The path to save the file must be a fully qualified path on
+            the filesystem.
+        </para>
+        <programlisting role="php"><![CDATA[
+$hg->cat('file2')->save()->to('/path/to/save/at')->run();
+]]></programlisting>
+
+        <example>
+            <title>Renaming a saved file:</title>
+            <programlisting role="php"><![CDATA[
+$hg->cat('file2')->save('new_file_name')->to('/path/to/save/at')->run();
+            ]]></programlisting>
+        </example>
+        <tip>
+            <para>Note: if you really need multiple files, consider using the Archive command.</para>
+        </tip>
+    </refsect1>
+
+    <refsect1>
+        <title>Alternate Syntax</title>
+        <para>
+            The alternative to calling methods for specifying options is to
+            pass an associative array of options to <function>archive</function>.
+            You may mix and match in any combination options as function
+            calls or array elements.
+        </para>
+        <example>
+            <title>All options as an array:</title>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat(array(
+    'revision' => 6,
+    'files' => array('file1','file2')),
+    'to' => '/path/to save/outputted/files/with/original_names'
+)->run();
+]]></programlisting>
+            <!--<para>(Re-naming of an outputted file is not supported for multiple files.)</para>-->
+            <para>or,</para>
+            <programlisting role="php"><![CDATA[
+$contents = $hg->cat(array(
+    'files' => array('file1'),
+    'to' => '/path/to save/outputted/file/with/new_name'
+)->revision(6)->run();
+            ]]></programlisting>
+        </example>
+    </refsect1>
+</refentry>

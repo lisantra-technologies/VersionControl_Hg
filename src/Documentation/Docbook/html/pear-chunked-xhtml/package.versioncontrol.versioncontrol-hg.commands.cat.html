@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title>Cat Command</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <meta name="generator" content="PhD" />
+
+  <link rel="start" href="index.html" title="PEAR Manual" />
+  <link rel="up" href="package.versioncontrol.versioncontrol-hg.commands.html" title="Commands" />
+  <link rel="prev" href="package.versioncontrol.versioncontrol-hg.commands.status.html" title="Status Command" />
+  <link rel="next" href="package.versioncontrol.versioncontrol-hg.commands.archive.html" title="Archive Command" />
+ </head>
+ <body>
+<div class="navheader">
+ <table width="100%" summary="Navigation header">
+  <tr><th colspan="3" style="text-align: center">Cat Command</th></tr>
+  <tr>
+   <td width="40%" align="left"><a href="package.versioncontrol.versioncontrol-hg.commands.status.html" title="Status Command">Prev</a></td>
+   <td width="20%"></td>
+   <td width="40%" align="right"><a href="package.versioncontrol.versioncontrol-hg.commands.archive.html" title="Archive Command">Next</a></td>
+  </tr>
+ </table>
+ <hr/>
+</div>
+<div id="body">
+<div class="refentry" id="package.versioncontrol.versioncontrol-hg.commands.cat">
+    
+        <h1 class="refname">
+            Cat Command
+        </h1>
+        <div class="refnamediv">
+            Cat Command
+         &ndash; 
+            Dump the text contents of a file form the working copy under version control.
+        </div>
+
+    
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.cat-unknown">
+        <h2 class="title">Basic Use</h2>
+        <p class="para">The path to the file is always relative to the repository.</p>
+        <div class="example">
+            <p><b>Output the text contents of a single file for the latest revision (tip):</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">require_once&nbsp;</span><span style="color: #DD0000">'VersionControl/Hg.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$hg&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">VersionControl_Hg</span><span style="color: #007700">(</span><span style="color: #DD0000">'/home/me/my_repository'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">(</span><span style="color: #DD0000">'index.php'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="refsect2 unknown" id="refsect2-package.versioncontrol.versioncontrol-hg.commands.cat-unknown">
+            <h3 class="title">Interpreting its Output</h3>
+            <p class="para">
+                The <strong class="command">cat</strong> command outputs the contents of a file as raw text.
+                The text contents are exactm libe-by-line matches for the content as it is stored in the repository.
+                Multiple files are outputted one beneath the other, with no delimiters.
+                Mercurial itself does not delimit the output of multiple files, and as such, VersionControl_Hg has not yet tackled that problem of determining where an arbituary text file begins and ends in the output stream.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.cat-unknown">
+        <h2 class="title">Specifying a Revision</h2>
+        <p class="para">You may cat the contents of a file at a specific revision:</p>
+        <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">(</span><span style="color: #DD0000">'file2'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">revision</span><span style="color: #007700">(</span><span style="color: #0000BB">6</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        <blockquote class="caution">
+            <p class="para">
+                Not specifying a revision causes Mercurial to cat the latest
+                version of the file (tip).
+            </p>
+        </blockquote>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.cat-unknown">
+        <h2 class="title">Outputting Multiple Files</h2>
+        <p class="para">
+            Mercurial can output the contents of multiple files at once.
+            The output has no delimiters, so the outputted content will
+            be in a single stream.
+        </p>
+        <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'file1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'file2'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        <div class="example">
+            <p><b>Using a Mercurial-style glob to select multiple files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'glob'</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'**.php'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="example">
+            <p><b>Using a regular expression to select multiple files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'re'</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'test_*'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="example">
+            <p><b>Using the Mercurial fileset syntax to select multiple files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'set'</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"copied()&nbsp;and&nbsp;size('&gt;1M')"</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="para">
+                <strong class="package">VersionControl_Hg</strong> will check if your
+                hg binary supports filesets, since filesets are available
+                only in Mercurial 1.9 and later.
+            </p>
+        </div>
+
+        <div class="example">
+            <p><b>Using the Mercurial listfile to select multiple files:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">files</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'listfile'</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'/path/to/listfile'</span><span style="color: #007700">))-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            <p class="para">A listfile is a plain text list of file paths, with each file on a newline.</p>
+        </div>
+
+        <blockquote class="warning">
+
+            <p class="para">
+                Calling <strong class="function">file()</strong> multiple times will
+                not output multiple files. Doing this will overwrite
+                the option and output only the file specified in the
+                last call of <strong class="function">file()</strong>.
+            </p>
+        </blockquote>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.cat-unknown">
+        <h2 class="title">Saving Outputted Files</h2>
+        <p class="para">
+            Mercurial can save the output of a file to either its original
+            name (for single or multiple files), or a user-supplied name
+            (only for a single file).
+        </p>
+        <p class="para">
+            The path to save the file must be a fully qualified path on
+            the filesystem.
+        </p>
+        <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">(</span><span style="color: #DD0000">'file2'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/save/at'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+
+        <div class="example">
+            <p><b>Renaming a saved file:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">(</span><span style="color: #DD0000">'file2'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">(</span><span style="color: #DD0000">'new_file_name'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">to</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/save/at'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+        <blockquote class="tip">
+            <p class="para">Note: if you really need multiple files, consider using the Archive command.</p>
+        </blockquote>
+
+    </div>
+
+
+    <div class="refsect1 unknown" id="refsect1-package.versioncontrol.versioncontrol-hg.commands.cat-unknown">
+        <h2 class="title">Alternate Syntax</h2>
+        <p class="para">
+            The alternative to calling methods for specifying options is to
+            pass an associative array of options to <strong class="function">archive()</strong>.
+            You may mix and match in any combination options as function
+            calls or array elements.
+        </p>
+        <div class="example">
+            <p><b>All options as an array:</b></p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'revision'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">6</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'files'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'file1'</span><span style="color: #007700">,</span><span style="color: #DD0000">'file2'</span><span style="color: #007700">)),<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'to'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'/path/to&nbsp;save/outputted/files/with/original_names'<br /></span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            
+            <p class="para">or,</p>
+            <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$hg</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">cat</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'files'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'file1'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'to'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'/path/to&nbsp;save/outputted/file/with/new_name'<br /></span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">revision</span><span style="color: #007700">(</span><span style="color: #0000BB">6</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">run</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div class="navfooter">
+ <hr />
+ <table width="100%" summary="Navigation footer">
+  <tr>
+   <td width="40%" align="left"><a accesskey="p" href="package.versioncontrol.versioncontrol-hg.commands.status.html">Prev</a></td>
+   <td width="20%" align="center"><a accesskey="h" href="package.versioncontrol.versioncontrol-hg.commands.html">Commands</a></td>
+   <td width="40%" align="right"><a accesskey="n" href="package.versioncontrol.versioncontrol-hg.commands.archive.html">Next</a></td>
+  </tr>
+  <tr>
+   <td width="40%" align="left" valign="top">Status Command</td>
+   <td width="20%" align="center"><a accesskey="h" href="index.html">PEAR Manual</a></td>
+   <td width="40%" align="right" valign="top">Archive Command</td>
+  </tr>
+ </table>
+</div>
+</body></html>

@@ -1,0 +1,51 @@
+CHANGELOG
+
+0.4.0
+    * Implemented 'pull' command.
+    * Finally got the 'version' command to work and populate the version
+      property of the Executable class.
+
+0.5.0
+    * 'Cat' recieved the files() option function. Also, Cat will now only accept
+      multiple files using files() rather than array in the command function,
+      which will still optionally accept a single file. Calling files() after
+      specifying a single file in cat('/a/file') will overwrite that in cat()?
+
+    * Option functions which select sets of files now take additional schemes
+      and syntaxes. Previously VersionControl_Hg only supported the glob scheme,
+      and even then only as a single argument to the option function:
+      `...excluding("**.php")`. This older, but simple to use syntax is still
+      supported as the default, mostly because I think its the most useful.
+
+      Additional schemes and their syntax variants are as follows:
+
+        * re: a PERL/Python regular expression.
+
+          ex. `...excluding("re:.*\.php$")`
+          ex. `...excluding(array('re' => '.*\.php$'))`
+
+        * set: a fileset DSL (Only in Mercurial 1.9 and later; VersionControl_Hg
+          will automatically check for its presence and raise an exception
+          if your version is less than 1.9 and try to use this scheme).
+
+          ex. `...excluding("set: ")`
+          ex. `...excluding(array('set' => ''))`
+
+        * path: a full path, from the repository root including the file name.
+
+          ex. `...excluding("path:hg_root/mydir/myfile.php")`
+          ex. `...excluding(array('path' => 'hg_root/mydir/myfile.php'))`
+
+        * listfile: a file of full path/file names, one per line.
+
+          ex. `...excluding("listfile:list_of_files.txthg_root/mydir/myfile.php")`
+          ex. `...excluding(array('listfile' => 'list_of_files.txt'))`
+
+        A dynamic list of specifically named files which may not consider the
+        above schemes as useful, may be selected with VersionControl_Hg's
+        `files(array('file1','file2'))` method.
+
+        Option functions which support file selection schemes are:
+          * excluding()
+          * including()
+          * files()
