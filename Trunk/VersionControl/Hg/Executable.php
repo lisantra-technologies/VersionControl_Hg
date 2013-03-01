@@ -239,7 +239,7 @@ class VersionControl_Hg_Executable
         if (null !== $path) {
             //@TODO Do we care to use the CUSTOMEXECUTABLE constant in this case??
             /* use the user provided path to an executable */
-            if ( isexecutable($path . DIRECTORY_SEPARATOR . $binary) ) {
+            if ( is_executable($path . DIRECTORY_SEPARATOR . $binary) ) {
                 $executables[] = $path . DIRECTORY_SEPARATOR . $binary;
 
             }
