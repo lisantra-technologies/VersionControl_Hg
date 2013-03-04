@@ -226,14 +226,10 @@ class VersionControl_Hg_Executable
         $executables = array();
 
         /* Set the binary name per platform */
-        //@todo use PHP_OS (best), php_uname('s'), $_SERVER['OS']
-        switch ($_SERVER['OS']) {
-            case 'Windows_NT':
-                $binary = 'hg.exe';
-                break;
-            default:
-                $binary = 'hg';
-                break;
+        if(substr(strtolower(PHP_OS), 0, 3) == "win") {
+            $binary = 'hg.exe';
+        } else {
+            $binary = 'hg';
         }
 
         if (null !== $path) {
