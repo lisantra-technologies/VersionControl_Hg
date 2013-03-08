@@ -16,4 +16,6 @@ syntax:glob
 .git
 .gitattributes
 .gitignore
+syntax: regexp
+\.log$
 
