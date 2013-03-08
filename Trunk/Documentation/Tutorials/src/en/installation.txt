@@ -1,0 +1,43 @@
+Title: Installation
+
+---
+
+Dependencies
+------------
+
+### Php
+
+The minimal version of Php is 5.2.0.
+
+The following table shows the language constructs and/or functions which
+require Php 5.2.0:
+
+| Files                       | Version | C | Extensions | Constants/Tokens   |
+|-----------------------------|---------|---|------------|--------------------|
+| .\*                         | 5.2.0   | 0 | date       | ...CTORY_SEPARATOR |
+|                             |         |   | pcre       | E_USER_ERROR       |
+|                             |         |   |            | FALSE              |
+|                             |         |   |            | NULL               |
+|                             |         |   |            | PATH_SEPARATOR     |
+|                             |         |   |            | TRUE               |
+|                             |         |   |            | implements         |
+|                             |         |   |            | interface          |
+|                             |         |   |            | private            |
+|                             |         |   |            | protected          |
+|                             |         |   |            | public             |
+|                             |         |   |            | throw              |
+
+I may remove the usage of the date extension to lessen the required version of
+Php to 5.0.0.
+
+### Mercurial
+
+Mercurial must be installed on the system.
+
+With PEAR
+---------
+
+
+Without PEAR
+------------
+PEAR is not a requirement, since we don't inheret from PEAR/Exception.php

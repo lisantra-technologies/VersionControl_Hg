@@ -1,0 +1,29 @@
+THE MAKING OF THE PEAR PACKAGE VERSIONCONTROL_HG
+================================================
+
+
+
+
+Design Decisions
+================
+
+
+Architecture
+------------
+
+* No method in the API should have more than argument (arrays are OK a a convenience)
+* No mixed case, since its hard to type capitals quickly (interrupts my flow)
+
+Exceptions
+----------
+All Exception inherit directly from PHP's base Exception class.
+
+At first, I created a heirarchy of exceptions. For example,
+VersionControl_Hg_Command_Exception extended VersionControl_Hg_Exception.
+However, this started to get funky once I started using error constants defined
+in the exception classes and then further wanted to (re)implement dynamic
+messages (because overridden __construct methods should call parent::__construct)
+which I felt really ought to be Exception itself and not VersionControl_Hg_Exception.
+Plus, I started to get some errors, and wanted to be sure my no-value-added
+nesting wasn't complicating the situation (it probably was complicating it, even
+if it did not cause the errors).

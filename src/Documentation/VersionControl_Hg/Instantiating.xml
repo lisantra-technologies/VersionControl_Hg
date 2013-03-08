@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://www.oasis-open.org/docbook/xml/5.0/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<refentry
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="5.0"
+    xml:id="package.versioncontrol.versioncontrol-hg.intro">
+    <!--<refentryinfo>
+        <author>
+            <personname>
+                <firstname>Michael</firstname>
+                <surname>Gatto</surname>
+            </personname>
+            <email>mgatto@lisantra.com</email>
+        </author>
+        </refentryinfo>-->
+        <!-- <phd:pearapi phd:package="Console_CommandLine" phd:linkend="Console_CommandLine::addArgument"/> -->
+    <refnamediv>
+        <refname>
+            Instantiating an Instance of VersionControl_Hg
+        </refname>
+        <refpurpose>
+            How to begin working with VersionControl_Hg by instantiating an
+            instance.
+        </refpurpose>
+    </refnamediv>
+    <refsection xml:id="tutorial-instantiating-versioncontrol_hg">
+        <info>
+            <title>Instantiating</title>
+        </info>
+        <para>
+            The basis of all operations is instantiating the base class:
+        </para>
+         <programlisting role="php"><![CDATA[
+            require_once 'VersionControl/Hg.php';
+            $hg = new VersionControl_Hg('/path/to/repository');
+        ]]></programlisting>
+        <para>
+            Setting the repository also automatically finds and sets the local
+            path of the Mercurial binary it will use. If multiple installations
+            of Mercurial are found, this package will employ only the first one
+            found on the system path.
+        </para>
+        <refsection>
+            <title>Remote Repositories</title>
+            <para>
+                The path to a repository is currently only tested with local
+                repositories. It may &quot;just work&quot; with a url, however. I
+                have not yet decided on the security and privacy implications for
+                providing access to remote repositories, even public ones. Also, I
+                have not yet formulated a way to handle automated, server-side
+                access to repositories over SSH or various authentication methods
+                provided by other software such as Bitbucket or mercurial-server.
+            </para>
+        </refsection>
+        <refsection>
+            <info>
+                <title>Empty Path Argument</title>
+            </info>
+            <para>
+                Not setting a repository path while instantiating is fine. For
+                commands such as
+                <literal>
+                    hg init
+                </literal>
+                or
+                <literal>
+                    hg clone
+                </literal>
+                , a blank argument simply makes the most
+                sense. If you do supply a path and then attempt to init or clone a
+                repository over it, the underlying Mercurial command-line client
+                will return an error, resulting in a PHP exception. This is because
+                the CLI will not allow a user to clone over or init over an existing
+                repository.
+            </para>
+            <para>
+                In this case, the to() method will supply the path (which must be an
+                empty directory) to which to create or clone a repository:
+            </para>
+            <programlisting role="php"><![CDATA[
+                require_once 'VersionControl/Hg.php';
+                $hg = new VersionControl_Hg();
+                $hg->clone('/path/to/repo')->to('/path/to/future/repo')->run();
+            ]]></programlisting>
+            <para>
+                Calling all commands other than 'version', 'clone', 'create'/'init' without having already set
+                a valid repository will raise an exception.
+            </para>
+        </refsection>
+        <refsection>
+            <info>
+                <title>Resetting the Repository Path after Instantiation</title>
+            </info>
+            <para>
+                You may also provide a location of a repository after instantiation:
+            </para>
+            <example>
+                <info>
+                    <title>Instantiating without specifying a repository</title>
+                </info>
+                <programlisting role="php"><![CDATA[
+                    require_once 'VersionControl/Hg.php';
+                    $hg = new VersionControl_Hg();
+                    $hg->setRepository('/path/to/repository');
+                    ]]></programlisting>
+            </example>
+            <para>
+                or
+                <programlisting role="php"><![CDATA[
+                    $hg->repository = '/path/to/repository';
+                ]]></programlisting>
+            </para>
+            <para>
+                Do note that you can only set the path once since Repository is a
+                singleton; All subsequent attempts will
+                <emphasis>
+                    silently
+                </emphasis>
+                fail after the path has already been
+                set.
+            </para>
+        </refsection>
+     </refsection>
+ </refentry>

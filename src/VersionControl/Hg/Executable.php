@@ -14,11 +14,6 @@
  */
 
 /**
- * Provides Exceptions for the Executable
- */
-require_once 'Executable/Exception.php';
-
-/**
  * Provides access to the Hg executable
  *
  * This is the de-facto parent container of all operations
@@ -226,20 +221,16 @@ class VersionControl_Hg_Executable
         $executables = array();
 
         /* Set the binary name per platform */
-        //@todo use PHP_OS (best), php_uname('s'), $_SERVER['OS']
-        switch ($_SERVER['OS']) {
-            case 'Windows_NT':
-                $binary = 'hg.exe';
-                break;
-            default:
-                $binary = 'hg';
-                break;
+        if(substr(strtolower(PHP_OS), 0, 3) == "win") {
+            $binary = 'hg.exe';
+        } else {
+           $binary = 'hg';
         }
 
+        /* use the user provided path to an executable */
         if (null !== $path) {
             //@TODO Do we care to use the CUSTOMEXECUTABLE constant in this case??
-            /* use the user provided path to an executable */
-            if ( isexecutable($path . DIRECTORY_SEPARATOR . $binary) ) {
+            if ( is_executable($path . DIRECTORY_SEPARATOR . $binary) ) {
                 $executables[] = $path . DIRECTORY_SEPARATOR . $binary;
 
             }

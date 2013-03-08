@@ -193,4 +193,13 @@ class VersionControl_Hg_Command_Version
 
         return $version;
     }
+
+    /**
+     * Return the results of the execute method when echoed
+     *
+     */
+    public function __toString() {
+        $version = $this->execute();
+        return $version['raw'];
+    }
 }

@@ -15,7 +15,6 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-
 /**
  * Provides the base exception
  */
