@@ -15,21 +15,6 @@
  */
 
 /**
- * Provides the required interface for all commands
- */
-require_once 'Interface.php';
-
-/**
- * Provides base functionality common to all commands
- */
-require_once 'Abstract.php';
-
-/**
- * Provides Exceptions for commands
- */
-require_once 'Exception.php';
-
-/**
  * Implements the log command.
  *
  * The hg command-line client also uses 'history' as an alias.

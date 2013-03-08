@@ -14,21 +14,6 @@
  */
 
 /**
- * Provides the abstraction for containers
- */
-require_once 'Abstract.php';
-
-/**
- * Provides the container interface
- */
-require_once 'Interface.php';
-
-/**
- * Provides the container exception
- */
-require_once 'Repository/Exception.php';
-
-/**
  * A bundle of Mercurial revisions/changesets
  *
  * This class is used by the 'bundle' command and represents the actual bundle

@@ -14,16 +14,6 @@
  */
 
 /**
- *  Include custom exception object
- */
-require_once 'Exception.php';
-
-/**
- * Include optional formatting for XML, JSON, etc.
- */
-require_once 'Output/Formatter.php';
-
-/**
  * Gathers common code needed by all Command implementations
  *
  * implements the following global options:

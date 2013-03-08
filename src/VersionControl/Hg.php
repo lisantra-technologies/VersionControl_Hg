@@ -13,27 +13,8 @@
  * @filesource
  */
 
+/* Uses Composer's autoloading feature, conforming to PSR-0: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md */
 require_once __DIR__ . '/../../vendor/autoload.php';
-
-/**
- * Provides the base exception
- */
-//require_once 'Hg/Exception.php';
-
-/**
- * Provides access to the Mercurial executable
- */
-//require_once 'Hg/Executable.php';
-
-/**
- * Provides access to the SCM repository
- */
-//require_once 'Hg/Container/Repository.php';
-
-/**
- * Interfaces with the classes which implement the commands
- */
-//require_once 'Hg/CommandProxy.php';
 
 /**
  * Base class to begin the fluent API

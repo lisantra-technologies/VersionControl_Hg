@@ -14,21 +14,6 @@
  */
 
 /**
- * Provides the abstraction for containers
- */
-require_once 'Abstract.php';
-
-/**
- * Provides the container interface
- */
-require_once 'Interface.php';
-
-/**
- * Provides the container exception
- */
-require_once 'Repository/Exception.php';
-
-/**
  * The Mercurial repository
  *
  * Usage:

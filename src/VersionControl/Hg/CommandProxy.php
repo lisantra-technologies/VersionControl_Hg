@@ -13,11 +13,6 @@
  */
 
 /**
- * Include the Exception class manually.
- */
-require_once 'Exception.php';
-
-/**
  * Instantiates the Mercurial command and passes an instance of
  * VersionControl_Hg into the constructor of each command.
  *
@@ -108,10 +103,6 @@ class VersionControl_Hg_CommandProxy
         }
 
         $class = 'VersionControl_Hg_Command_' . ucfirst($method);
-
-        /* We don't want relative paths because of Php's seemingly odd
-         * handling of relative includes within includes */
-        include_once dirname(__FILE__) . '/Command/' . ucfirst($method) . ".php";
 
         /* this tests only if the class exists in the included file */
         if ( ! class_exists($class, false) ) {
