@@ -302,7 +302,7 @@ class VersionControl_Hg_Command_Cat
     {
         /* test path's validity */
         if ( $directory != realpath($directory) ) {
-            throw new VersionControl_Hg_Repository_Command_Exception(
+            throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                 "The path '{$directory}' does not seem to exist on
                 this server. "

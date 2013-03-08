@@ -163,13 +163,13 @@ class VersionControl_Hg_Command_Archive
      * @param string $directory is directory to which archives are saved
      *
      * @return VersionControl_Hg_Command_Abstract
-     * @throws VersionControl_Hg_Repository_Command_Exception
+     * @throws VersionControl_Hg_Command_Exception
      */
     public function to($directory)
     {
         /* empty paths not valid */
         if ( empty($directory) ) {
-            throw new VersionControl_Hg_Repository_Command_Exception(
+            throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                 'You must supply a directory to archive to.' .
                 'Instead, its empty.'
@@ -178,7 +178,7 @@ class VersionControl_Hg_Command_Archive
 
         /* test path's validity */
         if ( $directory != realpath($directory) ) {
-            throw new VersionControl_Hg_Repository_Command_Exception(
+            throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                 "The canonical path '{$directory}' does not seem to exist on
                 this server. "
@@ -199,12 +199,12 @@ class VersionControl_Hg_Command_Archive
      * @param string $type is the archive type
      *
      * @return VersionControl_Hg_Command_Archive
-     * @throws VersionControl_Hg_Repository_Command_Exception
+     * @throws VersionControl_Hg_Command_Exception
      */
     public function with($type = 'files')
     {
         if ( ! array_key_exists($type, $this->archive_types)) {
-            throw new VersionControl_Hg_Repository_Command_Exception(
+            throw new VersionControl_Hg_Command_Exception(
                 VersionControl_Hg_Command_Exception::BAD_ARGUMENT,
                 "The {$type} archive type is not supported. "
             );
@@ -308,7 +308,7 @@ class VersionControl_Hg_Command_Archive
          * This seems not to be the case anymore...at least with hg cli 1.8.2.
          * */
         /*if (is_file($destination) || is_dir($destination) ) {
-            throw new VersionControl_Hg_Repository_Command_Exception(
+            throw new VersionControl_Hg_Command_Exception(
                 null,
                 'The destination directory already exists, but it should not'
             );
