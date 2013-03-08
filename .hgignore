@@ -10,3 +10,10 @@ syntax: regexp
 ^\.project$
 syntax: regexp
 \.sqlite$
+syntax: regexp
+\.xml$
+syntax:glob
+.git
+.gitattributes
+.gitignore
+
