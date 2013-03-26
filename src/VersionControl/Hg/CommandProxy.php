@@ -105,7 +105,7 @@ class VersionControl_Hg_CommandProxy
         $class = 'VersionControl_Hg_Command_' . ucfirst($method);
 
         /* this tests only if the class exists in the included file */
-        if ( ! class_exists($class, false) ) {
+        if ( ! class_exists($class) ) {
             throw new VersionControl_Hg_Exception(
                 "Sorry, The command \'{$method}\' is not implemented, or
                  you called `run()` without first issuing a valid command"
