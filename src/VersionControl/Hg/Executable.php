@@ -220,11 +220,14 @@ class VersionControl_Hg_Executable
     {
         $executables = array();
 
-        /* Set the binary name per platform */
+        /* Set the binary name and paths per platform */
         if(substr(strtolower(PHP_OS), 0, 3) == "win") {
             $binary = 'hg.exe';
+            $env_paths = explode(PATH_SEPARATOR, $_SERVER['Path']);
         } else {
            $binary = 'hg';
+           $env_paths = explode(PATH_SEPARATOR, $_SERVER['PATH']);
+
         }
 
         /* use the user provided path to an executable */
@@ -240,11 +243,9 @@ class VersionControl_Hg_Executable
         if ( ( empty($executables) ) || ( null === $path ) ) {
             /* iterate through the system's path to automagically find an
              * executable */
-            $paths = explode(PATH_SEPARATOR, $_SERVER['Path']);
-
-            foreach ( $paths as $path ) {
-                if (is_executable($path . $binary)) { //DIRECTORY_SEPARATOR .
-                    $executables[] = $path . $binary;
+            foreach ( $env_paths as $path ) {
+                if (is_executable($path . DIRECTORY_SEPARATOR . $binary)) { 
+                    $executables[] = $path . DIRECTORY_SEPARATOR . $binary;
                 }
             }
 
