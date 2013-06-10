@@ -368,26 +368,6 @@ class VersionControl_Hg_Command_Status
     }
 
     /**
-     * Adds 'ignored' to the stack of command line options
-     *
-     * Returns only files ignored within the working copy
-     *
-     * Usage:
-     * <code>$hg->status()->ignored()->run();</code>
-     * or
-     * <code>$hg->status('ignored')->run();</code>
-     *
-     * @return VersionControl_Hg_Command_Status
-     */
-    public function ignored()
-    {
-        $this->addOption('ignored');
-
-        /* For the fluent API */
-        return $this;
-    }
-
-    /**
      * Adds 'rev' to the stack of command line options
      *
      * Specified the revision to restrict the status operation to
